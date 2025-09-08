@@ -1,0 +1,16 @@
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0-windows\LibraryManagementSystem.exe
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0-windows\LibraryManagementSystem.deps.json
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0-windows\LibraryManagementSystem.runtimeconfig.json
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0-windows\LibraryManagementSystem.dll
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\bin\Debug\net8.0-windows\LibraryManagementSystem.pdb
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Form1.resources
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.csproj.GenerateResource.cache
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.AssemblyInfoInputs.cache
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.AssemblyInfo.cs
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.csproj.CoreCompileInputs.cache
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.dll
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\refint\LibraryManagementSystem.dll
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.pdb
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.genruntimeconfig.cache
+E:\workspace\LibraryManagementSystem\LibraryManagementSystem\obj\Debug\net8.0-windows\ref\LibraryManagementSystem.dll
