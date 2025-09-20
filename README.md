@@ -1,0 +1,1 @@
+﻿Cấu trúc (n-tier): UI (Forms) → Services → Data (Repository/DbContext) → Database
