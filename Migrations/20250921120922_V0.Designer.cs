@@ -4,6 +4,7 @@ using LibraryManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    partial class LibraryDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250921120922_V0")]
+    partial class V0
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,58 +24,6 @@ namespace LibraryManagementSystem.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
-
-            modelBuilder.Entity("LibraryManagementSystem.Entities.BanSaoSach", b =>
-                {
-                    b.Property<int>("IdBanSaoSach")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdBanSaoSach"));
-
-                    b.Property<int>("IdSach")
-                        .HasColumnType("int");
-
-                    b.Property<string>("TinhTrangSach")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("IdBanSaoSach");
-
-                    b.HasIndex("IdSach");
-
-                    b.ToTable("BanSaoSach");
-                });
-
-            modelBuilder.Entity("LibraryManagementSystem.Entities.ChiTietPhieuMuon", b =>
-                {
-                    b.Property<int>("IdChiTietPhieuMuon")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdChiTietPhieuMuon"));
-
-                    b.Property<int>("IdBanSaoSach")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdPhieuMuon")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("NgayTra")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("TinhTrangTra")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.HasKey("IdChiTietPhieuMuon");
-
-                    b.HasIndex("IdBanSaoSach");
-
-                    b.HasIndex("IdPhieuMuon");
-
-                    b.ToTable("ChiTietPhieuMuon");
-                });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.NXB", b =>
                 {
@@ -93,20 +44,7 @@ namespace LibraryManagementSystem.Migrations
 
                     b.HasKey("IdNXB");
 
-                    b.ToTable("NXB");
-                });
-
-            modelBuilder.Entity("LibraryManagementSystem.Entities.PhieuMuon", b =>
-                {
-                    b.Property<int>("IdPhieuMuon")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdPhieuMuon"));
-
-                    b.HasKey("IdPhieuMuon");
-
-                    b.ToTable("PhieuMuon");
+                    b.ToTable("NXBList");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.Product", b =>
@@ -157,7 +95,7 @@ namespace LibraryManagementSystem.Migrations
 
                     b.HasIndex("IdNXB");
 
-                    b.ToTable("Sach");
+                    b.ToTable("SachList");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.TacGia", b =>
@@ -182,7 +120,7 @@ namespace LibraryManagementSystem.Migrations
 
                     b.HasKey("IdTacGia");
 
-                    b.ToTable("TacGia");
+                    b.ToTable("TacGiaList");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.TheLoai", b =>
@@ -198,73 +136,43 @@ namespace LibraryManagementSystem.Migrations
 
                     b.HasKey("IdTheLoai");
 
-                    b.ToTable("TheLoai");
+                    b.ToTable("TheLoaiList");
                 });
 
-            modelBuilder.Entity("Sach_TacGia", b =>
+            modelBuilder.Entity("SachTacGia", b =>
                 {
-                    b.Property<int>("IdSach")
+                    b.Property<int>("SachListIdSach")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdTacGia")
+                    b.Property<int>("TacGiaListIdTacGia")
                         .HasColumnType("int");
 
-                    b.HasKey("IdSach", "IdTacGia");
+                    b.HasKey("SachListIdSach", "TacGiaListIdTacGia");
 
-                    b.HasIndex("IdTacGia");
+                    b.HasIndex("TacGiaListIdTacGia");
 
                     b.ToTable("Sach_TacGia", (string)null);
                 });
 
-            modelBuilder.Entity("Sach_TheLoai", b =>
+            modelBuilder.Entity("SachTheLoai", b =>
                 {
-                    b.Property<int>("IdSach")
+                    b.Property<int>("SachListIdSach")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdTheLoai")
+                    b.Property<int>("TheLoaiListIdTheLoai")
                         .HasColumnType("int");
 
-                    b.HasKey("IdSach", "IdTheLoai");
+                    b.HasKey("SachListIdSach", "TheLoaiListIdTheLoai");
 
-                    b.HasIndex("IdTheLoai");
+                    b.HasIndex("TheLoaiListIdTheLoai");
 
                     b.ToTable("Sach_TheLoai", (string)null);
-                });
-
-            modelBuilder.Entity("LibraryManagementSystem.Entities.BanSaoSach", b =>
-                {
-                    b.HasOne("LibraryManagementSystem.Entities.Sach", "Sach")
-                        .WithMany()
-                        .HasForeignKey("IdSach")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Sach");
-                });
-
-            modelBuilder.Entity("LibraryManagementSystem.Entities.ChiTietPhieuMuon", b =>
-                {
-                    b.HasOne("LibraryManagementSystem.Entities.BanSaoSach", "BanSaoSach")
-                        .WithMany("ChiTietPhieuMuons")
-                        .HasForeignKey("IdBanSaoSach")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LibraryManagementSystem.Entities.PhieuMuon", "PhieuMuon")
-                        .WithMany()
-                        .HasForeignKey("IdPhieuMuon")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("BanSaoSach");
-
-                    b.Navigation("PhieuMuon");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.Sach", b =>
                 {
                     b.HasOne("LibraryManagementSystem.Entities.NXB", "NXB")
-                        .WithMany("Sachs")
+                        .WithMany("SachList")
                         .HasForeignKey("IdNXB")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -272,44 +180,39 @@ namespace LibraryManagementSystem.Migrations
                     b.Navigation("NXB");
                 });
 
-            modelBuilder.Entity("Sach_TacGia", b =>
+            modelBuilder.Entity("SachTacGia", b =>
                 {
                     b.HasOne("LibraryManagementSystem.Entities.Sach", null)
                         .WithMany()
-                        .HasForeignKey("IdSach")
+                        .HasForeignKey("SachListIdSach")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LibraryManagementSystem.Entities.TacGia", null)
                         .WithMany()
-                        .HasForeignKey("IdTacGia")
+                        .HasForeignKey("TacGiaListIdTacGia")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Sach_TheLoai", b =>
+            modelBuilder.Entity("SachTheLoai", b =>
                 {
                     b.HasOne("LibraryManagementSystem.Entities.Sach", null)
                         .WithMany()
-                        .HasForeignKey("IdSach")
+                        .HasForeignKey("SachListIdSach")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LibraryManagementSystem.Entities.TheLoai", null)
                         .WithMany()
-                        .HasForeignKey("IdTheLoai")
+                        .HasForeignKey("TheLoaiListIdTheLoai")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("LibraryManagementSystem.Entities.BanSaoSach", b =>
-                {
-                    b.Navigation("ChiTietPhieuMuons");
-                });
-
             modelBuilder.Entity("LibraryManagementSystem.Entities.NXB", b =>
                 {
-                    b.Navigation("Sachs");
+                    b.Navigation("SachList");
                 });
 #pragma warning restore 612, 618
         }

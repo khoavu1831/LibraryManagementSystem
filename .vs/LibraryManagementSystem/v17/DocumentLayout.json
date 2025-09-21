@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\entities\\bansaosach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:entities\\bansaosach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\entities\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:entities\\sach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\entities\\nxb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:entities\\nxb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\data\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,8 +23,24 @@
       "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:data\\librarydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\migrations\\librarydbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:migrations\\librarydbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\entities\\theloai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:entities\\theloai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\entities\\tacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:entities\\tacgia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\migrations\\20250921120922_v0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:migrations\\20250921120922_v0.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
@@ -35,8 +55,20 @@
       "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:forms\\productform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\librarymanagementsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:librarymanagementsystem.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Models\\Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,58 +86,197 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "BanSaoSach.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\BanSaoSach.cs",
+              "RelativeDocumentMoniker": "Entities\\BanSaoSach.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\BanSaoSach.cs",
+              "RelativeToolTip": "Entities\\BanSaoSach.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T14:15:28.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "LibraryDbContext.cs",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Data\\LibraryDbContext.cs",
               "RelativeDocumentMoniker": "Data\\LibraryDbContext.cs",
               "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Data\\LibraryDbContext.cs",
               "RelativeToolTip": "Data\\LibraryDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAA8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-20T15:20:50.784Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Services\\ProductService.cs",
-              "RelativeDocumentMoniker": "Services\\ProductService.cs",
-              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Services\\ProductService.cs",
-              "RelativeToolTip": "Services\\ProductService.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAADMAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "20250921120922_V0.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Migrations\\20250921120922_V0.cs",
+              "RelativeDocumentMoniker": "Migrations\\20250921120922_V0.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Migrations\\20250921120922_V0.cs",
+              "RelativeToolTip": "Migrations\\20250921120922_V0.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T15:01:58.552Z",
+              "WhenOpened": "2025-09-21T12:16:56.888Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
+              "Title": "TheLoai.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\TheLoai.cs",
+              "RelativeDocumentMoniker": "Entities\\TheLoai.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\TheLoai.cs",
+              "RelativeToolTip": "Entities\\TheLoai.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T11:54:40.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sach.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\Sach.cs",
+              "RelativeDocumentMoniker": "Entities\\Sach.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\Sach.cs",
+              "RelativeToolTip": "Entities\\Sach.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAoAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T11:37:08.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Data\\ProductRepository.cs",
               "RelativeDocumentMoniker": "Data\\ProductRepository.cs",
               "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Data\\ProductRepository.cs",
               "RelativeToolTip": "Data\\ProductRepository.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAAACUAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAAA8AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-20T14:01:08.157Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "Entities\\Product.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\Product.cs",
+              "RelativeToolTip": "Entities\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T11:21:25.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NXB.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\NXB.cs",
+              "RelativeDocumentMoniker": "Entities\\NXB.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\NXB.cs",
+              "RelativeToolTip": "Entities\\NXB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T11:32:54.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TacGia.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\TacGia.cs",
+              "RelativeDocumentMoniker": "Entities\\TacGia.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Entities\\TacGia.cs",
+              "RelativeToolTip": "Entities\\TacGia.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T11:56:59.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "LibraryDbContextModelSnapshot.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Migrations\\LibraryDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Migrations\\LibraryDbContextModelSnapshot.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Migrations\\LibraryDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Migrations\\LibraryDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-21T12:16:54.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T14:01:12.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ProductForm.cs [Design]",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\ProductForm.cs",
+              "RelativeDocumentMoniker": "Forms\\ProductForm.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\ProductForm.cs [Design]",
+              "RelativeToolTip": "Forms\\ProductForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T14:04:47.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "README.md",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\README.md",
               "RelativeDocumentMoniker": "README.md",
               "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\README.md",
               "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2025-09-20T15:16:36.087Z"
+              "WhenOpened": "2025-09-20T15:16:36.087Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "Services\\ProductService.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Services\\ProductService.cs",
+              "RelativeToolTip": "Services\\ProductService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T15:01:58.552Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProductForm.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\ProductForm.cs",
+              "RelativeDocumentMoniker": "Forms\\ProductForm.cs",
+              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\ProductForm.cs",
+              "RelativeToolTip": "Forms\\ProductForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-20T14:06:06.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Models\\Product.cs",
               "RelativeDocumentMoniker": "Models\\Product.cs",
@@ -117,44 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T14:01:12.927Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProductForm.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\ProductForm.cs",
-              "RelativeDocumentMoniker": "Forms\\ProductForm.cs",
-              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\ProductForm.cs",
-              "RelativeToolTip": "Forms\\ProductForm.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAAEUAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T14:06:06.478Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProductForm.cs [Design]",
-              "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\ProductForm.cs",
-              "RelativeDocumentMoniker": "Forms\\ProductForm.cs",
-              "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\ProductForm.cs [Design]",
-              "RelativeToolTip": "Forms\\ProductForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-20T14:04:47.4Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 15,
               "Title": "LibraryManagementSystem.csproj",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\LibraryManagementSystem.csproj",
               "RelativeDocumentMoniker": "LibraryManagementSystem.csproj",
