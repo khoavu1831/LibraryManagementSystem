@@ -13,11 +13,7 @@ namespace LibraryManagementSystem
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Forms.LoginForm());
-
-            //Data.DatabaseManager.DeleteDatabase();
-            //Data.DatabaseManager.CreateDatabase();
-
+            Application.Run(new Forms.ProductForm());
         }
     }
     
