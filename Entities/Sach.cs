@@ -12,7 +12,7 @@ namespace LibraryManagementSystem.Entities
     public class Sach
     {
         [Key]
-        public int IdSach { get; set; }
+        public string? IdSach { get; set; }
         public int IdNXB { get; set; }
         public int NamXuatBan { get;set; }
         public string? TenSach { get; set; }
@@ -24,5 +24,6 @@ namespace LibraryManagementSystem.Entities
         public NXB? NXB { get; set; }
         public ICollection<TheLoai>? TheLoais { get; set; }
         public ICollection<TacGia>? TacGias { get; set; }
+        public ICollection<BanSaoSach>? BanSaoSachs { get; set; }
     }
 }

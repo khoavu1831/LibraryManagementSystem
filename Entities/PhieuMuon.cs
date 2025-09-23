@@ -13,5 +13,23 @@ namespace LibraryManagementSystem.Entities
     {
         [Key]
         public int IdPhieuMuon { get; set; }
+        public int IdNhanVien { get; set; }
+        public int IdTheThanhVien { get; set; }
+        public DateTime NgayMuon { get; set; }
+        public DateTime NgayHenTra { get; set; }
+        public TrangThaiEnum TrangThai { get; set; }
+
+        [ForeignKey("IdNhanVien")]
+        public NhanVien? NhanVien { get; set; }
+        [ForeignKey("IdTheThanhVien")]
+        public TheThanhVien? TheThanhVien { get; set; }
+        public ICollection<ChiTietPhieuMuon>? ChiTietPhieuMuons { get; set; }
+        public enum TrangThaiEnum
+        {
+            DangMuon,
+            DaTra,
+            QuaHen
+        }
+
     }
 }

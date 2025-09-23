@@ -14,7 +14,7 @@ namespace LibraryManagementSystem.Entities
         [Key]
         public int IdChiTietPhieuMuon { get; set; }
         public int IdPhieuMuon { get; set; }
-        public int IdBanSaoSach { get; set; }
+        public string? IdBanSaoSach { get; set; }
         public DateTime NgayTra { get; set; }
         public TinhTrangTraEnum TinhTrangTra { get; set; }
         
@@ -24,10 +24,10 @@ namespace LibraryManagementSystem.Entities
         public BanSaoSach? BanSaoSach { get; set; }
         public enum TinhTrangTraEnum
         {
-            ChuaTra = 0,
-            DaTra = 1,
-            TreHen = 2,
-            HongMat = 3
+            ChuaTra, 
+            DaTra, 
+            TreHen, 
+            HongMat
         }
     }
 }
