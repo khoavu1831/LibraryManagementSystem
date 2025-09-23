@@ -172,7 +172,6 @@ D:\WorkSpace\CSharp\LibraryManagementSystem\bin\Debug\net8.0-windows\runtimes\wi
 D:\WorkSpace\CSharp\LibraryManagementSystem\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.csproj.AssemblyReference.cache
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Forms.LoginForm.resources
-D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Forms.ProductForm.resources
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.csproj.GenerateResource.cache
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.AssemblyInfoInputs.cache
@@ -185,3 +184,4 @@ D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\refint\Libr
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.pdb
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.genruntimeconfig.cache
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\ref\LibraryManagementSystem.dll
+D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Forms.NXBFormTest.resources

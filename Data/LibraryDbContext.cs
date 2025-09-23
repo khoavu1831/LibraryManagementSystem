@@ -30,7 +30,6 @@ namespace LibraryManagementSystem.Data
         public DbSet<ChiTietPhieuMuon> ChiTietPhieuMuons { get; set; }
         public DbSet<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
         public DbSet<ChiTietPhieuPhat> ChiTietPhieuPhats { get; set; }
-        public DbSet<Product> Products { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

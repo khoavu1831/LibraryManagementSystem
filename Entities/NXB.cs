@@ -14,7 +14,7 @@ namespace LibraryManagementSystem.Entities
         [Key]
         public int IdNXB { get; set; }
         public string? TenNXB { get; set; }
-        public string? Diachi { get; set; }
+        public string? DiaChi { get; set; }
         public string? SDT { get; set; }
         public ICollection<Sach>? Sachs { get; set; }
     }

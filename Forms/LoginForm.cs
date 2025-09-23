@@ -19,7 +19,8 @@ namespace LibraryManagementSystem.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            NXBFormTest nXBFormTest = new NXBFormTest();
+            nXBFormTest.Show();
         }
     }
 }

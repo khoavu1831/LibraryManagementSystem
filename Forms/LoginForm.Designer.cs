@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            btnLogin = new Button();
             textBox1 = new TextBox();
             SuspendLayout();
             // 
-            // button1
+            // btnLogin
             // 
-            button1.Location = new Point(103, 117);
-            button1.Name = "button1";
-            button1.Size = new Size(115, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnLogin.Location = new Point(103, 117);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(115, 23);
+            btnLogin.TabIndex = 0;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += button1_Click;
             // 
             // textBox1
             // 
@@ -57,7 +57,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(307, 259);
             Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(btnLogin);
             Name = "LoginForm";
             Text = "Login";
             ResumeLayout(false);
@@ -66,7 +66,7 @@
 
         #endregion
 
-        private Button button1;
+        private Button btnLogin;
         private TextBox textBox1;
     }
 }
