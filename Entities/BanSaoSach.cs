@@ -12,8 +12,8 @@ namespace LibraryManagementSystem.Entities
     public class BanSaoSach
     {
         [Key]
-        public int IdBanSaoSach { get; set; }
-        public int IdSach { get; set; }
+        public string? IdBanSaoSach { get; set; }
+        public string? IdSach { get; set; }
         public TinhTrangSachEnum TinhTrangSach { get; set; }
 
         [ForeignKey("IdSach")]
@@ -21,7 +21,10 @@ namespace LibraryManagementSystem.Entities
         public ICollection<ChiTietPhieuMuon>? ChiTietPhieuMuons { get; set; }
         public enum TinhTrangSachEnum
         {
-            Tot, Hong, Mat, ChoMuon
+            Tot, 
+            Hong, 
+            Mat, 
+            ChoMuon
         }
     }
 }
