@@ -1,5 +1,5 @@
-using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Repository;
 
 namespace LibraryManagementSystem.Services
 {
@@ -26,15 +26,13 @@ namespace LibraryManagementSystem.Services
         // Thêm NXB
         public NXB AddNXB(NXB nxb)
         {
-            _nxbRepository.Add(nxb);
-            return nxb;
+            return _nxbRepository.Add(nxb);
         }
 
         // Sửa NXB
         public NXB UpdateNXB(NXB nxb)
         {
-            _nxbRepository.Update(nxb);
-            return nxb;
+            return _nxbRepository.Update(nxb);
         }
 
         // Tìm NXB theo id

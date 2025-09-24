@@ -1,6 +1,7 @@
-﻿using LibraryManagementSystem.Entities;
+﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Entities;
 
-namespace LibraryManagementSystem.Data
+namespace LibraryManagementSystem.Repository
 {
     public class NXBRepository
     {
@@ -31,7 +32,7 @@ namespace LibraryManagementSystem.Data
         }
         public NXB? DeleteById(int id)
         {
-            var nxb = _context.NXBs.Find(id);
+            var nxb = GetById(id);
             if (nxb == null) return null;
             _context.NXBs.Remove(nxb);
             _context.SaveChanges();
