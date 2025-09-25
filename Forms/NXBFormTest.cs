@@ -1,5 +1,6 @@
 ﻿using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Repository;
 using LibraryManagementSystem.Services;
 using System;
 using System.Collections.Generic;
