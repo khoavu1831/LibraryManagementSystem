@@ -1,6 +1,7 @@
 ﻿using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Repository;
+using LibraryManagementSystem.Repository.Implementations;
 using LibraryManagementSystem.Services;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,8 @@ namespace LibraryManagementSystem.Forms
         public NXBFormTest()
         {
             InitializeComponent();
-            var dbcontext = new LibraryDbContext();
-            var repo = new NXBRepository(dbcontext);
+            var context = new LibraryDbContext();
+            var repo = new Repository<NXB>(context);
             _nxbService = new NXBService(repo);
         }
 
@@ -32,9 +33,9 @@ namespace LibraryManagementSystem.Forms
         {
             LoadData();
         }
-        private void LoadData()
+        private async void LoadData()
         {
-            var nxbs = _nxbService.GetAllNXB();
+            var nxbs = await _nxbService.GetAllAsync();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = nxbs;
         }
@@ -48,7 +49,7 @@ namespace LibraryManagementSystem.Forms
 
         }
 
-        private void themBtn_Click(object sender, EventArgs e)
+        private async void themBtn_Click(object sender, EventArgs e)
         {
             var nxb = new NXB()
             {
@@ -56,22 +57,22 @@ namespace LibraryManagementSystem.Forms
                 DiaChi = diachiTxtBox.Text,
                 SDT = sdtTxtBox.Text
             };
-            var rs = _nxbService.AddNXB(nxb);
+            await _nxbService.AddAsync(nxb);
             MessageBox.Show($"Đã thêm nxb {nxb.TenNXB}");
             LoadData();
         }
 
-        private void suaBtn_Click(object sender, EventArgs e)
+        private async void suaBtn_Click(object sender, EventArgs e)
         {
             if (int.TryParse(idTxtBox.Text, out int id))
             {
-                var n = _nxbService.GetNXBById(id);
+                var n = await _nxbService.GetByIdAsync(id);
                 if (n != null)
                 {
                     n.TenNXB = tenTxtBox.Text;
                     n.SDT = sdtTxtBox.Text;
                     n.DiaChi = diachiTxtBox.Text;
-                    var result = _nxbService.UpdateNXB(n);
+                    var result = await _nxbService.UpdateAsync(n);
                     MessageBox.Show($"Đã sửa nxb {result.IdNXB}");
                     LoadData();
                 }
@@ -82,11 +83,11 @@ namespace LibraryManagementSystem.Forms
             }
         }
 
-        private void xoaBtn_Click(object sender, EventArgs e)
+        private async void xoaBtn_Click(object sender, EventArgs e)
         {
             if (int.TryParse(idTxtBox.Text, out int id))
             {
-                var result = _nxbService.DeleteNXB(id);
+                var result = await _nxbService.DeleteByIdAsync(id);
                 if (result == null)
                 {
                     MessageBox.Show($"Không tìm thấy nxb");

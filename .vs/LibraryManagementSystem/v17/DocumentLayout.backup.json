@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\data\\nxbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:data\\nxbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\forms\\nxbformtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:forms\\nxbformtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\forms\\nxbformtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\forms\\nxbformtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:forms\\nxbformtest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\forms\\nxbformtest.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:forms\\nxbformtest.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\data\\nxbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:data\\nxbrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,7 +39,7 @@
       "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:entities\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\workspace\\csharp\\librarymanagementsystem\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:forms\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -118,7 +118,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 231,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -126,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "NXBFormTest.cs",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\NXBFormTest.cs",
               "RelativeDocumentMoniker": "Forms\\NXBFormTest.cs",
@@ -139,13 +139,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "NXBRepository.cs",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Data\\NXBRepository.cs",
               "RelativeDocumentMoniker": "Data\\NXBRepository.cs",
               "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Data\\NXBRepository.cs",
               "RelativeToolTip": "Data\\NXBRepository.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA0wCIAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-23T15:17:45.043Z",
               "EditorCaption": ""
@@ -160,24 +160,22 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T16:53:03.389Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T16:53:03.389Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "NXBFormTest.cs [Design]",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\NXBFormTest.cs",
               "RelativeDocumentMoniker": "Forms\\NXBFormTest.cs",
               "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\NXBFormTest.cs [Design]",
               "RelativeToolTip": "Forms\\NXBFormTest.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T16:42:18.932Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-23T16:42:18.932Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "NXBFormTest.Designer.cs",
               "DocumentMoniker": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\NXBFormTest.Designer.cs",
               "RelativeDocumentMoniker": "Forms\\NXBFormTest.Designer.cs",
@@ -185,8 +183,7 @@
               "RelativeToolTip": "Forms\\NXBFormTest.Designer.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAAAHAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T16:56:01.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T16:56:01.576Z"
             },
             {
               "$type": "Document",
@@ -198,8 +195,7 @@
               "RelativeToolTip": "Data\\LibraryDbContext.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAiwCAAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:02:19.013Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:02:19.013Z"
             },
             {
               "$type": "Document",
@@ -210,8 +206,7 @@
               "ToolTip": "D:\\WorkSpace\\CSharp\\LibraryManagementSystem\\Forms\\LoginForm.cs [Design]",
               "RelativeToolTip": "Forms\\LoginForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:01:16.201Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-09-23T17:01:16.201Z"
             },
             {
               "$type": "Document",
@@ -223,8 +218,7 @@
               "RelativeToolTip": "Entities\\TaiKhoan.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:05:12.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:05:12.779Z"
             },
             {
               "$type": "Document",
@@ -236,8 +230,7 @@
               "RelativeToolTip": "Entities\\TheLoai.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:05:17.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:05:17.203Z"
             },
             {
               "$type": "Document",
@@ -249,8 +242,7 @@
               "RelativeToolTip": "Entities\\TheThanhVien.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:05:19.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:05:19.972Z"
             },
             {
               "$type": "Document",
@@ -262,8 +254,7 @@
               "RelativeToolTip": "Entities\\VaiTro.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:05:27.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:05:27.326Z"
             },
             {
               "$type": "Document",
@@ -275,8 +266,7 @@
               "RelativeToolTip": "Entities\\TacGia.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:05:07.563Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:05:07.563Z"
             },
             {
               "$type": "Document",
@@ -288,8 +278,7 @@
               "RelativeToolTip": "Entities\\Sach.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:59.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:59.764Z"
             },
             {
               "$type": "Document",
@@ -301,8 +290,7 @@
               "RelativeToolTip": "Entities\\Quyen.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:55.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:55.498Z"
             },
             {
               "$type": "Document",
@@ -314,8 +302,7 @@
               "RelativeToolTip": "Entities\\PhieuPhat.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:46.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:46.765Z"
             },
             {
               "$type": "Document",
@@ -327,8 +314,7 @@
               "RelativeToolTip": "Entities\\PhieuNhap.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:40.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:40.175Z"
             },
             {
               "$type": "Document",
@@ -340,8 +326,7 @@
               "RelativeToolTip": "Entities\\PhieuMuon.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:34.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:34.342Z"
             },
             {
               "$type": "Document",
@@ -353,8 +338,7 @@
               "RelativeToolTip": "Entities\\NhanVien.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:21.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:21.628Z"
             },
             {
               "$type": "Document",
@@ -366,8 +350,7 @@
               "RelativeToolTip": "Entities\\NCC.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:17.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:17.28Z"
             },
             {
               "$type": "Document",
@@ -379,8 +362,7 @@
               "RelativeToolTip": "Entities\\MucPhat.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:11.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:11.139Z"
             },
             {
               "$type": "Document",
@@ -392,8 +374,7 @@
               "RelativeToolTip": "Entities\\DocGia.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:04:05.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:04:05.186Z"
             },
             {
               "$type": "Document",
@@ -405,8 +386,7 @@
               "RelativeToolTip": "Entities\\ChiTietPhieuPhat.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAABMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:03:52.639Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:03:52.639Z"
             },
             {
               "$type": "Document",
@@ -418,8 +398,7 @@
               "RelativeToolTip": "Entities\\ChiTietPhieuNhap.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:03:39.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:03:39.468Z"
             },
             {
               "$type": "Document",
@@ -431,8 +410,7 @@
               "RelativeToolTip": "Entities\\NXB.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T16:05:03.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T16:05:03.35Z"
             },
             {
               "$type": "Document",
@@ -444,8 +422,7 @@
               "RelativeToolTip": "Entities\\ChiTietPhieuMuon.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:03:34.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:03:34.17Z"
             },
             {
               "$type": "Document",
@@ -457,8 +434,7 @@
               "RelativeToolTip": "Entities\\BanSaoSach.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:03:29.748Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:03:29.748Z"
             },
             {
               "$type": "Document",
@@ -470,8 +446,7 @@
               "RelativeToolTip": "Forms\\LoginForm.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAowBYAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-23T17:01:34.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-23T17:01:34.968Z"
             }
           ]
         }

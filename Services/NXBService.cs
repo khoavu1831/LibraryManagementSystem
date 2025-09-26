@@ -1,53 +1,19 @@
 using LibraryManagementSystem.Entities;
-using LibraryManagementSystem.Repository;
+using LibraryManagementSystem.Repository.Interfaces;
 
 namespace LibraryManagementSystem.Services
 {
     public class NXBService
     {
-        private readonly NXBRepository _nxbRepository;
-        public NXBService(NXBRepository nxbRepository)
+        private readonly IRepository<NXB> _nxbRepository;
+        public NXBService(IRepository<NXB> nxbRepository)
         {
             _nxbRepository = nxbRepository;
         }
-
-        // Lấy toàn bộ NXB
-        public List<NXB> GetAllNXB()
-        {
-            return _nxbRepository.GetAll();
-        }
-
-        // Lấy NXB bằng id
-        public NXB? GetNXBById(int id)
-        {
-            return _nxbRepository.GetById(id);
-        }
-
-        // Thêm NXB
-        public NXB AddNXB(NXB nxb)
-        {
-            return _nxbRepository.Add(nxb);
-        }
-
-        // Sửa NXB
-        public NXB UpdateNXB(NXB nxb)
-        {
-            return _nxbRepository.Update(nxb);
-        }
-
-        // Tìm NXB theo id
-        public NXB? SearchNXBById(int id)
-        {
-            return _nxbRepository
-                .GetAll()
-                .Where(n => n.IdNXB == id)
-                .FirstOrDefault();
-        }
-
-        // Xóa NXB theo id
-        public NXB? DeleteNXB(int id)
-        {
-            return _nxbRepository.DeleteById(id);
-        }
+        public async Task<IEnumerable<NXB>> GetAllAsync() => await _nxbRepository.GetAllAsync();
+        public async Task<NXB?> GetByIdAsync(int id) => await _nxbRepository.GetByIdAsync(id);
+        public async Task<NXB> AddAsync(NXB nxb) => await _nxbRepository.AddAsync(nxb);
+        public async Task<NXB> UpdateAsync(NXB nxb) => await _nxbRepository.UpdateAsync(nxb);
+        public async Task<NXB?> DeleteByIdAsync(int id) => await _nxbRepository.DeleteByIdAsync(id);
     }
 }
