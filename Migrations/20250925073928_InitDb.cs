@@ -84,7 +84,7 @@ namespace LibraryManagementSystem.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     TenNXB = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Diachi = table.Column<string>(type: "longtext", nullable: true)
+                    DiaChi = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     SDT = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
@@ -126,21 +126,6 @@ namespace LibraryManagementSystem.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Quyen", x => x.IdQuyen);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "SanPham",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    TenSanPham = table.Column<string>(type: "varchar(50)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SanPham", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -352,7 +337,7 @@ namespace LibraryManagementSystem.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
                     GiaTien = table.Column<decimal>(type: "decimal(12,2)", precision: 12, scale: 2, nullable: false),
-                    MaDauSah = table.Column<string>(type: "longtext", nullable: true)
+                    MaDauSach = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -655,9 +640,6 @@ namespace LibraryManagementSystem.Migrations
 
             migrationBuilder.DropTable(
                 name: "Sach_TheLoai");
-
-            migrationBuilder.DropTable(
-                name: "SanPham");
 
             migrationBuilder.DropTable(
                 name: "VaiTro_Quyen");

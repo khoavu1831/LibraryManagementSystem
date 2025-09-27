@@ -89,7 +89,7 @@ namespace LibraryManagementSystem.Migrations
                     b.Property<string>("IdSach")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("MaDauSah")
+                    b.Property<string>("MaDauSach")
                         .HasColumnType("longtext");
 
                     b.Property<int>("SoLuong")
@@ -224,7 +224,7 @@ namespace LibraryManagementSystem.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdNXB"));
 
-                    b.Property<string>("Diachi")
+                    b.Property<string>("DiaChi")
                         .HasColumnType("longtext");
 
                     b.Property<string>("SDT")
@@ -361,24 +361,6 @@ namespace LibraryManagementSystem.Migrations
                     b.HasKey("IdPhieuPhat");
 
                     b.ToTable("PhieuPhat");
-                });
-
-            modelBuilder.Entity("LibraryManagementSystem.Entities.Product", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("TenSanPham");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("SanPham");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.Quyen", b =>

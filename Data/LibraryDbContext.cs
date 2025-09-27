@@ -24,13 +24,12 @@ namespace LibraryManagementSystem.Data
         public DbSet<Quyen> Quyens { get; set; }
         public DbSet<VaiTro> VaiTros { get; set; }
         public DbSet<MucPhat> MucPhats { get; set; }
-        public DbSet<PhieuMuon> PhieuMuon { get; set; }
-        public DbSet<PhieuNhap> PhieuNhap { get; set; }
-        public DbSet<PhieuPhat> PhieuPhat { get; set; }
+        public DbSet<PhieuMuon> PhieuMuons { get; set; }
+        public DbSet<PhieuNhap> PhieuNhaps { get; set; }
+        public DbSet<PhieuPhat> PhieuPhats { get; set; }
         public DbSet<ChiTietPhieuMuon> ChiTietPhieuMuons { get; set; }
         public DbSet<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
         public DbSet<ChiTietPhieuPhat> ChiTietPhieuPhats { get; set; }
-        public DbSet<Product> Products { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
