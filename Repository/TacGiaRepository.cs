@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class TacGiaRepository
     {
         private readonly LibraryDbContext _context;
-        public TacGiaRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<TacGia> GetAll()
-        {
-            return _context.TacGias.ToList();
-        }
-        public TacGia? GetById(int id)
-        {
-            return _context.TacGias.Find(id);
-        }
+        public TacGiaRepository(LibraryDbContext context) => _context = context;
+        public List<TacGia> GetAll() => _context.TacGias.ToList();
+        public TacGia? GetById(int id) => _context.TacGias.Find(id);
         public TacGia Update(TacGia tacGia)
         {
             _context.TacGias.Update(tacGia);

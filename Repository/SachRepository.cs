@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class SachRepository
     {
         private readonly LibraryDbContext _context;
-        public SachRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<Sach> GetAll()
-        {
-            return _context.Sachs.ToList();
-        }
-        public Sach? GetById(string id)
-        {
-            return _context.Sachs.Find(id);
-        }
+        public SachRepository(LibraryDbContext context) => _context = context;
+        public List<Sach> GetAll() => _context.Sachs.ToList();
+        public Sach? GetById(string id) => _context.Sachs.Find(id);
         public Sach Add(Sach sach)
         {
             _context.Sachs.Add(sach);

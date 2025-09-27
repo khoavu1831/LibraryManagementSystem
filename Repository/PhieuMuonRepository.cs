@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class PhieuMuonRepository
     {
         private readonly LibraryDbContext _context;
-        public PhieuMuonRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<PhieuMuon> GetAll()
-        {
-            return _context.PhieuMuons.ToList();
-        }
-        public PhieuMuon? GetById(int id)
-        {
-            return _context.PhieuMuons.Find(id);
-        }
+        public PhieuMuonRepository(LibraryDbContext context) => _context = context;
+        public List<PhieuMuon> GetAll() => _context.PhieuMuons.ToList();
+        public PhieuMuon? GetById(int id) => _context.PhieuMuons.Find(id);
         public PhieuMuon Add(PhieuMuon phieuMuon)
         {
             _context.PhieuMuons.Add(phieuMuon);

@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class PhieuNhapRepository
     {
         private readonly LibraryDbContext _context;
-        public PhieuNhapRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<PhieuNhap> GetAll()
-        {
-            return _context.PhieuNhaps.ToList();
-        }
-        public PhieuNhap? GetById(int id)
-        {
-            return _context.PhieuNhaps.Find(id);
-        }
+        public PhieuNhapRepository(LibraryDbContext context) => _context = context;
+        public List<PhieuNhap> GetAll() => _context.PhieuNhaps.ToList();
+        public PhieuNhap? GetById(int id) => _context.PhieuNhaps.Find(id);
         public PhieuNhap Add(PhieuNhap phieuNhap)
         {
             _context.PhieuNhaps.Add(phieuNhap);

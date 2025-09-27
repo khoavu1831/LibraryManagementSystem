@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class NhanVienRepository
     {
         private readonly LibraryDbContext _context;
-        public NhanVienRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<NhanVien> GetAll()
-        {
-            return _context.NhanViens.ToList();
-        }
-        public NhanVien? GetById(int id)
-        {
-            return _context.NhanViens.Find(id);
-        }
+        public NhanVienRepository(LibraryDbContext context) => _context = context;
+        public List<NhanVien> GetAll() => _context.NhanViens.ToList();
+        public NhanVien? GetById(int id) => _context.NhanViens.Find(id);
         public NhanVien Add(NhanVien nhanVien)
         {
             _context.NhanViens.Add(nhanVien);

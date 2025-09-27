@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class TheLoaiRepository
     {
         private readonly LibraryDbContext _context;
-        public TheLoaiRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<TheLoai> GetAll()
-        {
-            return _context.TheLoais.ToList();
-        }
-        public TheLoai? GetById(int id)
-        {
-            return _context.TheLoais.Find(id);
-        }
+        public TheLoaiRepository(LibraryDbContext context) => _context = context;
+        public List<TheLoai> GetAll() => _context.TheLoais.ToList();
+        public TheLoai? GetById(int id) => _context.TheLoais.Find(id);
         public TheLoai Add(TheLoai theLoai)
         {
             _context.TheLoais.Add(theLoai);
@@ -30,7 +21,7 @@ namespace LibraryManagementSystem.Repository
             _context.SaveChanges();
             return theLoai;
         }
-        public TheLoai? Delete(int id)
+        public TheLoai? DeleteById(int id)
         {
             var theLoai = GetById(id);
             if (theLoai == null) return null;

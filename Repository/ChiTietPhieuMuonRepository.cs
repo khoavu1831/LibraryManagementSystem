@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class ChiTietPhieuMuonRepository
     {
         private readonly LibraryDbContext _context;
-        public ChiTietPhieuMuonRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<ChiTietPhieuMuon> GetAll()
-        {
-            return _context.ChiTietPhieuMuons.ToList();
-        }
-        public ChiTietPhieuMuon? GetById(int id)
-        {
-            return _context.ChiTietPhieuMuons.Find(id);
-        }
+        public ChiTietPhieuMuonRepository(LibraryDbContext context) => _context = context;
+        public List<ChiTietPhieuMuon> GetAll() => _context.ChiTietPhieuMuons.ToList();
+        public ChiTietPhieuMuon? GetById(int id) => _context.ChiTietPhieuMuons.Find(id);
         public ChiTietPhieuMuon Add(ChiTietPhieuMuon ctpm)
         {
             _context.ChiTietPhieuMuons.Add(ctpm);

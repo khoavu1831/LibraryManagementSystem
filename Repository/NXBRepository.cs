@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class NXBRepository
     {
         public readonly LibraryDbContext _context;
-        public NXBRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<NXB> GetAll()
-        {
-            return _context.NXBs.ToList();
-        }
-        public NXB? GetById(int id)
-        {
-            return _context.NXBs.Find(id);
-        }
+        public NXBRepository(LibraryDbContext context) => _context = context;
+        public List<NXB> GetAll() => _context.NXBs.ToList();
+        public NXB? GetById(int id) => _context.NXBs.Find(id);
         public NXB Add(NXB nxb)
         {
             _context.NXBs.Add(nxb);

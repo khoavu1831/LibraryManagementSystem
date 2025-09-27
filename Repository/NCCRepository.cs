@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class NCCRepository
     {
         private readonly LibraryDbContext _context;
-        public NCCRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<NCC> GetAll()
-        {
-            return _context.NCCs.ToList();
-        }
-        public NCC? GetById(int id)
-        {
-            return _context.NCCs.Find(id);
-        }
+        public NCCRepository(LibraryDbContext context) => _context = context;
+        public List<NCC> GetAll() => _context.NCCs.ToList();
+        public NCC? GetById(int id) => _context.NCCs.Find(id);
         public NCC Add(NCC ncc)
         {
             _context.NCCs.Add(ncc);
@@ -39,6 +30,6 @@ namespace LibraryManagementSystem.Repository
             return ncc;
         }
 
-        
+
     }
 }

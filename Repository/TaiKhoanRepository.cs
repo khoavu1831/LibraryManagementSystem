@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class TaiKhoanRepository
     {
         private readonly LibraryDbContext _context;
-        public TaiKhoanRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<TaiKhoan> GetAll()
-        {
-            return _context.TaiKhoans.ToList();
-        }
-        public TaiKhoan? GetById(int id)
-        {
-            return _context.TaiKhoans.Find(id);
-        }
+        public TaiKhoanRepository(LibraryDbContext context) => _context = context;
+        public List<TaiKhoan> GetAll() => _context.TaiKhoans.ToList();
+        public TaiKhoan? GetById(int id) => _context.TaiKhoans.Find(id);
         public TaiKhoan Add(TaiKhoan taiKhoan)
         {
             _context.TaiKhoans.Add(taiKhoan);

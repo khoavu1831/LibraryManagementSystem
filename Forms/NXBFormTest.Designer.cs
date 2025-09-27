@@ -38,9 +38,9 @@
             sdtTxt = new Label();
             dataGridView1 = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
-            themBtn = new Button();
-            suaBtn = new Button();
-            xoaBtn = new Button();
+            ThemBtn = new Button();
+            SuaBtn = new Button();
+            XoaBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
@@ -146,44 +146,44 @@
             tableLayoutPanel1.TabIndex = 9;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
-            // themBtn
+            // ThemBtn
             // 
-            themBtn.Location = new Point(448, 12);
-            themBtn.Name = "themBtn";
-            themBtn.Size = new Size(75, 23);
-            themBtn.TabIndex = 10;
-            themBtn.Text = "Thêm";
-            themBtn.UseVisualStyleBackColor = true;
-            themBtn.Click += themBtn_Click;
+            ThemBtn.Location = new Point(448, 12);
+            ThemBtn.Name = "ThemBtn";
+            ThemBtn.Size = new Size(75, 23);
+            ThemBtn.TabIndex = 10;
+            ThemBtn.Text = "Thêm";
+            ThemBtn.UseVisualStyleBackColor = true;
+            ThemBtn.Click += ThemBtn_Click;
             // 
-            // suaBtn
+            // SuaBtn
             // 
-            suaBtn.Location = new Point(448, 41);
-            suaBtn.Name = "suaBtn";
-            suaBtn.Size = new Size(75, 23);
-            suaBtn.TabIndex = 11;
-            suaBtn.Text = "Sửa";
-            suaBtn.UseVisualStyleBackColor = true;
-            suaBtn.Click += suaBtn_Click;
+            SuaBtn.Location = new Point(448, 41);
+            SuaBtn.Name = "SuaBtn";
+            SuaBtn.Size = new Size(75, 23);
+            SuaBtn.TabIndex = 11;
+            SuaBtn.Text = "Sửa";
+            SuaBtn.UseVisualStyleBackColor = true;
+            SuaBtn.Click += SuaBtn_Click;
             // 
-            // xoaBtn
+            // XoaBtn
             // 
-            xoaBtn.Location = new Point(448, 70);
-            xoaBtn.Name = "xoaBtn";
-            xoaBtn.Size = new Size(75, 23);
-            xoaBtn.TabIndex = 12;
-            xoaBtn.Text = "Xóa";
-            xoaBtn.UseVisualStyleBackColor = true;
-            xoaBtn.Click += xoaBtn_Click;
+            XoaBtn.Location = new Point(448, 70);
+            XoaBtn.Name = "XoaBtn";
+            XoaBtn.Size = new Size(75, 23);
+            XoaBtn.TabIndex = 12;
+            XoaBtn.Text = "Xóa";
+            XoaBtn.UseVisualStyleBackColor = true;
+            XoaBtn.Click += XoaBtn_Click;
             // 
             // NXBFormTest
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(532, 407);
-            Controls.Add(xoaBtn);
-            Controls.Add(suaBtn);
-            Controls.Add(themBtn);
+            Controls.Add(XoaBtn);
+            Controls.Add(SuaBtn);
+            Controls.Add(ThemBtn);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(dataGridView1);
             Name = "NXBFormTest";
@@ -207,8 +207,8 @@
         private Label sdtTxt;
         private DataGridView dataGridView1;
         private TableLayoutPanel tableLayoutPanel1;
-        private Button themBtn;
-        private Button suaBtn;
-        private Button xoaBtn;
+        private Button ThemBtn;
+        private Button SuaBtn;
+        private Button XoaBtn;
     }
 }

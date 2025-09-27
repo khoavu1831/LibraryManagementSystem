@@ -6,18 +6,9 @@ namespace LibraryManagementSystem.Repository
     public class VaiTroRepository
     {
         private readonly LibraryDbContext _context;
-        public VaiTroRepository(LibraryDbContext context)
-        {
-            _context = context;
-        }
-        public List<VaiTro> GetAll()
-        {
-            return _context.VaiTros.ToList();
-        }
-        public VaiTro? GetById(int id)
-        {
-            return _context.VaiTros.Find(id);
-        }
+        public VaiTroRepository(LibraryDbContext context) => _context = context;
+        public List<VaiTro> GetAll() => _context.VaiTros.ToList();
+        public VaiTro? GetById(int id) => _context.VaiTros.Find(id);
         public VaiTro Add(VaiTro vaiTro)
         {
             _context.VaiTros.Add(vaiTro);
@@ -30,7 +21,7 @@ namespace LibraryManagementSystem.Repository
             _context.SaveChanges();
             return vaiTro;
         }
-        public VaiTro? Delete(int id)
+        public VaiTro? DeleteById(int id)
         {
             var vaiTro = GetById(id);
             if (vaiTro == null) return null;
