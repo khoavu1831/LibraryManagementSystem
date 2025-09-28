@@ -9,12 +9,92 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Icons\icon1.jpg" />
+    <None Remove="Resources\Icons\icon10.jpg" />
+    <None Remove="Resources\Icons\icon11.jpg" />
+    <None Remove="Resources\Icons\icon12.jpg" />
+    <None Remove="Resources\Icons\icon13.jpg" />
+    <None Remove="Resources\Icons\icon2.jpg" />
+    <None Remove="Resources\Icons\icon3.jpg" />
+    <None Remove="Resources\Icons\icon4.jpg" />
+    <None Remove="Resources\Icons\icon5.jpg" />
+    <None Remove="Resources\Icons\icon6.jpg" />
+    <None Remove="Resources\Icons\icon7.jpg" />
+    <None Remove="Resources\Icons\icon8.jpg" />
+    <None Remove="Resources\Icons\icon9.jpg" />
+    <None Remove="Resources\Icons\iconBook.png" />
+    <None Remove="Resources\Icons\iconCT.jpg" />
+    <None Remove="Resources\Icons\icondoimk.jpg" />
+    <None Remove="Resources\Icons\icondoimk.png" />
+    <None Remove="Resources\Icons\iconRac.jpg" />
+    <None Remove="Resources\Icons\iconStaff.png" />
+    <None Remove="Resources\Icons\iconsua.jpg" />
+    <None Remove="Resources\Icons\iconthem.jpg" />
+    <None Remove="Resources\Icons\iconuser.jpg" />
+    <None Remove="Resources\Icons\iconuser.png" />
+    <None Remove="Resources\Icons\iconxoa.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Icons\icon1.jpg" />
+    <Content Include="Resources\Icons\icon10.jpg" />
+    <Content Include="Resources\Icons\icon11.jpg" />
+    <Content Include="Resources\Icons\icon12.jpg" />
+    <Content Include="Resources\Icons\icon13.jpg" />
+    <Content Include="Resources\Icons\icon2.jpg" />
+    <Content Include="Resources\Icons\icon3.jpg" />
+    <Content Include="Resources\Icons\icon4.jpg" />
+    <Content Include="Resources\Icons\icon5.jpg" />
+    <Content Include="Resources\Icons\icon6.jpg" />
+    <Content Include="Resources\Icons\icon7.jpg" />
+    <Content Include="Resources\Icons\icon8.jpg" />
+    <Content Include="Resources\Icons\icon9.jpg" />
+    <Content Include="Resources\Icons\iconBook.png" />
+    <Content Include="Resources\Icons\iconCT.jpg" />
+    <Content Include="Resources\Icons\icondoimk.jpg" />
+    <Content Include="Resources\Icons\icondoimk.png" />
+    <Content Include="Resources\Icons\iconRac.jpg" />
+    <Content Include="Resources\Icons\iconStaff.png" />
+    <Content Include="Resources\Icons\iconsua.jpg" />
+    <Content Include="Resources\Icons\iconthem.jpg" />
+    <Content Include="Resources\Icons\iconuser.jpg" />
+    <Content Include="Resources\Icons\iconuser.png" />
+    <Content Include="Resources\Icons\iconxoa.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.5.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.9">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
+    <Folder Include="Views\UserControls\QLNhapSach\" />
+    <Folder Include="Views\UserControls\QLThongKe\" />
+    <Folder Include="Views\UserControls\QLPhat\" />
+    <Folder Include="Views\UserControls\TrangChu\" />
+    <Folder Include="Views\UserControls\QLMuonTra\" />
+    <Folder Include="Views\UserControls\QLDocGia\" />
+    <Folder Include="Views\UserControls\QLNhanVien\" />
   </ItemGroup>
 
 </Project>
