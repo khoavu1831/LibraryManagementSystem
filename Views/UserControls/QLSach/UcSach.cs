@@ -28,7 +28,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 
         private void BtnThem_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

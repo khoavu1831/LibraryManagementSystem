@@ -58,7 +58,6 @@ D:\WorkSpace\LibraryManagementSystem\obj\Debug\net8.0-windows\ref\LibraryManagem
 D:\WorkSpace\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Forms.LoginForm.resources
 E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.csproj.AssemblyReference.cache
 E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Forms.LoginForm.resources
-E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Forms.NXBFormTest.resources
 E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.csproj.GenerateResource.cache
 E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
 E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.AssemblyInfoInputs.cache
@@ -322,3 +321,12 @@ D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryMana
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.genruntimeconfig.cache
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\ref\LibraryManagementSystem.dll
 D:\WorkSpace\CSharp\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Forms.Sach.FormThemSach.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Properties.Resources.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Views.Forms.MainForm.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Forms.Sach.FormThemSach.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Views.UserControls.QLSach.UcBanSaoSach.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Views.UserControls.QLSach.UcNXB.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Views.UserControls.QuanLySach.UcQLSach.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Views.UserControls.QLSach.UcSach.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Views.UserControls.QLSach.UcTacGia.resources
+E:\workspace\csharp_subject\LibraryManagementSystem\obj\Debug\net8.0-windows\LibraryManagementSystem.Views.UserControls.QLSach.UcTheLoai.resources

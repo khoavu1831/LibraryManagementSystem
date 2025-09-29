@@ -1,5 +1,3 @@
-using LibraryManagementSystem.Data;
-
 namespace LibraryManagementSystem
 {
     internal static class Program

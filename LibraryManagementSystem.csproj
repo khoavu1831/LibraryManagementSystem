@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Shared\**" />
+    <EmbeddedResource Remove="Views\Shared\**" />
+    <None Remove="Views\Shared\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Icons\icon1.jpg" />
     <None Remove="Resources\Icons\icon10.jpg" />
     <None Remove="Resources\Icons\icon11.jpg" />
@@ -87,7 +93,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Shared\" />
     <Folder Include="Views\UserControls\QLNhapSach\" />
     <Folder Include="Views\UserControls\QLThongKe\" />
     <Folder Include="Views\UserControls\QLPhat\" />
