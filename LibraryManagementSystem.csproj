@@ -99,7 +99,6 @@
     <Folder Include="Views\UserControls\TrangChu\" />
     <Folder Include="Views\UserControls\QLMuonTra\" />
     <Folder Include="Views\UserControls\QLDocGia\" />
-    <Folder Include="Views\UserControls\QLNhanVien\" />
   </ItemGroup>
 
 </Project>
