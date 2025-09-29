@@ -7,25 +7,25 @@
     <Compile Update="Views\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\UserControls\QLSach\FormThemSach.cs">
+    <Compile Update="Views\UserControls\QLSach\Sach\FormThemSach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\UserControls\QLSach\UcBanSaoSach.cs">
+    <Compile Update="Views\UserControls\QLSach\BanSaoSach\UcBanSaoSach.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControls\QLSach\UcNXB.cs">
+    <Compile Update="Views\UserControls\QLSach\NXB\UcNXB.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UserControls\QLSach\UcQLSach.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControls\QLSach\UcSach.cs">
+    <Compile Update="Views\UserControls\QLSach\Sach\UcSach.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControls\QLSach\UcTacGia.cs">
+    <Compile Update="Views\UserControls\QLSach\TacGia\UcTacGia.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UserControls\QLSach\UcTheLoai.cs">
+    <Compile Update="Views\UserControls\QLSach\TheLoai\UcTheLoai.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

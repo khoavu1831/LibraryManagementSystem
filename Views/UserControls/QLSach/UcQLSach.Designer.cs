@@ -40,6 +40,7 @@
             // 
             // panelNavMenu
             // 
+            panelNavMenu.BackColor = Color.White;
             panelNavMenu.Controls.Add(btnTheLoai);
             panelNavMenu.Controls.Add(btnNXB);
             panelNavMenu.Controls.Add(btnTacGia);
@@ -62,6 +63,7 @@
             btnTheLoai.TabIndex = 4;
             btnTheLoai.Text = "Thể Loại";
             btnTheLoai.UseVisualStyleBackColor = false;
+            btnTheLoai.Click += btnTheLoai_Click;
             // 
             // btnNXB
             // 
@@ -74,6 +76,7 @@
             btnNXB.TabIndex = 3;
             btnNXB.Text = "NXB";
             btnNXB.UseVisualStyleBackColor = false;
+            btnNXB.Click += btnNXB_Click;
             // 
             // btnTacGia
             // 
@@ -86,6 +89,7 @@
             btnTacGia.TabIndex = 2;
             btnTacGia.Text = "Tác Giả";
             btnTacGia.UseVisualStyleBackColor = false;
+            btnTacGia.Click += btnTacGia_Click;
             // 
             // btnBanSaoSach
             // 
@@ -98,6 +102,7 @@
             btnBanSaoSach.TabIndex = 1;
             btnBanSaoSach.Text = "Bản Sao Sách";
             btnBanSaoSach.UseVisualStyleBackColor = false;
+            btnBanSaoSach.Click += btnBanSaoSach_Click;
             // 
             // btnSach
             // 
