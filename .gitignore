@@ -1,1 +1,34 @@
+# Visual Studio build files
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio cache/options
+.vs/
 *.vsidx
+
+# Visual Studio Code settings
+.vscode/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+
+# Backup & temp files
+*.bak
+*.tmp
+*.temp
+*.log
+
+# Others
+*.dbmdl
+*.jfm
