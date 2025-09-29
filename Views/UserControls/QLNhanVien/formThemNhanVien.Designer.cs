@@ -28,230 +28,316 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            label1 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            textBoxHVT = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
             label6 = new Label();
-            textBox6 = new TextBox();
             label7 = new Label();
-            textBox7 = new TextBox();
             label8 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            btnThem = new Button();
+            label1 = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            textBoxEmail = new TextBox();
+            textBoxSDT = new TextBox();
+            textBoxDC = new TextBox();
+            textBoxNS = new TextBox();
+            textBoxMK = new TextBox();
+            textBoxTK = new TextBox();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            btnHuy = new Button();
+            tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(108, 42);
+            label2.TabIndex = 1;
+            label2.Text = "Họ và tên:";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBoxHVT
+            // 
+            textBoxHVT.Dock = DockStyle.Fill;
+            textBoxHVT.Location = new Point(117, 3);
+            textBoxHVT.Multiline = true;
+            textBoxHVT.Name = "textBoxHVT";
+            textBoxHVT.Size = new Size(257, 36);
+            textBoxHVT.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 42);
+            label3.Name = "label3";
+            label3.Size = new Size(108, 42);
+            label3.TabIndex = 3;
+            label3.Text = "Tài khoản:";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            label3.Click += label3_Click;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 126);
+            label4.Name = "label4";
+            label4.Size = new Size(108, 42);
+            label4.TabIndex = 7;
+            label4.Text = "Năm sinh:";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 84);
+            label5.Name = "label5";
+            label5.Size = new Size(108, 42);
+            label5.TabIndex = 5;
+            label5.Text = "Mật khẩu:";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(3, 210);
+            label6.Name = "label6";
+            label6.Size = new Size(108, 42);
+            label6.TabIndex = 11;
+            label6.Text = "Số điện thoại:";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Location = new Point(3, 168);
+            label7.Name = "label7";
+            label7.Size = new Size(108, 42);
+            label7.TabIndex = 9;
+            label7.Text = "Địa chỉ:";
+            label7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Location = new Point(3, 252);
+            label8.Name = "label8";
+            label8.Size = new Size(108, 42);
+            label8.TabIndex = 13;
+            label8.Text = "Email:";
+            label8.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // btnThem
+            // 
+            btnThem.Dock = DockStyle.Top;
+            btnThem.Location = new Point(3, 3);
+            btnThem.Name = "btnThem";
+            btnThem.Size = new Size(179, 46);
+            btnThem.TabIndex = 15;
+            btnThem.Text = "Thêm";
+            btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.BackColor = SystemColors.HotTrack;
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Segoe UI", 16F);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(521, 125);
+            label1.TabIndex = 0;
+            label1.Text = "THÊM NHÂN VIÊN";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.2521F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.7479F));
+            tableLayoutPanel1.Controls.Add(textBoxEmail, 1, 6);
+            tableLayoutPanel1.Controls.Add(textBoxSDT, 1, 5);
+            tableLayoutPanel1.Controls.Add(textBoxDC, 1, 4);
+            tableLayoutPanel1.Controls.Add(textBoxNS, 1, 3);
+            tableLayoutPanel1.Controls.Add(textBoxMK, 1, 2);
+            tableLayoutPanel1.Controls.Add(textBoxTK, 1, 1);
+            tableLayoutPanel1.Controls.Add(label3, 0, 1);
+            tableLayoutPanel1.Controls.Add(label4, 0, 3);
+            tableLayoutPanel1.Controls.Add(textBoxHVT, 1, 0);
+            tableLayoutPanel1.Controls.Add(label8, 0, 6);
+            tableLayoutPanel1.Controls.Add(label7, 0, 4);
+            tableLayoutPanel1.Controls.Add(label6, 0, 5);
+            tableLayoutPanel1.Controls.Add(label2, 0, 0);
+            tableLayoutPanel1.Controls.Add(label5, 0, 2);
+            tableLayoutPanel1.Location = new Point(69, 24);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.Size = new Size(377, 294);
+            tableLayoutPanel1.TabIndex = 17;
+            // 
+            // textBoxEmail
+            // 
+            textBoxEmail.Dock = DockStyle.Fill;
+            textBoxEmail.Location = new Point(117, 255);
+            textBoxEmail.Multiline = true;
+            textBoxEmail.Name = "textBoxEmail";
+            textBoxEmail.Size = new Size(257, 36);
+            textBoxEmail.TabIndex = 19;
+            // 
+            // textBoxSDT
+            // 
+            textBoxSDT.Dock = DockStyle.Fill;
+            textBoxSDT.Location = new Point(117, 213);
+            textBoxSDT.Multiline = true;
+            textBoxSDT.Name = "textBoxSDT";
+            textBoxSDT.Size = new Size(257, 36);
+            textBoxSDT.TabIndex = 18;
+            // 
+            // textBoxDC
+            // 
+            textBoxDC.Dock = DockStyle.Fill;
+            textBoxDC.Location = new Point(117, 171);
+            textBoxDC.Multiline = true;
+            textBoxDC.Name = "textBoxDC";
+            textBoxDC.Size = new Size(257, 36);
+            textBoxDC.TabIndex = 17;
+            // 
+            // textBoxNS
+            // 
+            textBoxNS.Dock = DockStyle.Fill;
+            textBoxNS.Location = new Point(117, 129);
+            textBoxNS.Multiline = true;
+            textBoxNS.Name = "textBoxNS";
+            textBoxNS.Size = new Size(257, 36);
+            textBoxNS.TabIndex = 16;
+            // 
+            // textBoxMK
+            // 
+            textBoxMK.Dock = DockStyle.Fill;
+            textBoxMK.Location = new Point(117, 87);
+            textBoxMK.Multiline = true;
+            textBoxMK.Name = "textBoxMK";
+            textBoxMK.Size = new Size(257, 36);
+            textBoxMK.TabIndex = 15;
+            // 
+            // textBoxTK
+            // 
+            textBoxTK.Dock = DockStyle.Fill;
+            textBoxTK.Location = new Point(117, 45);
+            textBoxTK.Multiline = true;
+            textBoxTK.Name = "textBoxTK";
+            textBoxTK.Size = new Size(257, 36);
+            textBoxTK.TabIndex = 14;
             // 
             // panel1
             // 
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(-2, 0);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(534, 85);
-            panel1.TabIndex = 0;
+            panel1.Size = new Size(521, 125);
+            panel1.TabIndex = 18;
             // 
-            // label1
+            // panel2
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(173, 44);
-            label1.Name = "label1";
-            label1.Size = new Size(205, 37);
-            label1.TabIndex = 0;
-            label1.Text = "Thêm nhân viên";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
+            panel2.Controls.Add(tableLayoutPanel2);
+            panel2.Controls.Add(tableLayoutPanel1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 125);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(521, 424);
+            panel2.TabIndex = 19;
             // 
-            // label2
+            // tableLayoutPanel2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(80, 124);
-            label2.Name = "label2";
-            label2.Size = new Size(73, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Họ và tên";
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(btnThem, 0, 0);
+            tableLayoutPanel2.Controls.Add(btnHuy, 1, 0);
+            tableLayoutPanel2.Location = new Point(72, 344);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(371, 54);
+            tableLayoutPanel2.TabIndex = 19;
             // 
-            // textBox1
+            // btnHuy
             // 
-            textBox1.Location = new Point(200, 121);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(231, 27);
-            textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(200, 169);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(231, 27);
-            textBox2.TabIndex = 4;
-            textBox2.TextChanged += textBox2_TextChanged;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(80, 172);
-            label3.Name = "label3";
-            label3.Size = new Size(71, 20);
-            label3.TabIndex = 3;
-            label3.Text = "Tài khoản";
-            label3.Click += this.label3_Click;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(200, 262);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(231, 27);
-            textBox3.TabIndex = 8;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(80, 265);
-            label4.Name = "label4";
-            label4.Size = new Size(71, 20);
-            label4.TabIndex = 7;
-            label4.Text = "Năm sinh";
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(200, 214);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(231, 27);
-            textBox4.TabIndex = 6;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(80, 217);
-            label5.Name = "label5";
-            label5.Size = new Size(70, 20);
-            label5.TabIndex = 5;
-            label5.Text = "Mật khẩu";
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(200, 354);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(231, 27);
-            textBox5.TabIndex = 12;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(80, 357);
-            label6.Name = "label6";
-            label6.Size = new Size(97, 20);
-            label6.TabIndex = 11;
-            label6.Text = "Số điện thoại";
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(200, 306);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(231, 27);
-            textBox6.TabIndex = 10;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(80, 309);
-            label7.Name = "label7";
-            label7.Size = new Size(55, 20);
-            label7.TabIndex = 9;
-            label7.Text = "Địa chỉ";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(200, 400);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(231, 27);
-            textBox7.TabIndex = 14;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(80, 403);
-            label8.Name = "label8";
-            label8.Size = new Size(46, 20);
-            label8.TabIndex = 13;
-            label8.Text = "Email";
-            // 
-            // button1
-            // 
-            button1.Location = new Point(110, 485);
-            button1.Name = "button1";
-            button1.Size = new Size(123, 29);
-            button1.TabIndex = 15;
-            button1.Text = "Thêm nhân viên";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(271, 485);
-            button2.Name = "button2";
-            button2.Size = new Size(123, 29);
-            button2.TabIndex = 16;
-            button2.Text = "Quay lại";
-            button2.UseVisualStyleBackColor = true;
+            btnHuy.Dock = DockStyle.Top;
+            btnHuy.Location = new Point(188, 3);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(180, 46);
+            btnHuy.TabIndex = 18;
+            btnHuy.Text = "Hủy";
+            btnHuy.UseVisualStyleBackColor = true;
             // 
             // formThemNhanVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(529, 574);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox7);
-            Controls.Add(label8);
-            Controls.Add(textBox5);
-            Controls.Add(label6);
-            Controls.Add(textBox6);
-            Controls.Add(label7);
-            Controls.Add(textBox3);
-            Controls.Add(label4);
-            Controls.Add(textBox4);
-            Controls.Add(label5);
-            Controls.Add(textBox2);
-            Controls.Add(label3);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
+            ClientSize = new Size(521, 549);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "formThemNhanVien";
             Text = "formThemNhanVien";
             Load += formThemNhanVien_Load;
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Panel panel1;
-        private Label label1;
         private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxHVT;
         private Label label3;
-        private TextBox textBox3;
         private Label label4;
-        private TextBox textBox4;
         private Label label5;
-        private TextBox textBox5;
         private Label label6;
-        private TextBox textBox6;
         private Label label7;
-        private TextBox textBox7;
         private Label label8;
-        private Button button1;
-        private Button button2;
+        private Button btnThem;
+        private Label label1;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TextBox textBoxEmail;
+        private TextBox textBoxSDT;
+        private TextBox textBoxDC;
+        private TextBox textBoxNS;
+        private TextBox textBoxMK;
+        private TextBox textBoxTK;
+        private Panel panel1;
+        private Panel panel2;
+        private Button btnHuy;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }

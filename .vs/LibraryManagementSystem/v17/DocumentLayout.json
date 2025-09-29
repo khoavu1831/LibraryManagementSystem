@@ -3,36 +3,28 @@
   "WorkspaceRootPath": "D:\\MonHoc\\C#\\LibraryManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcQLSach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\UserControls\\QLSach\\UcQLSach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\monhoc\\c#\\librarymanagementsystem\\views\\usercontrols\\qlnhanvien\\formthemnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formthemnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\UserControls\\QLSach\\UcSach.Designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\monhoc\\c#\\librarymanagementsystem\\views\\usercontrols\\qlnhanvien\\formthemnhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formthemnhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlsach\\ucsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:views\\usercontrols\\qlsach\\ucsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlnhanvien\\formsuanhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formsuanhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:views\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\monhoc\\c#\\librarymanagementsystem\\views\\usercontrols\\qlnhanvien\\formthemnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formthemnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlsach\\formthemsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:views\\usercontrols\\qlsach\\formthemsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlnhanvien\\formthongtinnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formthongtinnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlsach\\ucnxb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:views\\usercontrols\\qlsach\\ucnxb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\UserControls\\QLSach\\UcSach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlsach\\ucbansaosach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:views\\usercontrols\\qlsach\\ucbansaosach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlnhanvien\\taikhoan\\formsuataikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\taikhoan\\formsuataikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 231,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,89 +42,73 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UcSach.Designer.cs",
-              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.Designer.cs",
-              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcSach.Designer.cs",
-              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.Designer.cs",
-              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcSach.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T07:11:55.332Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "UcSach.cs [Design]",
-              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs",
-              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcSach.cs",
-              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T06:23:41.56Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "Views\\Forms\\MainForm.cs",
-              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\Forms\\MainForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T06:15:27.179Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UcQLSach.cs [Design]",
-              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcQLSach.cs",
-              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcQLSach.cs",
-              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcQLSach.cs [Design]",
-              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcQLSach.cs [Design]",
+              "Title": "formThemNhanVien.cs [Design]",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T06:21:52.273Z",
+              "WhenOpened": "2025-09-29T09:14:59.123Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FormThemSach.cs [Design]",
-              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\FormThemSach.cs",
-              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\FormThemSach.cs",
-              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\FormThemSach.cs [Design]",
+              "DocumentIndex": 1,
+              "Title": "formThemNhanVien.Designer.cs",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.Designer.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.Designer.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.Designer.cs",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T06:45:23.888Z"
+              "WhenOpened": "2025-09-29T09:14:43.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "formSuaNhanVien.cs [Design]",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formSuaNhanVien.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formSuaNhanVien.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formSuaNhanVien.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formSuaNhanVien.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:12:37.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "formThemNhanVien.cs",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:36:10.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "formThongTinNhanVien.cs [Design]",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThongTinNhanVien.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formThongTinNhanVien.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThongTinNhanVien.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formThongTinNhanVien.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:14:58.27Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "UcNXB.cs [Design]",
-              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcNXB.cs",
-              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcNXB.cs",
-              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcNXB.cs [Design]",
+              "Title": "formSuaTaiKhoan.cs [Design]",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\TaiKhoan\\formSuaTaiKhoan.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\TaiKhoan\\formSuaTaiKhoan.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\TaiKhoan\\formSuaTaiKhoan.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\TaiKhoan\\formSuaTaiKhoan.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T07:02:57.526Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UcSach.cs",
-              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs",
-              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcSach.cs",
-              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs",
-              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcSach.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAA1wB8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T07:03:21.608Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UcBanSaoSach.cs [Design]",
-              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcBanSaoSach.cs",
-              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcBanSaoSach.cs",
-              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcBanSaoSach.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-29T06:21:47.486Z"
+              "WhenOpened": "2025-09-29T09:12:29.183Z"
             }
           ]
         }
