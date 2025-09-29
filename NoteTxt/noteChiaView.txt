@@ -1,0 +1,12 @@
+Dựa vào Figma thiết kế:
+(Luồng)
+LoginForm 
+-> MainForm
+-> UcQLSach/UcQLThanhVien....
+   + UcQLSach: -> UcBanSaoSach/UcSach/UcTheLoai/UcTacGia/UcNXB
+   + UcQLThanhVien: -> UcDocGia/UcThanhVien
+   + UcQLMuonTraSach: -> UcMuonSach/ UcTraSach
+   + UcQLPhatTra: -> UcPhat/UcTraPhat/UcMucPhat
+   + UcNhapSach: -> UcNhap/UcNCC
+   + UcThongKe: -> UcThanhVien/Uc
+   + UcQLNhanVien: -> UcNhanVien/UcTaiKhoan/UcVaiTro/UcQuyen

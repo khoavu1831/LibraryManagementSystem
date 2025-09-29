@@ -3,12 +3,36 @@
   "WorkspaceRootPath": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\repository\\implementations\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:repository\\implementations\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\views\\usercontrols\\qlsach\\ucqlsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlsach\\ucqlsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\repository\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:repository\\interfaces\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\views\\usercontrols\\qlsach\\ucsach.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlsach\\ucsach.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\views\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\views\\usercontrols\\qlsach\\ucsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlsach\\ucsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\views\\usercontrols\\qlsach\\ucsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlsach\\ucsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\views\\usercontrols\\qlsach\\ucnxb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlsach\\ucnxb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\views\\usercontrols\\qlsach\\ucbansaosach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlsach\\ucbansaosach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|e:\\workspace\\csharp_subject\\librarymanagementsystem\\views\\usercontrols\\qlsach\\formthemsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlsach\\formthemsach.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 231,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,29 +50,101 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Repository\\Implementations\\Class1.cs",
-              "RelativeDocumentMoniker": "Repository\\Implementations\\Class1.cs",
-              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Repository\\Implementations\\Class1.cs*",
-              "RelativeToolTip": "Repository\\Implementations\\Class1.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA2AAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UcSach.Designer.cs",
+              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.Designer.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcSach.Designer.cs",
+              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.Designer.cs",
+              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcSach.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T07:34:51.444Z",
+              "WhenOpened": "2025-09-29T07:11:55.332Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Repository\\Interfaces\\IRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Interfaces\\IRepository.cs",
-              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Repository\\Interfaces\\IRepository.cs*",
-              "RelativeToolTip": "Repository\\Interfaces\\IRepository.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "UcSach.cs [Design]",
+              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcSach.cs",
+              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcSach.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-26T07:32:47.955Z",
+              "WhenOpened": "2025-09-29T06:23:41.56Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainForm.cs [Design]",
+              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "Views\\Forms\\MainForm.cs",
+              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\Forms\\MainForm.cs [Design]",
+              "RelativeToolTip": "Views\\Forms\\MainForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T06:15:27.179Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UcQLSach.cs [Design]",
+              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcQLSach.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcQLSach.cs",
+              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcQLSach.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcQLSach.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T06:21:52.273Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FormThemSach.cs [Design]",
+              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\FormThemSach.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\FormThemSach.cs",
+              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\FormThemSach.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLSach\\FormThemSach.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T06:45:23.888Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UcNXB.cs [Design]",
+              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcNXB.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcNXB.cs",
+              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcNXB.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcNXB.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T07:02:57.526Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UcSach.cs",
+              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcSach.cs",
+              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcSach.cs",
+              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcSach.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T07:03:21.608Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UcBanSaoSach.cs [Design]",
+              "DocumentMoniker": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcBanSaoSach.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLSach\\UcBanSaoSach.cs",
+              "ToolTip": "E:\\workspace\\csharp_subject\\LibraryManagementSystem\\Views\\UserControls\\QLSach\\UcBanSaoSach.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLSach\\UcBanSaoSach.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T06:21:47.486Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
