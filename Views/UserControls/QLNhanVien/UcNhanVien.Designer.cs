@@ -1,6 +1,6 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
+﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien
 {
-    partial class UcSach
+    partial class UcNhanVien
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,14 +32,20 @@
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dgvSach = new DataGridView();
+            button1 = new Button();
+            button2 = new Button();
+            textBox1 = new TextBox();
+            dataGridView1 = new DataGridView();
             panelCRUD.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
             // 
             panelCRUD.BackColor = Color.White;
+            panelCRUD.Controls.Add(textBox1);
+            panelCRUD.Controls.Add(button2);
+            panelCRUD.Controls.Add(button1);
             panelCRUD.Controls.Add(btnXoa);
             panelCRUD.Controls.Add(btnSua);
             panelCRUD.Controls.Add(btnThem);
@@ -48,7 +54,7 @@
             panelCRUD.Margin = new Padding(3, 4, 3, 4);
             panelCRUD.Name = "panelCRUD";
             panelCRUD.Size = new Size(885, 131);
-            panelCRUD.TabIndex = 0;
+            panelCRUD.TabIndex = 1;
             // 
             // btnXoa
             // 
@@ -94,39 +100,74 @@
             btnThem.Text = "Thêm";
             btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
             btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += BtnThem_Click;
             // 
-            // dgvSach
+            // button1
             // 
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 131);
-            dgvSach.Margin = new Padding(3, 4, 3, 4);
-            dgvSach.Name = "dgvSach";
-            dgvSach.RowHeadersWidth = 51;
-            dgvSach.Size = new Size(885, 620);
-            dgvSach.TabIndex = 1;
+            button1.BackColor = Color.White;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Image = Properties.Resources.iconCT;
+            button1.Location = new Point(303, 20);
+            button1.Margin = new Padding(0);
+            button1.Name = "button1";
+            button1.Size = new Size(74, 91);
+            button1.TabIndex = 3;
+            button1.Text = "Chi tiết";
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
-            // UcSach
+            // button2
+            // 
+            button2.Location = new Point(520, 50);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 4;
+            button2.Text = "Tìm kiếm";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(633, 51);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Tìm kiếm..";
+            textBox1.Size = new Size(218, 27);
+            textBox1.TabIndex = 5;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 131);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(885, 620);
+            dataGridView1.TabIndex = 2;
+            // 
+            // UcNhanVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvSach);
+            BackColor = SystemColors.ControlDark;
+            Controls.Add(dataGridView1);
             Controls.Add(panelCRUD);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "UcSach";
+            Name = "UcNhanVien";
             Size = new Size(885, 751);
             panelCRUD.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvSach).EndInit();
+            panelCRUD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelCRUD;
-        private Button btnThem;
-        private DataGridView dgvSach;
         private Button btnXoa;
         private Button btnSua;
+        private Button btnThem;
+        private Button button1;
+        private TextBox textBox1;
+        private Button button2;
+        private DataGridView dataGridView1;
     }
 }

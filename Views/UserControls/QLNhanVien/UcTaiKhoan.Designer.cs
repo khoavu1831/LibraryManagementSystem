@@ -1,6 +1,6 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
+﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien
 {
-    partial class UcSach
+    partial class UcTaiKhoan
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,17 +29,21 @@
         private void InitializeComponent()
         {
             panelCRUD = new Panel();
+            textBox1 = new TextBox();
+            button2 = new Button();
+            button1 = new Button();
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dgvSach = new DataGridView();
             panelCRUD.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
             // 
             panelCRUD.BackColor = Color.White;
+            panelCRUD.Controls.Add(textBox1);
+            panelCRUD.Controls.Add(button2);
+            panelCRUD.Controls.Add(button1);
             panelCRUD.Controls.Add(btnXoa);
             panelCRUD.Controls.Add(btnSua);
             panelCRUD.Controls.Add(btnThem);
@@ -48,7 +52,39 @@
             panelCRUD.Margin = new Padding(3, 4, 3, 4);
             panelCRUD.Name = "panelCRUD";
             panelCRUD.Size = new Size(885, 131);
-            panelCRUD.TabIndex = 0;
+            panelCRUD.TabIndex = 2;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(633, 51);
+            textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "Tìm kiếm..";
+            textBox1.Size = new Size(218, 27);
+            textBox1.TabIndex = 5;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(520, 50);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 4;
+            button2.Text = "Tìm kiếm";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.White;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Image = Properties.Resources.iconCT;
+            button1.Location = new Point(303, 20);
+            button1.Margin = new Padding(0);
+            button1.Name = "button1";
+            button1.Size = new Size(74, 91);
+            button1.TabIndex = 3;
+            button1.Text = "Chi tiết";
+            button1.TextImageRelation = TextImageRelation.ImageAboveText;
+            button1.UseVisualStyleBackColor = false;
             // 
             // btnXoa
             // 
@@ -94,39 +130,27 @@
             btnThem.Text = "Thêm";
             btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
             btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += BtnThem_Click;
             // 
-            // dgvSach
-            // 
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 131);
-            dgvSach.Margin = new Padding(3, 4, 3, 4);
-            dgvSach.Name = "dgvSach";
-            dgvSach.RowHeadersWidth = 51;
-            dgvSach.Size = new Size(885, 620);
-            dgvSach.TabIndex = 1;
-            // 
-            // UcSach
+            // UcTaiKhoan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvSach);
             Controls.Add(panelCRUD);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "UcSach";
+            Name = "UcTaiKhoan";
             Size = new Size(885, 751);
             panelCRUD.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvSach).EndInit();
+            panelCRUD.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelCRUD;
-        private Button btnThem;
-        private DataGridView dgvSach;
+        private TextBox textBox1;
+        private Button button2;
+        private Button button1;
         private Button btnXoa;
         private Button btnSua;
+        private Button btnThem;
     }
 }

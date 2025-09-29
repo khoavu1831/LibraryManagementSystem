@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Views",
+    "\\Views\\UserControls",
+    "\\Views\\UserControls\\QLSach"
   ],
-  "SelectedNode": "\\Forms",
+  "SelectedNode": "\\Views\\UserControls\\QLSach\\UcQLSach.cs",
   "PreviewInSolutionExplorer": false
 }

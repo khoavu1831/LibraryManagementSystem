@@ -7,6 +7,24 @@
     <Compile Update="Views\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\UserControls\QLNhanVien\formSuaNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhanVien\formThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhanVien\formThongTinNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhanVien\UcNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhanVien\UcQLNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhanVien\UcTaiKhoan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControls\QLSach\FormThemSach.cs">
       <SubType>Form</SubType>
     </Compile>
