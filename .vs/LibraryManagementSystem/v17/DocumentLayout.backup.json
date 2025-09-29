@@ -1,0 +1,118 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\MonHoc\\C#\\LibraryManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\monhoc\\c#\\librarymanagementsystem\\views\\usercontrols\\qlnhanvien\\formthemnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formthemnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\monhoc\\c#\\librarymanagementsystem\\views\\usercontrols\\qlnhanvien\\formthemnhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formthemnhanvien.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlnhanvien\\formsuanhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formsuanhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|d:\\monhoc\\c#\\librarymanagementsystem\\views\\usercontrols\\qlnhanvien\\formthemnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formthemnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlnhanvien\\formthongtinnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\formthongtinnhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|D:\\MonHoc\\C#\\LibraryManagementSystem\\views\\usercontrols\\qlnhanvien\\taikhoan\\formsuataikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}|LibraryManagementSystem.csproj|solutionrelative:views\\usercontrols\\qlnhanvien\\taikhoan\\formsuataikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 231,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "formThemNhanVien.cs [Design]",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:14:59.123Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "formThemNhanVien.Designer.cs",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.Designer.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.Designer.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.Designer.cs",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:14:43.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "formSuaNhanVien.cs [Design]",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formSuaNhanVien.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formSuaNhanVien.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formSuaNhanVien.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formSuaNhanVien.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:12:37.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "formThemNhanVien.cs",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formThemNhanVien.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:36:10.019Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "formThongTinNhanVien.cs [Design]",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThongTinNhanVien.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\formThongTinNhanVien.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\formThongTinNhanVien.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\formThongTinNhanVien.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:14:58.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "formSuaTaiKhoan.cs [Design]",
+              "DocumentMoniker": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\TaiKhoan\\formSuaTaiKhoan.cs",
+              "RelativeDocumentMoniker": "Views\\UserControls\\QLNhanVien\\TaiKhoan\\formSuaTaiKhoan.cs",
+              "ToolTip": "D:\\MonHoc\\C#\\LibraryManagementSystem\\Views\\UserControls\\QLNhanVien\\TaiKhoan\\formSuaTaiKhoan.cs [Design]",
+              "RelativeToolTip": "Views\\UserControls\\QLNhanVien\\TaiKhoan\\formSuaTaiKhoan.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-29T09:12:29.183Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
