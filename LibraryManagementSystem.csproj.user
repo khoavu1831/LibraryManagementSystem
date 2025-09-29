@@ -7,6 +7,9 @@
     <Compile Update="Views\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\UserControls\QLNhanVien\formThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\UserControls\QLSach\FormThemSach.cs">
       <SubType>Form</SubType>
     </Compile>
