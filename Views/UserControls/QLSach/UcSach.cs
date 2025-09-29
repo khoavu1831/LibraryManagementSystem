@@ -30,5 +30,25 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         {
 
         }
+
+        private void dgvSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxTimKiem_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
