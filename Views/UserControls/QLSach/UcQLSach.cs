@@ -28,5 +28,25 @@ namespace LibraryManagementSystem.Views.UserControls.QuanLySach
         {
             LoadSubControl(new UcSach());
         }
+
+        private void btnTacGia_Click(object sender, EventArgs e)
+        {
+            LoadSubControl(new UcTacGia());
+        }
+
+        private void btnBanSaoSach_Click(object sender, EventArgs e)
+        {
+            LoadSubControl(new UcBanSaoSach());
+        }
+
+        private void btnNXB_Click(object sender, EventArgs e)
+        {
+            LoadSubControl(new UcNXB());
+        }
+
+        private void btnTheLoai_Click(object sender, EventArgs e)
+        {
+            LoadSubControl(new UcTheLoai());
+        }
     }
 }
