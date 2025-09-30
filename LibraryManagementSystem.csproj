@@ -83,7 +83,43 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Views\UserControls\QLPhat\Phat\formThemNhanVien.cs">
+    <Compile Update="Views\UserControls\QLSach\BanSaoSach\FormChiTietBSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\BanSaoSach\FormSuaBSS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\NXB\FormChiTietNXB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\NXB\FormSuaNXB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\NXB\FormThemNXB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\Sach\FormChiTietSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\Sach\FormSuaSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\Sach\FormThemSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\TacGia\FormChiTietTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\TacGia\FormSuaTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\TacGia\FormThemTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\TheLoai\FormSuaTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLSach\TheLoai\FormThemTheLoai.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

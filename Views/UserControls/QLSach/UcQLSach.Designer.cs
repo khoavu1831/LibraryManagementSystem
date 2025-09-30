@@ -115,7 +115,7 @@
             btnSach.TabIndex = 0;
             btnSach.Text = "Sách";
             btnSach.UseVisualStyleBackColor = false;
-            btnSach.Click += BtnSach_Click;
+            btnSach.Click += btnSach_Click;
             // 
             // panelSubContent
             // 
