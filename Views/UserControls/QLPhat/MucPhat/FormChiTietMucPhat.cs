@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
 {
-    public partial class Form1 : Form
+    public partial class FormChiTietMucPhat : Form
     {
-        public Form1()
+        public FormChiTietMucPhat()
         {
             InitializeComponent();
         }
