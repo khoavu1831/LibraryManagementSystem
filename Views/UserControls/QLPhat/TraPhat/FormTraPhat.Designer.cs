@@ -1,6 +1,6 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
 {
-    partial class FormThemPhieuPhat
+    partial class FormTraPhat
     {
         /// <summary>
         /// Required designer variable.
@@ -38,18 +38,24 @@
             btnThem = new Button();
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
+            label8 = new Label();
             textBoxSDT = new TextBox();
             textBoxDC = new TextBox();
-            textBoxMK = new TextBox();
             textBoxTK = new TextBox();
+            myComboBoxLoaiPhat = new LibraryManagementSystem.Resources.CustomComponents.MyComboBox();
+            dateTimePicker1 = new DateTimePicker();
+            dateTimePicker2 = new DateTimePicker();
             panel1 = new Panel();
             panel2 = new Panel();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            button1 = new Button();
+            button2 = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             btnHuy = new Button();
-            myComboBoxLoaiPhat = new LibraryManagementSystem.Resources.CustomComponents.MyComboBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,7 +65,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(95, 42);
+            label2.Size = new Size(95, 50);
             label2.TabIndex = 1;
             label2.Text = "Họ và tên:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -72,16 +78,16 @@
             textBoxHVT.Multiline = true;
             textBoxHVT.Name = "textBoxHVT";
             textBoxHVT.ReadOnly = true;
-            textBoxHVT.Size = new Size(227, 38);
+            textBoxHVT.Size = new Size(227, 46);
             textBoxHVT.TabIndex = 2;
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(3, 42);
+            label3.Location = new Point(3, 50);
             label3.Name = "label3";
-            label3.Size = new Size(95, 43);
+            label3.Size = new Size(95, 50);
             label3.TabIndex = 3;
             label3.Text = "Mã phiếu mượn:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -90,9 +96,9 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(3, 128);
+            label4.Location = new Point(3, 150);
             label4.Name = "label4";
-            label4.Size = new Size(95, 43);
+            label4.Size = new Size(95, 50);
             label4.TabIndex = 7;
             label4.Text = "Loại phạt:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -101,9 +107,9 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(3, 85);
+            label5.Location = new Point(3, 100);
             label5.Name = "label5";
-            label5.Size = new Size(95, 43);
+            label5.Size = new Size(95, 50);
             label5.TabIndex = 5;
             label5.Text = "Ngày lập:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -112,9 +118,9 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(3, 214);
+            label6.Location = new Point(3, 250);
             label6.Name = "label6";
-            label6.Size = new Size(95, 44);
+            label6.Size = new Size(95, 50);
             label6.TabIndex = 11;
             label6.Text = "Tiền phạt:";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,9 +129,9 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(3, 171);
+            label7.Location = new Point(3, 200);
             label7.Name = "label7";
-            label7.Size = new Size(95, 43);
+            label7.Size = new Size(95, 50);
             label7.TabIndex = 9;
             label7.Text = "Số ngày trễ:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -140,7 +146,6 @@
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
-            btnThem.Click += btnThem_Click;
             // 
             // label1
             // 
@@ -152,9 +157,8 @@
             label1.Name = "label1";
             label1.Size = new Size(456, 94);
             label1.TabIndex = 0;
-            label1.Text = "THÊM PHIẾU PHẠT";
+            label1.Text = "TRẢ PHIẾU PHẠT";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            label1.Click += label1_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -162,9 +166,9 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.2521F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.7479F));
+            tableLayoutPanel1.Controls.Add(label8, 0, 6);
             tableLayoutPanel1.Controls.Add(textBoxSDT, 1, 5);
             tableLayoutPanel1.Controls.Add(textBoxDC, 1, 4);
-            tableLayoutPanel1.Controls.Add(textBoxMK, 1, 2);
             tableLayoutPanel1.Controls.Add(textBoxTK, 1, 1);
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
             tableLayoutPanel1.Controls.Add(label4, 0, 3);
@@ -174,64 +178,93 @@
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
             tableLayoutPanel1.Controls.Add(label5, 0, 2);
             tableLayoutPanel1.Controls.Add(myComboBoxLoaiPhat, 1, 3);
+            tableLayoutPanel1.Controls.Add(dateTimePicker1, 1, 2);
+            tableLayoutPanel1.Controls.Add(dateTimePicker2, 1, 6);
             tableLayoutPanel1.Location = new Point(60, 18);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666641F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666641F));
+            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(334, 258);
+            tableLayoutPanel1.Size = new Size(334, 352);
             tableLayoutPanel1.TabIndex = 17;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Location = new Point(3, 300);
+            label8.Name = "label8";
+            label8.Size = new Size(95, 52);
+            label8.TabIndex = 20;
+            label8.Text = "Ngày trả phạt:";
+            label8.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBoxSDT
             // 
             textBoxSDT.Dock = DockStyle.Fill;
-            textBoxSDT.Location = new Point(104, 216);
+            textBoxSDT.Location = new Point(104, 252);
             textBoxSDT.Margin = new Padding(3, 2, 3, 2);
             textBoxSDT.Multiline = true;
             textBoxSDT.Name = "textBoxSDT";
             textBoxSDT.ReadOnly = true;
-            textBoxSDT.Size = new Size(227, 40);
+            textBoxSDT.Size = new Size(227, 46);
             textBoxSDT.TabIndex = 18;
             // 
             // textBoxDC
             // 
             textBoxDC.Dock = DockStyle.Fill;
-            textBoxDC.Location = new Point(104, 173);
+            textBoxDC.Location = new Point(104, 202);
             textBoxDC.Margin = new Padding(3, 2, 3, 2);
             textBoxDC.Multiline = true;
             textBoxDC.Name = "textBoxDC";
             textBoxDC.ReadOnly = true;
-            textBoxDC.Size = new Size(227, 39);
+            textBoxDC.Size = new Size(227, 46);
             textBoxDC.TabIndex = 17;
-            // 
-            // textBoxMK
-            // 
-            textBoxMK.Dock = DockStyle.Fill;
-            textBoxMK.Location = new Point(104, 87);
-            textBoxMK.Margin = new Padding(3, 2, 3, 2);
-            textBoxMK.Multiline = true;
-            textBoxMK.Name = "textBoxMK";
-            textBoxMK.ReadOnly = true;
-            textBoxMK.Size = new Size(227, 39);
-            textBoxMK.TabIndex = 15;
             // 
             // textBoxTK
             // 
             textBoxTK.Dock = DockStyle.Fill;
-            textBoxTK.Location = new Point(104, 44);
+            textBoxTK.Location = new Point(104, 52);
             textBoxTK.Margin = new Padding(3, 2, 3, 2);
             textBoxTK.Multiline = true;
             textBoxTK.Name = "textBoxTK";
             textBoxTK.ReadOnly = true;
-            textBoxTK.Size = new Size(227, 39);
+            textBoxTK.Size = new Size(227, 46);
             textBoxTK.TabIndex = 14;
+            // 
+            // myComboBoxLoaiPhat
+            // 
+            myComboBoxLoaiPhat.Dock = DockStyle.Fill;
+            myComboBoxLoaiPhat.DrawMode = DrawMode.OwnerDrawFixed;
+            myComboBoxLoaiPhat.FormattingEnabled = true;
+            myComboBoxLoaiPhat.ItemHeight = 38;
+            myComboBoxLoaiPhat.Location = new Point(104, 153);
+            myComboBoxLoaiPhat.Name = "myComboBoxLoaiPhat";
+            myComboBoxLoaiPhat.Size = new Size(227, 44);
+            myComboBoxLoaiPhat.TabIndex = 19;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Anchor = AnchorStyles.None;
+            dateTimePicker1.Location = new Point(117, 113);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 21;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Anchor = AnchorStyles.None;
+            dateTimePicker2.Location = new Point(117, 314);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(200, 23);
+            dateTimePicker2.TabIndex = 22;
             // 
             // panel1
             // 
@@ -245,14 +278,53 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(tableLayoutPanel3);
             panel2.Controls.Add(tableLayoutPanel1);
             panel2.Controls.Add(tableLayoutPanel2);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 94);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(456, 342);
+            panel2.Size = new Size(456, 489);
             panel2.TabIndex = 19;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(button1, 0, 0);
+            tableLayoutPanel3.Controls.Add(button2, 1, 0);
+            tableLayoutPanel3.Location = new Point(66, 394);
+            tableLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
+            tableLayoutPanel3.Size = new Size(325, 40);
+            tableLayoutPanel3.TabIndex = 20;
+            // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Top;
+            button1.Location = new Point(3, 2);
+            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Name = "button1";
+            button1.Size = new Size(156, 34);
+            button1.TabIndex = 15;
+            button1.Text = "Thanh toán";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Top;
+            button2.Location = new Point(165, 2);
+            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Name = "button2";
+            button2.Size = new Size(157, 34);
+            button2.TabIndex = 18;
+            button2.Text = "Hủy";
+            button2.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -281,32 +353,22 @@
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             // 
-            // myComboBoxLoaiPhat
-            // 
-            myComboBoxLoaiPhat.Dock = DockStyle.Fill;
-            myComboBoxLoaiPhat.DrawMode = DrawMode.OwnerDrawFixed;
-            myComboBoxLoaiPhat.FormattingEnabled = true;
-            myComboBoxLoaiPhat.ItemHeight = 31;
-            myComboBoxLoaiPhat.Location = new Point(104, 131);
-            myComboBoxLoaiPhat.Name = "myComboBoxLoaiPhat";
-            myComboBoxLoaiPhat.Size = new Size(227, 37);
-            myComboBoxLoaiPhat.TabIndex = 19;
-            // 
-            // FormThemPhieuPhat
+            // FormTraPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(456, 436);
+            ClientSize = new Size(456, 583);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "FormThemPhieuPhat";
+            Name = "FormTraPhat";
             Text = "formThemPhieuPhat";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -314,7 +376,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TextBox textBoxSDT;
         private TextBox textBoxDC;
-        private TextBox textBoxMK;
         private TextBox textBoxTK;
         private Panel panel1;
         private Panel panel2;
@@ -331,5 +392,11 @@
         private Button btnThem;
         private Label label1;
         private Resources.CustomComponents.MyComboBox myComboBoxLoaiPhat;
+        private Label label8;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Button button1;
+        private Button button2;
+        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker2;
     }
 }
