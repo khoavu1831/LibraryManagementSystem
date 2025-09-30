@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
-    partial class UserControl1
+    partial class UcQLPhat
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             panelNavMenu = new Panel();
-            btnQuyen = new Button();
-            btnVaiTro = new Button();
-            btnTaiKhoan = new Button();
-            btnNhanVien = new Button();
+            btnMucPhat = new Button();
+            btnTraPhat = new Button();
+            btnPhat = new Button();
             panelSubContent = new Panel();
             panelNavMenu.SuspendLayout();
             SuspendLayout();
@@ -40,86 +39,71 @@
             // panelNavMenu
             // 
             panelNavMenu.BackColor = Color.White;
-            panelNavMenu.Controls.Add(btnQuyen);
-            panelNavMenu.Controls.Add(btnVaiTro);
-            panelNavMenu.Controls.Add(btnTaiKhoan);
-            panelNavMenu.Controls.Add(btnNhanVien);
+            panelNavMenu.Controls.Add(btnMucPhat);
+            panelNavMenu.Controls.Add(btnTraPhat);
+            panelNavMenu.Controls.Add(btnPhat);
             panelNavMenu.Dock = DockStyle.Top;
             panelNavMenu.Location = new Point(0, 0);
-            panelNavMenu.Margin = new Padding(3, 4, 3, 4);
             panelNavMenu.Name = "panelNavMenu";
-            panelNavMenu.Size = new Size(984, 89);
+            panelNavMenu.Size = new Size(861, 67);
             panelNavMenu.TabIndex = 1;
             // 
-            // btnQuyen
+            // btnMucPhat
             // 
-            btnQuyen.BackColor = Color.White;
-            btnQuyen.Dock = DockStyle.Left;
-            btnQuyen.FlatStyle = FlatStyle.Flat;
-            btnQuyen.Location = new Point(381, 0);
-            btnQuyen.Margin = new Padding(3, 4, 3, 4);
-            btnQuyen.Name = "btnQuyen";
-            btnQuyen.Size = new Size(127, 89);
-            btnQuyen.TabIndex = 3;
-            btnQuyen.Text = "Quyền";
-            btnQuyen.UseVisualStyleBackColor = false;
+            btnMucPhat.BackColor = Color.White;
+            btnMucPhat.Dock = DockStyle.Left;
+            btnMucPhat.FlatStyle = FlatStyle.Flat;
+            btnMucPhat.Location = new Point(222, 0);
+            btnMucPhat.Name = "btnMucPhat";
+            btnMucPhat.Size = new Size(111, 67);
+            btnMucPhat.TabIndex = 2;
+            btnMucPhat.Text = "Mức Phạt";
+            btnMucPhat.UseVisualStyleBackColor = false;
+            btnMucPhat.Click += btnMucPhat_Click;
             // 
-            // btnVaiTro
+            // btnTraPhat
             // 
-            btnVaiTro.BackColor = Color.White;
-            btnVaiTro.Dock = DockStyle.Left;
-            btnVaiTro.FlatStyle = FlatStyle.Flat;
-            btnVaiTro.Location = new Point(254, 0);
-            btnVaiTro.Margin = new Padding(3, 4, 3, 4);
-            btnVaiTro.Name = "btnVaiTro";
-            btnVaiTro.Size = new Size(127, 89);
-            btnVaiTro.TabIndex = 2;
-            btnVaiTro.Text = "Vai trò";
-            btnVaiTro.UseVisualStyleBackColor = false;
+            btnTraPhat.BackColor = Color.White;
+            btnTraPhat.Dock = DockStyle.Left;
+            btnTraPhat.FlatStyle = FlatStyle.Flat;
+            btnTraPhat.Location = new Point(111, 0);
+            btnTraPhat.Name = "btnTraPhat";
+            btnTraPhat.Size = new Size(111, 67);
+            btnTraPhat.TabIndex = 1;
+            btnTraPhat.Text = "Trả Phạt";
+            btnTraPhat.UseVisualStyleBackColor = false;
+            btnTraPhat.Click += btnTraPhat_Click;
             // 
-            // btnTaiKhoan
+            // btnPhat
             // 
-            btnTaiKhoan.BackColor = Color.White;
-            btnTaiKhoan.Dock = DockStyle.Left;
-            btnTaiKhoan.FlatStyle = FlatStyle.Flat;
-            btnTaiKhoan.Location = new Point(127, 0);
-            btnTaiKhoan.Margin = new Padding(3, 4, 3, 4);
-            btnTaiKhoan.Name = "btnTaiKhoan";
-            btnTaiKhoan.Size = new Size(127, 89);
-            btnTaiKhoan.TabIndex = 1;
-            btnTaiKhoan.Text = "Tài khoản";
-            btnTaiKhoan.UseVisualStyleBackColor = false;
-            // 
-            // btnNhanVien
-            // 
-            btnNhanVien.BackColor = Color.White;
-            btnNhanVien.Dock = DockStyle.Left;
-            btnNhanVien.FlatStyle = FlatStyle.Flat;
-            btnNhanVien.Location = new Point(0, 0);
-            btnNhanVien.Margin = new Padding(3, 4, 3, 4);
-            btnNhanVien.Name = "btnNhanVien";
-            btnNhanVien.Size = new Size(127, 89);
-            btnNhanVien.TabIndex = 0;
-            btnNhanVien.Text = "Nhân viên";
-            btnNhanVien.UseVisualStyleBackColor = false;
+            btnPhat.BackColor = Color.White;
+            btnPhat.Dock = DockStyle.Left;
+            btnPhat.FlatStyle = FlatStyle.Flat;
+            btnPhat.Location = new Point(0, 0);
+            btnPhat.Name = "btnPhat";
+            btnPhat.Size = new Size(111, 67);
+            btnPhat.TabIndex = 0;
+            btnPhat.Text = "Phạt";
+            btnPhat.UseVisualStyleBackColor = false;
+            btnPhat.Click += btnPhat_Click;
             // 
             // panelSubContent
             // 
             panelSubContent.Dock = DockStyle.Fill;
-            panelSubContent.Location = new Point(0, 89);
-            panelSubContent.Margin = new Padding(3, 4, 3, 4);
+            panelSubContent.Location = new Point(0, 67);
             panelSubContent.Name = "panelSubContent";
-            panelSubContent.Size = new Size(984, 723);
+            panelSubContent.Size = new Size(861, 542);
             panelSubContent.TabIndex = 2;
             // 
-            // UcQLNhanVien
+            // UserControl1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelSubContent);
             Controls.Add(panelNavMenu);
-            Name = "UcQLNhanVien";
-            Size = new Size(984, 812);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "UserControl1";
+            Size = new Size(861, 609);
             panelNavMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -127,10 +111,9 @@
         #endregion
 
         private Panel panelNavMenu;
-        private Button btnQuyen;
-        private Button btnVaiTro;
-        private Button btnTaiKhoan;
-        private Button btnNhanVien;
+        private Button btnMucPhat;
+        private Button btnTraPhat;
+        private Button btnPhat;
         private Panel panelSubContent;
     }
 }

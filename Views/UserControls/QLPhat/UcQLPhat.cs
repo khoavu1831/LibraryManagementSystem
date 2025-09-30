@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
-    public partial class UserControl1 : UserControl
+    public partial class UcQLPhat : UserControl
     {
-        public UserControl1()
+        public UcQLPhat()
         {
             InitializeComponent();
+        }
+
+        private void btnPhat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTraPhat_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMucPhat_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
