@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
 {
-    public partial class UserControl1 : UserControl
+    public partial class Form1 : Form
     {
-        public UserControl1()
+        public Form1()
         {
             InitializeComponent();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

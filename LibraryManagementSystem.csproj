@@ -83,6 +83,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\UserControls\QLPhat\Phat\formThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -95,7 +98,6 @@
   <ItemGroup>
     <Folder Include="Views\UserControls\QLNhapSach\" />
     <Folder Include="Views\UserControls\QLThongKe\" />
-    <Folder Include="Views\UserControls\QLPhat\" />
     <Folder Include="Views\UserControls\TrangChu\" />
     <Folder Include="Views\UserControls\QLMuonTra\" />
     <Folder Include="Views\UserControls\QLDocGia\" />

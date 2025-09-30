@@ -40,13 +40,13 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             textBoxSDT = new TextBox();
             textBoxDC = new TextBox();
-            textBoxNS = new TextBox();
             textBoxMK = new TextBox();
             textBoxTK = new TextBox();
             panel1 = new Panel();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             btnHuy = new Button();
+            myComboBoxLoaiPhat = new LibraryManagementSystem.Resources.CustomComboBox.MyComboBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -59,7 +59,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(95, 41);
+            label2.Size = new Size(95, 42);
             label2.TabIndex = 1;
             label2.Text = "Họ và tên:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -72,16 +72,16 @@
             textBoxHVT.Multiline = true;
             textBoxHVT.Name = "textBoxHVT";
             textBoxHVT.ReadOnly = true;
-            textBoxHVT.Size = new Size(227, 37);
+            textBoxHVT.Size = new Size(227, 38);
             textBoxHVT.TabIndex = 2;
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(3, 41);
+            label3.Location = new Point(3, 42);
             label3.Name = "label3";
-            label3.Size = new Size(95, 42);
+            label3.Size = new Size(95, 43);
             label3.TabIndex = 3;
             label3.Text = "Mã phiếu mượn:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -90,20 +90,20 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(3, 125);
+            label4.Location = new Point(3, 128);
             label4.Name = "label4";
-            label4.Size = new Size(95, 42);
+            label4.Size = new Size(95, 43);
             label4.TabIndex = 7;
-            label4.Text = "Lý do phạt:";
+            label4.Text = "Loại phạt:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(3, 83);
+            label5.Location = new Point(3, 85);
             label5.Name = "label5";
-            label5.Size = new Size(95, 42);
+            label5.Size = new Size(95, 43);
             label5.TabIndex = 5;
             label5.Text = "Ngày lập:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -112,9 +112,9 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(3, 209);
+            label6.Location = new Point(3, 214);
             label6.Name = "label6";
-            label6.Size = new Size(95, 43);
+            label6.Size = new Size(95, 44);
             label6.TabIndex = 11;
             label6.Text = "Tiền phạt:";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,9 +123,9 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(3, 167);
+            label7.Location = new Point(3, 171);
             label7.Name = "label7";
-            label7.Size = new Size(95, 42);
+            label7.Size = new Size(95, 43);
             label7.TabIndex = 9;
             label7.Text = "Số ngày trễ:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -164,7 +164,6 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.7479F));
             tableLayoutPanel1.Controls.Add(textBoxSDT, 1, 5);
             tableLayoutPanel1.Controls.Add(textBoxDC, 1, 4);
-            tableLayoutPanel1.Controls.Add(textBoxNS, 1, 3);
             tableLayoutPanel1.Controls.Add(textBoxMK, 1, 2);
             tableLayoutPanel1.Controls.Add(textBoxTK, 1, 1);
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
@@ -174,6 +173,7 @@
             tableLayoutPanel1.Controls.Add(label6, 0, 5);
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
             tableLayoutPanel1.Controls.Add(label5, 0, 2);
+            tableLayoutPanel1.Controls.Add(myComboBoxLoaiPhat, 1, 3);
             tableLayoutPanel1.Location = new Point(60, 18);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -185,62 +185,52 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666679F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.6666641F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(334, 252);
+            tableLayoutPanel1.Size = new Size(334, 258);
             tableLayoutPanel1.TabIndex = 17;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // textBoxSDT
             // 
             textBoxSDT.Dock = DockStyle.Fill;
-            textBoxSDT.Location = new Point(104, 211);
+            textBoxSDT.Location = new Point(104, 216);
             textBoxSDT.Margin = new Padding(3, 2, 3, 2);
             textBoxSDT.Multiline = true;
             textBoxSDT.Name = "textBoxSDT";
             textBoxSDT.ReadOnly = true;
-            textBoxSDT.Size = new Size(227, 39);
+            textBoxSDT.Size = new Size(227, 40);
             textBoxSDT.TabIndex = 18;
             // 
             // textBoxDC
             // 
             textBoxDC.Dock = DockStyle.Fill;
-            textBoxDC.Location = new Point(104, 169);
+            textBoxDC.Location = new Point(104, 173);
             textBoxDC.Margin = new Padding(3, 2, 3, 2);
             textBoxDC.Multiline = true;
             textBoxDC.Name = "textBoxDC";
             textBoxDC.ReadOnly = true;
-            textBoxDC.Size = new Size(227, 38);
+            textBoxDC.Size = new Size(227, 39);
             textBoxDC.TabIndex = 17;
-            // 
-            // textBoxNS
-            // 
-            textBoxNS.Dock = DockStyle.Fill;
-            textBoxNS.Location = new Point(104, 127);
-            textBoxNS.Margin = new Padding(3, 2, 3, 2);
-            textBoxNS.Multiline = true;
-            textBoxNS.Name = "textBoxNS";
-            textBoxNS.Size = new Size(227, 38);
-            textBoxNS.TabIndex = 16;
             // 
             // textBoxMK
             // 
             textBoxMK.Dock = DockStyle.Fill;
-            textBoxMK.Location = new Point(104, 85);
+            textBoxMK.Location = new Point(104, 87);
             textBoxMK.Margin = new Padding(3, 2, 3, 2);
             textBoxMK.Multiline = true;
             textBoxMK.Name = "textBoxMK";
             textBoxMK.ReadOnly = true;
-            textBoxMK.Size = new Size(227, 38);
+            textBoxMK.Size = new Size(227, 39);
             textBoxMK.TabIndex = 15;
             // 
             // textBoxTK
             // 
             textBoxTK.Dock = DockStyle.Fill;
-            textBoxTK.Location = new Point(104, 43);
+            textBoxTK.Location = new Point(104, 44);
             textBoxTK.Margin = new Padding(3, 2, 3, 2);
             textBoxTK.Multiline = true;
             textBoxTK.Name = "textBoxTK";
             textBoxTK.ReadOnly = true;
-            textBoxTK.Size = new Size(227, 38);
+            textBoxTK.Size = new Size(227, 39);
             textBoxTK.TabIndex = 14;
             // 
             // panel1
@@ -291,6 +281,17 @@
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             // 
+            // myComboBoxLoaiPhat
+            // 
+            myComboBoxLoaiPhat.Dock = DockStyle.Fill;
+            myComboBoxLoaiPhat.DrawMode = DrawMode.OwnerDrawFixed;
+            myComboBoxLoaiPhat.FormattingEnabled = true;
+            myComboBoxLoaiPhat.ItemHeight = 31;
+            myComboBoxLoaiPhat.Location = new Point(104, 131);
+            myComboBoxLoaiPhat.Name = "myComboBoxLoaiPhat";
+            myComboBoxLoaiPhat.Size = new Size(227, 37);
+            myComboBoxLoaiPhat.TabIndex = 19;
+            // 
             // FormThemPhieuPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -313,7 +314,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TextBox textBoxSDT;
         private TextBox textBoxDC;
-        private TextBox textBoxNS;
         private TextBox textBoxMK;
         private TextBox textBoxTK;
         private Panel panel1;
@@ -330,5 +330,6 @@
         private Label label7;
         private Button btnThem;
         private Label label1;
+        private Resources.CustomComboBox.MyComboBox myComboBoxLoaiPhat;
     }
 }

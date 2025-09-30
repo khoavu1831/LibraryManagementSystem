@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
 {
-    public partial class Form1 : Form
+    public partial class FormChiTietPhieuPhat : Form
     {
-        public Form1()
+        public FormChiTietPhieuPhat()
         {
             InitializeComponent();
         }
