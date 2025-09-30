@@ -37,8 +37,8 @@
             btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
-            btnThem = new Button();
             dgvSach = new DataGridView();
+            btnThem = new Button();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
@@ -178,6 +178,17 @@
             btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSua.UseVisualStyleBackColor = false;
             // 
+            // dgvSach
+            // 
+            dgvSach.AccessibleRole = AccessibleRole.None;
+            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSach.Dock = DockStyle.Fill;
+            dgvSach.Location = new Point(0, 72);
+            dgvSach.Name = "dgvSach";
+            dgvSach.Size = new Size(774, 491);
+            dgvSach.TabIndex = 1;
+            dgvSach.CellContentClick += dgvSach_CellContentClick;
+            // 
             // btnThem
             // 
             btnThem.BackColor = Color.White;
@@ -194,17 +205,6 @@
             btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += BtnThem_Click;
-            // 
-            // dgvSach
-            // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
-            dgvSach.CellContentClick += dgvSach_CellContentClick;
             // 
             // UcSach
             // 
@@ -224,7 +224,6 @@
         #endregion
 
         private Panel panelCRUD;
-        private Button btnThem;
         private DataGridView dgvSach;
         private Button btnXoa;
         private Button btnSua;
@@ -234,5 +233,6 @@
         private TableLayoutPanel panelSearch;
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
+        private Button btnThem;
     }
 }
