@@ -1,6 +1,6 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
 {
-    partial class UcSach
+    partial class UcPhat
     {
         /// <summary> 
         /// Required designer variable.
@@ -37,11 +37,11 @@
             btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
-            dgvSach = new DataGridView();
             btnThem = new Button();
+            dgvPhat = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -112,6 +112,7 @@
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnExcel
             // 
@@ -144,7 +145,6 @@
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
-            btnChiTiet.Click += btnChiTiet_Click;
             // 
             // btnXoa
             // 
@@ -161,6 +161,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += this.btnXoa_Click;
             // 
             // btnSua
             // 
@@ -179,17 +180,6 @@
             btnSua.UseVisualStyleBackColor = false;
             btnSua.Click += btnSua_Click;
             // 
-            // dgvSach
-            // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
-            dgvSach.CellContentClick += dgvSach_CellContentClick;
-            // 
             // btnThem
             // 
             btnThem.BackColor = Color.White;
@@ -207,36 +197,36 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dgvSach
+            // dgvPhat
             // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
+            dgvPhat.AccessibleRole = AccessibleRole.None;
+            dgvPhat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPhat.Dock = DockStyle.Fill;
+            dgvPhat.Location = new Point(0, 72);
+            dgvPhat.Name = "dgvPhat";
+            dgvPhat.Size = new Size(774, 491);
+            dgvPhat.TabIndex = 1;
             // 
-
-            // UcSach
+            // UcPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvSach);
+            Controls.Add(dgvPhat);
             Controls.Add(panelCRUD);
-            Name = "UcSach";
+            Name = "UcPhat";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhat).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelCRUD;
-        private DataGridView dgvSach;
+        private Button btnThem;
+        private DataGridView dgvPhat;
         private Button btnXoa;
         private Button btnSua;
         private Button btnChiTiet;
@@ -245,6 +235,5 @@
         private TableLayoutPanel panelSearch;
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
-        private Button btnThem;
     }
 }
