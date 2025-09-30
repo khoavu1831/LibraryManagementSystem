@@ -31,7 +31,7 @@
             label1 = new Label();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            btnThem = new Button();
+            btnSua = new Button();
             btnHuy = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
             textBoxEmail = new TextBox();
@@ -82,7 +82,7 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(btnThem, 0, 0);
+            tableLayoutPanel2.Controls.Add(btnSua, 0, 0);
             tableLayoutPanel2.Controls.Add(btnHuy, 1, 0);
             tableLayoutPanel2.Location = new Point(72, 344);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -92,15 +92,15 @@
             tableLayoutPanel2.Size = new Size(371, 54);
             tableLayoutPanel2.TabIndex = 19;
             // 
-            // btnThem
+            // btnSua
             // 
-            btnThem.Dock = DockStyle.Top;
-            btnThem.Location = new Point(3, 3);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(179, 46);
-            btnThem.TabIndex = 15;
-            btnThem.Text = "Sửa";
-            btnThem.UseVisualStyleBackColor = true;
+            btnSua.Dock = DockStyle.Top;
+            btnSua.Location = new Point(3, 3);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(179, 46);
+            btnSua.TabIndex = 15;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = true;
             // 
             // btnHuy
             // 
@@ -307,7 +307,7 @@
         private Label label1;
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel2;
-        private Button btnThem;
+        private Button btnSua;
         private Button btnHuy;
         private TableLayoutPanel tableLayoutPanel1;
         private TextBox textBoxEmail;
