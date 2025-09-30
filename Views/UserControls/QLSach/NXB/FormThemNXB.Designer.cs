@@ -34,13 +34,13 @@
             panelContent = new Panel();
             tableLayoutPanelButtons = new TableLayoutPanel();
             btnHuy = new Button();
-            label2 = new Label();
-            textBoxTenNXB = new TextBox();
             tableLayoutPanelContent = new TableLayoutPanel();
-            label1 = new Label();
-            label3 = new Label();
-            textBoxDiaChi = new TextBox();
             textBoxSDT = new TextBox();
+            textBoxDiaChi = new TextBox();
+            label1 = new Label();
+            textBoxTenNXB = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
             panelTop.SuspendLayout();
             panelContent.SuspendLayout();
             tableLayoutPanelButtons.SuspendLayout();
@@ -57,6 +57,7 @@
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // labelTitle
             // 
@@ -118,25 +119,7 @@
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(102, 28);
-            label2.TabIndex = 1;
-            label2.Text = "Tên NXB:";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // textBoxTenNXB
-            // 
-            textBoxTenNXB.Location = new Point(111, 2);
-            textBoxTenNXB.Margin = new Padding(3, 2, 3, 2);
-            textBoxTenNXB.Name = "textBoxTenNXB";
-            textBoxTenNXB.Size = new Size(244, 23);
-            textBoxTenNXB.TabIndex = 2;
+            btnHuy.Click += btnHuy_Click;
             // 
             // tableLayoutPanelContent
             // 
@@ -161,6 +144,22 @@
             tableLayoutPanelContent.Size = new Size(358, 84);
             tableLayoutPanelContent.TabIndex = 17;
             // 
+            // textBoxSDT
+            // 
+            textBoxSDT.Location = new Point(111, 58);
+            textBoxSDT.Margin = new Padding(3, 2, 3, 2);
+            textBoxSDT.Name = "textBoxSDT";
+            textBoxSDT.Size = new Size(244, 23);
+            textBoxSDT.TabIndex = 6;
+            // 
+            // textBoxDiaChi
+            // 
+            textBoxDiaChi.Location = new Point(111, 30);
+            textBoxDiaChi.Margin = new Padding(3, 2, 3, 2);
+            textBoxDiaChi.Name = "textBoxDiaChi";
+            textBoxDiaChi.Size = new Size(244, 23);
+            textBoxDiaChi.TabIndex = 5;
+            // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -172,6 +171,25 @@
             label1.Text = "Địa chỉ:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // textBoxTenNXB
+            // 
+            textBoxTenNXB.Location = new Point(111, 2);
+            textBoxTenNXB.Margin = new Padding(3, 2, 3, 2);
+            textBoxTenNXB.Name = "textBoxTenNXB";
+            textBoxTenNXB.Size = new Size(244, 23);
+            textBoxTenNXB.TabIndex = 2;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(102, 28);
+            label2.TabIndex = 1;
+            label2.Text = "Tên NXB:";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -182,22 +200,6 @@
             label3.TabIndex = 4;
             label3.Text = "Số điện thoại:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // textBoxDiaChi
-            // 
-            textBoxDiaChi.Location = new Point(111, 30);
-            textBoxDiaChi.Margin = new Padding(3, 2, 3, 2);
-            textBoxDiaChi.Name = "textBoxDiaChi";
-            textBoxDiaChi.Size = new Size(244, 23);
-            textBoxDiaChi.TabIndex = 5;
-            // 
-            // textBoxSDT
-            // 
-            textBoxSDT.Location = new Point(111, 58);
-            textBoxSDT.Margin = new Padding(3, 2, 3, 2);
-            textBoxSDT.Name = "textBoxSDT";
-            textBoxSDT.Size = new Size(244, 23);
-            textBoxSDT.TabIndex = 6;
             // 
             // FormThemNXB
             // 

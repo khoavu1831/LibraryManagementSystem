@@ -38,10 +38,10 @@
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dgvSach = new DataGridView();
+            dgvTacGia = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTacGia).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -196,28 +196,28 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dgvSach
+            // dgvTacGia
             // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
+            dgvTacGia.AccessibleRole = AccessibleRole.None;
+            dgvTacGia.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTacGia.Dock = DockStyle.Fill;
+            dgvTacGia.Location = new Point(0, 72);
+            dgvTacGia.Name = "dgvTacGia";
+            dgvTacGia.Size = new Size(774, 491);
+            dgvTacGia.TabIndex = 1;
             // 
             // UcTacGia
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvSach);
+            Controls.Add(dgvTacGia);
             Controls.Add(panelCRUD);
             Name = "UcTacGia";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTacGia).EndInit();
             ResumeLayout(false);
         }
 
@@ -225,7 +225,7 @@
 
         private Panel panelCRUD;
         private Button btnThem;
-        private DataGridView dgvSach;
+        private DataGridView dgvTacGia;
         private Button btnXoa;
         private Button btnSua;
         private Button btnChiTiet;
