@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
-    public partial class FormThemSach : Form
+    public partial class FormSuaSach : Form
     {
-        public FormThemSach()
+        public FormSuaSach()
         {
             InitializeComponent();
         }

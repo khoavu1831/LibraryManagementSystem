@@ -37,7 +37,6 @@
             btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
-            btnThem = new Button();
             dgvSach = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
@@ -52,7 +51,6 @@
             panelCRUD.Controls.Add(btnChiTiet);
             panelCRUD.Controls.Add(btnXoa);
             panelCRUD.Controls.Add(btnSua);
-            panelCRUD.Controls.Add(btnThem);
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
             panelCRUD.Name = "panelCRUD";
@@ -120,7 +118,7 @@
             btnExcel.FlatAppearance.BorderSize = 0;
             btnExcel.FlatStyle = FlatStyle.Flat;
             btnExcel.Image = Properties.Resources.iconExc;
-            btnExcel.Location = new Point(308, 0);
+            btnExcel.Location = new Point(231, 0);
             btnExcel.Margin = new Padding(0);
             btnExcel.Name = "btnExcel";
             btnExcel.Size = new Size(77, 72);
@@ -136,7 +134,7 @@
             btnChiTiet.FlatAppearance.BorderSize = 0;
             btnChiTiet.FlatStyle = FlatStyle.Flat;
             btnChiTiet.Image = Properties.Resources.iconCT;
-            btnChiTiet.Location = new Point(231, 0);
+            btnChiTiet.Location = new Point(154, 0);
             btnChiTiet.Margin = new Padding(0);
             btnChiTiet.Name = "btnChiTiet";
             btnChiTiet.Size = new Size(77, 72);
@@ -144,6 +142,7 @@
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
+            btnChiTiet.Click += btnChiTiet_Click;
             // 
             // btnXoa
             // 
@@ -152,7 +151,7 @@
             btnXoa.FlatAppearance.BorderSize = 0;
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Image = Properties.Resources.iconxoa;
-            btnXoa.Location = new Point(154, 0);
+            btnXoa.Location = new Point(77, 0);
             btnXoa.Margin = new Padding(0);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(77, 72);
@@ -168,7 +167,7 @@
             btnSua.FlatAppearance.BorderSize = 0;
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Image = Properties.Resources.iconsua;
-            btnSua.Location = new Point(77, 0);
+            btnSua.Location = new Point(0, 0);
             btnSua.Margin = new Padding(0);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(77, 72);
@@ -176,22 +175,7 @@
             btnSua.Text = "Sửa";
             btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSua.UseVisualStyleBackColor = false;
-            // 
-            // btnThem
-            // 
-            btnThem.BackColor = Color.White;
-            btnThem.Dock = DockStyle.Left;
-            btnThem.FlatAppearance.BorderSize = 0;
-            btnThem.FlatStyle = FlatStyle.Flat;
-            btnThem.Image = Properties.Resources.iconthem;
-            btnThem.Location = new Point(0, 0);
-            btnThem.Margin = new Padding(0);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(77, 72);
-            btnThem.TabIndex = 0;
-            btnThem.Text = "Thêm";
-            btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnThem.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // dgvSach
             // 
@@ -203,13 +187,13 @@
             dgvSach.Size = new Size(774, 491);
             dgvSach.TabIndex = 1;
             // 
-            // UcSach
+            // UcBanSaoSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvSach);
             Controls.Add(panelCRUD);
-            Name = "UcSach";
+            Name = "UcBanSaoSach";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
@@ -221,7 +205,6 @@
         #endregion
 
         private Panel panelCRUD;
-        private Button btnThem;
         private DataGridView dgvSach;
         private Button btnXoa;
         private Button btnSua;

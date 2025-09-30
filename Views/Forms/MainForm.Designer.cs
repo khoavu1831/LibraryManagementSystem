@@ -221,7 +221,7 @@
             btnQLSach.Text = "   Sách";
             btnQLSach.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnQLSach.UseVisualStyleBackColor = false;
-            btnQLSach.Click += BtnQLSach_Click;
+            btnQLSach.Click += btnQLSach_Click;
             // 
             // btnTrangChu
             // 
@@ -240,7 +240,7 @@
             btnTrangChu.TextAlign = ContentAlignment.MiddleLeft;
             btnTrangChu.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnTrangChu.UseVisualStyleBackColor = false;
-            btnTrangChu.Click += BtnTrangChu_Click;
+            btnTrangChu.Click += btnTrangChu_Click;
             // 
             // panelUser
             // 

@@ -34,7 +34,6 @@
             txtBoxTimKiem = new TextBox();
             btnLamMoi = new Button();
             btnExcel = new Button();
-            btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
@@ -49,7 +48,6 @@
             panelCRUD.BackColor = Color.White;
             panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnExcel);
-            panelCRUD.Controls.Add(btnChiTiet);
             panelCRUD.Controls.Add(btnXoa);
             panelCRUD.Controls.Add(btnSua);
             panelCRUD.Controls.Add(btnThem);
@@ -120,7 +118,7 @@
             btnExcel.FlatAppearance.BorderSize = 0;
             btnExcel.FlatStyle = FlatStyle.Flat;
             btnExcel.Image = Properties.Resources.iconExc;
-            btnExcel.Location = new Point(308, 0);
+            btnExcel.Location = new Point(231, 0);
             btnExcel.Margin = new Padding(0);
             btnExcel.Name = "btnExcel";
             btnExcel.Size = new Size(77, 72);
@@ -128,22 +126,6 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
-            // 
-            // btnChiTiet
-            // 
-            btnChiTiet.BackColor = Color.White;
-            btnChiTiet.Dock = DockStyle.Left;
-            btnChiTiet.FlatAppearance.BorderSize = 0;
-            btnChiTiet.FlatStyle = FlatStyle.Flat;
-            btnChiTiet.Image = Properties.Resources.iconCT;
-            btnChiTiet.Location = new Point(231, 0);
-            btnChiTiet.Margin = new Padding(0);
-            btnChiTiet.Name = "btnChiTiet";
-            btnChiTiet.Size = new Size(77, 72);
-            btnChiTiet.TabIndex = 3;
-            btnChiTiet.Text = "Chi Tiết";
-            btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnChiTiet.UseVisualStyleBackColor = false;
             // 
             // btnXoa
             // 
@@ -176,6 +158,7 @@
             btnSua.Text = "Sửa";
             btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -192,6 +175,7 @@
             btnThem.Text = "Thêm";
             btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // dgvSach
             // 
@@ -203,13 +187,13 @@
             dgvSach.Size = new Size(774, 491);
             dgvSach.TabIndex = 1;
             // 
-            // UcSach
+            // UcTheLoai
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvSach);
             Controls.Add(panelCRUD);
-            Name = "UcSach";
+            Name = "UcTheLoai";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
@@ -225,7 +209,6 @@
         private DataGridView dgvSach;
         private Button btnXoa;
         private Button btnSua;
-        private Button btnChiTiet;
         private Button btnExcel;
         private Button btnLamMoi;
         private TableLayoutPanel panelSearch;
