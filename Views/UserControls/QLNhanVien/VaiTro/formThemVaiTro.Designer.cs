@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
 {
-    partial class formThemVaiTro
+    partial class FormThemVaiTro
     {
         /// <summary>
         /// Required designer variable.

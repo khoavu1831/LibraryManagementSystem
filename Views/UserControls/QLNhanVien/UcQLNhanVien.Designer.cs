@@ -63,6 +63,7 @@
             btnQuyen.TabIndex = 3;
             btnQuyen.Text = "Quyền";
             btnQuyen.UseVisualStyleBackColor = false;
+            btnQuyen.Click += btnQuyen_Click;
             // 
             // btnVaiTro
             // 
@@ -76,6 +77,7 @@
             btnVaiTro.TabIndex = 2;
             btnVaiTro.Text = "Vai trò";
             btnVaiTro.UseVisualStyleBackColor = false;
+            btnVaiTro.Click += btnVaiTro_Click;
             // 
             // btnTaiKhoan
             // 
@@ -89,6 +91,7 @@
             btnTaiKhoan.TabIndex = 1;
             btnTaiKhoan.Text = "Tài khoản";
             btnTaiKhoan.UseVisualStyleBackColor = false;
+            btnTaiKhoan.Click += btnTaiKhoan_Click;
             // 
             // btnNhanVien
             // 
@@ -102,6 +105,7 @@
             btnNhanVien.TabIndex = 0;
             btnNhanVien.Text = "Nhân viên";
             btnNhanVien.UseVisualStyleBackColor = false;
+            btnNhanVien.Click += btnNhanVien_Click;
             // 
             // panelSubContent
             // 

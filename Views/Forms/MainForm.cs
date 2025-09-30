@@ -31,5 +31,14 @@ namespace LibraryManagementSystem.Views.Forms
             panelContent.Controls.Add(uc);
         }
 
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonQLNhanVien_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(new UserControls.QLNhanVien.UcQLNhanVien());
+        }
     }
 }
