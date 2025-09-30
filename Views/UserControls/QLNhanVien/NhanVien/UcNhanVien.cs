@@ -16,5 +16,23 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
         {
             InitializeComponent();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            FormThemNhanVien formThemNhanVien = new FormThemNhanVien();
+            formThemNhanVien.Show();
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            FormSuaNhanVien formSuaNhanVien = new FormSuaNhanVien();
+            formSuaNhanVien.Show();
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            FormChiTietNhanVien formChiTietNhanVien = new FormChiTietNhanVien();
+            formChiTietNhanVien.Show();
+        }
     }
 }
