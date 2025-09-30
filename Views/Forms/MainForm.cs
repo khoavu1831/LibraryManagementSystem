@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +32,11 @@ namespace LibraryManagementSystem.Views.Forms
             panelContent.Controls.Add(uc);
         }
 
+        private void bntPhat_Click(object sender, EventArgs e)
+        {
+            new FormTraPhat().Show(); // mở cửa sổ không chặn
+
+        }
         private void button6_Click(object sender, EventArgs e)
         {
 

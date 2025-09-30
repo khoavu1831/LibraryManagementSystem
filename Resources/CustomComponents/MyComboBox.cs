@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace LibraryManagementSystem.Resources.CustomComboBox
+namespace LibraryManagementSystem.Resources.CustomComponents
 {
     public class MyComboBox : ComboBox
     {

@@ -35,7 +35,7 @@
             button8 = new Button();
             buttonQLNhanVien = new Button();
             button6 = new Button();
-            button5 = new Button();
+            bntPhat = new Button();
             button4 = new Button();
             btnDocGia = new Button();
             btnQLSach = new Button();
@@ -95,7 +95,7 @@
             panelMenu.Controls.Add(button8);
             panelMenu.Controls.Add(buttonQLNhanVien);
             panelMenu.Controls.Add(button6);
-            panelMenu.Controls.Add(button5);
+            panelMenu.Controls.Add(bntPhat);
             panelMenu.Controls.Add(button4);
             panelMenu.Controls.Add(btnDocGia);
             panelMenu.Controls.Add(btnQLSach);
@@ -163,23 +163,23 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
-            // button5
+            // bntPhat
             // 
-            button5.BackColor = Color.White;
-            button5.Dock = DockStyle.Top;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            button5.Image = Properties.Resources.icon9;
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(0, 268);
-            button5.Margin = new Padding(3, 4, 3, 4);
-            button5.Name = "button5";
-            button5.Size = new Size(208, 67);
-            button5.TabIndex = 4;
-            button5.Text = "   Phạt - Trả Phạt";
-            button5.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button5.UseVisualStyleBackColor = false;
+            bntPhat.BackColor = Color.White;
+            bntPhat.Dock = DockStyle.Top;
+            bntPhat.FlatAppearance.BorderSize = 0;
+            bntPhat.FlatStyle = FlatStyle.Flat;
+            bntPhat.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            bntPhat.Image = Properties.Resources.icon9;
+            bntPhat.ImageAlign = ContentAlignment.MiddleLeft;
+            bntPhat.Location = new Point(0, 200);
+            bntPhat.Name = "bntPhat";
+            bntPhat.Size = new Size(182, 50);
+            bntPhat.TabIndex = 4;
+            bntPhat.Text = "   Phạt - Trả Phạt";
+            bntPhat.TextImageRelation = TextImageRelation.ImageBeforeText;
+            bntPhat.UseVisualStyleBackColor = false;
+            bntPhat.Click += bntPhat_Click;
             // 
             // button4
             // 
@@ -330,7 +330,7 @@
         private Button button8;
         private Button buttonQLNhanVien;
         private Button button6;
-        private Button button5;
+        private Button bntPhat;
         private Button button4;
         private Button btnDocGia;
         private Button btnQLSach;
