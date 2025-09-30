@@ -1,6 +1,6 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
 {
-    partial class UcTheLoai
+    partial class UcPhat
     {
         /// <summary> 
         /// Required designer variable.
@@ -34,13 +34,14 @@
             txtBoxTimKiem = new TextBox();
             btnLamMoi = new Button();
             btnExcel = new Button();
+            btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dgvSach = new DataGridView();
+            dgvPhat = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -48,6 +49,7 @@
             panelCRUD.BackColor = Color.White;
             panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnExcel);
+            panelCRUD.Controls.Add(btnChiTiet);
             panelCRUD.Controls.Add(btnXoa);
             panelCRUD.Controls.Add(btnSua);
             panelCRUD.Controls.Add(btnThem);
@@ -110,6 +112,7 @@
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnExcel
             // 
@@ -118,7 +121,7 @@
             btnExcel.FlatAppearance.BorderSize = 0;
             btnExcel.FlatStyle = FlatStyle.Flat;
             btnExcel.Image = Properties.Resources.iconExc;
-            btnExcel.Location = new Point(231, 0);
+            btnExcel.Location = new Point(308, 0);
             btnExcel.Margin = new Padding(0);
             btnExcel.Name = "btnExcel";
             btnExcel.Size = new Size(77, 72);
@@ -126,6 +129,22 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
+            // 
+            // btnChiTiet
+            // 
+            btnChiTiet.BackColor = Color.White;
+            btnChiTiet.Dock = DockStyle.Left;
+            btnChiTiet.FlatAppearance.BorderSize = 0;
+            btnChiTiet.FlatStyle = FlatStyle.Flat;
+            btnChiTiet.Image = Properties.Resources.iconCT;
+            btnChiTiet.Location = new Point(231, 0);
+            btnChiTiet.Margin = new Padding(0);
+            btnChiTiet.Name = "btnChiTiet";
+            btnChiTiet.Size = new Size(77, 72);
+            btnChiTiet.TabIndex = 3;
+            btnChiTiet.Text = "Chi Tiết";
+            btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnChiTiet.UseVisualStyleBackColor = false;
             // 
             // btnXoa
             // 
@@ -142,6 +161,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += this.btnXoa_Click;
             // 
             // btnSua
             // 
@@ -177,28 +197,28 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dgvSach
+            // dgvPhat
             // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
+            dgvPhat.AccessibleRole = AccessibleRole.None;
+            dgvPhat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPhat.Dock = DockStyle.Fill;
+            dgvPhat.Location = new Point(0, 72);
+            dgvPhat.Name = "dgvPhat";
+            dgvPhat.Size = new Size(774, 491);
+            dgvPhat.TabIndex = 1;
             // 
-            // UcTheLoai
+            // UcPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvSach);
+            Controls.Add(dgvPhat);
             Controls.Add(panelCRUD);
-            Name = "UcTheLoai";
+            Name = "UcPhat";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhat).EndInit();
             ResumeLayout(false);
         }
 
@@ -206,9 +226,10 @@
 
         private Panel panelCRUD;
         private Button btnThem;
-        private DataGridView dgvSach;
+        private DataGridView dgvPhat;
         private Button btnXoa;
         private Button btnSua;
+        private Button btnChiTiet;
         private Button btnExcel;
         private Button btnLamMoi;
         private TableLayoutPanel panelSearch;

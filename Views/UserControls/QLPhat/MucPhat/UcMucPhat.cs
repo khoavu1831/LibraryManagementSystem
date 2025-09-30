@@ -8,29 +8,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLSach
+namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
 {
-    public partial class UcTheLoai : UserControl
+    public partial class UcMucPhat : UserControl
     {
-        public UcTheLoai()
+        public UcMucPhat()
         {
             InitializeComponent();
         }
 
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
-            using (var formThemTheLoai = new FormThemTheLoai())
-            {
-                formThemTheLoai.ShowDialog(this);
-            }
+
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            using (var formSuaTheLoai = new FormSuaTheLoai())
-            {
-                formSuaTheLoai.ShowDialog(this);
-            }
+
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -16,11 +16,11 @@ namespace LibraryManagementSystem.Views.Forms
         {
             InitializeComponent();
         }
-        private void BtnTrangChu_Click(object sender, EventArgs e)
+        private void btnTrangChu_Click(object sender, EventArgs e)
         {
 
         }
-        private void BtnQLSach_Click(object sender, EventArgs e)
+        private void btnQLSach_Click(object sender, EventArgs e)
         {
             LoadUserControl(new UserControls.QuanLySach.UcQLSach());
         }

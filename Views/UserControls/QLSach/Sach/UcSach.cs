@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagementSystem.Views.UserControls.QLSach;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,29 +27,28 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
             };
         }
 
-        private void BtnThem_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
-
+            using (var formThemSach = new FormThemSach())
+            {
+                formThemSach.ShowDialog(this);
+            }
         }
 
-        private void dgvSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnSua_Click(object sender, EventArgs e)
         {
-
+            using (var formSuaSach = new FormSuaSach())
+            {
+                formSuaSach.ShowDialog(this);
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnChiTiet_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxTimKiem_TextChanged(object sender, EventArgs e)
-        {
-
+            using (var formChiTietSach = new FormChiTietSach())
+            {
+                formChiTietSach.ShowDialog(this);
+            }
         }
     }
 }

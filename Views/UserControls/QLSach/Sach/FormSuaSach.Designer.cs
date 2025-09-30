@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
-    partial class FormThemSach
+    partial class FormSuaSach
     {
         /// <summary>
         /// Required designer variable.
@@ -166,7 +166,7 @@
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(437, 94);
             labelTitle.TabIndex = 0;
-            labelTitle.Text = "THÊM SÁCH";
+            labelTitle.Text = "SỬA SÁCH";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanelContent
@@ -208,6 +208,7 @@
             // 
             // numericUpDownSoLuongBanSao
             // 
+            numericUpDownSoLuongBanSao.Enabled = false;
             numericUpDownSoLuongBanSao.Location = new Point(111, 311);
             numericUpDownSoLuongBanSao.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownSoLuongBanSao.Name = "numericUpDownSoLuongBanSao";
@@ -327,7 +328,7 @@
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             // 
-            // FormThemSach
+            // FormSuaSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -335,8 +336,8 @@
             Controls.Add(panelContent);
             Controls.Add(panelTop);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "FormThemSach";
-            Text = "Thêm Sách";
+            Name = "FormSuaSach";
+            Text = "Sửa Sách";
             Load += formThemNhanVien_Load;
             tableLayoutPanelContent.ResumeLayout(false);
             tableLayoutPanelContent.PerformLayout();
