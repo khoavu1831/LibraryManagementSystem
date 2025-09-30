@@ -188,7 +188,6 @@
             dgvSach.Name = "dgvSach";
             dgvSach.Size = new Size(774, 491);
             dgvSach.TabIndex = 1;
-            dgvSach.CellContentClick += dgvSach_CellContentClick;
             // 
             // btnThem
             // 
