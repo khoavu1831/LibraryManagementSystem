@@ -16,5 +16,20 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
         {
             InitializeComponent();
         }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
