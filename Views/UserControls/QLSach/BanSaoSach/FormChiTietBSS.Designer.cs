@@ -235,7 +235,6 @@
         }
 
         #endregion
-        private Button btnSua;
         private Label labelTitle;
         private Panel panelTop;
         private Panel panelContent;
