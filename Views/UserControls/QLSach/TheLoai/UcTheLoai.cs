@@ -16,5 +16,21 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         {
             InitializeComponent();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            using (var formThemTheLoai = new FormThemTheLoai())
+            {
+                formThemTheLoai.ShowDialog(this);
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            using (var formSuaTheLoai = new FormSuaTheLoai())
+            {
+                formSuaTheLoai.ShowDialog(this);
+            }
+        }
     }
 }

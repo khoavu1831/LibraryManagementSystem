@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.Quyen
 {
-    public partial class formThemQuyen : Form
+    public partial class FormThemQuyen : Form
     {
-        public formThemQuyen()
+        public FormThemQuyen()
         {
             InitializeComponent();
         }

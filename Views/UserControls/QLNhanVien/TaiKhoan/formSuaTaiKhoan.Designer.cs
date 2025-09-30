@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
 {
-    partial class formSuaTaiKhoan
+    partial class FormSuaTaiKhoan
     {
         /// <summary>
         /// Required designer variable.

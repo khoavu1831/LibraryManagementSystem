@@ -24,7 +24,7 @@ namespace LibraryManagementSystem.Views.UserControls.QuanLySach
             uc.Dock = DockStyle.Fill;
             panelSubContent.Controls.Add(uc);
         }
-        private void BtnSach_Click(object sender, EventArgs e)
+        private void btnSach_Click(object sender, EventArgs e)
         {
             LoadSubControl(new UcSach());
         }

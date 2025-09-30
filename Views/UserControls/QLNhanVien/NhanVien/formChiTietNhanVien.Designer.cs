@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
 {
-    partial class formChiTietNhanVien
+    partial class FormChiTietNhanVien
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
 {
-    public partial class formSuaTaiKhoan : Form
+    public partial class FormSuaTaiKhoan : Form
     {
-        public formSuaTaiKhoan()
+        public FormSuaTaiKhoan()
         {
             InitializeComponent();
         }
