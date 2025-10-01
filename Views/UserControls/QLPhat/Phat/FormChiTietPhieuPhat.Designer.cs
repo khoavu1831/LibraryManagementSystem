@@ -185,14 +185,14 @@
             panel2.Location = new Point(0, 94);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(456, 342);
+            panel2.Size = new Size(456, 301);
             panel2.TabIndex = 19;
             panel2.Paint += panel2_Paint;
             // 
             // btnQuayLai
             // 
             btnQuayLai.Anchor = AnchorStyles.None;
-            btnQuayLai.Location = new Point(151, 297);
+            btnQuayLai.Location = new Point(149, 244);
             btnQuayLai.Margin = new Padding(3, 2, 3, 2);
             btnQuayLai.Name = "btnQuayLai";
             btnQuayLai.Size = new Size(162, 34);
@@ -280,7 +280,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(456, 436);
+            ClientSize = new Size(456, 395);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);

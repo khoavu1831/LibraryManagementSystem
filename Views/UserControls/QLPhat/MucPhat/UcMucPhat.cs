@@ -37,5 +37,19 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
 
         }
 
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

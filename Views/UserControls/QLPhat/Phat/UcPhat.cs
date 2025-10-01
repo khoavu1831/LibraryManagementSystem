@@ -36,5 +36,15 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
         {
 
         }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

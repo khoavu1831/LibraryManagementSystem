@@ -26,5 +26,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
         {
 
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

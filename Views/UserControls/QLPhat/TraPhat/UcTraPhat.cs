@@ -16,5 +16,25 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
         {
             InitializeComponent();
         }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

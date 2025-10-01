@@ -41,5 +41,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
 
             // chỗ này gọi DbContext để Add và SaveChanges
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

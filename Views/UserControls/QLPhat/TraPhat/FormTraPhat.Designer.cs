@@ -297,6 +297,7 @@
             buttonThanhToan.TabIndex = 15;
             buttonThanhToan.Text = "Thanh toán";
             buttonThanhToan.UseVisualStyleBackColor = true;
+            buttonThanhToan.Click += buttonThanhToan_Click;
             // 
             // buttonHuy
             // 
@@ -308,6 +309,7 @@
             buttonHuy.TabIndex = 18;
             buttonHuy.Text = "Hủy";
             buttonHuy.UseVisualStyleBackColor = true;
+            buttonHuy.Click += buttonHuy_Click;
             // 
             // FormTraPhat
             // 
