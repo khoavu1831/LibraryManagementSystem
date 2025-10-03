@@ -38,10 +38,10 @@
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dgvSach = new DataGridView();
+            dgvNXB = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNXB).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -112,6 +112,7 @@
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnExcel
             // 
@@ -161,6 +162,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -196,28 +198,28 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dgvSach
+            // dgvNXB
             // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
+            dgvNXB.AccessibleRole = AccessibleRole.None;
+            dgvNXB.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNXB.Dock = DockStyle.Fill;
+            dgvNXB.Location = new Point(0, 72);
+            dgvNXB.Name = "dgvNXB";
+            dgvNXB.Size = new Size(774, 491);
+            dgvNXB.TabIndex = 1;
             // 
             // UcNXB
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvSach);
+            Controls.Add(dgvNXB);
             Controls.Add(panelCRUD);
             Name = "UcNXB";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNXB).EndInit();
             ResumeLayout(false);
         }
 
@@ -225,7 +227,7 @@
 
         private Panel panelCRUD;
         private Button btnThem;
-        private DataGridView dgvSach;
+        private DataGridView dgvNXB;
         private Button btnXoa;
         private Button btnSua;
         private Button btnChiTiet;
