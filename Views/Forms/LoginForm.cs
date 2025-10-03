@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagementSystem.Views.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,9 +17,26 @@ namespace LibraryManagementSystem.Forms
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonDangNhap_Click(object sender, EventArgs e)
         {
+            // xu ly logic dang nhap truoc
+            if (textBoxTenDangNhap.Text == "khoadz" && textBoxMatKhau.Text == "123456")
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Sai tai khoan / mat khau");
+            }
+
+            //this.DialogResult = DialogResult.OK;
+            //this.Close();
+        }
+
+        private void checkBoxAnHien_CheckedChanged(object sender, EventArgs e)
+        {
+            textBoxMatKhau.UseSystemPasswordChar = !checkBoxAnHien.Checked;  
         }
     }
 }
