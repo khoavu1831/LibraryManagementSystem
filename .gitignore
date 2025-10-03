@@ -17,6 +17,9 @@ obj/
 # Visual Studio Code settings
 .vscode/
 
+# JetBrains IDE (Rider, IntelliJ, PhpStorm, etc.)
+.idea/
+
 # NuGet packages
 *.nupkg
 *.snupkg
