@@ -1,6 +1,6 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
 {
-    partial class UcVaiTro
+    partial class UcTraPhat
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,30 +33,25 @@
             btnTimKiem = new Button();
             txtBoxTimKiem = new TextBox();
             btnLamMoi = new Button();
+            btnExcel = new Button();
             btnChiTiet = new Button();
-            btnXoa = new Button();
-            btnSua = new Button();
-            btnThem = new Button();
-            dataGridView1 = new DataGridView();
+            dgvPhat = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
             // 
             panelCRUD.BackColor = Color.White;
             panelCRUD.Controls.Add(panelSearch);
+            panelCRUD.Controls.Add(btnExcel);
             panelCRUD.Controls.Add(btnChiTiet);
-            panelCRUD.Controls.Add(btnXoa);
-            panelCRUD.Controls.Add(btnSua);
-            panelCRUD.Controls.Add(btnThem);
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
-            panelCRUD.Margin = new Padding(3, 4, 3, 4);
             panelCRUD.Name = "panelCRUD";
-            panelCRUD.Size = new Size(885, 96);
-            panelCRUD.TabIndex = 2;
+            panelCRUD.Size = new Size(774, 72);
+            panelCRUD.TabIndex = 0;
             // 
             // panelSearch
             // 
@@ -68,12 +63,11 @@
             panelSearch.Controls.Add(txtBoxTimKiem, 1, 0);
             panelSearch.Controls.Add(btnLamMoi, 2, 0);
             panelSearch.Dock = DockStyle.Right;
-            panelSearch.Location = new Point(487, 0);
-            panelSearch.Margin = new Padding(3, 4, 3, 4);
+            panelSearch.Location = new Point(426, 0);
             panelSearch.Name = "panelSearch";
             panelSearch.RowCount = 1;
             panelSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            panelSearch.Size = new Size(398, 96);
+            panelSearch.Size = new Size(348, 72);
             panelSearch.TabIndex = 9;
             // 
             // btnTimKiem
@@ -82,10 +76,9 @@
             btnTimKiem.BackColor = Color.White;
             btnTimKiem.FlatAppearance.BorderColor = Color.Black;
             btnTimKiem.FlatStyle = FlatStyle.Flat;
-            btnTimKiem.Location = new Point(3, 32);
-            btnTimKiem.Margin = new Padding(3, 4, 3, 4);
+            btnTimKiem.Location = new Point(3, 24);
             btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(96, 32);
+            btnTimKiem.Size = new Size(83, 24);
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
@@ -93,11 +86,10 @@
             // txtBoxTimKiem
             // 
             txtBoxTimKiem.Anchor = AnchorStyles.None;
-            txtBoxTimKiem.Location = new Point(106, 34);
-            txtBoxTimKiem.Margin = new Padding(3, 4, 3, 4);
+            txtBoxTimKiem.Location = new Point(92, 24);
             txtBoxTimKiem.Name = "txtBoxTimKiem";
             txtBoxTimKiem.PlaceholderText = "Tìm kiếm...";
-            txtBoxTimKiem.Size = new Size(231, 27);
+            txtBoxTimKiem.Size = new Size(203, 23);
             txtBoxTimKiem.TabIndex = 9;
             // 
             // btnLamMoi
@@ -107,13 +99,29 @@
             btnLamMoi.FlatAppearance.BorderSize = 0;
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Image = Properties.Resources.iconRefesh;
-            btnLamMoi.Location = new Point(341, 0);
+            btnLamMoi.Location = new Point(298, 0);
             btnLamMoi.Margin = new Padding(0);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(57, 96);
+            btnLamMoi.Size = new Size(50, 72);
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            // 
+            // btnExcel
+            // 
+            btnExcel.BackColor = Color.White;
+            btnExcel.Dock = DockStyle.Left;
+            btnExcel.FlatAppearance.BorderSize = 0;
+            btnExcel.FlatStyle = FlatStyle.Flat;
+            btnExcel.Image = Properties.Resources.iconExc;
+            btnExcel.Location = new Point(77, 0);
+            btnExcel.Margin = new Padding(0);
+            btnExcel.Name = "btnExcel";
+            btnExcel.Size = new Size(77, 72);
+            btnExcel.TabIndex = 4;
+            btnExcel.Text = "Xuất Excel";
+            btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnExcel.UseVisualStyleBackColor = false;
             // 
             // btnChiTiet
             // 
@@ -122,102 +130,49 @@
             btnChiTiet.FlatAppearance.BorderSize = 0;
             btnChiTiet.FlatStyle = FlatStyle.Flat;
             btnChiTiet.Image = Properties.Resources.iconCT;
-            btnChiTiet.Location = new Point(264, 0);
+            btnChiTiet.Location = new Point(0, 0);
             btnChiTiet.Margin = new Padding(0);
             btnChiTiet.Name = "btnChiTiet";
-            btnChiTiet.Size = new Size(88, 96);
+            btnChiTiet.Size = new Size(77, 72);
             btnChiTiet.TabIndex = 3;
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
-            btnChiTiet.Click += btnChiTiet_Click;
             // 
-            // btnXoa
+            // dgvPhat
             // 
-            btnXoa.BackColor = Color.White;
-            btnXoa.Dock = DockStyle.Left;
-            btnXoa.FlatAppearance.BorderSize = 0;
-            btnXoa.FlatStyle = FlatStyle.Flat;
-            btnXoa.Image = Properties.Resources.iconxoa;
-            btnXoa.Location = new Point(176, 0);
-            btnXoa.Margin = new Padding(0);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(88, 96);
-            btnXoa.TabIndex = 2;
-            btnXoa.Text = "Xóa";
-            btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnXoa.UseVisualStyleBackColor = false;
+            dgvPhat.AccessibleRole = AccessibleRole.None;
+            dgvPhat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPhat.Dock = DockStyle.Fill;
+            dgvPhat.Location = new Point(0, 72);
+            dgvPhat.Name = "dgvPhat";
+            dgvPhat.Size = new Size(774, 491);
+            dgvPhat.TabIndex = 1;
             // 
-            // btnSua
+            // UserControl1
             // 
-            btnSua.BackColor = Color.White;
-            btnSua.Dock = DockStyle.Left;
-            btnSua.FlatAppearance.BorderSize = 0;
-            btnSua.FlatStyle = FlatStyle.Flat;
-            btnSua.Image = Properties.Resources.iconsua;
-            btnSua.Location = new Point(88, 0);
-            btnSua.Margin = new Padding(0);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(88, 96);
-            btnSua.TabIndex = 1;
-            btnSua.Text = "Sửa";
-            btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnSua.UseVisualStyleBackColor = false;
-            btnSua.Click += btnSua_Click;
-            // 
-            // btnThem
-            // 
-            btnThem.BackColor = Color.White;
-            btnThem.Dock = DockStyle.Left;
-            btnThem.FlatAppearance.BorderSize = 0;
-            btnThem.FlatStyle = FlatStyle.Flat;
-            btnThem.Image = Properties.Resources.iconthem;
-            btnThem.Location = new Point(0, 0);
-            btnThem.Margin = new Padding(0);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(88, 96);
-            btnThem.TabIndex = 0;
-            btnThem.Text = "Thêm";
-            btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += btnThem_Click;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 96);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(885, 655);
-            dataGridView1.TabIndex = 3;
-            // 
-            // UcVaiTro
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvPhat);
             Controls.Add(panelCRUD);
-            Name = "UcVaiTro";
-            Size = new Size(885, 751);
+            Name = "UserControl1";
+            Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhat).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelCRUD;
+        private DataGridView dgvPhat;
+        private Button btnChiTiet;
+        private Button btnExcel;
+        private Button btnLamMoi;
         private TableLayoutPanel panelSearch;
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
-        private Button btnLamMoi;
-        private Button btnChiTiet;
-        private Button btnXoa;
-        private Button btnSua;
-        private Button btnThem;
-        private DataGridView dataGridView1;
     }
 }

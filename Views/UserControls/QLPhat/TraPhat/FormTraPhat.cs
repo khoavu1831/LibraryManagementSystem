@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
+namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
 {
-    public partial class FormSuaNhanVien : Form
+    public partial class FormTraPhat : Form
     {
-        public FormSuaNhanVien()
+        public FormTraPhat()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

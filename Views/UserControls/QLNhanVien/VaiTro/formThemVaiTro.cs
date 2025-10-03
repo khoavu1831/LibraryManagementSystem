@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
 {
-    public partial class formThemVaiTro : Form
+    public partial class FormThemVaiTro : Form
     {
-        public formThemVaiTro()
+        public FormThemVaiTro()
         {
             InitializeComponent();
         }

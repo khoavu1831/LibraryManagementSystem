@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
+namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
 {
-    public partial class FormSuaNhanVien : Form
+    public partial class FormChiTietMucPhat : Form
     {
-        public FormSuaNhanVien()
+        public FormChiTietMucPhat()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnQuayLai_Click(object sender, EventArgs e)
         {
 
         }
