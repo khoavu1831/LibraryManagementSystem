@@ -37,10 +37,10 @@
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dgvSach = new DataGridView();
+            dgvTheLoai = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTheLoai).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -177,28 +177,28 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dgvSach
+            // dgvTheLoai
             // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
+            dgvTheLoai.AccessibleRole = AccessibleRole.None;
+            dgvTheLoai.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTheLoai.Dock = DockStyle.Fill;
+            dgvTheLoai.Location = new Point(0, 72);
+            dgvTheLoai.Name = "dgvTheLoai";
+            dgvTheLoai.Size = new Size(774, 491);
+            dgvTheLoai.TabIndex = 1;
             // 
             // UcTheLoai
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvSach);
+            Controls.Add(dgvTheLoai);
             Controls.Add(panelCRUD);
             Name = "UcTheLoai";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTheLoai).EndInit();
             ResumeLayout(false);
         }
 
@@ -206,7 +206,7 @@
 
         private Panel panelCRUD;
         private Button btnThem;
-        private DataGridView dgvSach;
+        private DataGridView dgvTheLoai;
         private Button btnXoa;
         private Button btnSua;
         private Button btnExcel;

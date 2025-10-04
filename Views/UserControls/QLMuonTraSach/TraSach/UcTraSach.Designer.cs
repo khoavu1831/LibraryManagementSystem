@@ -1,16 +1,9 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
+﻿namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
 {
-    partial class UcNXB
+    partial class UcTraSach
     {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,10 +15,6 @@
 
         #region Component Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             panelCRUD = new Panel();
@@ -37,11 +26,11 @@
             btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
+            dgvTraSach = new DataGridView();
             btnThem = new Button();
-            dgvNXB = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNXB).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTraSach).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -112,7 +101,6 @@
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
-            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnExcel
             // 
@@ -162,7 +150,6 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -181,6 +168,15 @@
             btnSua.UseVisualStyleBackColor = false;
             btnSua.Click += btnSua_Click;
             // 
+            // dgvTraSach
+            // 
+            dgvTraSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTraSach.Dock = DockStyle.Fill;
+            dgvTraSach.Location = new Point(0, 72);
+            dgvTraSach.Name = "dgvTraSach";
+            dgvTraSach.Size = new Size(774, 491);
+            dgvTraSach.TabIndex = 1;
+            // 
             // btnThem
             // 
             btnThem.BackColor = Color.White;
@@ -198,36 +194,25 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dgvNXB
-            // 
-            dgvNXB.AccessibleRole = AccessibleRole.None;
-            dgvNXB.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNXB.Dock = DockStyle.Fill;
-            dgvNXB.Location = new Point(0, 72);
-            dgvNXB.Name = "dgvNXB";
-            dgvNXB.Size = new Size(774, 491);
-            dgvNXB.TabIndex = 1;
-            // 
-            // UcNXB
+            // UcTraSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvNXB);
+            Controls.Add(dgvTraSach);
             Controls.Add(panelCRUD);
-            Name = "UcNXB";
+            Name = "UcTraSach";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNXB).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTraSach).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelCRUD;
-        private Button btnThem;
-        private DataGridView dgvNXB;
+        private DataGridView dgvTraSach;
         private Button btnXoa;
         private Button btnSua;
         private Button btnChiTiet;
@@ -236,5 +221,6 @@
         private TableLayoutPanel panelSearch;
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
+        private Button btnThem;
     }
 }

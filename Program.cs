@@ -1,4 +1,5 @@
-using LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat;
+﻿using LibraryManagementSystem.Forms;
+using LibraryManagementSystem.Views.Forms;
 
 namespace LibraryManagementSystem
 {
@@ -11,10 +12,21 @@ namespace LibraryManagementSystem
         static void Main()
         {
             // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // see https://aka.ms/applicationconfiguration
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Views.Forms.MainForm());
-            
+            using (var loginForm = new LoginForm())
+            {
+                var result = loginForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Application.Run(new MainForm());
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
         }
     }
     

@@ -37,10 +37,10 @@
             btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
-            dgvSach = new DataGridView();
+            dgvBanSaoSach = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBanSaoSach).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -177,35 +177,35 @@
             btnSua.UseVisualStyleBackColor = false;
             btnSua.Click += btnSua_Click;
             // 
-            // dgvSach
+            // dgvBanSaoSach
             // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
+            dgvBanSaoSach.AccessibleRole = AccessibleRole.None;
+            dgvBanSaoSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvBanSaoSach.Dock = DockStyle.Fill;
+            dgvBanSaoSach.Location = new Point(0, 72);
+            dgvBanSaoSach.Name = "dgvBanSaoSach";
+            dgvBanSaoSach.Size = new Size(774, 491);
+            dgvBanSaoSach.TabIndex = 1;
             // 
             // UcBanSaoSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvSach);
+            Controls.Add(dgvBanSaoSach);
             Controls.Add(panelCRUD);
             Name = "UcBanSaoSach";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvSach).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvBanSaoSach).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelCRUD;
-        private DataGridView dgvSach;
+        private DataGridView dgvBanSaoSach;
         private Button btnXoa;
         private Button btnSua;
         private Button btnChiTiet;
