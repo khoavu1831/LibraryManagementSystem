@@ -1,5 +1,6 @@
 ﻿using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Repository;
+using LibraryManagementSystem.Services;
 using LibraryManagementSystem.Views.UserControls.QLSach;
 using System;
 using System.Collections.Generic;
@@ -15,23 +16,27 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     public partial class UcSach : UserControl
     {
-        private readonly SachRepository _sachRepository;
+        private readonly SachService _sachService;
         public UcSach()
         {
-            InitializeComponent();
             var context = new LibraryDbContext();
-            var 
+            var repo = new SachRepository(context);
+            _sachService = new SachService(repo);
+
+            InitializeComponent();
             LoadData();
         }
         private void LoadData()
         {
-            // dgvSach.DataSource = new List<dynamic>
-            // {
-            //     new { ID = 1, TenSach = "Lập trình C#", Nam = 2023 },
-            //     new { ID = 2, TenSach = "Cơ sở dữ liệu", Nam = 2022 },
-            // };
-            var data = 
-            dgvSach.DataSource = data;
+            try
+            {
+                var data = _sachService.GetAllSach();
+                dgvSach.DataSource = data;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Không thể kết nối đến database\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -56,6 +61,11 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
             {
                 formChiTietSach.ShowDialog(this);
             }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

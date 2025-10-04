@@ -1,4 +1,5 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
+﻿
+namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     partial class FormThemTheLoai
     {
@@ -53,6 +54,7 @@
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // labelTitle
             // 
@@ -114,6 +116,7 @@
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // tableLayoutPanelContent
             // 
