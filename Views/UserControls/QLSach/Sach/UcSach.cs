@@ -1,4 +1,6 @@
-﻿using LibraryManagementSystem.Views.UserControls.QLSach;
+﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Repository;
+using LibraryManagementSystem.Views.UserControls.QLSach;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,18 +15,23 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     public partial class UcSach : UserControl
     {
+        private readonly SachRepository _sachRepository;
         public UcSach()
         {
             InitializeComponent();
+            var context = new LibraryDbContext();
+            var 
             LoadData();
         }
         private void LoadData()
         {
-            dgvSach.DataSource = new List<dynamic>
-            {
-                new { ID = 1, TenSach = "Lập trình C#", Nam = 2023 },
-                new { ID = 2, TenSach = "Cơ sở dữ liệu", Nam = 2022 }
-            };
+            // dgvSach.DataSource = new List<dynamic>
+            // {
+            //     new { ID = 1, TenSach = "Lập trình C#", Nam = 2023 },
+            //     new { ID = 2, TenSach = "Cơ sở dữ liệu", Nam = 2022 },
+            // };
+            var data = 
+            dgvSach.DataSource = data;
         }
 
         private void btnThem_Click(object sender, EventArgs e)

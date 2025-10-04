@@ -13,7 +13,7 @@ namespace LibraryManagementSystem.Entities
     {
         [Key]
         public string? IdBanSaoSach { get; set; }
-        public string? IdSach { get; set; }
+        public int IdSach { get; set; }
         public TinhTrangSachEnum TinhTrangSach { get; set; }
 
         [ForeignKey("IdSach")]
