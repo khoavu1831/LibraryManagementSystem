@@ -204,7 +204,7 @@ namespace LibraryManagementSystem.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "PhieNhap",
+                name: "PhieuNhap",
                 columns: table => new
                 {
                     IdPhieuNhap = table.Column<int>(type: "int", nullable: false)
@@ -218,9 +218,9 @@ namespace LibraryManagementSystem.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PhieNhap", x => x.IdPhieuNhap);
+                    table.PrimaryKey("PK_PhieuNhap", x => x.IdPhieuNhap);
                     table.ForeignKey(
-                        name: "FK_PhieNhap_NCC_IdNCC",
+                        name: "FK_PhieuNhap_NCC_IdNCC",
                         column: x => x.IdNCC,
                         principalTable: "NCC",
                         principalColumn: "IdNCC",
@@ -232,8 +232,8 @@ namespace LibraryManagementSystem.Migrations
                 name: "Sach",
                 columns: table => new
                 {
-                    IdSach = table.Column<string>(type: "varchar(255)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdSach = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     IdNXB = table.Column<int>(type: "int", nullable: false),
                     NamXuatBan = table.Column<int>(type: "int", nullable: false),
                     TenSach = table.Column<string>(type: "longtext", nullable: true)
@@ -310,8 +310,7 @@ namespace LibraryManagementSystem.Migrations
                 {
                     IdBanSaoSach = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    IdSach = table.Column<string>(type: "varchar(255)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdSach = table.Column<int>(type: "int", nullable: false),
                     TinhTrangSach = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
@@ -322,7 +321,8 @@ namespace LibraryManagementSystem.Migrations
                         name: "FK_BanSaoSach_Sach_IdSach",
                         column: x => x.IdSach,
                         principalTable: "Sach",
-                        principalColumn: "IdSach");
+                        principalColumn: "IdSach",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -333,27 +333,25 @@ namespace LibraryManagementSystem.Migrations
                     IdChiTietPhieuNhap = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     IdPhieuNhap = table.Column<int>(type: "int", nullable: false),
-                    IdSach = table.Column<string>(type: "varchar(255)", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdSach = table.Column<int>(type: "int", nullable: false),
                     SoLuong = table.Column<int>(type: "int", nullable: false),
-                    GiaTien = table.Column<decimal>(type: "decimal(12,2)", precision: 12, scale: 2, nullable: false),
-                    MaDauSach = table.Column<string>(type: "longtext", nullable: true)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                    GiaTien = table.Column<decimal>(type: "decimal(12,2)", precision: 12, scale: 2, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ChiTietPhieuNhap", x => x.IdChiTietPhieuNhap);
                     table.ForeignKey(
-                        name: "FK_ChiTietPhieuNhap_PhieNhap_IdPhieuNhap",
+                        name: "FK_ChiTietPhieuNhap_PhieuNhap_IdPhieuNhap",
                         column: x => x.IdPhieuNhap,
-                        principalTable: "PhieNhap",
+                        principalTable: "PhieuNhap",
                         principalColumn: "IdPhieuNhap",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ChiTietPhieuNhap_Sach_IdSach",
                         column: x => x.IdSach,
                         principalTable: "Sach",
-                        principalColumn: "IdSach");
+                        principalColumn: "IdSach",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -361,8 +359,7 @@ namespace LibraryManagementSystem.Migrations
                 name: "Sach_TacGia",
                 columns: table => new
                 {
-                    IdSach = table.Column<string>(type: "varchar(255)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdSach = table.Column<int>(type: "int", nullable: false),
                     IdTacGia = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -387,8 +384,7 @@ namespace LibraryManagementSystem.Migrations
                 name: "Sach_TheLoai",
                 columns: table => new
                 {
-                    IdSach = table.Column<string>(type: "varchar(255)", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IdSach = table.Column<int>(type: "int", nullable: false),
                     IdTheLoai = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -581,11 +577,6 @@ namespace LibraryManagementSystem.Migrations
                 column: "IdTaiKhoan");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PhieNhap_IdNCC",
-                table: "PhieNhap",
-                column: "IdNCC");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_PhieuMuon_IdNhanVien",
                 table: "PhieuMuon",
                 column: "IdNhanVien");
@@ -594,6 +585,11 @@ namespace LibraryManagementSystem.Migrations
                 name: "IX_PhieuMuon_IdTheThanhVien",
                 table: "PhieuMuon",
                 column: "IdTheThanhVien");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PhieuNhap_IdNCC",
+                table: "PhieuNhap",
+                column: "IdNCC");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Sach_IdNXB",
@@ -645,7 +641,7 @@ namespace LibraryManagementSystem.Migrations
                 name: "VaiTro_Quyen");
 
             migrationBuilder.DropTable(
-                name: "PhieNhap");
+                name: "PhieuNhap");
 
             migrationBuilder.DropTable(
                 name: "ChiTietPhieuMuon");

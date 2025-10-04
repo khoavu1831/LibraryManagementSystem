@@ -28,55 +28,28 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBoxTenNXB.Text))
-            {
-                MessageBox.Show("Tên NXB không được để trống.", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(textBoxDiaChi.Text))
-            {
-                MessageBox.Show("Địa chỉ không được để trống.", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(textBoxSDT.Text))
-            {
-                MessageBox.Show("Số điện thoại không được để trống.", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (!Regex.IsMatch(textBoxSDT.Text, @"^0\d{9}$"))
-            {
-                MessageBox.Show("Số điện thoại phải gồm 10 chữ số \nvà bắt đầu bằng 0.",
-                    "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            var nxb = new NXB
-            {
-                TenNXB = textBoxTenNXB.Text,
-                DiaChi = textBoxDiaChi.Text,
-                SDT = textBoxSDT.Text
-            };
+            var tenNXB = textBoxTenNXB.Text.Trim();
+            var diaChi = textBoxDiaChi.Text.Trim();
+            var sdt = textBoxSDT.Text.Trim();
 
             try
             {
-                _nxbService.AddNXB(nxb);
-                MessageBox.Show("Thêm NXB thành công.", "Thành công",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+                var nxb = new NXB
+                {
+                    TenNXB = tenNXB,
+                    DiaChi = diaChi,
+                    SDT = sdt
+                };
+
+                _nxbService.Save(nxb);
+
+                MessageBox.Show("Thêm NXB thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi thêm NXB: {ex.Message}", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }

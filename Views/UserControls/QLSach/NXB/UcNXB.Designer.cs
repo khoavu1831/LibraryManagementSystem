@@ -85,9 +85,10 @@
             btnTimKiem.Location = new Point(3, 24);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(83, 24);
-            btnTimKiem.TabIndex = 8;
+            btnTimKiem.TabIndex = 6;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
@@ -96,7 +97,7 @@
             txtBoxTimKiem.Name = "txtBoxTimKiem";
             txtBoxTimKiem.PlaceholderText = "Tìm kiếm...";
             txtBoxTimKiem.Size = new Size(203, 23);
-            txtBoxTimKiem.TabIndex = 9;
+            txtBoxTimKiem.TabIndex = 5;
             // 
             // btnLamMoi
             // 
@@ -201,6 +202,7 @@
             // dgvNXB
             // 
             dgvNXB.AccessibleRole = AccessibleRole.None;
+            dgvNXB.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvNXB.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNXB.Dock = DockStyle.Fill;
             dgvNXB.Location = new Point(0, 72);

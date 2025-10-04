@@ -15,83 +15,142 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     public partial class UcNXB : UserControl
     {
-        private readonly NXBService _nxbService;
         public UcNXB()
         {
             InitializeComponent();
-            var context = new LibraryDbContext();
-            var nxbRepository = new NXBRepository(context);
-            _nxbService = new NXBService(nxbRepository);
             LoadData();
         }
-
         private void LoadData()
         {
-            var data = _nxbService.GetAllNXB();
-            dgvNXB.DataSource = null;
-            dgvNXB.DataSource = data;
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new NXBRepository(context);
+                    var _nxbService = new NXBService(repo);
+                    var data = _nxbService.GetAllNXB();
+                    dgvNXB.DataSource = data;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Không thể kết nối đến database\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             using (var formThemNXB = new FormThemNXB())
             {
-                var popup = formThemNXB.ShowDialog(this);
-                if (popup == DialogResult.OK)
+                if (formThemNXB.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (dgvNXB.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 NXB để sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvNXB.SelectedRows[0];
+            int idNXB = Convert.ToInt32(selectedRow.Cells["IdNXB"].Value);
+            string tenNXB = selectedRow.Cells["TenNXB"].Value.ToString() ?? "";
+            string diaChi = selectedRow.Cells["DiaChi"].Value.ToString() ?? "";
+            string sdt = selectedRow.Cells["SDT"].Value.ToString() ?? "";
+
+            using (var formSuaNXB = new FormSuaNXB(idNXB, tenNXB, diaChi, sdt))
+            {
+                if (formSuaNXB.ShowDialog(this) == DialogResult.OK)
                 {
                     LoadData();
                 }
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            using (var formSuaNXB = new FormSuaNXB())
-            {
-                formSuaNXB.ShowDialog(this);
-            }
-        }
-
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            using (var formChiTietNXB = new FormChiTietNXB())
+            if (dgvNXB.SelectedRows.Count == 0)
             {
-                formChiTietNXB.ShowDialog(this);
+                MessageBox.Show("Vui lòng chọn 1 NXB để xem chi tiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvNXB.SelectedRows[0];
+            int idNXB = Convert.ToInt32(selectedRow.Cells["IdNXB"].Value);
+            string tenNXB = selectedRow.Cells["TenNXB"].Value.ToString() ?? "";
+            string diaChi = selectedRow.Cells["DiaChi"].Value.ToString() ?? "";
+            string sdt = selectedRow.Cells["SDT"].Value.ToString() ?? "";
+
+            using (var formChiTietNXB = new FormChiTietNXB(idNXB, tenNXB, diaChi, sdt))
+            {
+                if (formChiTietNXB.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
         }
 
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (dgvNXB.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 nhà xuất bản để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvNXB.SelectedRows[0];
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa nhà xuất bản này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                int idNXB = Convert.ToInt32(selectedRow.Cells["IdNXB"].Value);
+                try
+                {
+                    using (var context = new LibraryDbContext())
+                    {
+                        var repo = new NXBRepository(context);
+                        var nxbService = new NXBService(repo);
+                        nxbService.DeleteNXB(idNXB);
+                    }
+
+                    MessageBox.Show("Xóa nhà xuất bản thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Xóa nhà xuất bản thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData();
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            if (dgvNXB.CurrentRow == null)
-            {
-                MessageBox.Show("Vui lòng chọn NXB để xóa.", "Thông báo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            var id = (int)dgvNXB.CurrentRow.Cells["IdNXB"].Value;
-            var comfirm = MessageBox.Show(
-                "Bạn có chắc chắn muốn xóa NXB này không?",
-                "Xác nhận",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (comfirm == DialogResult.No) return;
+            var keyword = txtBoxTimKiem.Text.Trim();
             try
             {
-                _nxbService.DeleteNXB(id);
-                MessageBox.Show("Xóa NXB thành công.", "Thành công",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new NXBRepository(context);
+                    var nxbService = new NXBService(repo);
+
+                    var data = nxbService.SearchNXB(keyword);
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy nhà xuất bản nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    dgvNXB.DataSource = data;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Xóa NXB thất bại.\n{ex.Message}", "Lỗi",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

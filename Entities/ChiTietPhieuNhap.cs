@@ -15,11 +15,11 @@ namespace LibraryManagementSystem.Entities
         [Key]
         public int IdChiTietPhieuNhap { get; set; }
         public int IdPhieuNhap { get; set; }
-        public string? IdSach { get; set; }
+        public int IdSach { get; set; }
         public int SoLuong { get; set; }
         [Precision(12, 2)]
         public decimal GiaTien { get; set; }
-        public string? MaDauSach { get; set; }
+        // public string? MaDauSach { get; set; }
 
         [ForeignKey("IdPhieuNhap")]
         public PhieuNhap? PhieuNhap { get; set; }

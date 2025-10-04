@@ -14,27 +14,27 @@ INSERT INTO TacGia (TenTacGia, NgaySinh, NoiSinh, SDT) VALUES
 ('Nguyễn Nhật Ánh', '1955-05-07', 'Quảng Nam', '0901234567'),
 ('J.K. Rowling', '1965-07-31', 'Yate, Anh', '0912345678');
 
--- Thêm Sách (IdSach là string)
+-- Thêm Sách
 INSERT INTO Sach (IdSach, IdNXB, NamXuatBan, TenSach, MoTa, SoTrang, SoLuongBanSao) VALUES
-('S001', 1, 2010, 'Kính vạn hoa', 'Truyện dài nhiều tập', 200, 5),
-('S002', 2, 1997, 'Harry Potter and the Philosopher''s Stone', 'Tập 1 Harry Potter', 350, 10);
+('1', 1, 2010, 'Kính vạn hoa', 'Truyện dài nhiều tập', 200, 5),
+('2', 2, 1997, 'Harry Potter and the Philosopher''s Stone', 'Tập 1 Harry Potter', 350, 10);
 
 -- Mapping sách - thể loại
 INSERT INTO Sach_TheLoai (IdSach, IdTheLoai) VALUES
-('S001', 1),
-('S002', 2);
+('1', 1),
+('2', 2);
 
 -- Mapping sách - tác giả
 INSERT INTO Sach_TacGia (IdSach, IdTacGia) VALUES
-('S001', 1),
-('S002', 2);
+('1', 1),
+('2', 2);
 
 -- Thêm Bản sao sách (IdBanSaoSach là string)
 INSERT INTO BanSaoSach (IdBanSaoSach, IdSach, TinhTrangSach) VALUES
-('B001', 'S001', 'Tot'),
-('B002', 'S001', 'Tot'),
-('B003', 'S002', 'Tot'),
-('B004', 'S002', 'ChoMuon');
+('S1_1', '1', 'Tot'),
+('S1_2', '1', 'Tot'),
+('S2_1', '2', 'Tot'),
+('S2_2', '2', 'ChoMuon');
 
 -- Thêm độc giả
 INSERT INTO DocGia (TenDocGia, DiaChi, NgaySinh, SDT, Email) VALUES
