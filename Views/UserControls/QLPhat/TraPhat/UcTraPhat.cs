@@ -19,7 +19,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-
+            using (var formChiTietTraPhat = new FormChiTietTraPhat())
+            {
+                formChiTietTraPhat.ShowDialog(this);
+            }
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
