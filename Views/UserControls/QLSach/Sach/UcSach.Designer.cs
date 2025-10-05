@@ -37,8 +37,8 @@
             btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
-            dgvSach = new DataGridView();
             btnThem = new Button();
+            dgvSach = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvSach).BeginInit();
@@ -112,6 +112,7 @@
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnExcel
             // 
@@ -179,16 +180,6 @@
             btnSua.UseVisualStyleBackColor = false;
             btnSua.Click += btnSua_Click;
             // 
-            // dgvSach
-            // 
-            dgvSach.AccessibleRole = AccessibleRole.None;
-            dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
-            dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
-            dgvSach.TabIndex = 1;
-            // 
             // btnThem
             // 
             btnThem.BackColor = Color.White;
@@ -209,6 +200,7 @@
             // dgvSach
             // 
             dgvSach.AccessibleRole = AccessibleRole.None;
+            dgvSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSach.Dock = DockStyle.Fill;
             dgvSach.Location = new Point(0, 72);
@@ -216,7 +208,6 @@
             dgvSach.Size = new Size(774, 491);
             dgvSach.TabIndex = 1;
             // 
-
             // UcSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);

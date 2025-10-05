@@ -1,0 +1,1 @@
+- sửa thuộc tính AutoSizeColumnsMode trong DataGridView = Fill

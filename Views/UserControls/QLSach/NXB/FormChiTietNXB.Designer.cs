@@ -32,16 +32,16 @@
             panelTop = new Panel();
             panelContent = new Panel();
             tableLayoutPanelButtons = new TableLayoutPanel();
+            btnDong = new Button();
             tableLayoutPanelContent = new TableLayoutPanel();
             textBoxSDT = new TextBox();
-            textBoxDiaChi = new TextBox();
-            label1 = new Label();
-            textBoxTenNXB = new TextBox();
-            label2 = new Label();
             label3 = new Label();
-            btnDong = new Button();
             label4 = new Label();
             textBoxIdNXB = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            textBoxDiaChi = new TextBox();
+            textBoxTenNXB = new TextBox();
             panelTop.SuspendLayout();
             panelContent.SuspendLayout();
             tableLayoutPanelButtons.SuspendLayout();
@@ -96,6 +96,18 @@
             tableLayoutPanelButtons.Size = new Size(358, 40);
             tableLayoutPanelButtons.TabIndex = 19;
             // 
+            // btnDong
+            // 
+            btnDong.Dock = DockStyle.Top;
+            btnDong.Location = new Point(3, 2);
+            btnDong.Margin = new Padding(3, 2, 3, 2);
+            btnDong.Name = "btnDong";
+            btnDong.Size = new Size(352, 34);
+            btnDong.TabIndex = 18;
+            btnDong.Text = "Đóng";
+            btnDong.UseVisualStyleBackColor = true;
+            btnDong.Click += btnDong_Click;
+            // 
             // tableLayoutPanelContent
             // 
             tableLayoutPanelContent.AutoSize = true;
@@ -131,48 +143,6 @@
             textBoxSDT.Size = new Size(244, 23);
             textBoxSDT.TabIndex = 6;
             // 
-            // textBoxDiaChi
-            // 
-            textBoxDiaChi.Enabled = false;
-            textBoxDiaChi.Location = new Point(111, 86);
-            textBoxDiaChi.Margin = new Padding(3, 2, 3, 2);
-            textBoxDiaChi.Name = "textBoxDiaChi";
-            textBoxDiaChi.ReadOnly = true;
-            textBoxDiaChi.Size = new Size(244, 23);
-            textBoxDiaChi.TabIndex = 5;
-            // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.AutoSize = true;
-            label1.Location = new Point(3, 84);
-            label1.Name = "label1";
-            label1.Size = new Size(102, 28);
-            label1.TabIndex = 3;
-            label1.Text = "Địa chỉ:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // textBoxTenNXB
-            // 
-            textBoxTenNXB.Enabled = false;
-            textBoxTenNXB.Location = new Point(111, 30);
-            textBoxTenNXB.Margin = new Padding(3, 2, 3, 2);
-            textBoxTenNXB.Name = "textBoxTenNXB";
-            textBoxTenNXB.ReadOnly = true;
-            textBoxTenNXB.Size = new Size(244, 23);
-            textBoxTenNXB.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 28);
-            label2.Name = "label2";
-            label2.Size = new Size(102, 28);
-            label2.TabIndex = 1;
-            label2.Text = "Tên NXB:";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -183,17 +153,6 @@
             label3.TabIndex = 4;
             label3.Text = "Số điện thoại:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // btnDong
-            // 
-            btnDong.Dock = DockStyle.Top;
-            btnDong.Location = new Point(3, 2);
-            btnDong.Margin = new Padding(3, 2, 3, 2);
-            btnDong.Name = "btnDong";
-            btnDong.Size = new Size(352, 34);
-            btnDong.TabIndex = 18;
-            btnDong.Text = "Đóng";
-            btnDong.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -215,6 +174,48 @@
             textBoxIdNXB.ReadOnly = true;
             textBoxIdNXB.Size = new Size(244, 23);
             textBoxIdNXB.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Location = new Point(3, 84);
+            label1.Name = "label1";
+            label1.Size = new Size(102, 28);
+            label1.TabIndex = 3;
+            label1.Text = "Địa chỉ:";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 28);
+            label2.Name = "label2";
+            label2.Size = new Size(102, 28);
+            label2.TabIndex = 1;
+            label2.Text = "Tên NXB:";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBoxDiaChi
+            // 
+            textBoxDiaChi.Enabled = false;
+            textBoxDiaChi.Location = new Point(111, 86);
+            textBoxDiaChi.Margin = new Padding(3, 2, 3, 2);
+            textBoxDiaChi.Name = "textBoxDiaChi";
+            textBoxDiaChi.ReadOnly = true;
+            textBoxDiaChi.Size = new Size(244, 23);
+            textBoxDiaChi.TabIndex = 5;
+            // 
+            // textBoxTenNXB
+            // 
+            textBoxTenNXB.Enabled = false;
+            textBoxTenNXB.Location = new Point(111, 30);
+            textBoxTenNXB.Margin = new Padding(3, 2, 3, 2);
+            textBoxTenNXB.Name = "textBoxTenNXB";
+            textBoxTenNXB.ReadOnly = true;
+            textBoxTenNXB.Size = new Size(244, 23);
+            textBoxTenNXB.TabIndex = 2;
             // 
             // FormChiTietNXB
             // 

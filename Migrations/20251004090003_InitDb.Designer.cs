@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20250925073928_InitDb")]
+    [Migration("20251004090003_InitDb")]
     partial class InitDb
     {
         /// <inheritdoc />
@@ -30,8 +30,8 @@ namespace LibraryManagementSystem.Migrations
                     b.Property<string>("IdBanSaoSach")
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("IdSach")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("IdSach")
+                        .HasColumnType("int");
 
                     b.Property<string>("TinhTrangSach")
                         .IsRequired()
@@ -89,11 +89,8 @@ namespace LibraryManagementSystem.Migrations
                     b.Property<int>("IdPhieuNhap")
                         .HasColumnType("int");
 
-                    b.Property<string>("IdSach")
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("MaDauSach")
-                        .HasColumnType("longtext");
+                    b.Property<int>("IdSach")
+                        .HasColumnType("int");
 
                     b.Property<int>("SoLuong")
                         .HasColumnType("int");
@@ -336,7 +333,7 @@ namespace LibraryManagementSystem.Migrations
 
                     b.HasIndex("IdNCC");
 
-                    b.ToTable("PhieNhap");
+                    b.ToTable("PhieuNhap");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.PhieuPhat", b =>
@@ -384,8 +381,11 @@ namespace LibraryManagementSystem.Migrations
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.Sach", b =>
                 {
-                    b.Property<string>("IdSach")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("IdSach")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdSach"));
 
                     b.Property<int>("IdNXB")
                         .HasColumnType("int");
@@ -523,8 +523,8 @@ namespace LibraryManagementSystem.Migrations
 
             modelBuilder.Entity("Sach_TacGia", b =>
                 {
-                    b.Property<string>("IdSach")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("IdSach")
+                        .HasColumnType("int");
 
                     b.Property<int>("IdTacGia")
                         .HasColumnType("int");
@@ -538,8 +538,8 @@ namespace LibraryManagementSystem.Migrations
 
             modelBuilder.Entity("Sach_TheLoai", b =>
                 {
-                    b.Property<string>("IdSach")
-                        .HasColumnType("varchar(255)");
+                    b.Property<int>("IdSach")
+                        .HasColumnType("int");
 
                     b.Property<int>("IdTheLoai")
                         .HasColumnType("int");
@@ -570,7 +570,9 @@ namespace LibraryManagementSystem.Migrations
                 {
                     b.HasOne("LibraryManagementSystem.Entities.Sach", "Sach")
                         .WithMany("BanSaoSachs")
-                        .HasForeignKey("IdSach");
+                        .HasForeignKey("IdSach")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Sach");
                 });
@@ -602,7 +604,9 @@ namespace LibraryManagementSystem.Migrations
 
                     b.HasOne("LibraryManagementSystem.Entities.Sach", "Sach")
                         .WithMany()
-                        .HasForeignKey("IdSach");
+                        .HasForeignKey("IdSach")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("PhieuNhap");
 

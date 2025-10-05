@@ -12,7 +12,9 @@ namespace LibraryManagementSystem.Entities
     public class Sach
     {
         [Key]
-        public string? IdSach { get; set; }
+        public int IdSach{ get; set; }
+        [NotMapped]
+        public string IdSachFormat => $"S{IdSach}";
         public int IdNXB { get; set; }
         public int NamXuatBan { get;set; }
         public string? TenSach { get; set; }

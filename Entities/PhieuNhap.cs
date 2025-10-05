@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Entities
 {
-    [Table("PhieNhap")]
+    [Table("PhieuNhap")]
     public class PhieuNhap
     {
         [Key]

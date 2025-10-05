@@ -83,9 +83,10 @@
             btnTimKiem.Location = new Point(3, 24);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(83, 24);
-            btnTimKiem.TabIndex = 8;
+            btnTimKiem.TabIndex = 5;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
@@ -94,7 +95,7 @@
             txtBoxTimKiem.Name = "txtBoxTimKiem";
             txtBoxTimKiem.PlaceholderText = "Tìm kiếm...";
             txtBoxTimKiem.Size = new Size(203, 23);
-            txtBoxTimKiem.TabIndex = 9;
+            txtBoxTimKiem.TabIndex = 4;
             // 
             // btnLamMoi
             // 
@@ -107,9 +108,10 @@
             btnLamMoi.Margin = new Padding(0);
             btnLamMoi.Name = "btnLamMoi";
             btnLamMoi.Size = new Size(50, 72);
-            btnLamMoi.TabIndex = 7;
+            btnLamMoi.TabIndex = 6;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnExcel
             // 
@@ -122,7 +124,7 @@
             btnExcel.Margin = new Padding(0);
             btnExcel.Name = "btnExcel";
             btnExcel.Size = new Size(77, 72);
-            btnExcel.TabIndex = 4;
+            btnExcel.TabIndex = 3;
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
@@ -142,6 +144,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -180,6 +183,7 @@
             // dgvTheLoai
             // 
             dgvTheLoai.AccessibleRole = AccessibleRole.None;
+            dgvTheLoai.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTheLoai.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTheLoai.Dock = DockStyle.Fill;
             dgvTheLoai.Location = new Point(0, 72);

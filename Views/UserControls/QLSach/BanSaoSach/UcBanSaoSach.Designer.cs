@@ -180,6 +180,7 @@
             // dgvBanSaoSach
             // 
             dgvBanSaoSach.AccessibleRole = AccessibleRole.None;
+            dgvBanSaoSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvBanSaoSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBanSaoSach.Dock = DockStyle.Fill;
             dgvBanSaoSach.Location = new Point(0, 72);

@@ -53,6 +53,7 @@
             btnSua.TabIndex = 15;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // labelTitle
             // 
@@ -114,6 +115,7 @@
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // tableLayoutPanelContent
             // 
