@@ -56,9 +56,10 @@
             btnSua.Margin = new Padding(3, 2, 3, 2);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(173, 34);
-            btnSua.TabIndex = 15;
+            btnSua.TabIndex = 5;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // labelTitle
             // 
@@ -117,9 +118,10 @@
             btnHuy.Margin = new Padding(3, 2, 3, 2);
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(173, 34);
-            btnHuy.TabIndex = 18;
+            btnHuy.TabIndex = 6;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // tableLayoutPanelContent
             // 
@@ -152,7 +154,7 @@
             textBoxSDT.Margin = new Padding(3, 2, 3, 2);
             textBoxSDT.Name = "textBoxSDT";
             textBoxSDT.Size = new Size(244, 23);
-            textBoxSDT.TabIndex = 9;
+            textBoxSDT.TabIndex = 4;
             // 
             // label4
             // 
@@ -171,7 +173,7 @@
             textBoxNoiSinh.Margin = new Padding(3, 2, 3, 2);
             textBoxNoiSinh.Name = "textBoxNoiSinh";
             textBoxNoiSinh.Size = new Size(244, 23);
-            textBoxNoiSinh.TabIndex = 6;
+            textBoxNoiSinh.TabIndex = 3;
             // 
             // label1
             // 
@@ -190,7 +192,7 @@
             textBoxTenTacGia.Margin = new Padding(3, 2, 3, 2);
             textBoxTenTacGia.Name = "textBoxTenTacGia";
             textBoxTenTacGia.Size = new Size(244, 23);
-            textBoxTenTacGia.TabIndex = 2;
+            textBoxTenTacGia.TabIndex = 1;
             // 
             // label2
             // 
@@ -219,7 +221,8 @@
             dateTimePickerNgaySinh.Location = new Point(111, 31);
             dateTimePickerNgaySinh.Name = "dateTimePickerNgaySinh";
             dateTimePickerNgaySinh.Size = new Size(244, 23);
-            dateTimePickerNgaySinh.TabIndex = 7;
+            dateTimePickerNgaySinh.TabIndex = 2;
+            dateTimePickerNgaySinh.Value = new DateTime(2025, 10, 5, 0, 0, 0, 0);
             // 
             // FormSuaTacGia
             // 

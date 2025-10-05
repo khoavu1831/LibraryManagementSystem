@@ -39,8 +39,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
                 _theLoaiService.Save(theLoai);
 
                 MessageBox.Show("Thêm thể loại thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                DialogResult = DialogResult.OK;
+                Close();
             } 
             catch (Exception ex)
             {
@@ -49,7 +49,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         }
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

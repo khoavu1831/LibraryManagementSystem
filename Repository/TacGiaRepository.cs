@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Repository
 {
@@ -9,15 +10,38 @@ namespace LibraryManagementSystem.Repository
         public TacGiaRepository(LibraryDbContext context) => _context = context;
         public List<TacGia> GetAll() => _context.TacGias.ToList();
         public TacGia? GetById(int id) => _context.TacGias.Find(id);
-        public TacGia Update(TacGia tacGia)
-        {
-            _context.TacGias.Update(tacGia);
-            _context.SaveChanges();
-            return tacGia;
-        }
+        public TacGia? GetByName(string name) =>
+                _context.TacGias
+                 .AsNoTracking()
+                 .FirstOrDefault(tg => (tg.TenTacGia ?? "").ToLower() == name.ToLower());
+        public TacGia? GetByBirth(DateTime ngaySinh) =>
+                _context.TacGias
+                 .AsNoTracking()
+                 .FirstOrDefault(tg => tg.NgaySinh == ngaySinh);
+        public TacGia? GetByNoiSinh(string noiSinh) =>
+                _context.TacGias
+                 .AsNoTracking()
+                 .FirstOrDefault(tg => (tg.NoiSinh ?? "").ToLower() == noiSinh.ToLower());
+        public TacGia? GetByPhone(string sdt) =>
+                _context.TacGias
+                 .AsNoTracking()
+                 .FirstOrDefault(tg => (tg.SDT ?? "").ToLower() == sdt.ToLower());
+
         public TacGia Add(TacGia tacGia)
         {
             _context.TacGias.Add(tacGia);
+            _context.SaveChanges();
+            return tacGia;
+        }
+        public TacGia Update(TacGia tacGia)
+        {
+            var existingEntity = _context.TacGias.FirstOrDefault(e => e.IdTacGia == tacGia.IdTacGia);
+            if (existingEntity != null)
+            {
+                _context.Entry(existingEntity).State = EntityState.Detached;
+            }
+
+            _context.TacGias.Update(tacGia);
             _context.SaveChanges();
             return tacGia;
         }
@@ -29,5 +53,11 @@ namespace LibraryManagementSystem.Repository
             _context.SaveChanges();
             return tacGia;
         }
+        public List<TacGia> Search(string keyword) =>
+            _context.TacGias
+                .Where(tg => (tg.TenTacGia ?? "").ToLower().Contains(keyword.ToLower()) ||
+                             (tg.NoiSinh ?? "").ToLower().Contains(keyword.ToLower()) ||
+                             (tg.SDT ?? "").Contains(keyword))
+                .ToList();
     }
 }

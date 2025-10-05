@@ -12,9 +12,22 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     public partial class FormChiTietTacGia : Form
     {
-        public FormChiTietTacGia()
+        private readonly int _idTacGia;
+        public FormChiTietTacGia(int idTacGia, string tenTacGia, DateTime ngaySinh, string noiSinh, string sdt)
         {
             InitializeComponent();
+
+            _idTacGia = idTacGia;
+            textBoxIdTacGia.Text = idTacGia.ToString();
+            dateTimePickerNgaySinh.Value = ngaySinh;
+            textBoxTenTacGia.Text = tenTacGia;
+            textBoxNoiSinh.Text = noiSinh;
+            textBoxSDT.Text = sdt;
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

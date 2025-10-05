@@ -16,7 +16,7 @@ namespace LibraryManagementSystem.Services
         public TheLoai? DeleteTheLoai(int id) => _theLoaiRepository.DeleteById(id);
         public TheLoai Save(TheLoai theLoai)
         {
-            if (string.IsNullOrWhiteSpace(theLoai.TenTheloai)) 
+            if (string.IsNullOrWhiteSpace(theLoai.TenTheloai))
                 throw new Exception("Tên thể loại không được để trống.");
 
             if (Regex.IsMatch(theLoai.TenTheloai, @"\d"))

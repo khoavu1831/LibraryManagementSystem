@@ -14,8 +14,8 @@ namespace LibraryManagementSystem.Repository
         // AsNoTracking(): Tối ưu hiệu suất khi chỉ đọc dữ liệu, không cần theo dõi thay đổi
         public TheLoai? GetByName(string name) => 
             _context.TheLoais
-             .AsNoTracking()
-             .FirstOrDefault(tl => tl.TenTheloai == name);
+                .AsNoTracking()
+                .FirstOrDefault(tl => tl.TenTheloai == name);
         public TheLoai Add(TheLoai theLoai)
         {
             _context.TheLoais.Add(theLoai);

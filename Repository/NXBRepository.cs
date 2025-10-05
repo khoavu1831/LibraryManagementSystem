@@ -11,11 +11,11 @@ namespace LibraryManagementSystem.Repository
         public List<NXB> GetAll() => _context.NXBs.ToList();
         public NXB? GetById(int id) => _context.NXBs.Find(id);
         public NXB? GetByName(string name) => 
-               _context.NXBs
+            _context.NXBs
                 .AsNoTracking()
                 .FirstOrDefault(nxb => (nxb.TenNXB ?? "").ToLower() == name.ToLower());
         public NXB? GetByPhone(string phone) => 
-               _context.NXBs
+            _context.NXBs
                 .AsNoTracking()
                 .FirstOrDefault(nxb => nxb.SDT == phone);
         public NXB Add(NXB nxb)

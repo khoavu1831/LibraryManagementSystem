@@ -44,8 +44,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
                 _nxbService.Save(nxb);
 
                 MessageBox.Show("Thêm NXB thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                DialogResult = DialogResult.OK;
+                Close();
             }
             catch (Exception ex)
             {
@@ -56,7 +56,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

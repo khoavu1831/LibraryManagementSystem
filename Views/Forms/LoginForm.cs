@@ -20,7 +20,7 @@ namespace LibraryManagementSystem.Forms
         private void buttonDangNhap_Click(object sender, EventArgs e)
         {
             // xu ly logic dang nhap truoc
-            if (textBoxTenDangNhap.Text == "khoadz" && textBoxMatKhau.Text == "123456")
+            if (textBoxTenDangNhap.Text == "" && textBoxMatKhau.Text == "")
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();

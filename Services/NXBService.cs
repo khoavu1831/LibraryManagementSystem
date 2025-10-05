@@ -17,12 +17,15 @@ namespace LibraryManagementSystem.Services
         public NXB? DeleteNXB(int id) => _nxbRepository.DeleteById(id);
         public NXB Save(NXB nxb)
         {
+            // Tên
             if (string.IsNullOrEmpty(nxb.TenNXB))
                 throw new Exception("Tên NXB không được để trống.");
 
+            // Địa chỉ
             if (string.IsNullOrEmpty(nxb.DiaChi))
                 throw new Exception("Địa chỉ không được để trống.");
-
+                
+            // SDT
             if (string.IsNullOrEmpty(nxb.SDT))
                 throw new Exception("Số điện thoại không được để trống.");
 
@@ -41,6 +44,7 @@ namespace LibraryManagementSystem.Services
                     throw new Exception("Thông tin nhà xuất bản giữ nguyên, không có thay đổi.");
                 }
             }
+
             var existingNXBByName = GetNXBByName(nxb.TenNXB ?? "");
             if (existingNXBByName != null && existingNXBByName.IdNXB != nxb.IdNXB)
                 throw new Exception("Nhà xuất bản đã tồn tại.");
