@@ -2,6 +2,7 @@
 using LibraryManagementSystem.Views.UserControls.QLNhanVien;
 using LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat;
 using LibraryManagementSystem.Views.UserControls.QuanLySach;
+using LibraryManagementSystem.Views.UserControls.QLMuonTraSach;
 using LibraryManagementSystem.Views.UserControls.TrangChu;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,14 @@ namespace LibraryManagementSystem.Views.Forms
         private readonly UcTrangChu _ucTrangChu;
         private readonly UcQLSach _ucQLSach;
         private readonly UcQLNhanVien _ucQLNhanVien;
+        private readonly UcQLMuonTraSach _ucQLMuonTraSach;
         public MainForm()
         {
             InitializeComponent();
             _ucTrangChu = new UcTrangChu();
             _ucQLSach = new UcQLSach();
             _ucQLNhanVien = new UcQLNhanVien();
+            _ucQLMuonTraSach = new UcQLMuonTraSach();
             LoadUserControl(_ucTrangChu);
         }
         private void LoadUserControl(UserControl uc)
@@ -46,6 +49,10 @@ namespace LibraryManagementSystem.Views.Forms
         {
             LoadUserControl(_ucQLNhanVien);
         }
+        private void buttonQLMuonTraSach_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(_ucQLMuonTraSach);
+        }
         private void bntPhat_Click(object sender, EventArgs e)
         {
             new FormTraPhat().Show(); // mở cửa sổ không chặn
@@ -55,7 +62,7 @@ namespace LibraryManagementSystem.Views.Forms
         {
 
         }
-            
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -73,5 +80,6 @@ namespace LibraryManagementSystem.Views.Forms
                 }
             }
         }
+
     }
 }
