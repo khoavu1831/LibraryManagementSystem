@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
+namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     public partial class FormChiTietPhieuPhat : Form
     {

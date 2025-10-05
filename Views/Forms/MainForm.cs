@@ -1,6 +1,6 @@
 ﻿using LibraryManagementSystem.Forms;
 using LibraryManagementSystem.Views.UserControls.QLNhanVien;
-using LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat;
+using LibraryManagementSystem.Views.UserControls.QLPhat;
 using LibraryManagementSystem.Views.UserControls.QuanLySach;
 using LibraryManagementSystem.Views.UserControls.QLMuonTraSach;
 using LibraryManagementSystem.Views.UserControls.TrangChu;
@@ -21,6 +21,7 @@ namespace LibraryManagementSystem.Views.Forms
         private readonly UcTrangChu _ucTrangChu;
         private readonly UcQLSach _ucQLSach;
         private readonly UcQLNhanVien _ucQLNhanVien;
+        private readonly UcQLPhat _ucQLPhat;
         private readonly UcQLMuonTraSach _ucQLMuonTraSach;
         public MainForm()
         {
@@ -28,6 +29,7 @@ namespace LibraryManagementSystem.Views.Forms
             _ucTrangChu = new UcTrangChu();
             _ucQLSach = new UcQLSach();
             _ucQLNhanVien = new UcQLNhanVien();
+            _ucQLPhat = new UcQLPhat();
             _ucQLMuonTraSach = new UcQLMuonTraSach();
             LoadUserControl(_ucTrangChu);
         }
@@ -55,7 +57,7 @@ namespace LibraryManagementSystem.Views.Forms
         }
         private void bntPhat_Click(object sender, EventArgs e)
         {
-            new FormTraPhat().Show(); // mở cửa sổ không chặn
+            LoadUserControl(_ucQLPhat);
 
         }
         private void button6_Click(object sender, EventArgs e)

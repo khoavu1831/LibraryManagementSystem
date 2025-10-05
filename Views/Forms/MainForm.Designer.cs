@@ -35,6 +35,8 @@
             button8 = new Button();
             buttonQLNhanVien = new Button();
             button6 = new Button();
+            btnPhat = new Button();
+            button4 = new Button();
             bntPhat = new Button();
             buttonQLMuonTraSach = new Button();
             btnDocGia = new Button();
@@ -93,6 +95,8 @@
             panelMenu.Controls.Add(button8);
             panelMenu.Controls.Add(buttonQLNhanVien);
             panelMenu.Controls.Add(button6);
+            panelMenu.Controls.Add(btnPhat);
+            panelMenu.Controls.Add(button4);
             panelMenu.Controls.Add(bntPhat);
             panelMenu.Controls.Add(buttonQLMuonTraSach);
             panelMenu.Controls.Add(btnDocGia);
@@ -157,24 +161,24 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
-            // bntPhat
+            // btnPhat
             // 
-            bntPhat.BackColor = Color.White;
-            bntPhat.Dock = DockStyle.Top;
-            bntPhat.FlatAppearance.BorderSize = 0;
-            bntPhat.FlatStyle = FlatStyle.Flat;
-            bntPhat.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            bntPhat.Image = Properties.Resources.icon9;
-            bntPhat.ImageAlign = ContentAlignment.MiddleLeft;
-            bntPhat.Location = new Point(0, 200);
-            bntPhat.Margin = new Padding(3, 2, 3, 2);
-            bntPhat.Name = "bntPhat";
-            bntPhat.Size = new Size(182, 38);
-            bntPhat.TabIndex = 4;
-            bntPhat.Text = "   Phạt - Trả Phạt";
-            bntPhat.TextImageRelation = TextImageRelation.ImageBeforeText;
-            bntPhat.UseVisualStyleBackColor = false;
-            bntPhat.Click += bntPhat_Click;
+            btnPhat.BackColor = Color.White;
+            btnPhat.Dock = DockStyle.Top;
+            btnPhat.FlatAppearance.BorderSize = 0;
+            btnPhat.FlatStyle = FlatStyle.Flat;
+            btnPhat.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnPhat.Image = Properties.Resources.icon9;
+            btnPhat.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPhat.Location = new Point(0, 200);
+            btnPhat.Margin = new Padding(3, 2, 3, 2);
+            btnPhat.Name = "btnPhat";
+            btnPhat.Size = new Size(182, 38);
+            btnPhat.TabIndex = 4;
+            btnPhat.Text = "   Phạt - Trả Phạt";
+            btnPhat.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPhat.UseVisualStyleBackColor = false;
+            btnPhat.Click += bntPhat_Click;
             // 
             // buttonQLMuonTraSach
             // 
@@ -318,6 +322,8 @@
         private Button button8;
         private Button buttonQLNhanVien;
         private Button button6;
+        private Button btnPhat;
+        private Button button4;
         private Button bntPhat;
         private Button buttonQLMuonTraSach;
         private Button btnDocGia;

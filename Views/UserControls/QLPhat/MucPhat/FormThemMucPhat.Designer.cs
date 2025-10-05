@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class FormThemMucPhat
     {
@@ -38,11 +38,11 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             textBoxMoTa = new TextBox();
             textBoxSoTien = new TextBox();
+            comboBoxLoaiPhat = new ComboBox();
             panel1 = new Panel();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             btnHuy = new Button();
-            comboBoxLoaiPhat = new ComboBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -173,6 +173,15 @@
             textBoxSoTien.Size = new Size(227, 24);
             textBoxSoTien.TabIndex = 15;
             // 
+            // comboBoxLoaiPhat
+            // 
+            comboBoxLoaiPhat.Dock = DockStyle.Fill;
+            comboBoxLoaiPhat.FormattingEnabled = true;
+            comboBoxLoaiPhat.Location = new Point(104, 31);
+            comboBoxLoaiPhat.Name = "comboBoxLoaiPhat";
+            comboBoxLoaiPhat.Size = new Size(227, 23);
+            comboBoxLoaiPhat.TabIndex = 17;
+            // 
             // panel1
             // 
             panel1.Controls.Add(label1);
@@ -221,15 +230,6 @@
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             btnHuy.Click += btnHuy_Click;
-            // 
-            // comboBoxLoaiPhat
-            // 
-            comboBoxLoaiPhat.Dock = DockStyle.Fill;
-            comboBoxLoaiPhat.FormattingEnabled = true;
-            comboBoxLoaiPhat.Location = new Point(104, 31);
-            comboBoxLoaiPhat.Name = "comboBoxLoaiPhat";
-            comboBoxLoaiPhat.Size = new Size(227, 23);
-            comboBoxLoaiPhat.TabIndex = 17;
             // 
             // FormThemMucPhat
             // 

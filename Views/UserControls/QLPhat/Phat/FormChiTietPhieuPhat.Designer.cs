@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class FormChiTietPhieuPhat
     {
@@ -36,9 +36,6 @@
             label7 = new Label();
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            panel1 = new Panel();
-            panel2 = new Panel();
-            btnQuayLai = new Button();
             label8 = new Label();
             comboBoxLoaiPhat = new ComboBox();
             textBoxSoNgayTre = new TextBox();
@@ -47,6 +44,9 @@
             textBoxHoVaTen = new TextBox();
             textBoxIDPhieuMuon = new TextBox();
             dateTimePickerNgayLap = new DateTimePicker();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            btnQuayLai = new Button();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -167,40 +167,6 @@
             tableLayoutPanel1.TabIndex = 17;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(456, 94);
-            panel1.TabIndex = 18;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(btnQuayLai);
-            panel2.Controls.Add(tableLayoutPanel1);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 94);
-            panel2.Margin = new Padding(3, 2, 3, 2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(456, 342);
-            panel2.TabIndex = 19;
-            panel2.Paint += panel2_Paint;
-            // 
-            // btnQuayLai
-            // 
-            btnQuayLai.Anchor = AnchorStyles.None;
-            btnQuayLai.Location = new Point(151, 297);
-            btnQuayLai.Margin = new Padding(3, 2, 3, 2);
-            btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(162, 34);
-            btnQuayLai.TabIndex = 19;
-            btnQuayLai.Text = "Quay lại";
-            btnQuayLai.UseVisualStyleBackColor = true;
-            btnQuayLai.Click += btnQuayLai_Click;
-            // 
             // label8
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -276,11 +242,45 @@
             dateTimePickerNgayLap.Size = new Size(227, 23);
             dateTimePickerNgayLap.TabIndex = 26;
             // 
+            // panel1
+            // 
+            panel1.Controls.Add(label1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(456, 94);
+            panel1.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(btnQuayLai);
+            panel2.Controls.Add(tableLayoutPanel1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 94);
+            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(456, 301);
+            panel2.TabIndex = 19;
+            panel2.Paint += panel2_Paint;
+            // 
+            // btnQuayLai
+            // 
+            btnQuayLai.Anchor = AnchorStyles.None;
+            btnQuayLai.Location = new Point(149, 244);
+            btnQuayLai.Margin = new Padding(3, 2, 3, 2);
+            btnQuayLai.Name = "btnQuayLai";
+            btnQuayLai.Size = new Size(162, 34);
+            btnQuayLai.TabIndex = 19;
+            btnQuayLai.Text = "Quay lại";
+            btnQuayLai.UseVisualStyleBackColor = true;
+            btnQuayLai.Click += btnQuayLai_Click;
+            // 
             // FormChiTietPhieuPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(456, 436);
+            ClientSize = new Size(456, 395);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);

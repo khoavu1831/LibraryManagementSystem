@@ -16,5 +16,15 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
         {
             InitializeComponent();
         }
+
+        private void buttonThanhToan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonHuy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
+namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     public partial class FormSuaMucPhat : Form
     {
@@ -23,6 +23,11 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
         }
 
         private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
         {
 
         }

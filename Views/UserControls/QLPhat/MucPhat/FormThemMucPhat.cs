@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     public partial class FormThemMucPhat : Form
     {

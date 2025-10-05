@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class UcTraPhat
     {
@@ -82,6 +82,7 @@
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
@@ -106,6 +107,7 @@
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnExcel
             // 
@@ -122,6 +124,7 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
+            btnExcel.Click += btnExcel_Click;
             // 
             // btnChiTiet
             // 
@@ -138,6 +141,7 @@
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
+            btnChiTiet.Click += btnChiTiet_Click;
             // 
             // dgvPhat
             // 
@@ -149,13 +153,13 @@
             dgvPhat.Size = new Size(774, 491);
             dgvPhat.TabIndex = 1;
             // 
-            // UserControl1
+            // UcTraPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvPhat);
             Controls.Add(panelCRUD);
-            Name = "UserControl1";
+            Name = "UcTraPhat";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
