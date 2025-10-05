@@ -37,6 +37,8 @@
             button6 = new Button();
             btnPhat = new Button();
             button4 = new Button();
+            bntPhat = new Button();
+            buttonQLMuonTraSach = new Button();
             btnDocGia = new Button();
             btnQLSach = new Button();
             btnTrangChu = new Button();
@@ -95,6 +97,8 @@
             panelMenu.Controls.Add(button6);
             panelMenu.Controls.Add(btnPhat);
             panelMenu.Controls.Add(button4);
+            panelMenu.Controls.Add(bntPhat);
+            panelMenu.Controls.Add(buttonQLMuonTraSach);
             panelMenu.Controls.Add(btnDocGia);
             panelMenu.Controls.Add(btnQLSach);
             panelMenu.Controls.Add(btnTrangChu);
@@ -176,22 +180,23 @@
             btnPhat.UseVisualStyleBackColor = false;
             btnPhat.Click += bntPhat_Click;
             // 
-            // button4
+            // buttonQLMuonTraSach
             // 
-            button4.BackColor = Color.White;
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            button4.Image = Properties.Resources.icon5;
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(0, 150);
-            button4.Name = "button4";
-            button4.Size = new Size(182, 50);
-            button4.TabIndex = 3;
-            button4.Text = "   Mượn - Trả Sách";
-            button4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button4.UseVisualStyleBackColor = false;
+            buttonQLMuonTraSach.BackColor = Color.White;
+            buttonQLMuonTraSach.Dock = DockStyle.Top;
+            buttonQLMuonTraSach.FlatAppearance.BorderSize = 0;
+            buttonQLMuonTraSach.FlatStyle = FlatStyle.Flat;
+            buttonQLMuonTraSach.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            buttonQLMuonTraSach.Image = Properties.Resources.icon5;
+            buttonQLMuonTraSach.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonQLMuonTraSach.Location = new Point(0, 150);
+            buttonQLMuonTraSach.Name = "buttonQLMuonTraSach";
+            buttonQLMuonTraSach.Size = new Size(182, 50);
+            buttonQLMuonTraSach.TabIndex = 3;
+            buttonQLMuonTraSach.Text = "   Mượn - Trả Sách";
+            buttonQLMuonTraSach.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonQLMuonTraSach.UseVisualStyleBackColor = false;
+            buttonQLMuonTraSach.Click += buttonQLMuonTraSach_Click;
             // 
             // btnDocGia
             // 
@@ -319,6 +324,8 @@
         private Button button6;
         private Button btnPhat;
         private Button button4;
+        private Button bntPhat;
+        private Button buttonQLMuonTraSach;
         private Button btnDocGia;
         private Button btnQLSach;
         private Button btnLogout;
