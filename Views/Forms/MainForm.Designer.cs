@@ -36,8 +36,6 @@
             buttonQLNhanVien = new Button();
             button6 = new Button();
             btnPhat = new Button();
-            button4 = new Button();
-            bntPhat = new Button();
             buttonQLMuonTraSach = new Button();
             btnDocGia = new Button();
             btnQLSach = new Button();
@@ -96,8 +94,6 @@
             panelMenu.Controls.Add(buttonQLNhanVien);
             panelMenu.Controls.Add(button6);
             panelMenu.Controls.Add(btnPhat);
-            panelMenu.Controls.Add(button4);
-            panelMenu.Controls.Add(bntPhat);
             panelMenu.Controls.Add(buttonQLMuonTraSach);
             panelMenu.Controls.Add(btnDocGia);
             panelMenu.Controls.Add(btnQLSach);
@@ -323,8 +319,6 @@
         private Button buttonQLNhanVien;
         private Button button6;
         private Button btnPhat;
-        private Button button4;
-        private Button bntPhat;
         private Button buttonQLMuonTraSach;
         private Button btnDocGia;
         private Button btnQLSach;
