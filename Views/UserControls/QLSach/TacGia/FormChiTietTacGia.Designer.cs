@@ -108,6 +108,7 @@
             btnDong.TabIndex = 18;
             btnDong.Text = "Đóng";
             btnDong.UseVisualStyleBackColor = true;
+            btnDong.Click += btnDong_Click;
             // 
             // tableLayoutPanelContent
             // 
