@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class UcTraPhat
     {

@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class UcPhat
     {
@@ -42,7 +42,7 @@
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
-            SuspendLayout();
+                SuspendLayout();
             // 
             // panelCRUD
             // 
