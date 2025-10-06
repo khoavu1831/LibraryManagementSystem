@@ -138,6 +138,7 @@
             // 
             // textBoxIDKhachHang
             // 
+            textBoxIDKhachHang.BackColor = Color.White;
             textBoxIDKhachHang.Location = new Point(185, 99);
             textBoxIDKhachHang.Name = "textBoxIDKhachHang";
             textBoxIDKhachHang.ReadOnly = true;
@@ -146,6 +147,7 @@
             // 
             // textBoxIDTheThanhVien
             // 
+            textBoxIDTheThanhVien.BackColor = Color.White;
             textBoxIDTheThanhVien.Location = new Point(185, 50);
             textBoxIDTheThanhVien.Name = "textBoxIDTheThanhVien";
             textBoxIDTheThanhVien.ReadOnly = true;

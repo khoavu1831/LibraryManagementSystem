@@ -30,6 +30,7 @@
         {
             labelTitle = new Label();
             panel1 = new Panel();
+            btnQuayLai = new Button();
             dateTimePickerNgayCap = new DateTimePicker();
             dateTimePickerNgayHetHan = new DateTimePicker();
             comboBoxTrangThai = new ComboBox();
@@ -40,7 +41,6 @@
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
-            btnQuayLai = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -76,8 +76,18 @@
             panel1.Size = new Size(499, 430);
             panel1.TabIndex = 28;
             // 
+            // btnQuayLai
+            // 
+            btnQuayLai.Location = new Point(156, 340);
+            btnQuayLai.Name = "btnQuayLai";
+            btnQuayLai.Size = new Size(180, 40);
+            btnQuayLai.TabIndex = 37;
+            btnQuayLai.Text = "Quay lại";
+            btnQuayLai.UseVisualStyleBackColor = true;
+            // 
             // dateTimePickerNgayCap
             // 
+            dateTimePickerNgayCap.CalendarMonthBackground = Color.White;
             dateTimePickerNgayCap.Enabled = false;
             dateTimePickerNgayCap.Location = new Point(185, 154);
             dateTimePickerNgayCap.Name = "dateTimePickerNgayCap";
@@ -86,6 +96,7 @@
             // 
             // dateTimePickerNgayHetHan
             // 
+            dateTimePickerNgayHetHan.CalendarMonthBackground = Color.White;
             dateTimePickerNgayHetHan.Enabled = false;
             dateTimePickerNgayHetHan.Location = new Point(185, 213);
             dateTimePickerNgayHetHan.Name = "dateTimePickerNgayHetHan";
@@ -94,6 +105,7 @@
             // 
             // comboBoxTrangThai
             // 
+            comboBoxTrangThai.BackColor = Color.White;
             comboBoxTrangThai.Enabled = false;
             comboBoxTrangThai.FormattingEnabled = true;
             comboBoxTrangThai.Location = new Point(185, 266);
@@ -103,6 +115,7 @@
             // 
             // textBoxIDKhachHang
             // 
+            textBoxIDKhachHang.BackColor = Color.White;
             textBoxIDKhachHang.Location = new Point(185, 99);
             textBoxIDKhachHang.Name = "textBoxIDKhachHang";
             textBoxIDKhachHang.ReadOnly = true;
@@ -111,6 +124,7 @@
             // 
             // textBoxIDTheThanhVien
             // 
+            textBoxIDTheThanhVien.BackColor = Color.White;
             textBoxIDTheThanhVien.Location = new Point(185, 50);
             textBoxIDTheThanhVien.Name = "textBoxIDTheThanhVien";
             textBoxIDTheThanhVien.ReadOnly = true;
@@ -171,15 +185,6 @@
             label2.TabIndex = 31;
             label2.Text = "ID thẻ thành viên:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // btnQuayLai
-            // 
-            btnQuayLai.Location = new Point(156, 340);
-            btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(180, 40);
-            btnQuayLai.TabIndex = 37;
-            btnQuayLai.Text = "Quay lại";
-            btnQuayLai.UseVisualStyleBackColor = true;
             // 
             // FormChiTietTheThanhVien
             // 

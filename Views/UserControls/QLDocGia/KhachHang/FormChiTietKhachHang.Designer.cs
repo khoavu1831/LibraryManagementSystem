@@ -34,7 +34,6 @@
             btnQuayLai = new Button();
             textBoxEmail = new TextBox();
             textBoxSoDienThoai = new TextBox();
-            textBoxNgaySinh = new TextBox();
             textBoxDiaChi = new TextBox();
             textBoxTenKhachHang = new TextBox();
             label5 = new Label();
@@ -42,6 +41,7 @@
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             panel1.SuspendLayout();
             tableLayoutPanelButtons.SuspendLayout();
             SuspendLayout();
@@ -61,10 +61,10 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(dateTimePicker1);
             panel1.Controls.Add(tableLayoutPanelButtons);
             panel1.Controls.Add(textBoxEmail);
             panel1.Controls.Add(textBoxSoDienThoai);
-            panel1.Controls.Add(textBoxNgaySinh);
             panel1.Controls.Add(textBoxDiaChi);
             panel1.Controls.Add(textBoxTenKhachHang);
             panel1.Controls.Add(label5);
@@ -104,6 +104,7 @@
             // 
             // textBoxEmail
             // 
+            textBoxEmail.BackColor = Color.White;
             textBoxEmail.Location = new Point(200, 259);
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.ReadOnly = true;
@@ -112,22 +113,16 @@
             // 
             // textBoxSoDienThoai
             // 
+            textBoxSoDienThoai.BackColor = Color.White;
             textBoxSoDienThoai.Location = new Point(200, 206);
             textBoxSoDienThoai.Name = "textBoxSoDienThoai";
             textBoxSoDienThoai.ReadOnly = true;
             textBoxSoDienThoai.Size = new Size(278, 27);
             textBoxSoDienThoai.TabIndex = 10;
             // 
-            // textBoxNgaySinh
-            // 
-            textBoxNgaySinh.Location = new Point(200, 147);
-            textBoxNgaySinh.Name = "textBoxNgaySinh";
-            textBoxNgaySinh.ReadOnly = true;
-            textBoxNgaySinh.Size = new Size(278, 27);
-            textBoxNgaySinh.TabIndex = 11;
-            // 
             // textBoxDiaChi
             // 
+            textBoxDiaChi.BackColor = Color.White;
             textBoxDiaChi.Location = new Point(200, 99);
             textBoxDiaChi.Name = "textBoxDiaChi";
             textBoxDiaChi.ReadOnly = true;
@@ -136,6 +131,7 @@
             // 
             // textBoxTenKhachHang
             // 
+            textBoxTenKhachHang.BackColor = Color.White;
             textBoxTenKhachHang.Location = new Point(200, 50);
             textBoxTenKhachHang.Name = "textBoxTenKhachHang";
             textBoxTenKhachHang.ReadOnly = true;
@@ -197,6 +193,15 @@
             label2.Text = "Tên khách hàng:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CalendarMonthBackground = Color.White;
+            dateTimePicker1.Enabled = false;
+            dateTimePicker1.Location = new Point(200, 154);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(278, 27);
+            dateTimePicker1.TabIndex = 22;
+            // 
             // FormChiTietKhachHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -220,7 +225,6 @@
         private Button btnQuayLai;
         private TextBox textBoxEmail;
         private TextBox textBoxSoDienThoai;
-        private TextBox textBoxNgaySinh;
         private TextBox textBoxDiaChi;
         private TextBox textBoxTenKhachHang;
         private Label label5;
@@ -228,5 +232,6 @@
         private Label label3;
         private Label label1;
         private Label label2;
+        private DateTimePicker dateTimePicker1;
     }
 }
