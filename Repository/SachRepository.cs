@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Repository
 {
@@ -7,8 +8,15 @@ namespace LibraryManagementSystem.Repository
     {
         private readonly LibraryDbContext _context;
         public SachRepository(LibraryDbContext context) => _context = context;
-        public List<Sach> GetAll() => _context.Sachs.ToList();
-        public Sach? GetById(string id) => _context.Sachs.Find(id);
+        public List<Sach> GetAll()
+        {
+            return _context.Sachs
+                .Include(s => s.NXB)
+                .Include(s => s.TacGias)
+                .Include(s => s.TheLoais)
+                .ToList();
+        }
+        public Sach? GetById(int id) => _context.Sachs.Find(id);
         public Sach Add(Sach sach)
         {
             _context.Sachs.Add(sach);
@@ -21,7 +29,7 @@ namespace LibraryManagementSystem.Repository
             _context.SaveChanges();
             return sach;
         }
-        public Sach? DeleteById(string id)
+        public Sach? DeleteById(int id)
         {
             var sach = GetById(id);
             if (sach == null) return null;
