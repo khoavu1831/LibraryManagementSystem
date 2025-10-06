@@ -384,6 +384,9 @@ namespace LibraryManagementSystem.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdSach"));
 
+                    b.Property<decimal>("GiaTien")
+                        .HasColumnType("decimal(65,30)");
+
                     b.Property<int>("IdNXB")
                         .HasColumnType("int");
 

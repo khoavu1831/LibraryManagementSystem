@@ -49,6 +49,8 @@
             panelContent = new Panel();
             tableLayoutPanelButtons = new TableLayoutPanel();
             btnHuy = new Button();
+            label6 = new Label();
+            textBoxGiaSach = new TextBox();
             tableLayoutPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSoTrang).BeginInit();
@@ -137,7 +139,7 @@
             btnThem.Location = new Point(3, 2);
             btnThem.Margin = new Padding(3, 2, 3, 2);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(176, 34);
+            btnThem.Size = new Size(173, 34);
             btnThem.TabIndex = 15;
             btnThem.Text = "Sửa";
             btnThem.UseVisualStyleBackColor = true;
@@ -161,6 +163,8 @@
             tableLayoutPanelContent.ColumnCount = 2;
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.2521F));
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.7479F));
+            tableLayoutPanelContent.Controls.Add(textBoxGiaSach, 1, 7);
+            tableLayoutPanelContent.Controls.Add(label6, 0, 7);
             tableLayoutPanelContent.Controls.Add(checkedListBoxTheLoai, 1, 2);
             tableLayoutPanelContent.Controls.Add(textBoxMoTa, 1, 6);
             tableLayoutPanelContent.Controls.Add(textBoxNXB, 1, 3);
@@ -178,7 +182,7 @@
             tableLayoutPanelContent.Location = new Point(41, 25);
             tableLayoutPanelContent.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelContent.Name = "tableLayoutPanelContent";
-            tableLayoutPanelContent.RowCount = 7;
+            tableLayoutPanelContent.RowCount = 8;
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
@@ -186,8 +190,8 @@
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelContent.Size = new Size(358, 322);
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.Size = new Size(358, 350);
             tableLayoutPanelContent.TabIndex = 17;
             // 
             // checkedListBoxTheLoai
@@ -273,7 +277,7 @@
             panelContent.Location = new Point(0, 94);
             panelContent.Margin = new Padding(3, 2, 3, 2);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(437, 418);
+            panelContent.Size = new Size(437, 440);
             panelContent.TabIndex = 19;
             // 
             // tableLayoutPanelButtons
@@ -283,31 +287,51 @@
             tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanelButtons.Controls.Add(btnThem, 0, 0);
             tableLayoutPanelButtons.Controls.Add(btnHuy, 1, 0);
-            tableLayoutPanelButtons.Location = new Point(41, 363);
+            tableLayoutPanelButtons.Location = new Point(41, 389);
             tableLayoutPanelButtons.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             tableLayoutPanelButtons.RowCount = 1;
             tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            tableLayoutPanelButtons.Size = new Size(365, 41);
+            tableLayoutPanelButtons.Size = new Size(358, 41);
             tableLayoutPanelButtons.TabIndex = 19;
             // 
             // btnHuy
             // 
             btnHuy.Dock = DockStyle.Top;
-            btnHuy.Location = new Point(185, 2);
+            btnHuy.Location = new Point(182, 2);
             btnHuy.Margin = new Padding(3, 2, 3, 2);
             btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(177, 34);
+            btnHuy.Size = new Size(173, 34);
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(3, 322);
+            label6.Name = "label6";
+            label6.Size = new Size(102, 28);
+            label6.TabIndex = 27;
+            label6.Text = "Giá sách:";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBoxGiaSach
+            // 
+            textBoxGiaSach.Dock = DockStyle.Fill;
+            textBoxGiaSach.Location = new Point(111, 324);
+            textBoxGiaSach.Margin = new Padding(3, 2, 3, 2);
+            textBoxGiaSach.Name = "textBoxGiaSach";
+            textBoxGiaSach.Size = new Size(244, 23);
+            textBoxGiaSach.TabIndex = 28;
             // 
             // FormSuaSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(437, 512);
+            ClientSize = new Size(437, 534);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
             Margin = new Padding(3, 2, 3, 2);
@@ -347,5 +371,7 @@
         private CheckedListBox checkedListBoxTheLoai;
         private NumericUpDown numericUpDownNamXB;
         private NumericUpDown numericUpDownSoTrang;
+        private TextBox textBoxGiaSach;
+        private Label label6;
     }
 }

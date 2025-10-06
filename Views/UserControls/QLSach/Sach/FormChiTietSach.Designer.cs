@@ -52,6 +52,8 @@
             panelContent = new Panel();
             tableLayoutPanelButtons = new TableLayoutPanel();
             btnHuy = new Button();
+            label10 = new Label();
+            textBoxGiaSach = new TextBox();
             tableLayoutPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSoLuongBanSao).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).BeginInit();
@@ -119,7 +121,7 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(3, 336);
+            label6.Location = new Point(3, 364);
             label6.Name = "label6";
             label6.Size = new Size(102, 28);
             label6.TabIndex = 11;
@@ -169,7 +171,6 @@
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.7479F));
             tableLayoutPanelContent.Controls.Add(textBoxIdSach, 1, 0);
             tableLayoutPanelContent.Controls.Add(label9, 0, 0);
-            tableLayoutPanelContent.Controls.Add(numericUpDownSoLuongBanSao, 1, 8);
             tableLayoutPanelContent.Controls.Add(checkedListBoxTheLoai, 1, 3);
             tableLayoutPanelContent.Controls.Add(textBoxMoTa, 1, 7);
             tableLayoutPanelContent.Controls.Add(textBoxNXB, 1, 4);
@@ -183,12 +184,15 @@
             tableLayoutPanelContent.Controls.Add(numericUpDownNamXB, 1, 5);
             tableLayoutPanelContent.Controls.Add(numericUpDownSoTrang, 1, 6);
             tableLayoutPanelContent.Controls.Add(label8, 0, 7);
-            tableLayoutPanelContent.Controls.Add(label6, 0, 8);
             tableLayoutPanelContent.Controls.Add(textBoxTenSach, 1, 1);
+            tableLayoutPanelContent.Controls.Add(label10, 0, 8);
+            tableLayoutPanelContent.Controls.Add(label6, 0, 9);
+            tableLayoutPanelContent.Controls.Add(textBoxGiaSach, 1, 8);
+            tableLayoutPanelContent.Controls.Add(numericUpDownSoLuongBanSao, 1, 9);
             tableLayoutPanelContent.Location = new Point(41, 25);
             tableLayoutPanelContent.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelContent.Name = "tableLayoutPanelContent";
-            tableLayoutPanelContent.RowCount = 9;
+            tableLayoutPanelContent.RowCount = 10;
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 70F));
@@ -198,7 +202,8 @@
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.Size = new Size(358, 364);
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.Size = new Size(358, 392);
             tableLayoutPanelContent.TabIndex = 17;
             // 
             // textBoxIdSach
@@ -225,7 +230,7 @@
             // numericUpDownSoLuongBanSao
             // 
             numericUpDownSoLuongBanSao.Enabled = false;
-            numericUpDownSoLuongBanSao.Location = new Point(111, 339);
+            numericUpDownSoLuongBanSao.Location = new Point(111, 367);
             numericUpDownSoLuongBanSao.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownSoLuongBanSao.Name = "numericUpDownSoLuongBanSao";
             numericUpDownSoLuongBanSao.Size = new Size(96, 23);
@@ -322,7 +327,7 @@
             panelContent.Location = new Point(0, 94);
             panelContent.Margin = new Padding(3, 2, 3, 2);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(437, 461);
+            panelContent.Size = new Size(437, 482);
             panelContent.TabIndex = 19;
             // 
             // tableLayoutPanelButtons
@@ -331,7 +336,7 @@
             tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanelButtons.Controls.Add(btnHuy, 0, 0);
-            tableLayoutPanelButtons.Location = new Point(41, 406);
+            tableLayoutPanelButtons.Location = new Point(41, 434);
             tableLayoutPanelButtons.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             tableLayoutPanelButtons.RowCount = 1;
@@ -350,11 +355,33 @@
             btnHuy.Text = "Đóng";
             btnHuy.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label10.AutoSize = true;
+            label10.Location = new Point(3, 336);
+            label10.Name = "label10";
+            label10.Size = new Size(102, 28);
+            label10.TabIndex = 30;
+            label10.Text = "Giá sách:";
+            label10.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBoxGiaSach
+            // 
+            textBoxGiaSach.Dock = DockStyle.Fill;
+            textBoxGiaSach.Enabled = false;
+            textBoxGiaSach.Location = new Point(111, 338);
+            textBoxGiaSach.Margin = new Padding(3, 2, 3, 2);
+            textBoxGiaSach.Name = "textBoxGiaSach";
+            textBoxGiaSach.ReadOnly = true;
+            textBoxGiaSach.Size = new Size(244, 23);
+            textBoxGiaSach.TabIndex = 31;
+            // 
             // FormChiTietSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(437, 555);
+            ClientSize = new Size(437, 576);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
             Margin = new Padding(3, 2, 3, 2);
@@ -398,5 +425,7 @@
         private NumericUpDown numericUpDownSoTrang;
         private TextBox textBoxIdSach;
         private Label label9;
+        private Label label10;
+        private TextBox textBoxGiaSach;
     }
 }

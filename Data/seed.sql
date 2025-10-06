@@ -15,9 +15,9 @@ INSERT INTO TacGia (TenTacGia, NgaySinh, NoiSinh, SDT) VALUES
 ('J.K. Rowling', '1965-07-31', 'Yate, Anh', '0912345678');
 
 -- Thêm Sách
-INSERT INTO Sach (IdSach, IdNXB, NamXuatBan, TenSach, MoTa, SoTrang, SoLuongBanSao) VALUES
-('1', 1, 2010, 'Kính vạn hoa', 'Truyện dài nhiều tập', 200, 5),
-('2', 2, 1997, 'Harry Potter and the Philosopher''s Stone', 'Tập 1 Harry Potter', 350, 10);
+INSERT INTO Sach (IdSach, IdNXB, NamXuatBan, TenSach, MoTa, SoTrang, SoLuongBanSao, GiaTien) VALUES
+('1', 1, 2010, 'Kính vạn hoa', 'Truyện dài nhiều tập', 200, 5, 14000),
+('2', 2, 1997, 'Harry Potter and the Philosopher''s Stone', 'Tập 1 Harry Potter', 350, 10, 20000);
 
 -- Mapping sách - thể loại
 INSERT INTO Sach_TheLoai (IdSach, IdTheLoai) VALUES

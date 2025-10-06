@@ -241,7 +241,8 @@ namespace LibraryManagementSystem.Migrations
                     MoTa = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     SoTrang = table.Column<int>(type: "int", nullable: false),
-                    SoLuongBanSao = table.Column<int>(type: "int", nullable: false)
+                    SoLuongBanSao = table.Column<int>(type: "int", nullable: false),
+                    GiaTien = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
                 },
                 constraints: table =>
                 {

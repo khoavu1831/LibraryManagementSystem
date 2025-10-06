@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20251004090003_InitDb")]
+    [Migration("20251006092518_InitDb")]
     partial class InitDb
     {
         /// <inheritdoc />
@@ -386,6 +386,9 @@ namespace LibraryManagementSystem.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdSach"));
+
+                    b.Property<decimal>("GiaTien")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int>("IdNXB")
                         .HasColumnType("int");

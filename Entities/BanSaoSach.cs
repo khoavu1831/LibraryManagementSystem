@@ -24,7 +24,7 @@ namespace LibraryManagementSystem.Entities
             Tot, 
             Hong, 
             Mat, 
-            ChoMuon
+            ChoMuon 
         }
     }
 }
