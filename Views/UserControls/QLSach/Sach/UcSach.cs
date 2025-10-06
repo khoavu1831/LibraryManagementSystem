@@ -1,11 +1,11 @@
 ﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Repository;
 using LibraryManagementSystem.Services;
 using LibraryManagementSystem.Views.UserControls.QLSach;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,13 +16,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     public partial class UcSach : UserControl
     {
-        private readonly SachService _sachService;
         public UcSach()
         {
-            var context = new LibraryDbContext();
-            var repo = new SachRepository(context);
-            _sachService = new SachService(repo);
-
             InitializeComponent();
             LoadData();
         }
@@ -30,8 +25,25 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         {
             try
             {
-                var data = _sachService.GetAllSach();
-                dgvSach.DataSource = data;
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new SachRepository(context);
+                    var sachService = new SachService(repo);
+                    var sachList = sachService.GetAllSach();
+
+                    var sachDataView = sachList.Select(s => new
+                    {
+                        MaSach = s.IdSachFormat,
+                        TenSach = s.TenSach,
+                        NXB = s.NXB != null ? s.NXB.TenNXB : "Chua co",
+                        TheLoai = s.TheLoais != null ? string.Join(", ", s.TheLoais.Select(tl => tl.TenTheloai)) : "Chua co",
+                        TacGia = s.TacGias != null ? string.Join(", ", s.TacGias.Select(tg => tg.TenTacGia)) : "Chua co",
+                        NamXuatBan = s.NamXuatBan,
+                        SoLuongBanSao = s.SoLuongBanSao
+                    }).ToList();
+
+                    dgvSach.DataSource = sachDataView;
+                }
             }
             catch (Exception ex)
             {
@@ -60,6 +72,26 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
             using (var formChiTietSach = new FormChiTietSach())
             {
                 formChiTietSach.ShowDialog(this);
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new SachRepository(context);
+                    var sachService = new SachService(repo);
+                    var sach = sachService.GetAllSach();
+                    var chonSach = sach.Where(s => s.SoLuongBanSao == 0).ToList();
+                    MessageBox.Show(string.Join(", ", chonSach.Select(s => s.TenSach)));                 
+                }
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
             }
         }
 

@@ -27,8 +27,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
                 using (var context = new LibraryDbContext())
                 {
                     var repo = new NXBRepository(context);
-                    var _nxbService = new NXBService(repo);
-                    var data = _nxbService.GetAllNXB();
+                    var nxbService = new NXBService(repo);
+                    var data = nxbService.GetAllNXB();
                     dgvNXB.DataSource = data;
                 }
             }
