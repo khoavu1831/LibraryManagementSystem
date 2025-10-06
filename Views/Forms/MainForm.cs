@@ -39,22 +39,31 @@ namespace LibraryManagementSystem.Views.Forms
         private void btnTrangChu_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucTrangChu);
+            HighlightButton((Button)sender);
         }
         private void btnQLSach_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLSach);
+            HighlightButton((Button)sender);
+
         }
         private void buttonQLNhanVien_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLNhanVien);
+            HighlightButton((Button)sender);
+
         }
         private void buttonQLMuonTraSach_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLMuonTraSach);
+            HighlightButton((Button)sender);
+
         }
         private void bntPhat_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLPhat);
+            HighlightButton((Button)sender);
+
 
         }
         private void button6_Click(object sender, EventArgs e)
@@ -64,10 +73,14 @@ namespace LibraryManagementSystem.Views.Forms
         private void button8_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLThongKe);
+            HighlightButton((Button)sender);
+
         }
         private void btnDocGia_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLDocGia);
+            HighlightButton((Button)sender);
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -88,6 +101,28 @@ namespace LibraryManagementSystem.Views.Forms
             }
         }
 
+        private void ResetMenuColors()
+        {
+            foreach (Control ctrl in panelMenu.Controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    btn.BackColor = Color.White;    // màu mặc định
+                    btn.ForeColor = Color.Black;    // chữ mặc định
+                }
+            }
+        }
 
+        private void HighlightButton(Button btn)
+        {
+            ResetMenuColors();
+            btn.BackColor = Color.LightSeaGreen;   // màu nền khi chọn
+            btn.ForeColor = Color.White;           // màu chữ khi chọn
+        }
+
+        private void labelUsername_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
