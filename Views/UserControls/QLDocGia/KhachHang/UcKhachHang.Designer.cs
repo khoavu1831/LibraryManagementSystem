@@ -148,6 +148,7 @@
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
+            btnChiTiet.Click += btnChiTiet_Click;
             // 
             // btnXoa
             // 
@@ -180,6 +181,7 @@
             btnSua.Text = "Sửa";
             btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
             // 
             // btnThem
             // 
@@ -196,6 +198,7 @@
             btnThem.Text = "Thêm";
             btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
             btnThem.UseVisualStyleBackColor = false;
+            btnThem.Click += btnThem_Click;
             // 
             // dgvKhachHang
             // 
