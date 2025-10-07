@@ -2,6 +2,9 @@
 using LibraryManagementSystem.Views.UserControls.QLDocGia;
 using LibraryManagementSystem.Views.UserControls.QLMuonTraSach;
 using LibraryManagementSystem.Views.UserControls.QLNhanVien;
+using LibraryManagementSystem.Views.UserControls.QLNhapSach;
+using LibraryManagementSystem.Views.UserControls.QLNhapSach.NCC;
+using LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat;
 using LibraryManagementSystem.Views.UserControls.QLPhat;
 using LibraryManagementSystem.Views.UserControls.QLThongKe;
 using LibraryManagementSystem.Views.UserControls.QLSach;
@@ -50,6 +53,7 @@ namespace LibraryManagementSystem.Views.Forms
             HighlightButton((Button)sender);
 
         }
+     
         private void buttonQLNhanVien_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLNhanVien);
@@ -85,6 +89,28 @@ namespace LibraryManagementSystem.Views.Forms
             HighlightButton((Button)sender);
 
         }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(_ucQLThongKe);
+            HighlightButton((Button)sender);
+
+        }
+        private void btnDocGia_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(_ucQLDocGia);
+            HighlightButton((Button)sender);
+
+        }
+
+        private void btnQLNhapSach_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(_ucQLNhapSach);
+
+        }
+       
+       
+        
+
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
