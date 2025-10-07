@@ -107,8 +107,8 @@ namespace LibraryManagementSystem.Views.Forms
             {
                 if (ctrl is Button btn)
                 {
-                    btn.BackColor = Color.White;    // màu mặc định
-                    btn.ForeColor = Color.Black;    // chữ mặc định
+                    btn.BackColor = Color.White;
+                    btn.ForeColor = Color.Black;
                 }
             }
         }
@@ -116,8 +116,8 @@ namespace LibraryManagementSystem.Views.Forms
         private void HighlightButton(Button btn)
         {
             ResetMenuColors();
-            btn.BackColor = Color.LightSeaGreen;   // màu nền khi chọn
-            btn.ForeColor = Color.White;           // màu chữ khi chọn
+            btn.BackColor = Color.LightSeaGreen;
+            btn.ForeColor = Color.White;
         }
 
         private void labelUsername_Click(object sender, EventArgs e)
