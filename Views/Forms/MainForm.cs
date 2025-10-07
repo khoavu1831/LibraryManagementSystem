@@ -1,18 +1,11 @@
 ﻿using LibraryManagementSystem.Forms;
+using LibraryManagementSystem.Views.UserControls.QLDocGia;
+using LibraryManagementSystem.Views.UserControls.QLMuonTraSach;
 using LibraryManagementSystem.Views.UserControls.QLNhanVien;
 using LibraryManagementSystem.Views.UserControls.QLPhat;
+using LibraryManagementSystem.Views.UserControls.QLThongKe;
 using LibraryManagementSystem.Views.UserControls.QuanLySach;
-using LibraryManagementSystem.Views.UserControls.QLMuonTraSach;
 using LibraryManagementSystem.Views.UserControls.TrangChu;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.Forms
 {
@@ -23,6 +16,8 @@ namespace LibraryManagementSystem.Views.Forms
         private readonly UcQLNhanVien _ucQLNhanVien;
         private readonly UcQLPhat _ucQLPhat;
         private readonly UcQLMuonTraSach _ucQLMuonTraSach;
+        private readonly UcQLThongKe _ucQLThongKe;
+        private readonly UcQLDocGia _ucQLDocGia;
         public MainForm()
         {
             InitializeComponent();
@@ -31,6 +26,8 @@ namespace LibraryManagementSystem.Views.Forms
             _ucQLNhanVien = new UcQLNhanVien();
             _ucQLPhat = new UcQLPhat();
             _ucQLMuonTraSach = new UcQLMuonTraSach();
+            _ucQLThongKe = new UcQLThongKe();
+            _ucQLDocGia = new UcQLDocGia();
             LoadUserControl(_ucTrangChu);
         }
         private void LoadUserControl(UserControl uc)
@@ -42,26 +39,47 @@ namespace LibraryManagementSystem.Views.Forms
         private void btnTrangChu_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucTrangChu);
+            HighlightButton((Button)sender);
         }
         private void btnQLSach_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLSach);
+            HighlightButton((Button)sender);
+
         }
         private void buttonQLNhanVien_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLNhanVien);
+            HighlightButton((Button)sender);
+
         }
         private void buttonQLMuonTraSach_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLMuonTraSach);
+            HighlightButton((Button)sender);
+
         }
         private void bntPhat_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLPhat);
+            HighlightButton((Button)sender);
+
 
         }
         private void button6_Click(object sender, EventArgs e)
         {
+
+        }
+        private void button8_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(_ucQLThongKe);
+            HighlightButton((Button)sender);
+
+        }
+        private void btnDocGia_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(_ucQLDocGia);
+            HighlightButton((Button)sender);
 
         }
 
@@ -83,5 +101,28 @@ namespace LibraryManagementSystem.Views.Forms
             }
         }
 
+        private void ResetMenuColors()
+        {
+            foreach (Control ctrl in panelMenu.Controls)
+            {
+                if (ctrl is Button btn)
+                {
+                    btn.BackColor = Color.White;
+                    btn.ForeColor = Color.Black;
+                }
+            }
+        }
+
+        private void HighlightButton(Button btn)
+        {
+            ResetMenuColors();
+            btn.BackColor = Color.LightSeaGreen;
+            btn.ForeColor = Color.White;
+        }
+
+        private void labelUsername_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
