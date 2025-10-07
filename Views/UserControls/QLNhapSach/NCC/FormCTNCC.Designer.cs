@@ -42,7 +42,7 @@
             textBox3 = new TextBox();
             textBox4 = new TextBox();
             textBox5 = new TextBox();
-            textBox7 = new TextBox();
+            textBox6 = new TextBox();
             dateTimePicker1 = new DateTimePicker();
             button1 = new Button();
             tableLayoutPanel1.SuspendLayout();
@@ -77,7 +77,7 @@
             tableLayoutPanel1.Controls.Add(textBox3, 1, 2);
             tableLayoutPanel1.Controls.Add(textBox4, 1, 3);
             tableLayoutPanel1.Controls.Add(textBox5, 1, 4);
-            tableLayoutPanel1.Controls.Add(textBox7, 1, 6);
+            tableLayoutPanel1.Controls.Add(textBox6, 1, 6);
             tableLayoutPanel1.Controls.Add(dateTimePicker1, 1, 5);
             tableLayoutPanel1.Location = new Point(0, 171);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -161,7 +161,7 @@
             textBox1.Location = new Point(248, 3);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(239, 27);
-            textBox1.TabIndex = 7;
+            textBox1.TabIndex = 15;
             // 
             // textBox2
             // 
@@ -169,7 +169,7 @@
             textBox2.Location = new Point(248, 56);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(239, 27);
-            textBox2.TabIndex = 8;
+            textBox2.TabIndex = 16;
             // 
             // textBox3
             // 
@@ -177,7 +177,7 @@
             textBox3.Location = new Point(248, 110);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(239, 27);
-            textBox3.TabIndex = 9;
+            textBox3.TabIndex = 17;
             // 
             // textBox4
             // 
@@ -185,7 +185,7 @@
             textBox4.Location = new Point(248, 182);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(239, 27);
-            textBox4.TabIndex = 10;
+            textBox4.TabIndex = 18;
             // 
             // textBox5
             // 
@@ -193,23 +193,22 @@
             textBox5.Location = new Point(248, 248);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(239, 27);
-            textBox5.TabIndex = 11;
+            textBox5.TabIndex = 19;
             // 
-            // textBox7
+            // textBox6
             // 
-            textBox7.Dock = DockStyle.Fill;
-            textBox7.Location = new Point(248, 358);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(239, 27);
-            textBox7.TabIndex = 13;
+            textBox6.Dock = DockStyle.Fill;
+            textBox6.Location = new Point(248, 358);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(239, 27);
+            textBox6.TabIndex = 20;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Dock = DockStyle.Fill;
             dateTimePicker1.Location = new Point(248, 309);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(239, 27);
-            dateTimePicker1.TabIndex = 14;
+            dateTimePicker1.TabIndex = 21;
             // 
             // button1
             // 
@@ -248,13 +247,13 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private Button button1;
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
-        private TextBox textBox7;
+        private TextBox textBox6;
         private DateTimePicker dateTimePicker1;
-        private Button button1;
     }
 }

@@ -16,5 +16,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.Quyen
         {
             InitializeComponent();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

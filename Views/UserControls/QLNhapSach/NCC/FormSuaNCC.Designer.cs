@@ -33,12 +33,12 @@
             button2 = new Button();
             button1 = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
-            textBox1 = new TextBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
@@ -96,12 +96,12 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(textBox1, 1, 0);
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
             tableLayoutPanel1.Controls.Add(label4, 0, 2);
             tableLayoutPanel1.Controls.Add(label5, 0, 3);
             tableLayoutPanel1.Controls.Add(label6, 0, 4);
+            tableLayoutPanel1.Controls.Add(textBox1, 1, 0);
             tableLayoutPanel1.Controls.Add(textBox2, 1, 1);
             tableLayoutPanel1.Controls.Add(textBox3, 1, 2);
             tableLayoutPanel1.Controls.Add(textBox4, 1, 3);
@@ -118,13 +118,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Size = new Size(410, 445);
             tableLayoutPanel1.TabIndex = 10;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(208, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(199, 27);
-            textBox1.TabIndex = 18;
             // 
             // label2
             // 
@@ -171,33 +164,45 @@
             label6.TabIndex = 4;
             label6.Text = "Email";
             // 
+            // textBox1
+            // 
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Location = new Point(208, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(199, 27);
+            textBox1.TabIndex = 23;
+            // 
             // textBox2
             // 
+            textBox2.Dock = DockStyle.Fill;
             textBox2.Location = new Point(208, 87);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(199, 27);
-            textBox2.TabIndex = 19;
+            textBox2.TabIndex = 24;
             // 
             // textBox3
             // 
+            textBox3.Dock = DockStyle.Fill;
             textBox3.Location = new Point(208, 155);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(199, 27);
-            textBox3.TabIndex = 20;
+            textBox3.TabIndex = 25;
             // 
             // textBox4
             // 
+            textBox4.Dock = DockStyle.Fill;
             textBox4.Location = new Point(208, 263);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(199, 27);
-            textBox4.TabIndex = 21;
+            textBox4.TabIndex = 26;
             // 
             // textBox5
             // 
+            textBox5.Dock = DockStyle.Fill;
             textBox5.Location = new Point(208, 356);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(199, 27);
-            textBox5.TabIndex = 22;
+            textBox5.TabIndex = 27;
             // 
             // FormSuaNCC
             // 
@@ -219,17 +224,17 @@
         private Label label1;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel1;
-        private TextBox textBox1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
         private Label label6;
+        private Button button2;
+        private Button button1;
+        private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
         private TextBox textBox5;
-        private Button button2;
-        private Button button1;
     }
 }

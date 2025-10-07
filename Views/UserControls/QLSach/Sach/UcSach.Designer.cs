@@ -55,8 +55,9 @@
             panelCRUD.Controls.Add(btnThem);
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
+            panelCRUD.Margin = new Padding(3, 4, 3, 4);
             panelCRUD.Name = "panelCRUD";
-            panelCRUD.Size = new Size(774, 72);
+            panelCRUD.Size = new Size(885, 96);
             panelCRUD.TabIndex = 0;
             // 
             // panelSearch
@@ -69,11 +70,12 @@
             panelSearch.Controls.Add(txtBoxTimKiem, 1, 0);
             panelSearch.Controls.Add(btnLamMoi, 2, 0);
             panelSearch.Dock = DockStyle.Right;
-            panelSearch.Location = new Point(426, 0);
+            panelSearch.Location = new Point(487, 0);
+            panelSearch.Margin = new Padding(3, 4, 3, 4);
             panelSearch.Name = "panelSearch";
             panelSearch.RowCount = 1;
             panelSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            panelSearch.Size = new Size(348, 72);
+            panelSearch.Size = new Size(398, 96);
             panelSearch.TabIndex = 9;
             // 
             // btnTimKiem
@@ -82,9 +84,10 @@
             btnTimKiem.BackColor = Color.White;
             btnTimKiem.FlatAppearance.BorderColor = Color.Black;
             btnTimKiem.FlatStyle = FlatStyle.Flat;
-            btnTimKiem.Location = new Point(3, 24);
+            btnTimKiem.Location = new Point(3, 32);
+            btnTimKiem.Margin = new Padding(3, 4, 3, 4);
             btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(83, 24);
+            btnTimKiem.Size = new Size(96, 32);
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
@@ -92,10 +95,11 @@
             // txtBoxTimKiem
             // 
             txtBoxTimKiem.Anchor = AnchorStyles.None;
-            txtBoxTimKiem.Location = new Point(92, 24);
+            txtBoxTimKiem.Location = new Point(106, 34);
+            txtBoxTimKiem.Margin = new Padding(3, 4, 3, 4);
             txtBoxTimKiem.Name = "txtBoxTimKiem";
             txtBoxTimKiem.PlaceholderText = "Tìm kiếm...";
-            txtBoxTimKiem.Size = new Size(203, 23);
+            txtBoxTimKiem.Size = new Size(231, 27);
             txtBoxTimKiem.TabIndex = 9;
             // 
             // btnLamMoi
@@ -105,10 +109,10 @@
             btnLamMoi.FlatAppearance.BorderSize = 0;
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Image = Properties.Resources.iconRefesh;
-            btnLamMoi.Location = new Point(298, 0);
+            btnLamMoi.Location = new Point(341, 0);
             btnLamMoi.Margin = new Padding(0);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(50, 72);
+            btnLamMoi.Size = new Size(57, 96);
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
@@ -121,10 +125,10 @@
             btnExcel.FlatAppearance.BorderSize = 0;
             btnExcel.FlatStyle = FlatStyle.Flat;
             btnExcel.Image = Properties.Resources.iconExc;
-            btnExcel.Location = new Point(308, 0);
+            btnExcel.Location = new Point(352, 0);
             btnExcel.Margin = new Padding(0);
             btnExcel.Name = "btnExcel";
-            btnExcel.Size = new Size(77, 72);
+            btnExcel.Size = new Size(88, 96);
             btnExcel.TabIndex = 4;
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -137,10 +141,10 @@
             btnChiTiet.FlatAppearance.BorderSize = 0;
             btnChiTiet.FlatStyle = FlatStyle.Flat;
             btnChiTiet.Image = Properties.Resources.iconCT;
-            btnChiTiet.Location = new Point(231, 0);
+            btnChiTiet.Location = new Point(264, 0);
             btnChiTiet.Margin = new Padding(0);
             btnChiTiet.Name = "btnChiTiet";
-            btnChiTiet.Size = new Size(77, 72);
+            btnChiTiet.Size = new Size(88, 96);
             btnChiTiet.TabIndex = 3;
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -154,10 +158,10 @@
             btnXoa.FlatAppearance.BorderSize = 0;
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Image = Properties.Resources.iconxoa;
-            btnXoa.Location = new Point(154, 0);
+            btnXoa.Location = new Point(176, 0);
             btnXoa.Margin = new Padding(0);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(77, 72);
+            btnXoa.Size = new Size(88, 96);
             btnXoa.TabIndex = 2;
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -170,10 +174,10 @@
             btnSua.FlatAppearance.BorderSize = 0;
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Image = Properties.Resources.iconsua;
-            btnSua.Location = new Point(77, 0);
+            btnSua.Location = new Point(88, 0);
             btnSua.Margin = new Padding(0);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(77, 72);
+            btnSua.Size = new Size(88, 96);
             btnSua.TabIndex = 1;
             btnSua.Text = "Sửa";
             btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -190,7 +194,7 @@
             btnThem.Location = new Point(0, 0);
             btnThem.Margin = new Padding(0);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(77, 72);
+            btnThem.Size = new Size(88, 96);
             btnThem.TabIndex = 0;
             btnThem.Text = "Thêm";
             btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -203,19 +207,23 @@
             dgvSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSach.Dock = DockStyle.Fill;
-            dgvSach.Location = new Point(0, 72);
+            dgvSach.Location = new Point(0, 96);
+            dgvSach.Margin = new Padding(3, 4, 3, 4);
             dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
+            dgvSach.RowHeadersWidth = 51;
+            dgvSach.Size = new Size(885, 655);
             dgvSach.TabIndex = 1;
+            dgvSach.CellContentClick += dgvSach_CellContentClick;
             // 
             // UcSach
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvSach);
             Controls.Add(panelCRUD);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UcSach";
-            Size = new Size(774, 563);
+            Size = new Size(885, 751);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();

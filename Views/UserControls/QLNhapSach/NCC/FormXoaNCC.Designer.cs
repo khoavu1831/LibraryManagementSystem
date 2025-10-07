@@ -35,11 +35,11 @@
             label4 = new Label();
             label5 = new Label();
             textBox1 = new TextBox();
+            button1 = new Button();
+            button2 = new Button();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -116,31 +116,11 @@
             // 
             // textBox1
             // 
+            textBox1.Dock = DockStyle.Fill;
             textBox1.Location = new Point(208, 3);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(199, 27);
-            textBox1.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(208, 98);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(199, 27);
-            textBox2.TabIndex = 5;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(208, 194);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(199, 27);
-            textBox3.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(208, 299);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(199, 27);
-            textBox4.TabIndex = 7;
+            textBox1.TabIndex = 8;
             // 
             // button1
             // 
@@ -162,6 +142,30 @@
             button2.TabIndex = 3;
             button2.Text = "Quay lai";
             button2.UseVisualStyleBackColor = false;
+            // 
+            // textBox2
+            // 
+            textBox2.Dock = DockStyle.Fill;
+            textBox2.Location = new Point(208, 98);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(199, 27);
+            textBox2.TabIndex = 9;
+            // 
+            // textBox3
+            // 
+            textBox3.Dock = DockStyle.Fill;
+            textBox3.Location = new Point(208, 194);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(199, 27);
+            textBox3.TabIndex = 10;
+            // 
+            // textBox4
+            // 
+            textBox4.Dock = DockStyle.Fill;
+            textBox4.Location = new Point(208, 299);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(199, 27);
+            textBox4.TabIndex = 11;
             // 
             // FormXoaNCC
             // 
@@ -187,11 +191,11 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private Button button1;
+        private Button button2;
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
         private TextBox textBox4;
-        private Button button1;
-        private Button button2;
     }
 }
