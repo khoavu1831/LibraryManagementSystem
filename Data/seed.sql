@@ -19,6 +19,14 @@ INSERT INTO Sach (IdSach, IdNXB, NamXuatBan, TenSach, MoTa, SoTrang, SoLuongBanS
 ('1', 1, 2010, 'Kính vạn hoa', 'Truyện dài nhiều tập', 200, 5, 14000),
 ('2', 2, 1997, 'Harry Potter and the Philosopher''s Stone', 'Tập 1 Harry Potter', 350, 10, 20000);
 
+-- Thêm dữ liệu Nhà cung cấp
+INSERT INTO NCC (TenNCC, DiaChi, SDT) VALUES
+('Công ty Phát Hành Sách Hà Nội', 'Hà Nội', '0901112233'),
+('Công ty Sách Minh Long', 'TP. HCM', '0902223344'),
+('Nhà Sách Fahasa', 'Đà Nẵng', '0903334455'),
+('Công ty TNHH Sách Alpha', 'Hà Nội', '0904445566'),
+('Công ty Sách và Thiết bị Trường học TP.HCM', 'TP. HCM', '0905556677');
+
 -- Mapping sách - thể loại
 INSERT INTO Sach_TheLoai (IdSach, IdTheLoai) VALUES
 ('1', 1),

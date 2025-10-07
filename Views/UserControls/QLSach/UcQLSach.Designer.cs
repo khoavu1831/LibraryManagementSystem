@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QuanLySach
+﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     partial class UcQLSach
     {

@@ -35,21 +35,26 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
             _nxbService = new NXBService(nxbRepo);
             _sachService = new SachService(sachRepo);
         }
-        private void formThemNhanVien_Load(object sender, EventArgs e)
+        private void formThemSach_Load(object sender, EventArgs e)
         {
-            var theLoaiListView = _theLoaiService.GetAllTheLoai();
-            var tacGiaListView = _tacGiaService.GetAllTacGia();
-            var nxbListView = _nxbService.GetAllNXB();
-
-            // Render list theloai + tacgia
-            theLoaiListView.ForEach(tl => checkedListBoxTheLoai.Items.Add(tl.TenTheloai ?? ""));
-            tacGiaListView.ForEach(tg => checkedListBoxTacGia.Items.Add(tg.TenTacGia ?? ""));
-
-            // Render combobox NXB
-            comboBoxNXB.DataSource = nxbListView;
-            comboBoxNXB.DisplayMember = "TenNXB";
-            comboBoxNXB.ValueMember = "IdNXB";
-
+            LoadTheLoai();
+            LoadTacGia();
+            LoadNXB();
+        }
+        private void LoadTheLoai()
+        {
+            var theLoaiList = _theLoaiService.GetAllTheLoai();
+            theLoaiList.ForEach(tl => checkedListBoxTheLoai.Items.Add(tl.TenTheloai ?? ""));
+        }
+        private void LoadTacGia()
+        {
+            var tacGiaList = _tacGiaService.GetAllTacGia();
+            tacGiaList.ForEach(tg => checkedListBoxTacGia.Items.Add(tg.TenTacGia ?? ""));
+        }
+        private void LoadNXB()
+        {
+            var nxbList = _nxbService.GetAllNXB();
+            nxbList.ForEach(nxb => comboBoxNXB.Items.Add(nxb.TenNXB!));
         }
         private void btnThem_Click(object sender, EventArgs e)
         {

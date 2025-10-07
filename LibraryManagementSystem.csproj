@@ -83,6 +83,25 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\UserControls\QLNhapSach\NCC\FormChiTietNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhapSach\NCC\FormSuaNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhapSach\NCC\FormThemNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhapSach\NCC\UcNCC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhapSach\NhapSach\FormThemPhieuNhap.cs" />
+    <Compile Update="Views\UserControls\QLNhapSach\NhapSach\UcNhapSach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLNhapSach\UcQLNhapSach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControls\QLSach\BanSaoSach\FormChiTietBSS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,7 +151,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\UserControls\QLNhapSach\" />
     <Folder Include="Views\UserControls\QLMuonTra\" />
   </ItemGroup>
 

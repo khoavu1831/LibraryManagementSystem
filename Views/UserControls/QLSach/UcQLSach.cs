@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QuanLySach
+namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     public partial class UcQLSach : UserControl
     {

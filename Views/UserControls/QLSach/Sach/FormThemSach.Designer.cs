@@ -42,7 +42,6 @@
             checkedListBoxTheLoai = new CheckedListBox();
             textBoxMoTa = new TextBox();
             label1 = new Label();
-            checkedListBoxTacGia = new CheckedListBox();
             numericUpDownNamXB = new NumericUpDown();
             numericUpDownSoTrang = new NumericUpDown();
             textBoxGiaSach = new TextBox();
@@ -51,6 +50,7 @@
             panelContent = new Panel();
             tableLayoutPanelButtons = new TableLayoutPanel();
             btnHuy = new Button();
+            checkedListBoxTacGia = new CheckedListBox();
             tableLayoutPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSoTrang).BeginInit();
@@ -237,15 +237,6 @@
             label1.Text = "Số trang:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // checkedListBoxTacGia
-            // 
-            checkedListBoxTacGia.Dock = DockStyle.Fill;
-            checkedListBoxTacGia.FormattingEnabled = true;
-            checkedListBoxTacGia.Location = new Point(111, 31);
-            checkedListBoxTacGia.Name = "checkedListBoxTacGia";
-            checkedListBoxTacGia.Size = new Size(244, 64);
-            checkedListBoxTacGia.TabIndex = 23;
-            // 
             // numericUpDownNamXB
             // 
             numericUpDownNamXB.Location = new Point(111, 199);
@@ -326,6 +317,15 @@
             btnHuy.UseVisualStyleBackColor = true;
             btnHuy.Click += btnHuy_Click;
             // 
+            // checkedListBoxTacGia
+            // 
+            checkedListBoxTacGia.Dock = DockStyle.Fill;
+            checkedListBoxTacGia.FormattingEnabled = true;
+            checkedListBoxTacGia.Location = new Point(111, 31);
+            checkedListBoxTacGia.Name = "checkedListBoxTacGia";
+            checkedListBoxTacGia.Size = new Size(244, 64);
+            checkedListBoxTacGia.TabIndex = 23;
+            // 
             // FormThemSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -335,8 +335,8 @@
             Controls.Add(panelTop);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemSach";
-            Text = "v";
-            Load += formThemNhanVien_Load;
+            Text = "Thêm sách";
+            Load += formThemSach_Load;
             tableLayoutPanelContent.ResumeLayout(false);
             tableLayoutPanelContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).EndInit();
@@ -365,12 +365,12 @@
         private Button btnHuy;
         private TableLayoutPanel tableLayoutPanelButtons;
         private Label label1;
-        private CheckedListBox checkedListBoxTacGia;
         private CheckedListBox checkedListBoxTheLoai;
         private NumericUpDown numericUpDownNamXB;
         private NumericUpDown numericUpDownSoTrang;
         private Label label6;
         private TextBox textBoxGiaSach;
         private ComboBox comboBoxNXB;
+        private CheckedListBox checkedListBoxTacGia;
     }
 }

@@ -4,8 +4,9 @@ using LibraryManagementSystem.Views.UserControls.QLMuonTraSach;
 using LibraryManagementSystem.Views.UserControls.QLNhanVien;
 using LibraryManagementSystem.Views.UserControls.QLPhat;
 using LibraryManagementSystem.Views.UserControls.QLThongKe;
-using LibraryManagementSystem.Views.UserControls.QuanLySach;
+using LibraryManagementSystem.Views.UserControls.QLSach;
 using LibraryManagementSystem.Views.UserControls.TrangChu;
+using LibraryManagementSystem.Views.UserControls.QLNhapSach;
 
 namespace LibraryManagementSystem.Views.Forms
 {
@@ -13,6 +14,7 @@ namespace LibraryManagementSystem.Views.Forms
     {
         private readonly UcTrangChu _ucTrangChu;
         private readonly UcQLSach _ucQLSach;
+        private readonly UcQLNhapSach _ucQLNhapSach;
         private readonly UcQLNhanVien _ucQLNhanVien;
         private readonly UcQLPhat _ucQLPhat;
         private readonly UcQLMuonTraSach _ucQLMuonTraSach;
@@ -23,6 +25,7 @@ namespace LibraryManagementSystem.Views.Forms
             InitializeComponent();
             _ucTrangChu = new UcTrangChu();
             _ucQLSach = new UcQLSach();
+            _ucQLNhapSach = new UcQLNhapSach();
             _ucQLNhanVien = new UcQLNhanVien();
             _ucQLPhat = new UcQLPhat();
             _ucQLMuonTraSach = new UcQLMuonTraSach();
@@ -66,15 +69,15 @@ namespace LibraryManagementSystem.Views.Forms
 
 
         }
-        private void button6_Click(object sender, EventArgs e)
+        private void btnQLNhapSach_Click(object sender, EventArgs e)
         {
-
+            LoadUserControl(_ucQLNhapSach);
+            HighlightButton((Button)sender);
         }
-        private void button8_Click(object sender, EventArgs e)
+        private void btnQLThongKe_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLThongKe);
             HighlightButton((Button)sender);
-
         }
         private void btnDocGia_Click(object sender, EventArgs e)
         {
@@ -85,18 +88,18 @@ namespace LibraryManagementSystem.Views.Forms
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
 
             using (LoginForm loginForm = new LoginForm())
             {
                 var result = loginForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    this.Show();
+                    Show();
                 }
                 else
                 {
-                    this.Close();
+                    Close();
                 }
             }
         }

@@ -34,7 +34,7 @@
             panelMenu = new Panel();
             btnQLThongKe = new Button();
             buttonQLNhanVien = new Button();
-            button6 = new Button();
+            btnNhapSach = new Button();
             btnPhat = new Button();
             buttonQLMuonTraSach = new Button();
             btnDocGia = new Button();
@@ -92,7 +92,7 @@
             // 
             panelMenu.Controls.Add(btnQLThongKe);
             panelMenu.Controls.Add(buttonQLNhanVien);
-            panelMenu.Controls.Add(button6);
+            panelMenu.Controls.Add(btnNhapSach);
             panelMenu.Controls.Add(btnPhat);
             panelMenu.Controls.Add(buttonQLMuonTraSach);
             panelMenu.Controls.Add(btnDocGia);
@@ -120,7 +120,7 @@
             btnQLThongKe.Text = "   Thống Kê";
             btnQLThongKe.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnQLThongKe.UseVisualStyleBackColor = false;
-            btnQLThongKe.Click += button8_Click;
+            btnQLThongKe.Click += btnQLThongKe_Click;
             // 
             // buttonQLNhanVien
             // 
@@ -140,23 +140,23 @@
             buttonQLNhanVien.UseVisualStyleBackColor = false;
             buttonQLNhanVien.Click += buttonQLNhanVien_Click;
             // 
-            // button6
+            // btnNhapSach
             // 
-            button6.BackColor = Color.White;
-            button6.Dock = DockStyle.Top;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            button6.Image = Properties.Resources.icon7;
-            button6.ImageAlign = ContentAlignment.MiddleLeft;
-            button6.Location = new Point(0, 238);
-            button6.Name = "button6";
-            button6.Size = new Size(182, 50);
-            button6.TabIndex = 5;
-            button6.Text = "   Nhập Sách";
-            button6.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
+            btnNhapSach.BackColor = Color.White;
+            btnNhapSach.Dock = DockStyle.Top;
+            btnNhapSach.FlatAppearance.BorderSize = 0;
+            btnNhapSach.FlatStyle = FlatStyle.Flat;
+            btnNhapSach.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnNhapSach.Image = Properties.Resources.icon7;
+            btnNhapSach.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNhapSach.Location = new Point(0, 238);
+            btnNhapSach.Name = "btnNhapSach";
+            btnNhapSach.Size = new Size(182, 50);
+            btnNhapSach.TabIndex = 5;
+            btnNhapSach.Text = "   Nhập Sách";
+            btnNhapSach.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnNhapSach.UseVisualStyleBackColor = false;
+            btnNhapSach.Click += btnQLNhapSach_Click;
             // 
             // btnPhat
             // 
@@ -320,7 +320,7 @@
         private PictureBox pictureBoxAvatar;
         private Button btnQLThongKe;
         private Button buttonQLNhanVien;
-        private Button button6;
+        private Button btnNhapSach;
         private Button btnPhat;
         private Button buttonQLMuonTraSach;
         private Button btnDocGia;
