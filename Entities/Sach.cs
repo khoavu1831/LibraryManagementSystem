@@ -21,7 +21,7 @@ namespace LibraryManagementSystem.Entities
         public string? MoTa { get; set; }
         public int SoTrang { get; set; }
         public int SoLuongBanSao { get; set; }
-
+        public decimal GiaTien { get; set; }
         [ForeignKey("IdNXB")]
         public NXB? NXB { get; set; }
         public ICollection<TheLoai>? TheLoais { get; set; }
