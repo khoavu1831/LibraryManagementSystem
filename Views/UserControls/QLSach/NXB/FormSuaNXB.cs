@@ -38,7 +38,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
                 using (var context = new LibraryDbContext())
                 {
                     var repo = new NXBRepository(context);
-                    var _nxbService = new NXBService(repo);
+                    var nxbService = new NXBService(repo);
 
                     var nxb = new NXB
                     {
@@ -48,23 +48,22 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
                         SDT = sdt
                     };
 
-                    _nxbService.Save(nxb);
+                    nxbService.Save(nxb);
                 }
 
                 MessageBox.Show("Sửa nhà xuất bản thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                DialogResult = DialogResult.OK;
+                Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

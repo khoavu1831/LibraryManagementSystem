@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class FormChiTietPhieuPhat
     {
@@ -253,8 +253,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(521, 125);
+            panel1.Size = new Size(456, 94);
             panel1.TabIndex = 18;
             // 
             // panel2
@@ -262,18 +263,20 @@
             panel2.Controls.Add(btnQuayLai);
             panel2.Controls.Add(tableLayoutPanel1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 125);
+            panel2.Location = new Point(0, 94);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(521, 456);
+            panel2.Size = new Size(456, 301);
             panel2.TabIndex = 19;
             panel2.Paint += panel2_Paint;
             // 
             // btnQuayLai
             // 
             btnQuayLai.Anchor = AnchorStyles.None;
-            btnQuayLai.Location = new Point(173, 396);
+            btnQuayLai.Location = new Point(149, 244);
+            btnQuayLai.Margin = new Padding(3, 2, 3, 2);
             btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(185, 45);
+            btnQuayLai.Size = new Size(162, 34);
             btnQuayLai.TabIndex = 19;
             btnQuayLai.Text = "Quay lại";
             btnQuayLai.UseVisualStyleBackColor = true;
@@ -283,7 +286,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(521, 581);
+            ClientSize = new Size(456, 395);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "FormChiTietPhieuPhat";

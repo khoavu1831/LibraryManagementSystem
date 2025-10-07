@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class UcPhat
     {
@@ -42,7 +42,7 @@
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
-            SuspendLayout();
+                SuspendLayout();
             // 
             // panelCRUD
             // 
@@ -129,6 +129,7 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
+            btnExcel.Click += btnExcel_Click;
             // 
             // btnChiTiet
             // 
@@ -145,6 +146,7 @@
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
+            btnChiTiet.Click += btnChiTiet_Click;
             // 
             // btnXoa
             // 
@@ -161,7 +163,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += this.btnXoa_Click;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 

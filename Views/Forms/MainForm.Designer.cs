@@ -32,11 +32,11 @@
             panelLogout = new Panel();
             btnLogout = new Button();
             panelMenu = new Panel();
-            button8 = new Button();
+            btnQLThongKe = new Button();
             buttonQLNhanVien = new Button();
             button6 = new Button();
-            bntPhat = new Button();
-            button4 = new Button();
+            btnPhat = new Button();
+            buttonQLMuonTraSach = new Button();
             btnDocGia = new Button();
             btnQLSach = new Button();
             btnTrangChu = new Button();
@@ -93,11 +93,11 @@
             // 
             // panelMenu
             // 
-            panelMenu.Controls.Add(button8);
+            panelMenu.Controls.Add(btnQLThongKe);
             panelMenu.Controls.Add(buttonQLNhanVien);
             panelMenu.Controls.Add(button6);
-            panelMenu.Controls.Add(bntPhat);
-            panelMenu.Controls.Add(button4);
+            panelMenu.Controls.Add(btnPhat);
+            panelMenu.Controls.Add(buttonQLMuonTraSach);
             panelMenu.Controls.Add(btnDocGia);
             panelMenu.Controls.Add(btnQLSach);
             panelMenu.Controls.Add(btnTrangChu);
@@ -108,23 +108,23 @@
             panelMenu.Size = new Size(208, 688);
             panelMenu.TabIndex = 1;
             // 
-            // button8
+            // btnQLThongKe
             // 
-            button8.BackColor = Color.White;
-            button8.Dock = DockStyle.Top;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatStyle = FlatStyle.Flat;
-            button8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            button8.Image = Properties.Resources.icon11;
-            button8.ImageAlign = ContentAlignment.MiddleLeft;
-            button8.Location = new Point(0, 453);
-            button8.Margin = new Padding(3, 4, 3, 4);
-            button8.Name = "button8";
-            button8.Size = new Size(208, 67);
-            button8.TabIndex = 7;
-            button8.Text = "   Thống Kê";
-            button8.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button8.UseVisualStyleBackColor = false;
+            btnQLThongKe.BackColor = Color.White;
+            btnQLThongKe.Dock = DockStyle.Top;
+            btnQLThongKe.FlatAppearance.BorderSize = 0;
+            btnQLThongKe.FlatStyle = FlatStyle.Flat;
+            btnQLThongKe.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnQLThongKe.Image = Properties.Resources.icon11;
+            btnQLThongKe.ImageAlign = ContentAlignment.MiddleLeft;
+            btnQLThongKe.Location = new Point(0, 338);
+            btnQLThongKe.Name = "btnQLThongKe";
+            btnQLThongKe.Size = new Size(182, 50);
+            btnQLThongKe.TabIndex = 7;
+            btnQLThongKe.Text = "   Thống Kê";
+            btnQLThongKe.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnQLThongKe.UseVisualStyleBackColor = false;
+            btnQLThongKe.Click += button8_Click;
             // 
             // buttonQLNhanVien
             // 
@@ -164,41 +164,42 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += btnQLNhapSach_Click;
             // 
-            // bntPhat
+            // btnPhat
             // 
-            bntPhat.BackColor = Color.White;
-            bntPhat.Dock = DockStyle.Top;
-            bntPhat.FlatAppearance.BorderSize = 0;
-            bntPhat.FlatStyle = FlatStyle.Flat;
-            bntPhat.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            bntPhat.Image = Properties.Resources.icon9;
-            bntPhat.ImageAlign = ContentAlignment.MiddleLeft;
-            bntPhat.Location = new Point(0, 268);
-            bntPhat.Name = "bntPhat";
-            bntPhat.Size = new Size(208, 51);
-            bntPhat.TabIndex = 4;
-            bntPhat.Text = "   Phạt - Trả Phạt";
-            bntPhat.TextImageRelation = TextImageRelation.ImageBeforeText;
-            bntPhat.UseVisualStyleBackColor = false;
-            bntPhat.Click += bntPhat_Click;
+            btnPhat.BackColor = Color.White;
+            btnPhat.Dock = DockStyle.Top;
+            btnPhat.FlatAppearance.BorderSize = 0;
+            btnPhat.FlatStyle = FlatStyle.Flat;
+            btnPhat.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            btnPhat.Image = Properties.Resources.icon9;
+            btnPhat.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPhat.Location = new Point(0, 200);
+            btnPhat.Margin = new Padding(3, 2, 3, 2);
+            btnPhat.Name = "btnPhat";
+            btnPhat.Size = new Size(182, 38);
+            btnPhat.TabIndex = 4;
+            btnPhat.Text = "   Phạt - Trả Phạt";
+            btnPhat.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPhat.UseVisualStyleBackColor = false;
+            btnPhat.Click += bntPhat_Click;
             // 
-            // button4
+            // buttonQLMuonTraSach
             // 
-            button4.BackColor = Color.White;
-            button4.Dock = DockStyle.Top;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
-            button4.Image = Properties.Resources.icon5;
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(0, 201);
-            button4.Margin = new Padding(3, 4, 3, 4);
-            button4.Name = "button4";
-            button4.Size = new Size(208, 67);
-            button4.TabIndex = 3;
-            button4.Text = "   Mượn - Trả Sách";
-            button4.TextImageRelation = TextImageRelation.ImageBeforeText;
-            button4.UseVisualStyleBackColor = false;
+            buttonQLMuonTraSach.BackColor = Color.White;
+            buttonQLMuonTraSach.Dock = DockStyle.Top;
+            buttonQLMuonTraSach.FlatAppearance.BorderSize = 0;
+            buttonQLMuonTraSach.FlatStyle = FlatStyle.Flat;
+            buttonQLMuonTraSach.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
+            buttonQLMuonTraSach.Image = Properties.Resources.icon5;
+            buttonQLMuonTraSach.ImageAlign = ContentAlignment.MiddleLeft;
+            buttonQLMuonTraSach.Location = new Point(0, 150);
+            buttonQLMuonTraSach.Name = "buttonQLMuonTraSach";
+            buttonQLMuonTraSach.Size = new Size(182, 50);
+            buttonQLMuonTraSach.TabIndex = 3;
+            buttonQLMuonTraSach.Text = "   Mượn - Trả Sách";
+            buttonQLMuonTraSach.TextImageRelation = TextImageRelation.ImageBeforeText;
+            buttonQLMuonTraSach.UseVisualStyleBackColor = false;
+            buttonQLMuonTraSach.Click += buttonQLMuonTraSach_Click;
             // 
             // btnDocGia
             // 
@@ -217,6 +218,7 @@
             btnDocGia.Text = "   Thành viên";
             btnDocGia.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnDocGia.UseVisualStyleBackColor = false;
+            btnDocGia.Click += btnDocGia_Click;
             // 
             // btnQLSach
             // 
@@ -279,6 +281,7 @@
             labelUsername.TabIndex = 1;
             labelUsername.Text = "Ronaldo Messi Siuu";
             labelUsername.TextAlign = ContentAlignment.MiddleCenter;
+            labelUsername.Click += labelUsername_Click;
             // 
             // pictureBoxAvatar
             // 
@@ -328,11 +331,11 @@
         private Button btnTrangChu;
         private Label labelUsername;
         private PictureBox pictureBoxAvatar;
-        private Button button8;
+        private Button btnQLThongKe;
         private Button buttonQLNhanVien;
         private Button button6;
-        private Button bntPhat;
-        private Button button4;
+        private Button btnPhat;
+        private Button buttonQLMuonTraSach;
         private Button btnDocGia;
         private Button btnQLSach;
         private Button btnLogout;

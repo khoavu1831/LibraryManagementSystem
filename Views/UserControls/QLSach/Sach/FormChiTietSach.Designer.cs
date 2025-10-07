@@ -38,24 +38,26 @@
             label8 = new Label();
             labelTitle = new Label();
             tableLayoutPanelContent = new TableLayoutPanel();
+            textBoxTacGia = new TextBox();
             textBoxIdSach = new TextBox();
             label9 = new Label();
-            numericUpDownSoLuongBanSao = new NumericUpDown();
-            checkedListBoxTheLoai = new CheckedListBox();
             textBoxMoTa = new TextBox();
             textBoxNXB = new TextBox();
             label1 = new Label();
-            checkedListBoxTacGia = new CheckedListBox();
             numericUpDownNamXB = new NumericUpDown();
             numericUpDownSoTrang = new NumericUpDown();
+            label10 = new Label();
+            textBoxGiaSach = new TextBox();
+            numericUpDownSoLuongBanSao = new NumericUpDown();
+            textBoxTheLoai = new TextBox();
             panelTop = new Panel();
             panelContent = new Panel();
             tableLayoutPanelButtons = new TableLayoutPanel();
-            btnHuy = new Button();
+            btnDong = new Button();
             tableLayoutPanelContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownSoLuongBanSao).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSoTrang).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownSoLuongBanSao).BeginInit();
             panelTop.SuspendLayout();
             panelContent.SuspendLayout();
             tableLayoutPanelButtons.SuspendLayout();
@@ -85,7 +87,7 @@
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(3, 297);
+            label3.Location = new Point(3, 140);
             label3.Name = "label3";
             label3.Size = new Size(147, 37);
             label3.TabIndex = 3;
@@ -98,7 +100,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(3, 74);
             label4.Name = "label4";
-            label4.Size = new Size(147, 93);
+            label4.Size = new Size(102, 28);
             label4.TabIndex = 7;
             label4.Text = "Tác giả:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -107,7 +109,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(3, 260);
+            label5.Location = new Point(3, 112);
             label5.Name = "label5";
             label5.Size = new Size(147, 37);
             label5.TabIndex = 5;
@@ -118,9 +120,9 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(3, 446);
+            label6.Location = new Point(3, 280);
             label6.Name = "label6";
-            label6.Size = new Size(147, 39);
+            label6.Size = new Size(102, 29);
             label6.TabIndex = 11;
             label6.Text = "Số lượng bản sao:";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -129,9 +131,9 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(3, 167);
+            label7.Location = new Point(3, 84);
             label7.Name = "label7";
-            label7.Size = new Size(147, 93);
+            label7.Size = new Size(102, 28);
             label7.TabIndex = 9;
             label7.Text = "Thể loại:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -140,7 +142,7 @@
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label8.AutoSize = true;
-            label8.Location = new Point(3, 371);
+            label8.Location = new Point(3, 196);
             label8.Name = "label8";
             label8.Size = new Size(147, 75);
             label8.TabIndex = 13;
@@ -166,10 +168,9 @@
             tableLayoutPanelContent.ColumnCount = 2;
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.2521F));
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.7479F));
+            tableLayoutPanelContent.Controls.Add(textBoxTacGia, 1, 2);
             tableLayoutPanelContent.Controls.Add(textBoxIdSach, 1, 0);
             tableLayoutPanelContent.Controls.Add(label9, 0, 0);
-            tableLayoutPanelContent.Controls.Add(numericUpDownSoLuongBanSao, 1, 8);
-            tableLayoutPanelContent.Controls.Add(checkedListBoxTheLoai, 1, 3);
             tableLayoutPanelContent.Controls.Add(textBoxMoTa, 1, 7);
             tableLayoutPanelContent.Controls.Add(textBoxNXB, 1, 4);
             tableLayoutPanelContent.Controls.Add(label2, 0, 1);
@@ -178,26 +179,39 @@
             tableLayoutPanelContent.Controls.Add(label7, 0, 3);
             tableLayoutPanelContent.Controls.Add(label3, 0, 5);
             tableLayoutPanelContent.Controls.Add(label5, 0, 4);
-            tableLayoutPanelContent.Controls.Add(checkedListBoxTacGia, 1, 2);
             tableLayoutPanelContent.Controls.Add(numericUpDownNamXB, 1, 5);
             tableLayoutPanelContent.Controls.Add(numericUpDownSoTrang, 1, 6);
             tableLayoutPanelContent.Controls.Add(label8, 0, 7);
-            tableLayoutPanelContent.Controls.Add(label6, 0, 8);
             tableLayoutPanelContent.Controls.Add(textBoxTenSach, 1, 1);
-            tableLayoutPanelContent.Location = new Point(47, 33);
+            tableLayoutPanelContent.Controls.Add(label10, 0, 8);
+            tableLayoutPanelContent.Controls.Add(label6, 0, 9);
+            tableLayoutPanelContent.Controls.Add(textBoxGiaSach, 1, 8);
+            tableLayoutPanelContent.Controls.Add(numericUpDownSoLuongBanSao, 1, 9);
+            tableLayoutPanelContent.Controls.Add(textBoxTheLoai, 1, 3);
+            tableLayoutPanelContent.Location = new Point(41, 25);
+            tableLayoutPanelContent.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelContent.Name = "tableLayoutPanelContent";
-            tableLayoutPanelContent.RowCount = 9;
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 93F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 93F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
-            tableLayoutPanelContent.Size = new Size(506, 485);
+            tableLayoutPanelContent.RowCount = 10;
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.Size = new Size(358, 309);
             tableLayoutPanelContent.TabIndex = 17;
+            // 
+            // textBoxTacGia
+            // 
+            textBoxTacGia.Location = new Point(111, 59);
+            textBoxTacGia.Name = "textBoxTacGia";
+            textBoxTacGia.ReadOnly = true;
+            textBoxTacGia.Size = new Size(244, 23);
+            textBoxTacGia.TabIndex = 34;
             // 
             // textBoxIdSach
             // 
@@ -219,32 +233,12 @@
             label9.Text = "Id sách:";
             label9.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // numericUpDownSoLuongBanSao
-            // 
-            numericUpDownSoLuongBanSao.Enabled = false;
-            numericUpDownSoLuongBanSao.Location = new Point(156, 450);
-            numericUpDownSoLuongBanSao.Margin = new Padding(3, 4, 3, 4);
-            numericUpDownSoLuongBanSao.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
-            numericUpDownSoLuongBanSao.Name = "numericUpDownSoLuongBanSao";
-            numericUpDownSoLuongBanSao.Size = new Size(110, 27);
-            numericUpDownSoLuongBanSao.TabIndex = 27;
-            // 
-            // checkedListBoxTheLoai
-            // 
-            checkedListBoxTheLoai.Dock = DockStyle.Fill;
-            checkedListBoxTheLoai.Enabled = false;
-            checkedListBoxTheLoai.FormattingEnabled = true;
-            checkedListBoxTheLoai.Location = new Point(156, 171);
-            checkedListBoxTheLoai.Margin = new Padding(3, 4, 3, 4);
-            checkedListBoxTheLoai.Name = "checkedListBoxTheLoai";
-            checkedListBoxTheLoai.Size = new Size(347, 85);
-            checkedListBoxTheLoai.TabIndex = 24;
-            // 
             // textBoxMoTa
             // 
             textBoxMoTa.Dock = DockStyle.Fill;
             textBoxMoTa.Enabled = false;
-            textBoxMoTa.Location = new Point(156, 374);
+            textBoxMoTa.Location = new Point(111, 198);
+            textBoxMoTa.Margin = new Padding(3, 2, 3, 2);
             textBoxMoTa.Multiline = true;
             textBoxMoTa.Name = "textBoxMoTa";
             textBoxMoTa.ReadOnly = true;
@@ -256,7 +250,8 @@
             // 
             textBoxNXB.Dock = DockStyle.Fill;
             textBoxNXB.Enabled = false;
-            textBoxNXB.Location = new Point(156, 263);
+            textBoxNXB.Location = new Point(111, 114);
+            textBoxNXB.Margin = new Padding(3, 2, 3, 2);
             textBoxNXB.Name = "textBoxNXB";
             textBoxNXB.ReadOnly = true;
             textBoxNXB.Size = new Size(347, 27);
@@ -266,43 +261,69 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(3, 334);
+            label1.Location = new Point(3, 168);
             label1.Name = "label1";
             label1.Size = new Size(147, 37);
             label1.TabIndex = 20;
             label1.Text = "Số trang:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // checkedListBoxTacGia
-            // 
-            checkedListBoxTacGia.Dock = DockStyle.Fill;
-            checkedListBoxTacGia.Enabled = false;
-            checkedListBoxTacGia.FormattingEnabled = true;
-            checkedListBoxTacGia.Location = new Point(156, 78);
-            checkedListBoxTacGia.Margin = new Padding(3, 4, 3, 4);
-            checkedListBoxTacGia.Name = "checkedListBoxTacGia";
-            checkedListBoxTacGia.Size = new Size(347, 85);
-            checkedListBoxTacGia.TabIndex = 23;
-            // 
             // numericUpDownNamXB
             // 
             numericUpDownNamXB.Enabled = false;
-            numericUpDownNamXB.Location = new Point(156, 301);
-            numericUpDownNamXB.Margin = new Padding(3, 4, 3, 4);
+            numericUpDownNamXB.Location = new Point(111, 143);
             numericUpDownNamXB.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownNamXB.Name = "numericUpDownNamXB";
-            numericUpDownNamXB.Size = new Size(110, 27);
+            numericUpDownNamXB.Size = new Size(244, 23);
             numericUpDownNamXB.TabIndex = 25;
             // 
             // numericUpDownSoTrang
             // 
             numericUpDownSoTrang.Enabled = false;
-            numericUpDownSoTrang.Location = new Point(156, 338);
-            numericUpDownSoTrang.Margin = new Padding(3, 4, 3, 4);
+            numericUpDownSoTrang.Location = new Point(111, 171);
             numericUpDownSoTrang.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownSoTrang.Name = "numericUpDownSoTrang";
-            numericUpDownSoTrang.Size = new Size(110, 27);
+            numericUpDownSoTrang.Size = new Size(244, 23);
             numericUpDownSoTrang.TabIndex = 26;
+            // 
+            // label10
+            // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label10.AutoSize = true;
+            label10.Location = new Point(3, 252);
+            label10.Name = "label10";
+            label10.Size = new Size(102, 28);
+            label10.TabIndex = 30;
+            label10.Text = "Giá sách:";
+            label10.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // textBoxGiaSach
+            // 
+            textBoxGiaSach.Dock = DockStyle.Fill;
+            textBoxGiaSach.Enabled = false;
+            textBoxGiaSach.Location = new Point(111, 254);
+            textBoxGiaSach.Margin = new Padding(3, 2, 3, 2);
+            textBoxGiaSach.Name = "textBoxGiaSach";
+            textBoxGiaSach.ReadOnly = true;
+            textBoxGiaSach.Size = new Size(244, 23);
+            textBoxGiaSach.TabIndex = 31;
+            // 
+            // numericUpDownSoLuongBanSao
+            // 
+            numericUpDownSoLuongBanSao.Enabled = false;
+            numericUpDownSoLuongBanSao.Location = new Point(111, 283);
+            numericUpDownSoLuongBanSao.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
+            numericUpDownSoLuongBanSao.Name = "numericUpDownSoLuongBanSao";
+            numericUpDownSoLuongBanSao.Size = new Size(244, 23);
+            numericUpDownSoLuongBanSao.TabIndex = 27;
+            // 
+            // textBoxTheLoai
+            // 
+            textBoxTheLoai.Location = new Point(111, 87);
+            textBoxTheLoai.Name = "textBoxTheLoai";
+            textBoxTheLoai.ReadOnly = true;
+            textBoxTheLoai.Size = new Size(244, 23);
+            textBoxTheLoai.TabIndex = 33;
             // 
             // panelTop
             // 
@@ -320,37 +341,39 @@
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(0, 125);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(499, 615);
+            panelContent.Size = new Size(437, 405);
             panelContent.TabIndex = 19;
             // 
             // tableLayoutPanelButtons
             // 
             tableLayoutPanelButtons.ColumnCount = 1;
             tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 23F));
-            tableLayoutPanelButtons.Controls.Add(btnHuy, 0, 0);
-            tableLayoutPanelButtons.Location = new Point(47, 541);
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelButtons.Controls.Add(btnDong, 0, 0);
+            tableLayoutPanelButtons.Location = new Point(41, 351);
+            tableLayoutPanelButtons.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             tableLayoutPanelButtons.RowCount = 1;
             tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanelButtons.Size = new Size(409, 53);
             tableLayoutPanelButtons.TabIndex = 19;
             // 
-            // btnHuy
+            // btnDong
             // 
-            btnHuy.Dock = DockStyle.Top;
-            btnHuy.Location = new Point(3, 3);
-            btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(403, 45);
-            btnHuy.TabIndex = 18;
-            btnHuy.Text = "Đóng";
-            btnHuy.UseVisualStyleBackColor = true;
+            btnDong.Dock = DockStyle.Top;
+            btnDong.Location = new Point(3, 2);
+            btnDong.Margin = new Padding(3, 2, 3, 2);
+            btnDong.Name = "btnDong";
+            btnDong.Size = new Size(352, 34);
+            btnDong.TabIndex = 18;
+            btnDong.Text = "Đóng";
+            btnDong.UseVisualStyleBackColor = true;
             // 
             // FormChiTietSach
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(499, 740);
+            ClientSize = new Size(437, 499);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
             Name = "FormChiTietSach";
@@ -358,9 +381,9 @@
             Load += formThemNhanVien_Load;
             tableLayoutPanelContent.ResumeLayout(false);
             tableLayoutPanelContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDownSoLuongBanSao).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSoTrang).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownSoLuongBanSao).EndInit();
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();
@@ -383,15 +406,17 @@
         private TextBox textBoxNXB;
         private Panel panelTop;
         private Panel panelContent;
-        private Button btnHuy;
+        private Button btnDong;
         private TableLayoutPanel tableLayoutPanelButtons;
         private Label label1;
-        private CheckedListBox checkedListBoxTacGia;
         private NumericUpDown numericUpDownSoLuongBanSao;
-        private CheckedListBox checkedListBoxTheLoai;
         private NumericUpDown numericUpDownNamXB;
         private NumericUpDown numericUpDownSoTrang;
         private TextBox textBoxIdSach;
         private Label label9;
+        private Label label10;
+        private TextBox textBoxGiaSach;
+        private TextBox textBoxTacGia;
+        private TextBox textBoxTheLoai;
     }
 }

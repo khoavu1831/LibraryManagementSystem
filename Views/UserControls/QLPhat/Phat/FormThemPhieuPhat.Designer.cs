@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class FormThemPhieuPhat
     {
@@ -284,6 +284,7 @@
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // FormThemPhieuPhat
             // 

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
+namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     public partial class FormThemPhieuPhat : Form
     {
@@ -40,6 +40,11 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat.Phat
             //if (confirm != DialogResult.Yes) return;
 
             // chỗ này gọi DbContext để Add và SaveChanges
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

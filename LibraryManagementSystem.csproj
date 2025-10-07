@@ -132,9 +132,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\UserControls\QLThongKe\" />
+    <Folder Include="Views\UserControls\QLNhapSach\" />
     <Folder Include="Views\UserControls\QLMuonTra\" />
-    <Folder Include="Views\UserControls\QLDocGia\" />
   </ItemGroup>
 
 </Project>

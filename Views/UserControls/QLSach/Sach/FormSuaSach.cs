@@ -33,5 +33,15 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
             checkedListBoxTacGia.Items.Add("Paulo Coelho");
             checkedListBoxTacGia.Items.Add("J.K. Rowling");
         }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

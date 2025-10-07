@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class UcMucPhat
     {
@@ -88,6 +88,7 @@
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
@@ -129,6 +130,7 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
+            btnExcel.Click += btnExcel_Click;
             // 
             // btnChiTiet
             // 
@@ -145,6 +147,7 @@
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
+            btnChiTiet.Click += btnChiTiet_Click;
             // 
             // btnXoa
             // 

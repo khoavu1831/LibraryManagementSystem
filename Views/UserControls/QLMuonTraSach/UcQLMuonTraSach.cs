@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLMuonTra
+namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
 {
     public partial class UcQLMuonTraSach : UserControl
     {

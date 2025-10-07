@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLMuonTra
+﻿namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
 {
     partial class UcQLMuonTraSach
     {

@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.MucPhat
+﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     partial class FormChiTietMucPhat
     {
@@ -31,18 +31,18 @@
             label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            btnQuayLai = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            label6 = new Label();
             textBoxMoTa = new TextBox();
             textBoxSoTien = new TextBox();
-            label3 = new Label();
-            label4 = new Label();
-            textBoxTenMucPhat = new TextBox();
-            label2 = new Label();
-            label5 = new Label();
             comboBoxLoaiPhat = new ComboBox();
-            label6 = new Label();
+            textBoxTenMucPhat = new TextBox();
+            label4 = new Label();
+            label5 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             textBox1 = new TextBox();
+            btnQuayLai = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -82,18 +82,6 @@
             panel2.Size = new Size(456, 269);
             panel2.TabIndex = 19;
             // 
-            // btnQuayLai
-            // 
-            btnQuayLai.Anchor = AnchorStyles.None;
-            btnQuayLai.Location = new Point(153, 224);
-            btnQuayLai.Margin = new Padding(3, 2, 3, 2);
-            btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(162, 34);
-            btnQuayLai.TabIndex = 20;
-            btnQuayLai.Text = "Quay lại";
-            btnQuayLai.UseVisualStyleBackColor = true;
-            btnQuayLai.Click += btnQuayLai_Click;
-            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 2;
@@ -121,6 +109,17 @@
             tableLayoutPanel1.Size = new Size(334, 173);
             tableLayoutPanel1.TabIndex = 21;
             // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(3, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(95, 28);
+            label6.TabIndex = 18;
+            label6.Text = "Mã mức phạt:";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // textBoxMoTa
             // 
             textBoxMoTa.Dock = DockStyle.Fill;
@@ -144,27 +143,15 @@
             textBoxSoTien.Size = new Size(227, 24);
             textBoxSoTien.TabIndex = 15;
             // 
-            // label3
+            // comboBoxLoaiPhat
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Location = new Point(3, 56);
-            label3.Name = "label3";
-            label3.Size = new Size(95, 28);
-            label3.TabIndex = 3;
-            label3.Text = "Loại phạt:";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Location = new Point(3, 112);
-            label4.Name = "label4";
-            label4.Size = new Size(95, 61);
-            label4.TabIndex = 7;
-            label4.Text = "Mô tả:";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
+            comboBoxLoaiPhat.Dock = DockStyle.Fill;
+            comboBoxLoaiPhat.Enabled = false;
+            comboBoxLoaiPhat.FormattingEnabled = true;
+            comboBoxLoaiPhat.Location = new Point(104, 59);
+            comboBoxLoaiPhat.Name = "comboBoxLoaiPhat";
+            comboBoxLoaiPhat.Size = new Size(227, 23);
+            comboBoxLoaiPhat.TabIndex = 17;
             // 
             // textBoxTenMucPhat
             // 
@@ -177,16 +164,16 @@
             textBoxTenMucPhat.Size = new Size(227, 24);
             textBoxTenMucPhat.TabIndex = 2;
             // 
-            // label2
+            // label4
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label2.AutoSize = true;
-            label2.Location = new Point(3, 28);
-            label2.Name = "label2";
-            label2.Size = new Size(95, 28);
-            label2.TabIndex = 1;
-            label2.Text = "Tên mức phạt:";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 112);
+            label4.Name = "label4";
+            label4.Size = new Size(95, 61);
+            label4.TabIndex = 7;
+            label4.Text = "Mô tả:";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -199,26 +186,27 @@
             label5.Text = "Số tiền:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // comboBoxLoaiPhat
+            // label3
             // 
-            comboBoxLoaiPhat.Dock = DockStyle.Fill;
-            comboBoxLoaiPhat.Enabled = false;
-            comboBoxLoaiPhat.FormattingEnabled = true;
-            comboBoxLoaiPhat.Location = new Point(104, 59);
-            comboBoxLoaiPhat.Name = "comboBoxLoaiPhat";
-            comboBoxLoaiPhat.Size = new Size(227, 23);
-            comboBoxLoaiPhat.TabIndex = 17;
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 56);
+            label3.Name = "label3";
+            label3.Size = new Size(95, 28);
+            label3.TabIndex = 3;
+            label3.Text = "Loại phạt:";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // label2
             // 
-            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label6.AutoSize = true;
-            label6.Location = new Point(3, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(95, 28);
-            label6.TabIndex = 18;
-            label6.Text = "Mã mức phạt:";
-            label6.TextAlign = ContentAlignment.MiddleLeft;
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 28);
+            label2.Name = "label2";
+            label2.Size = new Size(95, 28);
+            label2.TabIndex = 1;
+            label2.Text = "Tên mức phạt:";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBox1
             // 
@@ -228,6 +216,18 @@
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(227, 23);
             textBox1.TabIndex = 19;
+            // 
+            // btnQuayLai
+            // 
+            btnQuayLai.Anchor = AnchorStyles.None;
+            btnQuayLai.Location = new Point(153, 224);
+            btnQuayLai.Margin = new Padding(3, 2, 3, 2);
+            btnQuayLai.Name = "btnQuayLai";
+            btnQuayLai.Size = new Size(162, 34);
+            btnQuayLai.TabIndex = 20;
+            btnQuayLai.Text = "Quay lại";
+            btnQuayLai.UseVisualStyleBackColor = true;
+            btnQuayLai.Click += btnQuayLai_Click;
             // 
             // FormChiTietMucPhat
             // 

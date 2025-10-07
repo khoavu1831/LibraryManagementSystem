@@ -241,7 +241,8 @@ namespace LibraryManagementSystem.Migrations
                     MoTa = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     SoTrang = table.Column<int>(type: "int", nullable: false),
-                    SoLuongBanSao = table.Column<int>(type: "int", nullable: false)
+                    SoLuongBanSao = table.Column<int>(type: "int", nullable: false),
+                    GiaTien = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -356,7 +357,7 @@ namespace LibraryManagementSystem.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Sach_TacGia",
+                name: "sach_tacgia",
                 columns: table => new
                 {
                     IdSach = table.Column<int>(type: "int", nullable: false),
@@ -364,15 +365,15 @@ namespace LibraryManagementSystem.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sach_TacGia", x => new { x.IdSach, x.IdTacGia });
+                    table.PrimaryKey("PK_sach_tacgia", x => new { x.IdSach, x.IdTacGia });
                     table.ForeignKey(
-                        name: "FK_Sach_TacGia_Sach_IdSach",
+                        name: "FK_sach_tacgia_Sach_IdSach",
                         column: x => x.IdSach,
                         principalTable: "Sach",
                         principalColumn: "IdSach",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Sach_TacGia_TacGia_IdTacGia",
+                        name: "FK_sach_tacgia_TacGia_IdTacGia",
                         column: x => x.IdTacGia,
                         principalTable: "TacGia",
                         principalColumn: "IdTacGia",
@@ -381,7 +382,7 @@ namespace LibraryManagementSystem.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Sach_TheLoai",
+                name: "sach_theloai",
                 columns: table => new
                 {
                     IdSach = table.Column<int>(type: "int", nullable: false),
@@ -389,15 +390,15 @@ namespace LibraryManagementSystem.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sach_TheLoai", x => new { x.IdSach, x.IdTheLoai });
+                    table.PrimaryKey("PK_sach_theloai", x => new { x.IdSach, x.IdTheLoai });
                     table.ForeignKey(
-                        name: "FK_Sach_TheLoai_Sach_IdSach",
+                        name: "FK_sach_theloai_Sach_IdSach",
                         column: x => x.IdSach,
                         principalTable: "Sach",
                         principalColumn: "IdSach",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Sach_TheLoai_TheLoai_IdTheLoai",
+                        name: "FK_sach_theloai_TheLoai_IdTheLoai",
                         column: x => x.IdTheLoai,
                         principalTable: "TheLoai",
                         principalColumn: "IdTheLoai",
@@ -597,13 +598,13 @@ namespace LibraryManagementSystem.Migrations
                 column: "IdNXB");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sach_TacGia_IdTacGia",
-                table: "Sach_TacGia",
+                name: "IX_sach_tacgia_IdTacGia",
+                table: "sach_tacgia",
                 column: "IdTacGia");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sach_TheLoai_IdTheLoai",
-                table: "Sach_TheLoai",
+                name: "IX_sach_theloai_IdTheLoai",
+                table: "sach_theloai",
                 column: "IdTheLoai");
 
             migrationBuilder.CreateIndex(
@@ -632,10 +633,10 @@ namespace LibraryManagementSystem.Migrations
                 name: "ChiTietPhieuPhat");
 
             migrationBuilder.DropTable(
-                name: "Sach_TacGia");
+                name: "sach_tacgia");
 
             migrationBuilder.DropTable(
-                name: "Sach_TheLoai");
+                name: "sach_theloai");
 
             migrationBuilder.DropTable(
                 name: "VaiTro_Quyen");
