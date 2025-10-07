@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.Quyen
+namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
 {
-    public partial class UcQuyen : UserControl
+    public partial class FormSuaNhapsach : Form
     {
-        public UcQuyen()
+        public FormSuaNhapsach()
         {
             InitializeComponent();
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

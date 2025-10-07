@@ -65,26 +65,25 @@
             label2.AutoSize = true;
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(102, 28);
+            label2.Size = new Size(120, 37);
             label2.TabIndex = 1;
             label2.Text = "Tên sách:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBoxTenSach
             // 
-            textBoxTenSach.Location = new Point(111, 2);
-            textBoxTenSach.Margin = new Padding(3, 2, 3, 2);
+            textBoxTenSach.Location = new Point(129, 3);
             textBoxTenSach.Name = "textBoxTenSach";
-            textBoxTenSach.Size = new Size(244, 23);
+            textBoxTenSach.Size = new Size(278, 27);
             textBoxTenSach.TabIndex = 2;
             // 
             // label3
             // 
             label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
-            label3.Location = new Point(3, 196);
+            label3.Location = new Point(3, 260);
             label3.Name = "label3";
-            label3.Size = new Size(102, 28);
+            label3.Size = new Size(120, 37);
             label3.TabIndex = 3;
             label3.Text = "Năm xuất bản:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
@@ -93,9 +92,9 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(3, 28);
+            label4.Location = new Point(3, 37);
             label4.Name = "label4";
-            label4.Size = new Size(102, 70);
+            label4.Size = new Size(120, 93);
             label4.TabIndex = 7;
             label4.Text = "Tác giả:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -104,9 +103,9 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(3, 168);
+            label5.Location = new Point(3, 223);
             label5.Name = "label5";
-            label5.Size = new Size(102, 28);
+            label5.Size = new Size(120, 37);
             label5.TabIndex = 5;
             label5.Text = "Nhà xuất bản:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -115,9 +114,9 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(3, 98);
+            label7.Location = new Point(3, 130);
             label7.Name = "label7";
-            label7.Size = new Size(102, 70);
+            label7.Size = new Size(120, 93);
             label7.TabIndex = 9;
             label7.Text = "Thể loại:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -126,9 +125,9 @@
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label8.AutoSize = true;
-            label8.Location = new Point(3, 252);
+            label8.Location = new Point(3, 334);
             label8.Name = "label8";
-            label8.Size = new Size(102, 70);
+            label8.Size = new Size(120, 95);
             label8.TabIndex = 13;
             label8.Text = "Mô tả:";
             label8.TextAlign = ContentAlignment.MiddleLeft;
@@ -153,7 +152,7 @@
             labelTitle.ForeColor = SystemColors.ControlLightLight;
             labelTitle.Location = new Point(0, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(437, 94);
+            labelTitle.Size = new Size(499, 125);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "SỬA SÁCH";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -219,29 +218,29 @@
             // 
             checkedListBoxTheLoai.Dock = DockStyle.Fill;
             checkedListBoxTheLoai.FormattingEnabled = true;
-            checkedListBoxTheLoai.Location = new Point(111, 101);
+            checkedListBoxTheLoai.Location = new Point(129, 134);
+            checkedListBoxTheLoai.Margin = new Padding(3, 4, 3, 4);
             checkedListBoxTheLoai.Name = "checkedListBoxTheLoai";
-            checkedListBoxTheLoai.Size = new Size(244, 64);
+            checkedListBoxTheLoai.Size = new Size(287, 85);
             checkedListBoxTheLoai.TabIndex = 24;
             // 
             // textBoxMoTa
             // 
             textBoxMoTa.Dock = DockStyle.Fill;
-            textBoxMoTa.Location = new Point(111, 254);
-            textBoxMoTa.Margin = new Padding(3, 2, 3, 2);
+            textBoxMoTa.Location = new Point(129, 337);
             textBoxMoTa.Multiline = true;
             textBoxMoTa.Name = "textBoxMoTa";
             textBoxMoTa.ScrollBars = ScrollBars.Vertical;
-            textBoxMoTa.Size = new Size(244, 66);
+            textBoxMoTa.Size = new Size(287, 89);
             textBoxMoTa.TabIndex = 19;
             // 
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(3, 224);
+            label1.Location = new Point(3, 297);
             label1.Name = "label1";
-            label1.Size = new Size(102, 28);
+            label1.Size = new Size(120, 37);
             label1.TabIndex = 20;
             label1.Text = "Số trang:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -250,14 +249,16 @@
             // 
             checkedListBoxTacGia.Dock = DockStyle.Fill;
             checkedListBoxTacGia.FormattingEnabled = true;
-            checkedListBoxTacGia.Location = new Point(111, 31);
+            checkedListBoxTacGia.Location = new Point(129, 41);
+            checkedListBoxTacGia.Margin = new Padding(3, 4, 3, 4);
             checkedListBoxTacGia.Name = "checkedListBoxTacGia";
-            checkedListBoxTacGia.Size = new Size(244, 64);
+            checkedListBoxTacGia.Size = new Size(287, 85);
             checkedListBoxTacGia.TabIndex = 23;
             // 
             // numericUpDownNamXB
             // 
-            numericUpDownNamXB.Location = new Point(111, 199);
+            numericUpDownNamXB.Location = new Point(129, 264);
+            numericUpDownNamXB.Margin = new Padding(3, 4, 3, 4);
             numericUpDownNamXB.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownNamXB.Name = "numericUpDownNamXB";
             numericUpDownNamXB.Size = new Size(244, 23);
@@ -265,7 +266,8 @@
             // 
             // numericUpDownSoTrang
             // 
-            numericUpDownSoTrang.Location = new Point(111, 227);
+            numericUpDownSoTrang.Location = new Point(129, 301);
+            numericUpDownSoTrang.Margin = new Padding(3, 4, 3, 4);
             numericUpDownSoTrang.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericUpDownSoTrang.Name = "numericUpDownSoTrang";
             numericUpDownSoTrang.Size = new Size(244, 23);
@@ -284,9 +286,8 @@
             panelTop.Controls.Add(labelTitle);
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
-            panelTop.Margin = new Padding(3, 2, 3, 2);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(437, 94);
+            panelTop.Size = new Size(499, 125);
             panelTop.TabIndex = 18;
             // 
             // panelContent
@@ -294,8 +295,7 @@
             panelContent.Controls.Add(tableLayoutPanelButtons);
             panelContent.Controls.Add(tableLayoutPanelContent);
             panelContent.Dock = DockStyle.Fill;
-            panelContent.Location = new Point(0, 94);
-            panelContent.Margin = new Padding(3, 2, 3, 2);
+            panelContent.Location = new Point(0, 125);
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(437, 444);
             panelContent.TabIndex = 19;
@@ -330,12 +330,11 @@
             // 
             // FormSuaSach
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(437, 538);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaSach";
             Text = "Sửa Sách";
             Load += formThemNhanVien_Load;

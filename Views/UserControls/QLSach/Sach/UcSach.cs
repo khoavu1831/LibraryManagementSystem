@@ -99,5 +99,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         {
             LoadData();
         }
+
+        private void dgvSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

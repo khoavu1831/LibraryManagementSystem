@@ -2,6 +2,9 @@
 using LibraryManagementSystem.Views.UserControls.QLDocGia;
 using LibraryManagementSystem.Views.UserControls.QLMuonTraSach;
 using LibraryManagementSystem.Views.UserControls.QLNhanVien;
+using LibraryManagementSystem.Views.UserControls.QLNhapSach;
+using LibraryManagementSystem.Views.UserControls.QLNhapSach.NCC;
+using LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat;
 using LibraryManagementSystem.Views.UserControls.QLPhat;
 using LibraryManagementSystem.Views.UserControls.QLThongKe;
 using LibraryManagementSystem.Views.UserControls.QuanLySach;
@@ -13,6 +16,7 @@ namespace LibraryManagementSystem.Views.Forms
     {
         private readonly UcTrangChu _ucTrangChu;
         private readonly UcQLSach _ucQLSach;
+        private readonly UcQLNhapSach _ucQLNhapSach;
         private readonly UcQLNhanVien _ucQLNhanVien;
         private readonly UcQLPhat _ucQLPhat;
         private readonly UcQLMuonTraSach _ucQLMuonTraSach;
@@ -23,6 +27,7 @@ namespace LibraryManagementSystem.Views.Forms
             InitializeComponent();
             _ucTrangChu = new UcTrangChu();
             _ucQLSach = new UcQLSach();
+            _ucQLNhapSach = new UcQLNhapSach();
             _ucQLNhanVien = new UcQLNhanVien();
             _ucQLPhat = new UcQLPhat();
             _ucQLMuonTraSach = new UcQLMuonTraSach();
@@ -47,6 +52,7 @@ namespace LibraryManagementSystem.Views.Forms
             HighlightButton((Button)sender);
 
         }
+     
         private void buttonQLNhanVien_Click(object sender, EventArgs e)
         {
             LoadUserControl(_ucQLNhanVien);
@@ -82,6 +88,16 @@ namespace LibraryManagementSystem.Views.Forms
             HighlightButton((Button)sender);
 
         }
+
+        private void btnQLNhapSach_Click(object sender, EventArgs e)
+        {
+            LoadUserControl(_ucQLNhapSach);
+
+        }
+       
+       
+        
+
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
