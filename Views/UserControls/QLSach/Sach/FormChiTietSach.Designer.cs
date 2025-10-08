@@ -372,6 +372,7 @@
             btnDong.TabIndex = 18;
             btnDong.Text = "Đóng";
             btnDong.UseVisualStyleBackColor = true;
+            btnDong.Click += btnDong_Click;
             // 
             // FormChiTietSach
             // 
@@ -383,7 +384,6 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietSach";
             Text = "Chi Tiết Sách";
-            Load += formThemNhanVien_Load;
             tableLayoutPanelContent.ResumeLayout(false);
             tableLayoutPanelContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).EndInit();

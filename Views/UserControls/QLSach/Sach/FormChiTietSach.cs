@@ -7,31 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Repository;
+using LibraryManagementSystem.Services;
 
 namespace LibraryManagementSystem.Views.UserControls.QLSach
 {
     public partial class FormChiTietSach : Form
     {
-        public FormChiTietSach()
+        public FormChiTietSach(string idSach, string tenSach, string theLoai, string tacGia, string nxb, int namXuatBan, string moTa, int soTrang, int soLuongBanSao, decimal giaTien)
         {
             InitializeComponent();
-        }
-        private void formThemNhanVien_Load(object sender, EventArgs e)
-        {
-            //// Thể loại giả dữ liệu
-            //checkedListBoxTheLoai.Items.Add("Văn học");
-            //checkedListBoxTheLoai.Items.Add("Khoa học");
-            //checkedListBoxTheLoai.Items.Add("Thiếu nhi");
-            //checkedListBoxTheLoai.Items.Add("Tâm lý");
-            //checkedListBoxTheLoai.Items.Add("Văn học");
-            //checkedListBoxTheLoai.Items.Add("Khoa học");
-            //checkedListBoxTheLoai.Items.Add("Thiếu nhi");
-            //checkedListBoxTheLoai.Items.Add("Tâm lý");
 
-            //// Tác giả giả dữ liệu
-            //checkedListBoxTacGia.Items.Add("Nguyễn Nhật Ánh");
-            //checkedListBoxTacGia.Items.Add("Paulo Coelho");
-            //checkedListBoxTacGia.Items.Add("J.K. Rowling");
+            textBoxIdSach.Text = idSach;
+            textBoxTenSach.Text = tenSach;
+            textBoxTheLoai.Text = theLoai;
+            textBoxTacGia.Text = tacGia;
+            textBoxNXB.Text = nxb;
+            numericUpDownNamXB.Value = namXuatBan;
+            textBoxMoTa.Text = moTa;
+            numericUpDownSoTrang.Value = soTrang;
+            numericUpDownSoLuongBanSao.Value = soLuongBanSao;
+            textBoxGiaSach.Text = giaTien.ToString();
+        }
+
+        private void btnDong_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -16,7 +16,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         {
             InitializeComponent();
         }
-        private void formThemNhanVien_Load(object sender, EventArgs e)
+        private void formSuaSach_Load(object sender, EventArgs e)
         {
             // Thể loại giả dữ liệu
             checkedListBoxTheLoai.Items.Add("Văn học");

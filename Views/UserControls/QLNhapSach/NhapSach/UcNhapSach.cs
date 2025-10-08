@@ -69,10 +69,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            using (var formChiTietSach = new FormChiTietSach())
-            {
-                formChiTietSach.ShowDialog(this);
-            }
+            // using (var formChiTietSach = new FormChiTietSach())
+            // {
+            //     formChiTietSach.ShowDialog(this);
+            // }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
