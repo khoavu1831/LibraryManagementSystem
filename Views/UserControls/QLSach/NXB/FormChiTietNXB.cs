@@ -30,7 +30,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 
         private void btnDong_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

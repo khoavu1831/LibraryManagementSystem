@@ -54,7 +54,9 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         private void LoadNXB()
         {
             var nxbList = _nxbService.GetAllNXB();
-            nxbList.ForEach(nxb => comboBoxNXB.Items.Add(nxb.TenNXB!));
+            comboBoxNXB.DataSource = nxbList;
+            comboBoxNXB.DisplayMember = "TenNXB";
+            comboBoxNXB.ValueMember = "IdNXB";
         }
         private void btnThem_Click(object sender, EventArgs e)
         {

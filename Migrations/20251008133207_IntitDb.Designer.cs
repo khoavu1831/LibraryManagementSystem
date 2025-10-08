@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20251006175635_InitDb")]
-    partial class InitDb
+    [Migration("20251008133207_IntitDb")]
+    partial class IntitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -315,6 +315,9 @@ namespace LibraryManagementSystem.Migrations
                     b.Property<int>("IdNCC")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdNhanVien")
+                        .HasColumnType("int");
+
                     b.Property<string>("LoaiPhieuNhap")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -332,6 +335,8 @@ namespace LibraryManagementSystem.Migrations
                     b.HasKey("IdPhieuNhap");
 
                     b.HasIndex("IdNCC");
+
+                    b.HasIndex("IdNhanVien");
 
                     b.ToTable("PhieuNhap");
                 });
@@ -524,6 +529,36 @@ namespace LibraryManagementSystem.Migrations
                     b.ToTable("VaiTro");
                 });
 
+            modelBuilder.Entity("Sach_TacGia", b =>
+                {
+                    b.Property<int>("IdSach")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdTacGia")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdSach", "IdTacGia");
+
+                    b.HasIndex("IdTacGia");
+
+                    b.ToTable("Sach_TacGia", (string)null);
+                });
+
+            modelBuilder.Entity("Sach_TheLoai", b =>
+                {
+                    b.Property<int>("IdSach")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdTheLoai")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdSach", "IdTheLoai");
+
+                    b.HasIndex("IdTheLoai");
+
+                    b.ToTable("Sach_TheLoai", (string)null);
+                });
+
             modelBuilder.Entity("VaiTro_Quyen", b =>
                 {
                     b.Property<int>("IdVaiTro")
@@ -537,36 +572,6 @@ namespace LibraryManagementSystem.Migrations
                     b.HasIndex("IdQuyen");
 
                     b.ToTable("VaiTro_Quyen", (string)null);
-                });
-
-            modelBuilder.Entity("sach_tacgia", b =>
-                {
-                    b.Property<int>("IdSach")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdTacGia")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdSach", "IdTacGia");
-
-                    b.HasIndex("IdTacGia");
-
-                    b.ToTable("sach_tacgia", (string)null);
-                });
-
-            modelBuilder.Entity("sach_theloai", b =>
-                {
-                    b.Property<int>("IdSach")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdTheLoai")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdSach", "IdTheLoai");
-
-                    b.HasIndex("IdTheLoai");
-
-                    b.ToTable("sach_theloai", (string)null);
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.BanSaoSach", b =>
@@ -681,7 +686,15 @@ namespace LibraryManagementSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("LibraryManagementSystem.Entities.NhanVien", "NhanVien")
+                        .WithMany("PhieuNhaps")
+                        .HasForeignKey("IdNhanVien")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("NCC");
+
+                    b.Navigation("NhanVien");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.Sach", b =>
@@ -717,22 +730,7 @@ namespace LibraryManagementSystem.Migrations
                     b.Navigation("DocGias");
                 });
 
-            modelBuilder.Entity("VaiTro_Quyen", b =>
-                {
-                    b.HasOne("LibraryManagementSystem.Entities.Quyen", null)
-                        .WithMany()
-                        .HasForeignKey("IdQuyen")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LibraryManagementSystem.Entities.VaiTro", null)
-                        .WithMany()
-                        .HasForeignKey("IdVaiTro")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("sach_tacgia", b =>
+            modelBuilder.Entity("Sach_TacGia", b =>
                 {
                     b.HasOne("LibraryManagementSystem.Entities.Sach", null)
                         .WithMany()
@@ -747,7 +745,7 @@ namespace LibraryManagementSystem.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("sach_theloai", b =>
+            modelBuilder.Entity("Sach_TheLoai", b =>
                 {
                     b.HasOne("LibraryManagementSystem.Entities.Sach", null)
                         .WithMany()
@@ -758,6 +756,21 @@ namespace LibraryManagementSystem.Migrations
                     b.HasOne("LibraryManagementSystem.Entities.TheLoai", null)
                         .WithMany()
                         .HasForeignKey("IdTheLoai")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("VaiTro_Quyen", b =>
+                {
+                    b.HasOne("LibraryManagementSystem.Entities.Quyen", null)
+                        .WithMany()
+                        .HasForeignKey("IdQuyen")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LibraryManagementSystem.Entities.VaiTro", null)
+                        .WithMany()
+                        .HasForeignKey("IdVaiTro")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -790,6 +803,8 @@ namespace LibraryManagementSystem.Migrations
             modelBuilder.Entity("LibraryManagementSystem.Entities.NhanVien", b =>
                 {
                     b.Navigation("PhieuMuons");
+
+                    b.Navigation("PhieuNhaps");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.PhieuMuon", b =>

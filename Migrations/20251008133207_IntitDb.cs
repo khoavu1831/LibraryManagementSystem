@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LibraryManagementSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDb : Migration
+    public partial class IntitDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -204,31 +204,6 @@ namespace LibraryManagementSystem.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "PhieuNhap",
-                columns: table => new
-                {
-                    IdPhieuNhap = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    IdNCC = table.Column<int>(type: "int", nullable: false),
-                    NgayNhap = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    SoLuongSach = table.Column<int>(type: "int", nullable: false),
-                    TongTienNhap = table.Column<decimal>(type: "decimal(12,2)", precision: 12, scale: 2, nullable: false),
-                    LoaiPhieuNhap = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PhieuNhap", x => x.IdPhieuNhap);
-                    table.ForeignKey(
-                        name: "FK_PhieuNhap_NCC_IdNCC",
-                        column: x => x.IdNCC,
-                        principalTable: "NCC",
-                        principalColumn: "IdNCC",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "Sach",
                 columns: table => new
                 {
@@ -328,36 +303,7 @@ namespace LibraryManagementSystem.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ChiTietPhieuNhap",
-                columns: table => new
-                {
-                    IdChiTietPhieuNhap = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    IdPhieuNhap = table.Column<int>(type: "int", nullable: false),
-                    IdSach = table.Column<int>(type: "int", nullable: false),
-                    SoLuong = table.Column<int>(type: "int", nullable: false),
-                    GiaTien = table.Column<decimal>(type: "decimal(12,2)", precision: 12, scale: 2, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChiTietPhieuNhap", x => x.IdChiTietPhieuNhap);
-                    table.ForeignKey(
-                        name: "FK_ChiTietPhieuNhap_PhieuNhap_IdPhieuNhap",
-                        column: x => x.IdPhieuNhap,
-                        principalTable: "PhieuNhap",
-                        principalColumn: "IdPhieuNhap",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ChiTietPhieuNhap_Sach_IdSach",
-                        column: x => x.IdSach,
-                        principalTable: "Sach",
-                        principalColumn: "IdSach",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "sach_tacgia",
+                name: "Sach_TacGia",
                 columns: table => new
                 {
                     IdSach = table.Column<int>(type: "int", nullable: false),
@@ -365,15 +311,15 @@ namespace LibraryManagementSystem.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_sach_tacgia", x => new { x.IdSach, x.IdTacGia });
+                    table.PrimaryKey("PK_Sach_TacGia", x => new { x.IdSach, x.IdTacGia });
                     table.ForeignKey(
-                        name: "FK_sach_tacgia_Sach_IdSach",
+                        name: "FK_Sach_TacGia_Sach_IdSach",
                         column: x => x.IdSach,
                         principalTable: "Sach",
                         principalColumn: "IdSach",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_sach_tacgia_TacGia_IdTacGia",
+                        name: "FK_Sach_TacGia_TacGia_IdTacGia",
                         column: x => x.IdTacGia,
                         principalTable: "TacGia",
                         principalColumn: "IdTacGia",
@@ -382,7 +328,7 @@ namespace LibraryManagementSystem.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "sach_theloai",
+                name: "Sach_TheLoai",
                 columns: table => new
                 {
                     IdSach = table.Column<int>(type: "int", nullable: false),
@@ -390,15 +336,15 @@ namespace LibraryManagementSystem.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_sach_theloai", x => new { x.IdSach, x.IdTheLoai });
+                    table.PrimaryKey("PK_Sach_TheLoai", x => new { x.IdSach, x.IdTheLoai });
                     table.ForeignKey(
-                        name: "FK_sach_theloai_Sach_IdSach",
+                        name: "FK_Sach_TheLoai_Sach_IdSach",
                         column: x => x.IdSach,
                         principalTable: "Sach",
                         principalColumn: "IdSach",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_sach_theloai_TheLoai_IdTheLoai",
+                        name: "FK_Sach_TheLoai_TheLoai_IdTheLoai",
                         column: x => x.IdTheLoai,
                         principalTable: "TheLoai",
                         principalColumn: "IdTheLoai",
@@ -467,6 +413,38 @@ namespace LibraryManagementSystem.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "PhieuNhap",
+                columns: table => new
+                {
+                    IdPhieuNhap = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    IdNCC = table.Column<int>(type: "int", nullable: false),
+                    IdNhanVien = table.Column<int>(type: "int", nullable: false),
+                    NgayNhap = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    SoLuongSach = table.Column<int>(type: "int", nullable: false),
+                    TongTienNhap = table.Column<decimal>(type: "decimal(12,2)", precision: 12, scale: 2, nullable: false),
+                    LoaiPhieuNhap = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PhieuNhap", x => x.IdPhieuNhap);
+                    table.ForeignKey(
+                        name: "FK_PhieuNhap_NCC_IdNCC",
+                        column: x => x.IdNCC,
+                        principalTable: "NCC",
+                        principalColumn: "IdNCC",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_PhieuNhap_NhanVien_IdNhanVien",
+                        column: x => x.IdNhanVien,
+                        principalTable: "NhanVien",
+                        principalColumn: "IdNhanVien",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "ChiTietPhieuMuon",
                 columns: table => new
                 {
@@ -492,6 +470,35 @@ namespace LibraryManagementSystem.Migrations
                         column: x => x.IdPhieuMuon,
                         principalTable: "PhieuMuon",
                         principalColumn: "IdPhieuMuon",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "ChiTietPhieuNhap",
+                columns: table => new
+                {
+                    IdChiTietPhieuNhap = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    IdPhieuNhap = table.Column<int>(type: "int", nullable: false),
+                    IdSach = table.Column<int>(type: "int", nullable: false),
+                    SoLuong = table.Column<int>(type: "int", nullable: false),
+                    GiaTien = table.Column<decimal>(type: "decimal(12,2)", precision: 12, scale: 2, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ChiTietPhieuNhap", x => x.IdChiTietPhieuNhap);
+                    table.ForeignKey(
+                        name: "FK_ChiTietPhieuNhap_PhieuNhap_IdPhieuNhap",
+                        column: x => x.IdPhieuNhap,
+                        principalTable: "PhieuNhap",
+                        principalColumn: "IdPhieuNhap",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChiTietPhieuNhap_Sach_IdSach",
+                        column: x => x.IdSach,
+                        principalTable: "Sach",
+                        principalColumn: "IdSach",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
@@ -593,18 +600,23 @@ namespace LibraryManagementSystem.Migrations
                 column: "IdNCC");
 
             migrationBuilder.CreateIndex(
+                name: "IX_PhieuNhap_IdNhanVien",
+                table: "PhieuNhap",
+                column: "IdNhanVien");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Sach_IdNXB",
                 table: "Sach",
                 column: "IdNXB");
 
             migrationBuilder.CreateIndex(
-                name: "IX_sach_tacgia_IdTacGia",
-                table: "sach_tacgia",
+                name: "IX_Sach_TacGia_IdTacGia",
+                table: "Sach_TacGia",
                 column: "IdTacGia");
 
             migrationBuilder.CreateIndex(
-                name: "IX_sach_theloai_IdTheLoai",
-                table: "sach_theloai",
+                name: "IX_Sach_TheLoai_IdTheLoai",
+                table: "Sach_TheLoai",
                 column: "IdTheLoai");
 
             migrationBuilder.CreateIndex(
@@ -633,10 +645,10 @@ namespace LibraryManagementSystem.Migrations
                 name: "ChiTietPhieuPhat");
 
             migrationBuilder.DropTable(
-                name: "sach_tacgia");
+                name: "Sach_TacGia");
 
             migrationBuilder.DropTable(
-                name: "sach_theloai");
+                name: "Sach_TheLoai");
 
             migrationBuilder.DropTable(
                 name: "VaiTro_Quyen");

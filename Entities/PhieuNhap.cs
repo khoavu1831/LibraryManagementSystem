@@ -15,6 +15,7 @@ namespace LibraryManagementSystem.Entities
         [Key]
         public int IdPhieuNhap { get; set; }
         public int IdNCC { get; set; }
+        public int IdNhanVien { get; set; }
         public DateTime NgayNhap { get; set; }
         public int SoLuongSach { get; set; }
         [Precision(12, 2)]
@@ -23,6 +24,8 @@ namespace LibraryManagementSystem.Entities
 
         [ForeignKey("IdNCC")]
         public NCC? NCC { get; set; }
+        [ForeignKey("IdNhanVien")]
+        public NhanVien? NhanVien { get; set; }
         public ICollection<ChiTietPhieuNhap>? ChiTietPhieuNhaps { get; set; }
         public enum LoaiPhieuNhapEnum
         {
