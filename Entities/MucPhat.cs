@@ -22,8 +22,9 @@ namespace LibraryManagementSystem.Entities
         public ICollection<ChiTietPhieuPhat>? ChiTietPhieuPhats { get; set; }
         public enum LoaiPhatEnum
         {
-            TheoNgay,
-            CoDinh
+            QuaHan,
+            LamMat,
+            LamHong
         }
     }
 }

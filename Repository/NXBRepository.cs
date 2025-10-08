@@ -36,6 +36,7 @@ namespace LibraryManagementSystem.Repository
             _context.SaveChanges();
             return nxb;
         }
+
         public NXB? DeleteById(int id)
         {
             var nxb = GetById(id);
