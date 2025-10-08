@@ -33,7 +33,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 
                     var sachDataView = sachList.Select(s => new
                     {
-                        MaSach = s.IdSachFormat,
+                        IdSach = s.IdSachFormat,
                         TenSach = s.TenSach,
                         NXB = s.NXB != null ? s.NXB.TenNXB : "Chua co",
                         TheLoai = s.TheLoais != null ? string.Join(", ", s.TheLoais.Select(tl => tl.TenTheloai)) : "Chua co",
@@ -55,7 +55,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         {
             using (var formThemSach = new FormThemSach())
             {
-                formThemSach.ShowDialog(this);
+                if (formThemSach.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
         }
 
@@ -69,9 +72,36 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            using (var formChiTietSach = new FormChiTietSach())
+            var context = new LibraryDbContext();
+            var repo = new SachRepository(context);
+            var sachService = new SachService(repo);
+
+            if (dgvSach.SelectedRows.Count == 0)
             {
-                formChiTietSach.ShowDialog(this);
+                MessageBox.Show("Vui lòng chọn 1 sách để xem chi tiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvSach.SelectedRows[0];
+
+            string idSachFormat = selectedRow.Cells["IdSach"].Value.ToString()!;
+            int idSach = Convert.ToInt32(idSachFormat.Substring(1));
+            string tenSach = selectedRow.Cells["TenSach"].Value.ToString() ?? "";
+            string theLoai = selectedRow.Cells["TheLoai"].Value.ToString() ?? "";
+            string tacGia = selectedRow.Cells["TacGia"].Value.ToString() ?? "";
+            string nxb = selectedRow.Cells["NXB"].Value.ToString() ?? "";
+            int namXuatBan = Convert.ToInt32(selectedRow.Cells["NamXuatBan"].Value);
+            int soLuongBanSao = Convert.ToInt32(selectedRow.Cells["SoLuongBanSao"].Value);
+            string moTa = sachService.GetSachById(idSach)!.MoTa!;
+            int soTrang = Convert.ToInt32(sachService.GetSachById(idSach)!.SoTrang);
+            decimal giaTien = Convert.ToDecimal(sachService.GetSachById(idSach)!.GiaTien);
+
+            using (var formChiTietSach = new FormChiTietSach(idSachFormat, tenSach, theLoai, tacGia, nxb, namXuatBan, moTa, soTrang, soLuongBanSao, giaTien))
+            {
+                if (formChiTietSach.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadData();
+                }
             }
         }
 

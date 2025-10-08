@@ -338,7 +338,7 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaSach";
             Text = "Sửa Sách";
-            Load += formThemNhanVien_Load;
+            Load += formSuaSach_Load;
             tableLayoutPanelContent.ResumeLayout(false);
             tableLayoutPanelContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).EndInit();
