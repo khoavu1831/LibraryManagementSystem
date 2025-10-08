@@ -23,5 +23,6 @@ namespace LibraryManagementSystem.Entities
         [ForeignKey("IdTaiKhoan")]
         public TaiKhoan? TaiKhoan { get; set; }
         public ICollection<PhieuMuon>? PhieuMuons { get; set; }
+        public ICollection<PhieuNhap>? PhieuNhaps { get; set; }
     }
 }
