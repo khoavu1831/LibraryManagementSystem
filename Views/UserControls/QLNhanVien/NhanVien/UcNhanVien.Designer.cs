@@ -38,10 +38,10 @@
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dataGridView1 = new DataGridView();
+            dgvNhanVien = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanVien).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -200,28 +200,28 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dataGridView1
+            // dgvNhanVien
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 96);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(885, 655);
-            dataGridView1.TabIndex = 2;
+            dgvNhanVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvNhanVien.Dock = DockStyle.Fill;
+            dgvNhanVien.Location = new Point(0, 96);
+            dgvNhanVien.Name = "dgvNhanVien";
+            dgvNhanVien.RowHeadersWidth = 51;
+            dgvNhanVien.Size = new Size(885, 655);
+            dgvNhanVien.TabIndex = 2;
             // 
             // UcNhanVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvNhanVien);
             Controls.Add(panelCRUD);
             Name = "UcNhanVien";
             Size = new Size(885, 751);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvNhanVien).EndInit();
             ResumeLayout(false);
         }
 
@@ -237,6 +237,6 @@
         private Button btnXoa;
         private Button btnSua;
         private Button btnThem;
-        private DataGridView dataGridView1;
+        private DataGridView dgvNhanVien;
     }
 }

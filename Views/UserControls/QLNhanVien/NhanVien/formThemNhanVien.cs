@@ -52,9 +52,17 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnThem_Click_1(object sender, EventArgs e)
+        {
+            string tenNhanVien = textBoxHVT.Text;
+            string taiKhoan = textBoxTK.Text;
+            string matKhau = textBoxMK.Text;
+            //DateTime ngaySinh = dateTimePickerNS.Value;
         }
     }
 }

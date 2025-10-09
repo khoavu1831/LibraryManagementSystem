@@ -151,7 +151,7 @@
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
-            btnThem.Click += button1_Click;
+            btnThem.Click += btnThem_Click_1;
             // 
             // label1
             // 
@@ -298,14 +298,14 @@
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             // 
-            // formThemNhanVien
+            // FormThemNhanVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(521, 549);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "formThemNhanVien";
+            Name = "FormThemNhanVien";
             Text = "formThemNhanVien";
             Load += formThemNhanVien_Load;
             tableLayoutPanel1.ResumeLayout(false);
