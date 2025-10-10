@@ -37,10 +37,10 @@
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dataGridView1 = new DataGridView();
+            dgvVaiTro = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVaiTro).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -147,6 +147,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -182,28 +183,28 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dataGridView1
+            // dgvVaiTro
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 96);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(885, 655);
-            dataGridView1.TabIndex = 3;
+            dgvVaiTro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvVaiTro.Dock = DockStyle.Fill;
+            dgvVaiTro.Location = new Point(0, 96);
+            dgvVaiTro.Name = "dgvVaiTro";
+            dgvVaiTro.RowHeadersWidth = 51;
+            dgvVaiTro.Size = new Size(885, 655);
+            dgvVaiTro.TabIndex = 3;
             // 
             // UcVaiTro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvVaiTro);
             Controls.Add(panelCRUD);
             Name = "UcVaiTro";
             Size = new Size(885, 751);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvVaiTro).EndInit();
             ResumeLayout(false);
         }
 
@@ -218,6 +219,6 @@
         private Button btnXoa;
         private Button btnSua;
         private Button btnThem;
-        private DataGridView dataGridView1;
+        private DataGridView dgvVaiTro;
     }
 }

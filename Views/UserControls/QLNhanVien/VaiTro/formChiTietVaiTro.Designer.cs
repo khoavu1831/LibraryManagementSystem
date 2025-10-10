@@ -226,6 +226,7 @@
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -268,14 +269,14 @@
             label2.Text = "Tên vai trò:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // formChiTietVaiTro
+            // FormChiTietVaiTro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(521, 549);
             Controls.Add(panel2);
             Controls.Add(label1);
-            Name = "formChiTietVaiTro";
+            Name = "FormChiTietVaiTro";
             Text = "formChiTietVaiTro";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

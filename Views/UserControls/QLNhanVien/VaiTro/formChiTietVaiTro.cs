@@ -12,9 +12,15 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
 {
     public partial class FormChiTietVaiTro : Form
     {
-        public FormChiTietVaiTro()
+        public FormChiTietVaiTro(int idVaiTro, string tenVaiTro)
         {
             InitializeComponent();
+            textBoxHVT.Text = tenVaiTro;
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
