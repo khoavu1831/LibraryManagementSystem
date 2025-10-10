@@ -1,4 +1,3 @@
-using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Repository;
 

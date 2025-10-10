@@ -29,11 +29,14 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
                 {
                     var repo = new PhieuNhapRepository(context);
                     var pnService = new PhieuNhapService(repo);
-                    var pnDataView = pnService.GetAllPhieuNhap().Select(pn => new
+                    var pnList = pnService.GetAllPhieuNhap();
+
+                    var pnDataView = pnList.Select(pn => new
                     {
                         IdPhieuNhap = pn.IdPhieuNhap,
                         TenNCC = pn.NCC != null ? pn.NCC.TenNCC : "Chua co",
                         TenNhanVien = pn.NhanVien != null ? pn.NhanVien.TenNhanVien : "Chua co",
+                        SoLuongNhap = pn.SoLuongSach,
                         LoaiPhieuNhap = pn.LoaiPhieuNhap
                     }).ToList();
 
@@ -54,45 +57,24 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            using (var formSuaSach = new FormSuaSach())
-            {
-                formSuaSach.ShowDialog(this);
-            }
-        }
-
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            // using (var formChiTietSach = new FormChiTietSach())
-            // {
-            //     formChiTietSach.ShowDialog(this);
-            // }
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (var context = new LibraryDbContext())
-                {
-                    var repo = new SachRepository(context);
-                    var sachService = new SachService(repo);
-                    var sach = sachService.GetAllSach();
-                    var chonSach = sach.Where(s => s.SoLuongBanSao == 0).ToList();
-                    MessageBox.Show(string.Join(", ", chonSach.Select(s => s.TenSach)));                 
-                }
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnListHuy_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

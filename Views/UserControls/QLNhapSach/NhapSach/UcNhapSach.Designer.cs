@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             panelCRUD = new Panel();
+            btnExcel = new Button();
+            btnChiTiet = new Button();
+            btnListHuy = new Button();
             panelSearch = new TableLayoutPanel();
             btnTimKiem = new Button();
             txtBoxTimKiem = new TextBox();
             btnLamMoi = new Button();
-            btnExcel = new Button();
-            btnChiTiet = new Button();
             btnXoa = new Button();
-            btnSua = new Button();
             btnThem = new Button();
             dgvPhieuNhap = new DataGridView();
             panelCRUD.SuspendLayout();
@@ -47,17 +47,66 @@
             // panelCRUD
             // 
             panelCRUD.BackColor = Color.White;
-            panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnExcel);
             panelCRUD.Controls.Add(btnChiTiet);
+            panelCRUD.Controls.Add(btnListHuy);
+            panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnXoa);
-            panelCRUD.Controls.Add(btnSua);
             panelCRUD.Controls.Add(btnThem);
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
             panelCRUD.Name = "panelCRUD";
             panelCRUD.Size = new Size(774, 72);
             panelCRUD.TabIndex = 0;
+            // 
+            // btnExcel
+            // 
+            btnExcel.BackColor = Color.White;
+            btnExcel.Dock = DockStyle.Left;
+            btnExcel.FlatAppearance.BorderSize = 0;
+            btnExcel.FlatStyle = FlatStyle.Flat;
+            btnExcel.Image = Properties.Resources.iconExc;
+            btnExcel.Location = new Point(308, 0);
+            btnExcel.Margin = new Padding(0);
+            btnExcel.Name = "btnExcel";
+            btnExcel.Size = new Size(77, 72);
+            btnExcel.TabIndex = 13;
+            btnExcel.Text = "Xuất Excel";
+            btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnExcel.UseVisualStyleBackColor = false;
+            // 
+            // btnChiTiet
+            // 
+            btnChiTiet.BackColor = Color.White;
+            btnChiTiet.Dock = DockStyle.Left;
+            btnChiTiet.FlatAppearance.BorderSize = 0;
+            btnChiTiet.FlatStyle = FlatStyle.Flat;
+            btnChiTiet.Image = Properties.Resources.iconCT;
+            btnChiTiet.Location = new Point(231, 0);
+            btnChiTiet.Margin = new Padding(0);
+            btnChiTiet.Name = "btnChiTiet";
+            btnChiTiet.Size = new Size(77, 72);
+            btnChiTiet.TabIndex = 12;
+            btnChiTiet.Text = "Chi Tiết";
+            btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnChiTiet.UseVisualStyleBackColor = false;
+            // 
+            // btnListHuy
+            // 
+            btnListHuy.BackColor = Color.White;
+            btnListHuy.Dock = DockStyle.Left;
+            btnListHuy.FlatAppearance.BorderSize = 0;
+            btnListHuy.FlatStyle = FlatStyle.Flat;
+            btnListHuy.Image = Properties.Resources.iconRac;
+            btnListHuy.Location = new Point(154, 0);
+            btnListHuy.Margin = new Padding(0);
+            btnListHuy.Name = "btnListHuy";
+            btnListHuy.Size = new Size(77, 72);
+            btnListHuy.TabIndex = 10;
+            btnListHuy.Text = "DS Hủy";
+            btnListHuy.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnListHuy.UseVisualStyleBackColor = false;
+            btnListHuy.Click += btnListHuy_Click;
             // 
             // panelSearch
             // 
@@ -112,40 +161,7 @@
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
-            btnLamMoi.Click += this.btnLamMoi_Click;
-            // 
-            // btnExcel
-            // 
-            btnExcel.BackColor = Color.White;
-            btnExcel.Dock = DockStyle.Left;
-            btnExcel.FlatAppearance.BorderSize = 0;
-            btnExcel.FlatStyle = FlatStyle.Flat;
-            btnExcel.Image = Properties.Resources.iconExc;
-            btnExcel.Location = new Point(308, 0);
-            btnExcel.Margin = new Padding(0);
-            btnExcel.Name = "btnExcel";
-            btnExcel.Size = new Size(77, 72);
-            btnExcel.TabIndex = 4;
-            btnExcel.Text = "Xuất Excel";
-            btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnExcel.UseVisualStyleBackColor = false;
-            // 
-            // btnChiTiet
-            // 
-            btnChiTiet.BackColor = Color.White;
-            btnChiTiet.Dock = DockStyle.Left;
-            btnChiTiet.FlatAppearance.BorderSize = 0;
-            btnChiTiet.FlatStyle = FlatStyle.Flat;
-            btnChiTiet.Image = Properties.Resources.iconCT;
-            btnChiTiet.Location = new Point(231, 0);
-            btnChiTiet.Margin = new Padding(0);
-            btnChiTiet.Name = "btnChiTiet";
-            btnChiTiet.Size = new Size(77, 72);
-            btnChiTiet.TabIndex = 3;
-            btnChiTiet.Text = "Chi Tiết";
-            btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnChiTiet.UseVisualStyleBackColor = false;
-            btnChiTiet.Click += this.btnChiTiet_Click;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnXoa
             // 
@@ -154,32 +170,15 @@
             btnXoa.FlatAppearance.BorderSize = 0;
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Image = Properties.Resources.iconxoa;
-            btnXoa.Location = new Point(154, 0);
+            btnXoa.Location = new Point(77, 0);
             btnXoa.Margin = new Padding(0);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(77, 72);
             btnXoa.TabIndex = 2;
-            btnXoa.Text = "Xóa";
+            btnXoa.Text = "Hủy";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += this.btnXoa_Click;
-            // 
-            // btnSua
-            // 
-            btnSua.BackColor = Color.White;
-            btnSua.Dock = DockStyle.Left;
-            btnSua.FlatAppearance.BorderSize = 0;
-            btnSua.FlatStyle = FlatStyle.Flat;
-            btnSua.Image = Properties.Resources.iconsua;
-            btnSua.Location = new Point(77, 0);
-            btnSua.Margin = new Padding(0);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(77, 72);
-            btnSua.TabIndex = 1;
-            btnSua.Text = "Sửa";
-            btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnSua.UseVisualStyleBackColor = false;
-            btnSua.Click += this.btnSua_Click;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnThem
             // 
@@ -196,7 +195,7 @@
             btnThem.Text = "Thêm";
             btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
             btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += this.btnThem_Click;
+            btnThem.Click += btnThem_Click;
             // 
             // dgvPhieuNhap
             // 
@@ -229,13 +228,13 @@
         private Panel panelCRUD;
         private DataGridView dgvPhieuNhap;
         private Button btnXoa;
-        private Button btnSua;
-        private Button btnChiTiet;
-        private Button btnExcel;
-        private Button btnLamMoi;
         private TableLayoutPanel panelSearch;
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
+        private Button btnLamMoi;
         private Button btnThem;
+        private Button btnExcel;
+        private Button btnChiTiet;
+        private Button btnListHuy;
     }
 }
