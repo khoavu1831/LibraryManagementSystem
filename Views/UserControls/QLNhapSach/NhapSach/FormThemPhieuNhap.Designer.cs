@@ -37,7 +37,7 @@
             dateTimePickerNgayNhap = new DateTimePicker();
             comboBoxNCC = new ComboBox();
             label6 = new Label();
-            textBox2 = new TextBox();
+            textBoxNhanVien = new TextBox();
             dgvChonSach = new DataGridView();
             label1 = new Label();
             panelTop = new Panel();
@@ -102,7 +102,7 @@
             tableLayoutPanelContent.Controls.Add(dateTimePickerNgayNhap, 1, 1);
             tableLayoutPanelContent.Controls.Add(comboBoxNCC, 3, 0);
             tableLayoutPanelContent.Controls.Add(label6, 2, 1);
-            tableLayoutPanelContent.Controls.Add(textBox2, 3, 1);
+            tableLayoutPanelContent.Controls.Add(textBoxNhanVien, 3, 1);
             tableLayoutPanelContent.Controls.Add(dgvChonSach, 1, 2);
             tableLayoutPanelContent.Controls.Add(label1, 0, 1);
             tableLayoutPanelContent.Controls.Add(label2, 0, 0);
@@ -167,14 +167,14 @@
             label6.Text = "Nhân viên nhập:";
             label6.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // textBox2
+            // textBoxNhanVien
             // 
-            textBox2.Enabled = false;
-            textBox2.Location = new Point(438, 32);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(218, 23);
-            textBox2.TabIndex = 39;
+            textBoxNhanVien.Enabled = false;
+            textBoxNhanVien.Location = new Point(438, 32);
+            textBoxNhanVien.Name = "textBoxNhanVien";
+            textBoxNhanVien.ReadOnly = true;
+            textBoxNhanVien.Size = new Size(218, 23);
+            textBoxNhanVien.TabIndex = 39;
             // 
             // dgvChonSach
             // 
@@ -290,7 +290,7 @@
         private ComboBox comboBoxLoaiPN;
         private DateTimePicker dateTimePickerNgayNhap;
         private ComboBox comboBoxNCC;
-        private TextBox textBox2;
+        private TextBox textBoxNhanVien;
         private TableLayoutPanel tableLayoutPanelButtons;
         private Button btnThem;
         private Button btnHuy;
