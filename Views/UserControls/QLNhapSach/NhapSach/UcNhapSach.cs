@@ -27,22 +27,17 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
             {
                 using (var context = new LibraryDbContext())
                 {
-                    var repo = new SachRepository(context);
-                    var sachService = new SachService(repo);
-                    var sachList = sachService.GetAllSach();
-
-                    var sachDataView = sachList.Select(s => new
+                    var repo = new PhieuNhapRepository(context);
+                    var pnService = new PhieuNhapService(repo);
+                    var pnDataView = pnService.GetAllPhieuNhap().Select(pn => new
                     {
-                        MaSach = s.IdSachFormat,
-                        TenSach = s.TenSach,
-                        NXB = s.NXB != null ? s.NXB.TenNXB : "Chua co",
-                        TheLoai = s.TheLoais != null ? string.Join(", ", s.TheLoais.Select(tl => tl.TenTheloai)) : "Chua co",
-                        TacGia = s.TacGias != null ? string.Join(", ", s.TacGias.Select(tg => tg.TenTacGia)) : "Chua co",
-                        NamXuatBan = s.NamXuatBan,
-                        SoLuongBanSao = s.SoLuongBanSao
+                        IdPhieuNhap = pn.IdPhieuNhap,
+                        TenNCC = pn.NCC != null ? pn.NCC.TenNCC : "Chua co",
+                        TenNhanVien = pn.NhanVien != null ? pn.NhanVien.TenNhanVien : "Chua co",
+                        LoaiPhieuNhap = pn.LoaiPhieuNhap
                     }).ToList();
 
-                    dgvNCC.DataSource = sachDataView;
+                    dgvPhieuNhap.DataSource = pnDataView;
                 }
             }
             catch (Exception ex)

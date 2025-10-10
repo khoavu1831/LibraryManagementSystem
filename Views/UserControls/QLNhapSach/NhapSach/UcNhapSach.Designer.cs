@@ -38,10 +38,10 @@
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dgvNCC = new DataGridView();
+            dgvPhieuNhap = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNCC).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -198,36 +198,36 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += this.btnThem_Click;
             // 
-            // dgvNCC
+            // dgvPhieuNhap
             // 
-            dgvNCC.AccessibleRole = AccessibleRole.None;
-            dgvNCC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvNCC.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvNCC.Dock = DockStyle.Fill;
-            dgvNCC.Location = new Point(0, 72);
-            dgvNCC.Name = "dgvNCC";
-            dgvNCC.Size = new Size(774, 491);
-            dgvNCC.TabIndex = 1;
+            dgvPhieuNhap.AccessibleRole = AccessibleRole.None;
+            dgvPhieuNhap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvPhieuNhap.Dock = DockStyle.Fill;
+            dgvPhieuNhap.Location = new Point(0, 72);
+            dgvPhieuNhap.Name = "dgvPhieuNhap";
+            dgvPhieuNhap.Size = new Size(774, 491);
+            dgvPhieuNhap.TabIndex = 1;
             // 
             // UcNhapSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvNCC);
+            Controls.Add(dgvPhieuNhap);
             Controls.Add(panelCRUD);
             Name = "UcNhapSach";
             Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvNCC).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panelCRUD;
-        private DataGridView dgvNCC;
+        private DataGridView dgvPhieuNhap;
         private Button btnXoa;
         private Button btnSua;
         private Button btnChiTiet;
