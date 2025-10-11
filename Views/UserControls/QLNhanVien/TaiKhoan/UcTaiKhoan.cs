@@ -40,15 +40,29 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            FormSuaTaiKhoan formSuaTaiKhoan = new FormSuaTaiKhoan();
-            formSuaTaiKhoan.Show();
+            if (dgvTaiKhoan.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 tài khoản để sửa thông tin", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            var selectedRow = dgvTaiKhoan.SelectedRows[0];
+            string idTaiKhoan = selectedRow.Cells["IdTaiKhoan"].Value.ToString();
+            string tenDangNhap = selectedRow.Cells["TenDangNhap"].Value.ToString()!;
+            string matKhau = selectedRow.Cells["MatKhau"].Value.ToString()!;
+            using (var formSuaTaiKhoan = new FormSuaTaiKhoan(idTaiKhoan, tenDangNhap, matKhau))
+            {
+                if (formSuaTaiKhoan.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            var context = new LibraryDbContext();
-            var repo = new TaiKhoanRepository(context);
-            var taiKhoanService = new TaiKhoanService(repo);
+            //var context = new LibraryDbContext();
+            //var repo = new TaiKhoanRepository(context);
+            //var taiKhoanService = new TaiKhoanService(repo);
             if (dgvTaiKhoan.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn 1 tài khoản để xem chi tiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -65,6 +79,11 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
                     LoadData();
                 }
             }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

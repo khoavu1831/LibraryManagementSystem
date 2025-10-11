@@ -23,5 +23,6 @@ namespace LibraryManagementSystem.Services
         public List<Entities.TaiKhoan> getAllTaiKhoan() => _taiKhoanRepository.GetAll();
         public Entities.TaiKhoan? GetTaiKhoanById(int id) => _taiKhoanRepository.GetById(id);
         public Entities.TaiKhoan AddTaiKhoan(TaiKhoan taiKhoan) => _taiKhoanRepository.Add(taiKhoan);
+        public Entities.TaiKhoan UpdateTaiKhoan(TaiKhoan taiKhoan) => _taiKhoanRepository.Update(taiKhoan);
     }
 }
