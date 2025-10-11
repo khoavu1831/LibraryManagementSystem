@@ -31,14 +31,14 @@
             label1 = new Label();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
+            btnQuayLai = new Button();
             tableLayoutPanel1 = new TableLayoutPanel();
+            textBoxVT = new TextBox();
             textBoxMK = new TextBox();
-            textBoxTK = new TextBox();
             label3 = new Label();
             textBoxHVT = new TextBox();
             label2 = new Label();
             label5 = new Label();
-            btnQuayLai = new Button();
             panel2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -81,14 +81,25 @@
             tableLayoutPanel2.Size = new Size(173, 54);
             tableLayoutPanel2.TabIndex = 19;
             // 
+            // btnQuayLai
+            // 
+            btnQuayLai.Dock = DockStyle.Fill;
+            btnQuayLai.Location = new Point(3, 3);
+            btnQuayLai.Name = "btnQuayLai";
+            btnQuayLai.Size = new Size(167, 48);
+            btnQuayLai.TabIndex = 19;
+            btnQuayLai.Text = "Quay lại";
+            btnQuayLai.UseVisualStyleBackColor = true;
+            btnQuayLai.Click += btnQuayLai_Click;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30.2521F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.7479F));
-            tableLayoutPanel1.Controls.Add(textBoxMK, 1, 2);
-            tableLayoutPanel1.Controls.Add(textBoxTK, 1, 1);
+            tableLayoutPanel1.Controls.Add(textBoxVT, 1, 2);
+            tableLayoutPanel1.Controls.Add(textBoxMK, 1, 1);
             tableLayoutPanel1.Controls.Add(label3, 0, 1);
             tableLayoutPanel1.Controls.Add(textBoxHVT, 1, 0);
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
@@ -106,23 +117,23 @@
             tableLayoutPanel1.Size = new Size(377, 294);
             tableLayoutPanel1.TabIndex = 17;
             // 
+            // textBoxVT
+            // 
+            textBoxVT.Dock = DockStyle.Fill;
+            textBoxVT.Location = new Point(117, 87);
+            textBoxVT.Multiline = true;
+            textBoxVT.Name = "textBoxVT";
+            textBoxVT.Size = new Size(257, 36);
+            textBoxVT.TabIndex = 15;
+            // 
             // textBoxMK
             // 
             textBoxMK.Dock = DockStyle.Fill;
-            textBoxMK.Location = new Point(117, 87);
+            textBoxMK.Location = new Point(117, 45);
             textBoxMK.Multiline = true;
             textBoxMK.Name = "textBoxMK";
             textBoxMK.Size = new Size(257, 36);
-            textBoxMK.TabIndex = 15;
-            // 
-            // textBoxTK
-            // 
-            textBoxTK.Dock = DockStyle.Fill;
-            textBoxTK.Location = new Point(117, 45);
-            textBoxTK.Multiline = true;
-            textBoxTK.Name = "textBoxTK";
-            textBoxTK.Size = new Size(257, 36);
-            textBoxTK.TabIndex = 14;
+            textBoxMK.TabIndex = 14;
             // 
             // label3
             // 
@@ -166,24 +177,14 @@
             label5.Text = "Vai trò";
             label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btnQuayLai
-            // 
-            btnQuayLai.Dock = DockStyle.Fill;
-            btnQuayLai.Location = new Point(3, 3);
-            btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(167, 48);
-            btnQuayLai.TabIndex = 19;
-            btnQuayLai.Text = "Quay lại";
-            btnQuayLai.UseVisualStyleBackColor = true;
-            // 
-            // formChiTietTaiKhoan
+            // FormChiTietTaiKhoan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(521, 549);
             Controls.Add(panel2);
             Controls.Add(label1);
-            Name = "formChiTietTaiKhoan";
+            Name = "FormChiTietTaiKhoan";
             Text = "formChiTietTaiKhoan";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -199,8 +200,8 @@
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel1;
+        private TextBox textBoxVT;
         private TextBox textBoxMK;
-        private TextBox textBoxTK;
         private Label label3;
         private TextBox textBoxHVT;
         private Label label2;

@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan;
 
 namespace LibraryManagementSystem.Repository
 {
@@ -11,6 +12,16 @@ namespace LibraryManagementSystem.Repository
         public NhanVien? GetById(int id) => _context.NhanViens.Find(id);
         public NhanVien Add(NhanVien nhanVien)
         {
+            _context.NhanViens.Add(nhanVien);
+            _context.SaveChanges();
+            return nhanVien;
+        }
+
+        public NhanVien AddNVTK(NhanVien nhanVien, TaiKhoan taiKhoan)
+        {
+            _context.TaiKhoans.Add(taiKhoan);
+            _context.SaveChanges();
+            nhanVien.IdTaiKhoan = taiKhoan.IdTaiKhoan;
             _context.NhanViens.Add(nhanVien);
             _context.SaveChanges();
             return nhanVien;
@@ -27,6 +38,10 @@ namespace LibraryManagementSystem.Repository
             if (nhanVien == null) return null;
             _context.NhanViens.Remove(nhanVien);
             _context.SaveChanges();
+            var taiKhoan = _context.TaiKhoans.Find(nhanVien.IdTaiKhoan);
+            _context.TaiKhoans.Remove(taiKhoan);
+            _context.SaveChanges();
+
             return nhanVien;
         }
     }
