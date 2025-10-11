@@ -27,22 +27,20 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
             {
                 using (var context = new LibraryDbContext())
                 {
-                    var repo = new SachRepository(context);
-                    var sachService = new SachService(repo);
-                    var sachList = sachService.GetAllSach();
+                    var repo = new PhieuNhapRepository(context);
+                    var pnService = new PhieuNhapService(repo);
+                    var pnList = pnService.GetAllPhieuNhap();
 
-                    var sachDataView = sachList.Select(s => new
+                    var pnDataView = pnList.Select(pn => new
                     {
-                        MaSach = s.IdSachFormat,
-                        TenSach = s.TenSach,
-                        NXB = s.NXB != null ? s.NXB.TenNXB : "Chua co",
-                        TheLoai = s.TheLoais != null ? string.Join(", ", s.TheLoais.Select(tl => tl.TenTheloai)) : "Chua co",
-                        TacGia = s.TacGias != null ? string.Join(", ", s.TacGias.Select(tg => tg.TenTacGia)) : "Chua co",
-                        NamXuatBan = s.NamXuatBan,
-                        SoLuongBanSao = s.SoLuongBanSao
+                        IdPhieuNhap = pn.IdPhieuNhap,
+                        TenNCC = pn.NCC != null ? pn.NCC.TenNCC : "Chua co",
+                        TenNhanVien = pn.NhanVien != null ? pn.NhanVien.TenNhanVien : "Chua co",
+                        SoLuongNhap = pn.SoLuongSach,
+                        LoaiPhieuNhap = pn.LoaiPhieuNhap
                     }).ToList();
 
-                    dgvNCC.DataSource = sachDataView;
+                    dgvPhieuNhap.DataSource = pnDataView;
                 }
             }
             catch (Exception ex)
@@ -59,45 +57,24 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            using (var formSuaSach = new FormSuaSach())
-            {
-                formSuaSach.ShowDialog(this);
-            }
-        }
-
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            // using (var formChiTietSach = new FormChiTietSach())
-            // {
-            //     formChiTietSach.ShowDialog(this);
-            // }
+            
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (var context = new LibraryDbContext())
-                {
-                    var repo = new SachRepository(context);
-                    var sachService = new SachService(repo);
-                    var sach = sachService.GetAllSach();
-                    var chonSach = sach.Where(s => s.SoLuongBanSao == 0).ToList();
-                    MessageBox.Show(string.Join(", ", chonSach.Select(s => s.TenSach)));                 
-                }
-            }
-            catch (System.Exception)
-            {
-                
-                throw;
-            }
+            
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnListHuy_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,7 @@
             checkedListBoxTheLoai = new CheckedListBox();
             textBoxMoTa = new TextBox();
             label1 = new Label();
+            checkedListBoxTacGia = new CheckedListBox();
             numericUpDownNamXB = new NumericUpDown();
             numericUpDownSoTrang = new NumericUpDown();
             textBoxGiaSach = new TextBox();
@@ -50,7 +51,6 @@
             panelContent = new Panel();
             tableLayoutPanelButtons = new TableLayoutPanel();
             btnHuy = new Button();
-            checkedListBoxTacGia = new CheckedListBox();
             tableLayoutPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNamXB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDownSoTrang).BeginInit();
@@ -237,6 +237,15 @@
             label1.Text = "Số trang:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // checkedListBoxTacGia
+            // 
+            checkedListBoxTacGia.Dock = DockStyle.Fill;
+            checkedListBoxTacGia.FormattingEnabled = true;
+            checkedListBoxTacGia.Location = new Point(111, 31);
+            checkedListBoxTacGia.Name = "checkedListBoxTacGia";
+            checkedListBoxTacGia.Size = new Size(244, 64);
+            checkedListBoxTacGia.TabIndex = 23;
+            // 
             // numericUpDownNamXB
             // 
             numericUpDownNamXB.Location = new Point(111, 199);
@@ -316,15 +325,6 @@
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             btnHuy.Click += btnHuy_Click;
-            // 
-            // checkedListBoxTacGia
-            // 
-            checkedListBoxTacGia.Dock = DockStyle.Fill;
-            checkedListBoxTacGia.FormattingEnabled = true;
-            checkedListBoxTacGia.Location = new Point(111, 31);
-            checkedListBoxTacGia.Name = "checkedListBoxTacGia";
-            checkedListBoxTacGia.Size = new Size(244, 64);
-            checkedListBoxTacGia.TabIndex = 23;
             // 
             // FormThemSach
             // 

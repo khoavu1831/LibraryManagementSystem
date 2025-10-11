@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
 
@@ -7,7 +8,13 @@ namespace LibraryManagementSystem.Repository
     {
         private readonly LibraryDbContext _context;
         public PhieuNhapRepository(LibraryDbContext context) => _context = context;
-        public List<PhieuNhap> GetAll() => _context.PhieuNhaps.ToList();
+        public List<PhieuNhap> GetAll()
+        {
+            return _context.PhieuNhaps
+                .Include(pn => pn.NhanVien)
+                .Include(pn => pn.NCC)
+                .ToList();
+        }
         public PhieuNhap? GetById(int id) => _context.PhieuNhaps.Find(id);
         public PhieuNhap Add(PhieuNhap phieuNhap)
         {
