@@ -83,7 +83,23 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (dgvTaiKhoan.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 tài khoản để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa vai trò này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var selectedRow = dgvTaiKhoan.SelectedRows[0];
+            string idTaiKhoan = selectedRow.Cells["IdTaiKhoan"].Value.ToString();
+            using (var context = new LibraryDbContext())
+            {
+                var repo = new TaiKhoanRepository(context);
+                var taiKhoanService = new TaiKhoanService(repo);
+                var taiKhoanList = taiKhoanService.DeleteTaiKhoan(int.Parse(idTaiKhoan));
+            }
+            MessageBox.Show("Xóa tài khoản thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadData();
         }
     }
 }
