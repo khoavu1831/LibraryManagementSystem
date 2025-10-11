@@ -16,5 +16,6 @@ namespace LibraryManagementSystem.Services
         public Entities.NhanVien? GetNhanVienById(int id) => _nhanVienRepository.GetById(id);
         public Entities.NhanVien AddNhanVien(NhanVien nhanVien) => _nhanVienRepository.Add(nhanVien);
         public Entities.NhanVien AddNVTK(NhanVien nhanVien, TaiKhoan taiKhoan) => _nhanVienRepository.AddNVTK(nhanVien, taiKhoan);
+        public Entities.NhanVien UpdateNhanVien(NhanVien nhanVien) => _nhanVienRepository.Update(nhanVien);
     }
 }

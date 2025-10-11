@@ -52,8 +52,29 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            FormSuaNhanVien formSuaNhanVien = new FormSuaNhanVien();
-            formSuaNhanVien.Show();
+        
+            if (dgvNhanVien.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 nhân viên để chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvNhanVien.SelectedRows[0];
+            string idNhanVien = selectedRow.Cells["IdNhanVien"].Value.ToString();
+            string tenNhanVien = selectedRow.Cells["TenNhanVien"].Value.ToString()!;
+            string ngaySinh = Convert.ToDateTime(selectedRow.Cells["NgaySinh"].Value).ToString("dd/MM/yyyy");
+            string diaChi = selectedRow.Cells["DiaChi"].Value.ToString()!;
+            string sdt = selectedRow.Cells["SDT"].Value.ToString()!;
+            string email = selectedRow.Cells["Email"].Value.ToString()!;
+
+            using (var formSuaNhanVien = new FormSuaNhanVien(idNhanVien, tenNhanVien, ngaySinh, diaChi, sdt, email))
+            {
+
+                if (formSuaNhanVien.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)
