@@ -41,6 +41,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
         {
             LoadNCC();
             LoadSach();
+
+            textBoxNhanVien.Text = "Nhan vien hien tai ne/ Sau phai assign cho nay";
         }
         private void LoadNCC()
         {

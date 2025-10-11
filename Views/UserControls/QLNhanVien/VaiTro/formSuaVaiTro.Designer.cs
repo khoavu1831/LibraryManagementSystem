@@ -228,6 +228,7 @@
             btnSua.TabIndex = 15;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
             // 
             // btnHuy
             // 
@@ -238,6 +239,7 @@
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // tableLayoutPanel1
             // 
@@ -280,14 +282,14 @@
             label2.Text = "Tên vai trò:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // formSuaVaiTro
+            // FormSuaVaiTro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(521, 549);
             Controls.Add(panel2);
             Controls.Add(label1);
-            Name = "formSuaVaiTro";
+            Name = "FormSuaVaiTro";
             Text = "formSuaVaiTro";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

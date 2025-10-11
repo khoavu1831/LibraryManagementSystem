@@ -20,7 +20,6 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
         public FormChiTietNXB(int idNXB, string tenNXB, string diaChi, string sdt)
         {
             InitializeComponent();
-
             _idNXB = idNXB;
             textBoxIdNXB.Text = idNXB.ToString();
             textBoxTenNXB.Text = tenNXB;

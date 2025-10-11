@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Repository
 {
@@ -7,9 +8,19 @@ namespace LibraryManagementSystem.Repository
     {
         private readonly LibraryDbContext _context;
         public BanSaoSachRepository(LibraryDbContext context) => _context = context;
-        public List<BanSaoSach> GetAll() => _context.BanSaoSachs.ToList();
+        public List<BanSaoSach> GetAll() => _context.BanSaoSachs.Include(bss => bss.Sach).ToList();
         public BanSaoSach? GetById(string id) => _context.BanSaoSachs.Find(id);
         public int GetCountBySach(int idSach) => _context.BanSaoSachs.Count(b => b.IdSach == idSach);
+        public int GetCount() => _context.BanSaoSachs.Count();
+        public List<BanSaoSach> GetByPage(int page, int pageSize)
+        {
+            return _context.BanSaoSachs
+                .Include(bss => bss.Sach)
+                .OrderBy(bss => bss.IdBanSaoSach)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
         public BanSaoSach Add(BanSaoSach banSaoSach)
         {
             _context.BanSaoSachs.Add(banSaoSach);

@@ -34,13 +34,17 @@
             txtBoxTimKiem = new TextBox();
             btnLamMoi = new Button();
             btnExcel = new Button();
-            btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
             dgvBanSaoSach = new DataGridView();
+            btnTruoc = new Button();
+            btnSau = new Button();
+            tableLayoutPanelButtons = new TableLayoutPanel();
+            labelTrang = new Label();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBanSaoSach).BeginInit();
+            tableLayoutPanelButtons.SuspendLayout();
             SuspendLayout();
             // 
             // panelCRUD
@@ -48,7 +52,6 @@
             panelCRUD.BackColor = Color.White;
             panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnExcel);
-            panelCRUD.Controls.Add(btnChiTiet);
             panelCRUD.Controls.Add(btnXoa);
             panelCRUD.Controls.Add(btnSua);
             panelCRUD.Dock = DockStyle.Top;
@@ -118,7 +121,7 @@
             btnExcel.FlatAppearance.BorderSize = 0;
             btnExcel.FlatStyle = FlatStyle.Flat;
             btnExcel.Image = Properties.Resources.iconExc;
-            btnExcel.Location = new Point(231, 0);
+            btnExcel.Location = new Point(154, 0);
             btnExcel.Margin = new Padding(0);
             btnExcel.Name = "btnExcel";
             btnExcel.Size = new Size(77, 72);
@@ -126,23 +129,6 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
-            // 
-            // btnChiTiet
-            // 
-            btnChiTiet.BackColor = Color.White;
-            btnChiTiet.Dock = DockStyle.Left;
-            btnChiTiet.FlatAppearance.BorderSize = 0;
-            btnChiTiet.FlatStyle = FlatStyle.Flat;
-            btnChiTiet.Image = Properties.Resources.iconCT;
-            btnChiTiet.Location = new Point(154, 0);
-            btnChiTiet.Margin = new Padding(0);
-            btnChiTiet.Name = "btnChiTiet";
-            btnChiTiet.Size = new Size(77, 72);
-            btnChiTiet.TabIndex = 3;
-            btnChiTiet.Text = "Chi Tiết";
-            btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnChiTiet.UseVisualStyleBackColor = false;
-            btnChiTiet.Click += btnChiTiet_Click;
             // 
             // btnXoa
             // 
@@ -181,6 +167,7 @@
             // 
             dgvBanSaoSach.AccessibleRole = AccessibleRole.None;
             dgvBanSaoSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvBanSaoSach.BackgroundColor = Color.White;
             dgvBanSaoSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvBanSaoSach.Dock = DockStyle.Fill;
             dgvBanSaoSach.Location = new Point(0, 72);
@@ -188,10 +175,62 @@
             dgvBanSaoSach.Size = new Size(774, 491);
             dgvBanSaoSach.TabIndex = 1;
             // 
+            // btnTruoc
+            // 
+            btnTruoc.Dock = DockStyle.Fill;
+            btnTruoc.Location = new Point(3, 3);
+            btnTruoc.Name = "btnTruoc";
+            btnTruoc.Size = new Size(251, 24);
+            btnTruoc.TabIndex = 2;
+            btnTruoc.Text = "Trang trước";
+            btnTruoc.UseVisualStyleBackColor = true;
+            btnTruoc.Click += btnTruoc_Click;
+            // 
+            // btnSau
+            // 
+            btnSau.Dock = DockStyle.Fill;
+            btnSau.Location = new Point(517, 3);
+            btnSau.Name = "btnSau";
+            btnSau.Size = new Size(254, 24);
+            btnSau.TabIndex = 3;
+            btnSau.Text = "Trang sau";
+            btnSau.UseVisualStyleBackColor = true;
+            btnSau.Click += btnSau_Click;
+            // 
+            // tableLayoutPanelButtons
+            // 
+            tableLayoutPanelButtons.ColumnCount = 3;
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.Controls.Add(btnTruoc, 0, 0);
+            tableLayoutPanelButtons.Controls.Add(btnSau, 2, 0);
+            tableLayoutPanelButtons.Controls.Add(labelTrang, 1, 0);
+            tableLayoutPanelButtons.Dock = DockStyle.Bottom;
+            tableLayoutPanelButtons.Location = new Point(0, 533);
+            tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
+            tableLayoutPanelButtons.RowCount = 1;
+            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanelButtons.Size = new Size(774, 30);
+            tableLayoutPanelButtons.TabIndex = 4;
+            // 
+            // labelTrang
+            // 
+            labelTrang.AutoSize = true;
+            labelTrang.BorderStyle = BorderStyle.FixedSingle;
+            labelTrang.Dock = DockStyle.Fill;
+            labelTrang.Location = new Point(260, 0);
+            labelTrang.Name = "labelTrang";
+            labelTrang.Size = new Size(251, 30);
+            labelTrang.TabIndex = 4;
+            labelTrang.Text = "Trang 1";
+            labelTrang.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // UcBanSaoSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(tableLayoutPanelButtons);
             Controls.Add(dgvBanSaoSach);
             Controls.Add(panelCRUD);
             Name = "UcBanSaoSach";
@@ -200,6 +239,8 @@
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvBanSaoSach).EndInit();
+            tableLayoutPanelButtons.ResumeLayout(false);
+            tableLayoutPanelButtons.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -209,11 +250,14 @@
         private DataGridView dgvBanSaoSach;
         private Button btnXoa;
         private Button btnSua;
-        private Button btnChiTiet;
         private Button btnExcel;
         private Button btnLamMoi;
         private TableLayoutPanel panelSearch;
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
+        private Button btnTruoc;
+        private Button btnSau;
+        private TableLayoutPanel tableLayoutPanelButtons;
+        private Label labelTrang;
     }
 }

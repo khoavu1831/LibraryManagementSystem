@@ -36,10 +36,10 @@
             btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
-            dataGridView1 = new DataGridView();
+            dgvTaiKhoan = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTaiKhoan).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -145,6 +145,7 @@
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -163,28 +164,28 @@
             btnSua.UseVisualStyleBackColor = false;
             btnSua.Click += btnSua_Click;
             // 
-            // dataGridView1
+            // dgvTaiKhoan
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 96);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(885, 655);
-            dataGridView1.TabIndex = 3;
+            dgvTaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTaiKhoan.Dock = DockStyle.Fill;
+            dgvTaiKhoan.Location = new Point(0, 96);
+            dgvTaiKhoan.Name = "dgvTaiKhoan";
+            dgvTaiKhoan.RowHeadersWidth = 51;
+            dgvTaiKhoan.Size = new Size(885, 655);
+            dgvTaiKhoan.TabIndex = 3;
             // 
             // UcTaiKhoan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvTaiKhoan);
             Controls.Add(panelCRUD);
             Name = "UcTaiKhoan";
             Size = new Size(885, 751);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTaiKhoan).EndInit();
             ResumeLayout(false);
         }
 
@@ -198,6 +199,6 @@
         private Button btnChiTiet;
         private Button btnXoa;
         private Button btnSua;
-        private DataGridView dataGridView1;
+        private DataGridView dgvTaiKhoan;
     }
 }
