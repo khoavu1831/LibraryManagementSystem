@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            dgvMucPhat = new DataGridView();
             panelCRUD = new Panel();
             panelSearch = new TableLayoutPanel();
             btnTimKiem = new Button();
@@ -38,11 +39,23 @@
             btnXoa = new Button();
             btnSua = new Button();
             btnThem = new Button();
-            dgvPhat = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvMucPhat).BeginInit();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
             SuspendLayout();
+            // 
+            // dgvMucPhat
+            // 
+            dgvMucPhat.AccessibleRole = AccessibleRole.None;
+            dgvMucPhat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvMucPhat.BackgroundColor = SystemColors.ButtonHighlight;
+            dgvMucPhat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMucPhat.Dock = DockStyle.Fill;
+            dgvMucPhat.Location = new Point(0, 72);
+            dgvMucPhat.Name = "dgvMucPhat";
+            dgvMucPhat.Size = new Size(774, 491);
+            dgvMucPhat.TabIndex = 1;
+            dgvMucPhat.CellContentClick += dgvMucPhat_CellContentClick;
             // 
             // panelCRUD
             // 
@@ -200,28 +213,18 @@
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
-            // dgvPhat
-            // 
-            dgvPhat.AccessibleRole = AccessibleRole.None;
-            dgvPhat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPhat.Dock = DockStyle.Fill;
-            dgvPhat.Location = new Point(0, 72);
-            dgvPhat.Name = "dgvPhat";
-            dgvPhat.Size = new Size(774, 491);
-            dgvPhat.TabIndex = 1;
-            // 
             // UcMucPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvPhat);
+            Controls.Add(dgvMucPhat);
             Controls.Add(panelCRUD);
             Name = "UcMucPhat";
             Size = new Size(774, 563);
+            ((System.ComponentModel.ISupportInitialize)dgvMucPhat).EndInit();
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPhat).EndInit();
             ResumeLayout(false);
         }
 
@@ -229,7 +232,7 @@
 
         private Panel panelCRUD;
         private Button btnThem;
-        private DataGridView dgvPhat;
+        private DataGridView dgvMucPhat;
         private Button btnXoa;
         private Button btnSua;
         private Button btnChiTiet;

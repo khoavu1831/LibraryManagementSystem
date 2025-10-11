@@ -41,7 +41,7 @@
             label5 = new Label();
             label3 = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            textBoxIDMucPhat = new TextBox();
             btnQuayLai = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -96,7 +96,7 @@
             tableLayoutPanel1.Controls.Add(label5, 0, 3);
             tableLayoutPanel1.Controls.Add(label3, 0, 2);
             tableLayoutPanel1.Controls.Add(label2, 0, 1);
-            tableLayoutPanel1.Controls.Add(textBox1, 1, 0);
+            tableLayoutPanel1.Controls.Add(textBoxIDMucPhat, 1, 0);
             tableLayoutPanel1.Location = new Point(61, 13);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -208,14 +208,14 @@
             label2.Text = "Tên mức phạt:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // textBoxIDMucPhat
             // 
-            textBox1.Dock = DockStyle.Fill;
-            textBox1.Location = new Point(104, 3);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(227, 23);
-            textBox1.TabIndex = 19;
+            textBoxIDMucPhat.Dock = DockStyle.Fill;
+            textBoxIDMucPhat.Location = new Point(104, 3);
+            textBoxIDMucPhat.Name = "textBoxIDMucPhat";
+            textBoxIDMucPhat.ReadOnly = true;
+            textBoxIDMucPhat.Size = new Size(227, 23);
+            textBoxIDMucPhat.TabIndex = 19;
             // 
             // btnQuayLai
             // 
@@ -261,6 +261,6 @@
         private Label label5;
         private ComboBox comboBoxLoaiPhat;
         private Label label6;
-        private TextBox textBox1;
+        private TextBox textBoxIDMucPhat;
     }
 }
