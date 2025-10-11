@@ -1,5 +1,6 @@
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan;
 
 namespace LibraryManagementSystem.Repository
 {
@@ -37,6 +38,10 @@ namespace LibraryManagementSystem.Repository
             if (nhanVien == null) return null;
             _context.NhanViens.Remove(nhanVien);
             _context.SaveChanges();
+            var taiKhoan = _context.TaiKhoans.Find(nhanVien.IdTaiKhoan);
+            _context.TaiKhoans.Remove(taiKhoan);
+            _context.SaveChanges();
+
             return nhanVien;
         }
     }

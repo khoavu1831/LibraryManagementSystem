@@ -52,7 +52,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-        
+
             if (dgvNhanVien.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn 1 nhân viên để chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -95,15 +95,49 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
             string diaChi = selectedRow.Cells["DiaChi"].Value.ToString()!;
             string sdt = selectedRow.Cells["SDT"].Value.ToString()!;
             string email = selectedRow.Cells["Email"].Value.ToString()!;
-            
-            using(var formChiTietNhanVien = new FormChiTietNhanVien(idNhanVien, tenNhanVien, ngaySinh, diaChi, sdt, email))
+
+            using (var formChiTietNhanVien = new FormChiTietNhanVien(idNhanVien, tenNhanVien, ngaySinh, diaChi, sdt, email))
             {
-   
+
                 if (formChiTietNhanVien.ShowDialog(this) == DialogResult.OK)
                 {
                     LoadData();
                 }
             }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (dgvNhanVien.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 nhân viên để xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvNhanVien.SelectedRows[0];
+            var result = MessageBox.Show("Bạn có chắc chắn muốn xóa vai trò này?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                int idNhanVien = Convert.ToInt32(selectedRow.Cells["IdNhanVien"].Value);
+                try
+                {
+                    using (var context = new LibraryDbContext())
+                    {
+                        var repo = new NhanVienRepository(context);
+                        var nhanVienService = new NhanVienService(repo);
+                        nhanVienService.DeleteNhanVien(idNhanVien);
+                    }
+
+                    MessageBox.Show("Xóa nhân viên thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Xóa nhân viên thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
         }
     }
 }
