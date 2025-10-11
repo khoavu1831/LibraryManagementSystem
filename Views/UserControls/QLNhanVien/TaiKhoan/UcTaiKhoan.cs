@@ -46,8 +46,25 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            FormChiTietTaiKhoan formChiTietTaiKhoan = new FormChiTietTaiKhoan();
-            formChiTietTaiKhoan.Show();
+            var context = new LibraryDbContext();
+            var repo = new TaiKhoanRepository(context);
+            var taiKhoanService = new TaiKhoanService(repo);
+            if (dgvTaiKhoan.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 tài khoản để xem chi tiết", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            var selectedRow = dgvTaiKhoan.SelectedRows[0];
+            string idTaiKhoan = selectedRow.Cells["IdTaiKhoan"].Value.ToString();
+            string tenDangNhap = selectedRow.Cells["TenDangNhap"].Value.ToString()!;
+            string matKhau = selectedRow.Cells["MatKhau"].Value.ToString()!;
+            using (var formChiTietTaiKhoan = new FormChiTietTaiKhoan(idTaiKhoan, tenDangNhap, matKhau))
+            {
+                if (formChiTietTaiKhoan.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
         }
     }
 }
