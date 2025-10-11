@@ -1,6 +1,7 @@
 ﻿using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Repository;
 using LibraryManagementSystem.Services;
+using LibraryManagementSystem.Views.UserControls.QLSach;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,7 +44,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
         private void btnThem_Click(object sender, EventArgs e)
         {
             FormThemNhanVien formThemNhanVien = new FormThemNhanVien();
-            formThemNhanVien.Show();
+            if (formThemNhanVien.ShowDialog(this) == DialogResult.OK)
+            {
+                LoadData();
+            }
         }
 
         private void btnSua_Click(object sender, EventArgs e)

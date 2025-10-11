@@ -15,6 +15,16 @@ namespace LibraryManagementSystem.Repository
             _context.SaveChanges();
             return nhanVien;
         }
+
+        public NhanVien AddNVTK(NhanVien nhanVien, TaiKhoan taiKhoan)
+        {
+            _context.TaiKhoans.Add(taiKhoan);
+            _context.SaveChanges();
+            nhanVien.IdTaiKhoan = taiKhoan.IdTaiKhoan;
+            _context.NhanViens.Add(nhanVien);
+            _context.SaveChanges();
+            return nhanVien;
+        }
         public NhanVien Update(NhanVien nhanVien)
         {
             _context.NhanViens.Update(nhanVien);

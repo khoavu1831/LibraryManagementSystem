@@ -44,7 +44,7 @@
             textBoxDC = new TextBox();
             textBoxMK = new TextBox();
             textBoxTK = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
+            dateTimePickerNV = new DateTimePicker();
             panel1 = new Panel();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -186,7 +186,7 @@
             tableLayoutPanel1.Controls.Add(label6, 0, 5);
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
             tableLayoutPanel1.Controls.Add(label5, 0, 2);
-            tableLayoutPanel1.Controls.Add(dateTimePicker1, 1, 3);
+            tableLayoutPanel1.Controls.Add(dateTimePickerNV, 1, 3);
             tableLayoutPanel1.Location = new Point(69, 24);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 7;
@@ -245,14 +245,14 @@
             textBoxTK.Size = new Size(257, 22);
             textBoxTK.TabIndex = 14;
             // 
-            // dateTimePicker1
+            // dateTimePickerNV
             // 
-            dateTimePicker1.Dock = DockStyle.Fill;
-            dateTimePicker1.Location = new Point(117, 87);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(257, 27);
-            dateTimePicker1.TabIndex = 20;
-            dateTimePicker1.UseWaitCursor = true;
+            dateTimePickerNV.Dock = DockStyle.Fill;
+            dateTimePickerNV.Location = new Point(117, 87);
+            dateTimePickerNV.Name = "dateTimePickerNV";
+            dateTimePickerNV.Size = new Size(257, 27);
+            dateTimePickerNV.TabIndex = 20;
+            dateTimePickerNV.UseWaitCursor = true;
             // 
             // panel1
             // 
@@ -338,6 +338,6 @@
         private Panel panel2;
         private Button btnHuy;
         private TableLayoutPanel tableLayoutPanel2;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerNV;
     }
 }
