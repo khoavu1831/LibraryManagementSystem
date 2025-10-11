@@ -14,7 +14,7 @@ namespace LibraryManagementSystem.Services
         public MucPhat AddMucPhat(MucPhat mucPhat) => _mucPhatRepository.Add(mucPhat);
         public MucPhat UpdateMucPhat(MucPhat mucPhat) => _mucPhatRepository.Update(mucPhat);
         public MucPhat? DeleteMucPhat(int id) => _mucPhatRepository.DeleteById(id);
-        public List<MucPhat> Search(string keyword) => _mucPhatRepository.Search(keyword);
+        public List<MucPhat> SearchMucPhat(string keyword) => _mucPhatRepository.Search(keyword);
         public MucPhat Save(MucPhat mucPhat)
         {
             //tên

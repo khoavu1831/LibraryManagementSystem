@@ -12,7 +12,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 {
     public partial class FormSuaMucPhat : Form
     {
-        public FormSuaMucPhat()
+        private readonly int _idMucPhat;
+        public FormSuaMucPhat(int idMucPhat, string TenMucPhat)
         {
             InitializeComponent();
         }
