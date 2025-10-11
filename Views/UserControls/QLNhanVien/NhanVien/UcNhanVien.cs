@@ -136,8 +136,6 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
                     MessageBox.Show($"Xóa nhân viên thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-
         }
     }
 }
