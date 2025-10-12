@@ -36,16 +36,15 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
         private bool ValidateInputs(out decimal soTienPhat)
         {
             soTienPhat = 0;
-            if (string.IsNullOrWhiteSpace(textBoxTenMucPhat.Text))
-            {
-                MessageBox.Show("Tên mức phạt không được để trống.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
+            
+            // Chỉ check parse được không, không check logic
             if (!decimal.TryParse(textBoxSoTien.Text.Trim(), out soTienPhat))
             {
-                MessageBox.Show("Số tiền phạt không hợp lệ.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Số tiền phạt không hợp lệ (phải là số).", "Cảnh báo", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
+            
             return true;
         }
 
@@ -55,7 +54,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
             var mucPhat = new MucPhat
             {
-                TenMucPhat = textBoxTenMucPhat.Text.Trim(),
+                TenMucPhat = textBoxTenMucPhat.Text.Trim(),  // Cứ lấy, để Service validate
                 SoTienPhat = soTienPhat,
                 MoTa = textBoxMoTa.Text.Trim(),
                 LoaiPhat = (MucPhat.LoaiPhatEnum)comboBoxLoaiPhat.SelectedValue
@@ -63,17 +62,18 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
             try
             {
-                _mucPhatService.Save(mucPhat);
-                MessageBox.Show("Thêm Mức Phạt thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _mucPhatService.Save(mucPhat);  // Service sẽ validate hết
+                MessageBox.Show("Thêm Mức Phạt thành công.", "Thành công", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.Message}", "Lỗi", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnHuy_Click(object sender, EventArgs e)
         {
             Close();
