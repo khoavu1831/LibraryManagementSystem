@@ -169,7 +169,6 @@
             textBoxTenMucPhat.Margin = new Padding(3, 2, 3, 2);
             textBoxTenMucPhat.Multiline = true;
             textBoxTenMucPhat.Name = "textBoxTenMucPhat";
-            textBoxTenMucPhat.ReadOnly = true;
             textBoxTenMucPhat.Size = new Size(227, 24);
             textBoxTenMucPhat.TabIndex = 2;
             // 
@@ -198,6 +197,7 @@
             // comboBoxLoaiPhat
             // 
             comboBoxLoaiPhat.Dock = DockStyle.Fill;
+            comboBoxLoaiPhat.Enabled = false;
             comboBoxLoaiPhat.FormattingEnabled = true;
             comboBoxLoaiPhat.Location = new Point(104, 31);
             comboBoxLoaiPhat.Name = "comboBoxLoaiPhat";
