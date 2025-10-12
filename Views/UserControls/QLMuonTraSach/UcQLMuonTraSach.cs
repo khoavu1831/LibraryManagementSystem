@@ -18,6 +18,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
         {
             InitializeComponent();
             LoadSubControl(new UcMuonSach());
+
         }
         private void LoadSubControl(UserControl uc)
         {
@@ -34,6 +35,5 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
         {
             LoadSubControl(new UcTraSach());
         }
-
     }
 }

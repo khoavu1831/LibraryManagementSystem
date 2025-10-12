@@ -7,9 +7,7 @@
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
@@ -26,8 +24,8 @@
             btnChiTiet = new Button();
             btnXoa = new Button();
             btnSua = new Button();
-            dgvTraSach = new DataGridView();
             btnThem = new Button();
+            dgvTraSach = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvTraSach).BeginInit();
@@ -46,37 +44,37 @@
             panelCRUD.Location = new Point(0, 0);
             panelCRUD.Name = "panelCRUD";
             panelCRUD.Size = new Size(774, 72);
-            panelCRUD.TabIndex = 0;
+            panelCRUD.TabIndex = 1;
             // 
             // panelSearch
             // 
             panelSearch.ColumnCount = 3;
-            panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8620682F));
-            panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.3448257F));
-            panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.08046F));
+            panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             panelSearch.Controls.Add(btnTimKiem, 0, 0);
             panelSearch.Controls.Add(txtBoxTimKiem, 1, 0);
             panelSearch.Controls.Add(btnLamMoi, 2, 0);
             panelSearch.Dock = DockStyle.Right;
-            panelSearch.Location = new Point(426, 0);
+            panelSearch.Location = new Point(424, 0);
             panelSearch.Name = "panelSearch";
-            panelSearch.RowCount = 1;
-            panelSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            panelSearch.Size = new Size(348, 72);
-            panelSearch.TabIndex = 9;
+            panelSearch.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            panelSearch.Size = new Size(350, 72);
+            panelSearch.TabIndex = 0;
             // 
             // btnTimKiem
             // 
-            btnTimKiem.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btnTimKiem.Anchor = AnchorStyles.None;
             btnTimKiem.BackColor = Color.White;
             btnTimKiem.FlatAppearance.BorderColor = Color.Black;
             btnTimKiem.FlatStyle = FlatStyle.Flat;
-            btnTimKiem.Location = new Point(3, 24);
+            btnTimKiem.Location = new Point(3, 23);
             btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(83, 24);
-            btnTimKiem.TabIndex = 8;
+            btnTimKiem.Size = new Size(80, 25);
+            btnTimKiem.TabIndex = 0;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click_1;
             // 
             // txtBoxTimKiem
             // 
@@ -84,23 +82,21 @@
             txtBoxTimKiem.Location = new Point(92, 24);
             txtBoxTimKiem.Name = "txtBoxTimKiem";
             txtBoxTimKiem.PlaceholderText = "Tìm kiếm...";
-            txtBoxTimKiem.Size = new Size(203, 23);
-            txtBoxTimKiem.TabIndex = 9;
+            txtBoxTimKiem.Size = new Size(200, 23);
+            txtBoxTimKiem.TabIndex = 1;
             // 
             // btnLamMoi
             // 
-            btnLamMoi.BackColor = Color.White;
             btnLamMoi.Dock = DockStyle.Fill;
             btnLamMoi.FlatAppearance.BorderSize = 0;
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Image = Properties.Resources.iconRefesh;
-            btnLamMoi.Location = new Point(298, 0);
-            btnLamMoi.Margin = new Padding(0);
+            btnLamMoi.Location = new Point(300, 3);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(50, 72);
-            btnLamMoi.TabIndex = 7;
-            btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnLamMoi.Size = new Size(47, 66);
+            btnLamMoi.TabIndex = 2;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click_1;
             // 
             // btnExcel
             // 
@@ -109,11 +105,10 @@
             btnExcel.FlatAppearance.BorderSize = 0;
             btnExcel.FlatStyle = FlatStyle.Flat;
             btnExcel.Image = Properties.Resources.iconExc;
-            btnExcel.Location = new Point(308, 0);
-            btnExcel.Margin = new Padding(0);
+            btnExcel.Location = new Point(300, 0);
             btnExcel.Name = "btnExcel";
-            btnExcel.Size = new Size(77, 72);
-            btnExcel.TabIndex = 4;
+            btnExcel.Size = new Size(75, 72);
+            btnExcel.TabIndex = 1;
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
@@ -125,11 +120,10 @@
             btnChiTiet.FlatAppearance.BorderSize = 0;
             btnChiTiet.FlatStyle = FlatStyle.Flat;
             btnChiTiet.Image = Properties.Resources.iconCT;
-            btnChiTiet.Location = new Point(231, 0);
-            btnChiTiet.Margin = new Padding(0);
+            btnChiTiet.Location = new Point(225, 0);
             btnChiTiet.Name = "btnChiTiet";
-            btnChiTiet.Size = new Size(77, 72);
-            btnChiTiet.TabIndex = 3;
+            btnChiTiet.Size = new Size(75, 72);
+            btnChiTiet.TabIndex = 2;
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
@@ -142,14 +136,14 @@
             btnXoa.FlatAppearance.BorderSize = 0;
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Image = Properties.Resources.iconxoa;
-            btnXoa.Location = new Point(154, 0);
-            btnXoa.Margin = new Padding(0);
+            btnXoa.Location = new Point(150, 0);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(77, 72);
-            btnXoa.TabIndex = 2;
+            btnXoa.Size = new Size(75, 72);
+            btnXoa.TabIndex = 3;
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -158,24 +152,14 @@
             btnSua.FlatAppearance.BorderSize = 0;
             btnSua.FlatStyle = FlatStyle.Flat;
             btnSua.Image = Properties.Resources.iconsua;
-            btnSua.Location = new Point(77, 0);
-            btnSua.Margin = new Padding(0);
+            btnSua.Location = new Point(75, 0);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(77, 72);
-            btnSua.TabIndex = 1;
+            btnSua.Size = new Size(75, 72);
+            btnSua.TabIndex = 4;
             btnSua.Text = "Sửa";
             btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSua.UseVisualStyleBackColor = false;
             btnSua.Click += btnSua_Click;
-            // 
-            // dgvTraSach
-            // 
-            dgvTraSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTraSach.Dock = DockStyle.Fill;
-            dgvTraSach.Location = new Point(0, 72);
-            dgvTraSach.Name = "dgvTraSach";
-            dgvTraSach.Size = new Size(774, 491);
-            dgvTraSach.TabIndex = 1;
             // 
             // btnThem
             // 
@@ -185,19 +169,31 @@
             btnThem.FlatStyle = FlatStyle.Flat;
             btnThem.Image = Properties.Resources.iconthem;
             btnThem.Location = new Point(0, 0);
-            btnThem.Margin = new Padding(0);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(77, 72);
-            btnThem.TabIndex = 0;
+            btnThem.Size = new Size(75, 72);
+            btnThem.TabIndex = 5;
             btnThem.Text = "Thêm";
             btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
             btnThem.UseVisualStyleBackColor = false;
             btnThem.Click += btnThem_Click;
             // 
+            // dgvTraSach
+            // 
+            dgvTraSach.AllowUserToAddRows = false;
+            dgvTraSach.AllowUserToDeleteRows = false;
+            dgvTraSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTraSach.BackgroundColor = Color.White;
+            dgvTraSach.Dock = DockStyle.Fill;
+            dgvTraSach.Location = new Point(0, 72);
+            dgvTraSach.MultiSelect = false;
+            dgvTraSach.Name = "dgvTraSach";
+            dgvTraSach.RowHeadersVisible = false;
+            dgvTraSach.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvTraSach.Size = new Size(774, 491);
+            dgvTraSach.TabIndex = 0;
+            // 
             // UcTraSach
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvTraSach);
             Controls.Add(panelCRUD);
             Name = "UcTraSach";
@@ -212,15 +208,16 @@
         #endregion
 
         private Panel panelCRUD;
-        private DataGridView dgvTraSach;
-        private Button btnXoa;
-        private Button btnSua;
-        private Button btnChiTiet;
-        private Button btnExcel;
-        private Button btnLamMoi;
         private TableLayoutPanel panelSearch;
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
+        private Button btnLamMoi;
+        private Button btnExcel;
+        private Button btnChiTiet;
+        private Button btnXoa;
+        private Button btnSua;
         private Button btnThem;
+        private DataGridView dgvTraSach;
+
     }
 }
