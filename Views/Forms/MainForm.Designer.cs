@@ -113,7 +113,7 @@
             btnQLThongKe.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btnQLThongKe.Image = Properties.Resources.icon11;
             btnQLThongKe.ImageAlign = ContentAlignment.MiddleLeft;
-            btnQLThongKe.Location = new Point(0, 338);
+            btnQLThongKe.Location = new Point(0, 352);
             btnQLThongKe.Name = "btnQLThongKe";
             btnQLThongKe.Size = new Size(182, 50);
             btnQLThongKe.TabIndex = 7;
@@ -131,7 +131,7 @@
             buttonQLNhanVien.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             buttonQLNhanVien.Image = Properties.Resources.icon41;
             buttonQLNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
-            buttonQLNhanVien.Location = new Point(0, 288);
+            buttonQLNhanVien.Location = new Point(0, 302);
             buttonQLNhanVien.Name = "buttonQLNhanVien";
             buttonQLNhanVien.Size = new Size(182, 50);
             buttonQLNhanVien.TabIndex = 6;
@@ -149,7 +149,7 @@
             btnNhapSach.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold);
             btnNhapSach.Image = Properties.Resources.icon7;
             btnNhapSach.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNhapSach.Location = new Point(0, 238);
+            btnNhapSach.Location = new Point(0, 252);
             btnNhapSach.Name = "btnNhapSach";
             btnNhapSach.Size = new Size(182, 50);
             btnNhapSach.TabIndex = 5;
@@ -170,7 +170,7 @@
             btnPhat.Location = new Point(0, 200);
             btnPhat.Margin = new Padding(3, 2, 3, 2);
             btnPhat.Name = "btnPhat";
-            btnPhat.Size = new Size(182, 38);
+            btnPhat.Size = new Size(182, 52);
             btnPhat.TabIndex = 4;
             btnPhat.Text = "   Phạt - Trả Phạt";
             btnPhat.TextImageRelation = TextImageRelation.ImageBeforeText;

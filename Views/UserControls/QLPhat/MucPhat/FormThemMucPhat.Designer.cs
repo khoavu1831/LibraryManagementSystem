@@ -110,7 +110,7 @@
             btnThem.Margin = new Padding(3, 2, 3, 2);
             btnThem.Name = "btnThem";
             btnThem.Size = new Size(161, 34);
-            btnThem.TabIndex = 15;
+            btnThem.TabIndex = 17;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
@@ -180,7 +180,7 @@
             comboBoxLoaiPhat.Location = new Point(104, 31);
             comboBoxLoaiPhat.Name = "comboBoxLoaiPhat";
             comboBoxLoaiPhat.Size = new Size(227, 23);
-            comboBoxLoaiPhat.TabIndex = 17;
+            comboBoxLoaiPhat.TabIndex = 3;
             // 
             // panel1
             // 

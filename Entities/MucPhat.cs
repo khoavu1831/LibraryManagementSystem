@@ -20,6 +20,7 @@ namespace LibraryManagementSystem.Entities
         public string? MoTa { get; set; }
         public LoaiPhatEnum LoaiPhat { get; set; }
         public ICollection<ChiTietPhieuPhat>? ChiTietPhieuPhats { get; set; }
+        public int IsActive { get; set; } = 1;
         public enum LoaiPhatEnum
         {
             [Display(Name = "Quá hạn")]

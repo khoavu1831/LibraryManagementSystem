@@ -55,11 +55,10 @@ namespace LibraryManagementSystem.Migrations
                     b.Property<int>("IdPhieuMuon")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("NgayTra")
+                    b.Property<DateTime?>("NgayTra")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("TinhTrangTra")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("IdChiTietPhieuMuon");
@@ -171,6 +170,9 @@ namespace LibraryManagementSystem.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdMucPhat"));
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("int");
 
                     b.Property<string>("LoaiPhat")
                         .IsRequired()

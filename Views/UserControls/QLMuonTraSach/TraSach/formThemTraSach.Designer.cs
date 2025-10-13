@@ -41,7 +41,9 @@
             tableLayoutPanelContent.SuspendLayout();
             panelSach.SuspendLayout();
             SuspendLayout();
-            
+            // 
+            // labelTitle
+            // 
             labelTitle.BackColor = SystemColors.HotTrack;
             labelTitle.Dock = DockStyle.Fill;
             labelTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
@@ -53,7 +55,9 @@
             labelTitle.TabIndex = 0;
             labelTitle.Text = "THÊM PHIẾU TRẢ";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
-          
+            // 
+            // panelTop
+            // 
             panelTop.Controls.Add(labelTitle);
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
@@ -61,7 +65,9 @@
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(650, 80);
             panelTop.TabIndex = 0;
-        
+            // 
+            // panelContent
+            // 
             panelContent.Controls.Add(tableLayoutPanelButtons);
             panelContent.Controls.Add(tableLayoutPanelContent);
             panelContent.Dock = DockStyle.Fill;
@@ -70,7 +76,9 @@
             panelContent.Name = "panelContent";
             panelContent.Size = new Size(650, 450);
             panelContent.TabIndex = 1;
-      
+            // 
+            // tableLayoutPanelButtons
+            // 
             tableLayoutPanelButtons.ColumnCount = 2;
             tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
@@ -83,7 +91,9 @@
             tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanelButtons.Size = new Size(350, 40);
             tableLayoutPanelButtons.TabIndex = 1;
-       
+            // 
+            // btnThem
+            // 
             btnThem.Dock = DockStyle.Fill;
             btnThem.Location = new Point(3, 2);
             btnThem.Margin = new Padding(3, 2, 3, 2);
@@ -93,7 +103,9 @@
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
-         
+            // 
+            // btnHuy
+            // 
             btnHuy.Dock = DockStyle.Fill;
             btnHuy.Location = new Point(178, 2);
             btnHuy.Margin = new Padding(3, 2, 3, 2);
@@ -103,7 +115,9 @@
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
             btnHuy.Click += btnHuy_Click;
-         
+            // 
+            // tableLayoutPanelContent
+            // 
             tableLayoutPanelContent.ColumnCount = 2;
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18.363636F));
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 81.63636F));
@@ -128,7 +142,9 @@
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanelContent.Size = new Size(550, 350);
             tableLayoutPanelContent.TabIndex = 0;
-      
+            // 
+            // labelIDPhieuMuon
+            // 
             labelIDPhieuMuon.Anchor = AnchorStyles.Left;
             labelIDPhieuMuon.AutoSize = true;
             labelIDPhieuMuon.Location = new Point(3, 5);
@@ -136,7 +152,9 @@
             labelIDPhieuMuon.Size = new Size(89, 15);
             labelIDPhieuMuon.TabIndex = 8;
             labelIDPhieuMuon.Text = "ID Phiếu mượn:";
-         
+            // 
+            // comboBoxIDPhieuMuon
+            // 
             comboBoxIDPhieuMuon.Dock = DockStyle.Fill;
             comboBoxIDPhieuMuon.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxIDPhieuMuon.Location = new Point(104, 2);
@@ -145,7 +163,9 @@
             comboBoxIDPhieuMuon.Size = new Size(443, 23);
             comboBoxIDPhieuMuon.TabIndex = 9;
             comboBoxIDPhieuMuon.SelectedIndexChanged += comboBoxIDPhieuMuon_SelectedIndexChanged;
-        
+            // 
+            // labelNhanVien
+            // 
             labelNhanVien.Anchor = AnchorStyles.Left;
             labelNhanVien.AutoSize = true;
             labelNhanVien.Location = new Point(3, 30);
@@ -153,7 +173,9 @@
             labelNhanVien.Size = new Size(83, 15);
             labelNhanVien.TabIndex = 0;
             labelNhanVien.Text = "Nhân viên lập:";
-          
+            // 
+            // textBoxNhanVien
+            // 
             textBoxNhanVien.BackColor = SystemColors.Control;
             textBoxNhanVien.Dock = DockStyle.Fill;
             textBoxNhanVien.Location = new Point(104, 27);
@@ -162,7 +184,9 @@
             textBoxNhanVien.ReadOnly = true;
             textBoxNhanVien.Size = new Size(443, 23);
             textBoxNhanVien.TabIndex = 1;
-          
+            // 
+            // labelThanhVien
+            // 
             labelThanhVien.Anchor = AnchorStyles.Left;
             labelThanhVien.AutoSize = true;
             labelThanhVien.Location = new Point(3, 55);
@@ -170,7 +194,9 @@
             labelThanhVien.Size = new Size(68, 15);
             labelThanhVien.TabIndex = 2;
             labelThanhVien.Text = "Thành viên:";
-            
+            // 
+            // textBoxThanhVien
+            // 
             textBoxThanhVien.BackColor = SystemColors.Control;
             textBoxThanhVien.Dock = DockStyle.Fill;
             textBoxThanhVien.Location = new Point(104, 52);
@@ -179,7 +205,9 @@
             textBoxThanhVien.ReadOnly = true;
             textBoxThanhVien.Size = new Size(443, 23);
             textBoxThanhVien.TabIndex = 3;
-            
+            // 
+            // labelNgayTra
+            // 
             labelNgayTra.Anchor = AnchorStyles.Left;
             labelNgayTra.AutoSize = true;
             labelNgayTra.Location = new Point(3, 80);
@@ -187,7 +215,9 @@
             labelNgayTra.Size = new Size(55, 15);
             labelNgayTra.TabIndex = 4;
             labelNgayTra.Text = "Ngày trả:";
-           
+            // 
+            // dateTimePickerNgayTra
+            // 
             dateTimePickerNgayTra.Dock = DockStyle.Fill;
             dateTimePickerNgayTra.Format = DateTimePickerFormat.Short;
             dateTimePickerNgayTra.Location = new Point(104, 77);
@@ -195,7 +225,9 @@
             dateTimePickerNgayTra.Name = "dateTimePickerNgayTra";
             dateTimePickerNgayTra.Size = new Size(443, 23);
             dateTimePickerNgayTra.TabIndex = 5;
-           
+            // 
+            // labelSach
+            // 
             labelSach.Anchor = AnchorStyles.Left;
             labelSach.AutoSize = true;
             labelSach.Location = new Point(3, 217);
@@ -203,7 +235,9 @@
             labelSach.Size = new Size(52, 15);
             labelSach.TabIndex = 6;
             labelSach.Text = "Sách trả:";
-           
+            // 
+            // panelSach
+            // 
             panelSach.BorderStyle = BorderStyle.FixedSingle;
             panelSach.Controls.Add(flowLayoutPanelSach);
             panelSach.Dock = DockStyle.Fill;
@@ -212,7 +246,9 @@
             panelSach.Name = "panelSach";
             panelSach.Size = new Size(443, 246);
             panelSach.TabIndex = 7;
-           
+            // 
+            // flowLayoutPanelSach
+            // 
             flowLayoutPanelSach.AutoScroll = true;
             flowLayoutPanelSach.Dock = DockStyle.Fill;
             flowLayoutPanelSach.FlowDirection = FlowDirection.TopDown;
@@ -222,7 +258,9 @@
             flowLayoutPanelSach.Size = new Size(441, 244);
             flowLayoutPanelSach.TabIndex = 0;
             flowLayoutPanelSach.WrapContents = false;
-            
+            // 
+            // FormThemTraSach
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(650, 530);
