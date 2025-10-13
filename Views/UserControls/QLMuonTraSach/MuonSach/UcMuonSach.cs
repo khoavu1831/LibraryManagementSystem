@@ -106,7 +106,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
 
         private void btnSua_Click(object? sender, EventArgs e)
         {
-            if (dgvMuonSach.SelectedRows.Count == 0)
+            int rowIndex = GetSelectedRowIndex();
+            if (rowIndex < 0)
             {
                 MessageBox.Show("Vui lòng chọn 1 phiếu mượn để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -114,8 +115,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
 
             try
             {
-                var selectedRow = dgvMuonSach.SelectedRows[0];
-                int idPhieuMuon = Convert.ToInt32(selectedRow.Cells["IdPhieuMuon"].Value);
+                int idPhieuMuon = Convert.ToInt32(dgvMuonSach.Rows[rowIndex].Cells["IdPhieuMuon"].Value);
 
                 using (var formSua = new FormSuaMuonSach(idPhieuMuon))
                 {
@@ -131,17 +131,17 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
             }
         }
 
-
         private void btnChiTiet_Click(object? sender, EventArgs e)
         {
-            if (dgvMuonSach.SelectedRows.Count == 0)
+            int rowIndex = GetSelectedRowIndex();
+            if (rowIndex < 0)
             {
                 MessageBox.Show("Vui lòng chọn 1 phiếu mượn để xem chi tiết.",
                                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            int idPhieuMuon = Convert.ToInt32(dgvMuonSach.SelectedRows[0].Cells["IdPhieuMuon"].Value);
+            int idPhieuMuon = Convert.ToInt32(dgvMuonSach.Rows[rowIndex].Cells["IdPhieuMuon"].Value);
 
             using (var formChiTiet = new FormChiTietMuonSach(idPhieuMuon))
             {
@@ -149,10 +149,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
             }
         }
 
-
         private void btnXoa_Click(object? sender, EventArgs e)
         {
-            if (dgvMuonSach.SelectedRows.Count == 0)
+            int rowIndex = GetSelectedRowIndex();
+            if (rowIndex < 0)
             {
                 MessageBox.Show("Vui lòng chọn một phiếu mượn để xóa.",
                                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -161,8 +161,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
 
             try
             {
-                var selectedRow = dgvMuonSach.SelectedRows[0];
-                int idPhieuMuon = Convert.ToInt32(selectedRow.Cells["IdPhieuMuon"].Value);
+                int idPhieuMuon = Convert.ToInt32(dgvMuonSach.Rows[rowIndex].Cells["IdPhieuMuon"].Value);
 
                 var phieuMuon = _phieuMuonService
                     .GetAllPhieuMuon()
@@ -227,6 +226,27 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
                 MessageBox.Show($"Lỗi khi xóa phiếu mượn: {ex.Message}",
                                 "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dgvMuonSach_RowHeaderMouseClick(object? sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dgvMuonSach.ClearSelection();
+                foreach (DataGridViewCell cell in dgvMuonSach.Rows[e.RowIndex].Cells)
+                {
+                    cell.Selected = true;
+                }
+            }
+        }
+
+        private int GetSelectedRowIndex()
+        {
+            if (dgvMuonSach.SelectedCells.Count > 0)
+            {
+                return dgvMuonSach.SelectedCells[0].RowIndex;
+            }
+            return -1;
         }
     }
 }
