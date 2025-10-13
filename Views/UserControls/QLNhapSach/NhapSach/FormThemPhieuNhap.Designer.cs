@@ -132,7 +132,6 @@
             // 
             comboBoxLoaiPN.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxLoaiPN.FormattingEnabled = true;
-            comboBoxLoaiPN.Items.AddRange(new object[] { "Mua", "Tặng" });
             comboBoxLoaiPN.Location = new Point(104, 3);
             comboBoxLoaiPN.Name = "comboBoxLoaiPN";
             comboBoxLoaiPN.Size = new Size(218, 23);
