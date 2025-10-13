@@ -46,6 +46,13 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
                     dgvMucPhat.AutoGenerateColumns = true;
                     dgvMucPhat.DataSource = mucPhatDataView;
+
+    
+                    dgvMucPhat.Columns["IdMucPhat"].HeaderText = "ID Mức Phạt";
+                    dgvMucPhat.Columns["TenMucPhat"].HeaderText = "Tên Mức Phạt";
+                    dgvMucPhat.Columns["SoTienPhat"].HeaderText = "Số Tiền Phạt";
+                    dgvMucPhat.Columns["MoTa"].HeaderText = "Mô Tả";
+                    dgvMucPhat.Columns["LoaiPhat"].HeaderText = "Loại Phạt";
                 }
             }
             catch (Exception ex)
