@@ -27,8 +27,11 @@ namespace LibraryManagementSystem.Entities
 
         public enum TrangThaiEnum
         {
-            DangMuon,   
+            [Display(Name = "Đang mượn")]
+            DangMuon,
+            [Display(Name = "Đã trả")]
             DaTra,
+            [Display(Name = "Quá hạn")]
             QuaHan     
         }
     }

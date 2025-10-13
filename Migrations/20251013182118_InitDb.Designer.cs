@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20251013030512_IntiDB")]
-    partial class IntiDB
+    [Migration("20251013182118_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -723,13 +723,13 @@ namespace LibraryManagementSystem.Migrations
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.TheThanhVien", b =>
                 {
-                    b.HasOne("LibraryManagementSystem.Entities.DocGia", "DocGias")
+                    b.HasOne("LibraryManagementSystem.Entities.DocGia", "DocGia")
                         .WithMany("TheThanhViens")
                         .HasForeignKey("IdDocGia")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DocGias");
+                    b.Navigation("DocGia");
                 });
 
             modelBuilder.Entity("Sach_TacGia", b =>
