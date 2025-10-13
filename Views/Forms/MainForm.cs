@@ -7,6 +7,8 @@ using LibraryManagementSystem.Views.UserControls.QLThongKe;
 using LibraryManagementSystem.Views.UserControls.QLSach;
 using LibraryManagementSystem.Views.UserControls.TrangChu;
 using LibraryManagementSystem.Views.UserControls.QLNhapSach;
+using LibraryManagementSystem.Views.UserControls.QuanLy;
+
 
 namespace LibraryManagementSystem.Views.Forms
 {
@@ -20,6 +22,7 @@ namespace LibraryManagementSystem.Views.Forms
         private readonly UcQLMuonTraSach _ucQLMuonTraSach;
         private readonly UcQLThongKe _ucQLThongKe;
         private readonly UcQLDocGia _ucQLDocGia;
+        private readonly UcQuanLy _ucQuanLy;
         public MainForm()
         {
             InitializeComponent();
@@ -31,6 +34,7 @@ namespace LibraryManagementSystem.Views.Forms
             _ucQLMuonTraSach = new UcQLMuonTraSach();
             _ucQLThongKe = new UcQLThongKe();
             _ucQLDocGia = new UcQLDocGia();
+            _ucQuanLy = new UcQuanLy();
             LoadUserControl(_ucTrangChu);
         }
         private void LoadUserControl(UserControl uc)
@@ -126,6 +130,13 @@ namespace LibraryManagementSystem.Views.Forms
         private void labelUsername_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBoxAvatar_Click(object sender, EventArgs e)
+        {
+
+            LoadUserControl(_ucQuanLy);
+           
         }
     }
 }

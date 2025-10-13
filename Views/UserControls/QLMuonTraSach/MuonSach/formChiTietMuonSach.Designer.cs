@@ -7,9 +7,7 @@
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
@@ -20,241 +18,238 @@
             labelTitle = new Label();
             panelTop = new Panel();
             panelContent = new Panel();
-            tableLayoutPanelButtons = new TableLayoutPanel();
-            btnQuayLai = new Button();
-            tableLayoutPanelContent = new TableLayoutPanel();
+            btnDong = new Button();
+            dgvSachMuon = new DataGridView();
+            tableLayoutPanelInfo = new TableLayoutPanel();
+            labelIdPhieuMuon = new Label();
+            textBoxIdPhieuMuon = new TextBox();
             labelNhanVien = new Label();
-            lblNhanVienValue = new Label();
-            labelThanhVien = new Label();
-            lblThanhVienValue = new Label();
+            textBoxNhanVien = new TextBox();
+            labelDocGia = new Label();
+            textBoxDocGia = new TextBox();
             labelNgayMuon = new Label();
-            lblNgayMuonValue = new Label();
-            labelHanTra = new Label();
-            lblHanTraValue = new Label();
-            labelSach = new Label();
-            listBoxSach = new ListBox();
+            textBoxNgayMuon = new TextBox();
+            labelNgayHenTra = new Label();
+            textBoxNgayHenTra = new TextBox();
+            textBoxTrangThai = new TextBox();
+            labelTrangThai = new Label();
             panelTop.SuspendLayout();
             panelContent.SuspendLayout();
-            tableLayoutPanelButtons.SuspendLayout();
-            tableLayoutPanelContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSachMuon).BeginInit();
+            tableLayoutPanelInfo.SuspendLayout();
             SuspendLayout();
-            // 
-            // labelTitle
-            // 
+
             labelTitle.BackColor = SystemColors.HotTrack;
             labelTitle.Dock = DockStyle.Fill;
-            labelTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            labelTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             labelTitle.ForeColor = Color.White;
             labelTitle.Location = new Point(0, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(589, 100);
+            labelTitle.Size = new Size(640, 70);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "CHI TIẾT PHIẾU MƯỢN";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // panelTop
-            // 
+
             panelTop.Controls.Add(labelTitle);
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(589, 100);
-            panelTop.TabIndex = 0;
-            // 
-            // panelContent
-            // 
-            panelContent.Controls.Add(tableLayoutPanelButtons);
-            panelContent.Controls.Add(tableLayoutPanelContent);
+            panelTop.Size = new Size(640, 70);
+            panelTop.TabIndex = 1;
+
+            panelContent.Controls.Add(btnDong);
+            panelContent.Controls.Add(dgvSachMuon);
+            panelContent.Controls.Add(tableLayoutPanelInfo);
             panelContent.Dock = DockStyle.Fill;
-            panelContent.Location = new Point(0, 100);
+            panelContent.Location = new Point(0, 70);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(589, 429);
-            panelContent.TabIndex = 1;
-            // 
-            // tableLayoutPanelButtons
-            // 
-            tableLayoutPanelButtons.ColumnCount = 1;
-            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanelButtons.Controls.Add(btnQuayLai, 0, 0);
-            tableLayoutPanelButtons.Location = new Point(190, 360);
-            tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
-            tableLayoutPanelButtons.RowCount = 1;
-            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelButtons.Size = new Size(200, 50);
-            tableLayoutPanelButtons.TabIndex = 1;
-            // 
-            // btnQuayLai
-            // 
-            btnQuayLai.Dock = DockStyle.Fill;
-            btnQuayLai.Location = new Point(3, 3);
-            btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(194, 44);
-            btnQuayLai.TabIndex = 15;
-            btnQuayLai.Text = "Quay lại";
-            btnQuayLai.UseVisualStyleBackColor = true;
-            btnQuayLai.Click += btnQuayLai_Click;
-            // 
-            // tableLayoutPanelContent
-            // 
-            tableLayoutPanelContent.ColumnCount = 2;
-            tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
-            tableLayoutPanelContent.Controls.Add(labelNhanVien, 0, 0);
-            tableLayoutPanelContent.Controls.Add(lblNhanVienValue, 1, 0);
-            tableLayoutPanelContent.Controls.Add(labelThanhVien, 0, 1);
-            tableLayoutPanelContent.Controls.Add(lblThanhVienValue, 1, 1);
-            tableLayoutPanelContent.Controls.Add(labelNgayMuon, 0, 2);
-            tableLayoutPanelContent.Controls.Add(lblNgayMuonValue, 1, 2);
-            tableLayoutPanelContent.Controls.Add(labelHanTra, 0, 3);
-            tableLayoutPanelContent.Controls.Add(lblHanTraValue, 1, 3);
-            tableLayoutPanelContent.Controls.Add(labelSach, 0, 4);
-            tableLayoutPanelContent.Controls.Add(listBoxSach, 1, 4);
-            tableLayoutPanelContent.Location = new Point(50, 20);
-            tableLayoutPanelContent.Name = "tableLayoutPanelContent";
-            tableLayoutPanelContent.RowCount = 5;
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelContent.Size = new Size(500, 320);
-            tableLayoutPanelContent.TabIndex = 0;
-            // 
-            // labelNhanVien
-            // 
+            panelContent.Padding = new Padding(20);
+            panelContent.Size = new Size(640, 425);
+            panelContent.TabIndex = 0;
+
+            btnDong.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnDong.Location = new Point(247, 378);
+            btnDong.Name = "btnDong";
+            btnDong.Size = new Size(140, 35);
+            btnDong.TabIndex = 0;
+            btnDong.Text = "Đóng";
+            btnDong.UseVisualStyleBackColor = true;
+            btnDong.Click += btnDong_Click;
+
+            dgvSachMuon.AllowUserToAddRows = false;
+            dgvSachMuon.AllowUserToDeleteRows = false;
+            dgvSachMuon.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSachMuon.BackgroundColor = Color.White;
+            dgvSachMuon.Location = new Point(40, 186);
+            dgvSachMuon.Margin = new Padding(20, 10, 20, 10);
+            dgvSachMuon.Name = "dgvSachMuon";
+            dgvSachMuon.ReadOnly = true;
+            dgvSachMuon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSachMuon.Size = new Size(560, 180);
+            dgvSachMuon.TabIndex = 1;
+ 
+            tableLayoutPanelInfo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanelInfo.ColumnCount = 2;
+            tableLayoutPanelInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanelInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            tableLayoutPanelInfo.Controls.Add(labelIdPhieuMuon, 0, 0);
+            tableLayoutPanelInfo.Controls.Add(textBoxIdPhieuMuon, 1, 0);
+            tableLayoutPanelInfo.Controls.Add(labelNhanVien, 0, 1);
+            tableLayoutPanelInfo.Controls.Add(textBoxNhanVien, 1, 1);
+            tableLayoutPanelInfo.Controls.Add(labelDocGia, 0, 2);
+            tableLayoutPanelInfo.Controls.Add(textBoxDocGia, 1, 2);
+            tableLayoutPanelInfo.Controls.Add(labelNgayMuon, 0, 3);
+            tableLayoutPanelInfo.Controls.Add(textBoxNgayMuon, 1, 3);
+            tableLayoutPanelInfo.Controls.Add(labelNgayHenTra, 0, 4);
+            tableLayoutPanelInfo.Controls.Add(textBoxNgayHenTra, 1, 4);
+            tableLayoutPanelInfo.Controls.Add(textBoxTrangThai, 1, 5);
+            tableLayoutPanelInfo.Controls.Add(labelTrangThai, 0, 5);
+            tableLayoutPanelInfo.Location = new Point(40, 20);
+            tableLayoutPanelInfo.Margin = new Padding(3, 2, 3, 2);
+            tableLayoutPanelInfo.Name = "tableLayoutPanelInfo";
+            tableLayoutPanelInfo.RowCount = 6;
+            tableLayoutPanelInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
+            tableLayoutPanelInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
+            tableLayoutPanelInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
+            tableLayoutPanelInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
+            tableLayoutPanelInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
+            tableLayoutPanelInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 25F));
+            tableLayoutPanelInfo.Size = new Size(560, 154);
+            tableLayoutPanelInfo.TabIndex = 2;
+
+            labelIdPhieuMuon.Anchor = AnchorStyles.Left;
+            labelIdPhieuMuon.AutoSize = true;
+            labelIdPhieuMuon.Location = new Point(3, 5);
+            labelIdPhieuMuon.Name = "labelIdPhieuMuon";
+            labelIdPhieuMuon.Size = new Size(95, 15);
+            labelIdPhieuMuon.TabIndex = 0;
+            labelIdPhieuMuon.Text = "Mã Phiếu Mượn:";
+            labelIdPhieuMuon.TextAlign = ContentAlignment.MiddleLeft;
+
+            textBoxIdPhieuMuon.Dock = DockStyle.Fill;
+            textBoxIdPhieuMuon.Location = new Point(171, 3);
+            textBoxIdPhieuMuon.Name = "textBoxIdPhieuMuon";
+            textBoxIdPhieuMuon.ReadOnly = true;
+            textBoxIdPhieuMuon.Size = new Size(386, 23);
+            textBoxIdPhieuMuon.TabIndex = 1;
+
             labelNhanVien.Anchor = AnchorStyles.Left;
             labelNhanVien.AutoSize = true;
-            labelNhanVien.Location = new Point(3, 4);
+            labelNhanVien.Location = new Point(3, 30);
             labelNhanVien.Name = "labelNhanVien";
-            labelNhanVien.Size = new Size(103, 20);
-            labelNhanVien.TabIndex = 0;
-            labelNhanVien.Text = "Nhân viên lập:";
-            // 
-            // lblNhanVienValue
-            // 
-            lblNhanVienValue.Anchor = AnchorStyles.Left;
-            lblNhanVienValue.AutoSize = true;
-            lblNhanVienValue.Location = new Point(153, 4);
-            lblNhanVienValue.Name = "lblNhanVienValue";
-            lblNhanVienValue.Size = new Size(94, 20);
-            lblNhanVienValue.TabIndex = 1;
-            lblNhanVienValue.Text = "(Tên NV ở đây)";
-            // 
-            // labelThanhVien
-            // 
-            labelThanhVien.Anchor = AnchorStyles.Left;
-            labelThanhVien.AutoSize = true;
-            labelThanhVien.Location = new Point(3, 32);
-            labelThanhVien.Name = "labelThanhVien";
-            labelThanhVien.Size = new Size(83, 20);
-            labelThanhVien.TabIndex = 2;
-            labelThanhVien.Text = "Thành viên:";
-            // 
-            // lblThanhVienValue
-            // 
-            lblThanhVienValue.Anchor = AnchorStyles.Left;
-            lblThanhVienValue.AutoSize = true;
-            lblThanhVienValue.Location = new Point(153, 32);
-            lblThanhVienValue.Name = "lblThanhVienValue";
-            lblThanhVienValue.Size = new Size(107, 20);
-            lblThanhVienValue.TabIndex = 3;
-            lblThanhVienValue.Text = "(Tên TV ở đây)";
-            // 
-            // labelNgayMuon
-            // 
+            labelNhanVien.Size = new Size(65, 15);
+            labelNhanVien.TabIndex = 2;
+            labelNhanVien.Text = "Nhân Viên:";
+            labelNhanVien.TextAlign = ContentAlignment.MiddleLeft;
+
+            textBoxNhanVien.Dock = DockStyle.Fill;
+            textBoxNhanVien.Location = new Point(171, 28);
+            textBoxNhanVien.Name = "textBoxNhanVien";
+            textBoxNhanVien.ReadOnly = true;
+            textBoxNhanVien.Size = new Size(386, 23);
+            textBoxNhanVien.TabIndex = 3;
+
+            labelDocGia.Anchor = AnchorStyles.Left;
+            labelDocGia.AutoSize = true;
+            labelDocGia.Location = new Point(3, 55);
+            labelDocGia.Name = "labelDocGia";
+            labelDocGia.Size = new Size(51, 15);
+            labelDocGia.TabIndex = 4;
+            labelDocGia.Text = "Độc Giả:";
+            labelDocGia.TextAlign = ContentAlignment.MiddleLeft;
+
+            textBoxDocGia.Dock = DockStyle.Fill;
+            textBoxDocGia.Location = new Point(171, 53);
+            textBoxDocGia.Name = "textBoxDocGia";
+            textBoxDocGia.ReadOnly = true;
+            textBoxDocGia.Size = new Size(386, 23);
+            textBoxDocGia.TabIndex = 5;
+
             labelNgayMuon.Anchor = AnchorStyles.Left;
             labelNgayMuon.AutoSize = true;
-            labelNgayMuon.Location = new Point(3, 60);
+            labelNgayMuon.Location = new Point(3, 80);
             labelNgayMuon.Name = "labelNgayMuon";
-            labelNgayMuon.Size = new Size(90, 20);
-            labelNgayMuon.TabIndex = 4;
-            labelNgayMuon.Text = "Ngày mượn:";
-            // 
-            // lblNgayMuonValue
-            // 
-            lblNgayMuonValue.Anchor = AnchorStyles.Left;
-            lblNgayMuonValue.AutoSize = true;
-            lblNgayMuonValue.Location = new Point(153, 60);
-            lblNgayMuonValue.Name = "lblNgayMuonValue";
-            lblNgayMuonValue.Size = new Size(97, 20);
-            lblNgayMuonValue.TabIndex = 5;
-            lblNgayMuonValue.Text = "(dd/MM/yyyy)";
-            // 
-            // labelHanTra
-            // 
-            labelHanTra.Anchor = AnchorStyles.Left;
-            labelHanTra.AutoSize = true;
-            labelHanTra.Location = new Point(3, 88);
-            labelHanTra.Name = "labelHanTra";
-            labelHanTra.Size = new Size(61, 20);
-            labelHanTra.TabIndex = 6;
-            labelHanTra.Text = "Hạn trả:";
-            // 
-            // lblHanTraValue
-            // 
-            lblHanTraValue.Anchor = AnchorStyles.Left;
-            lblHanTraValue.AutoSize = true;
-            lblHanTraValue.Location = new Point(153, 88);
-            lblHanTraValue.Name = "lblHanTraValue";
-            lblHanTraValue.Size = new Size(97, 20);
-            lblHanTraValue.TabIndex = 7;
-            lblHanTraValue.Text = "(dd/MM/yyyy)";
-            // 
-            // labelSach
-            // 
-            labelSach.Anchor = AnchorStyles.Left;
-            labelSach.AutoSize = true;
-            labelSach.Location = new Point(3, 196);
-            labelSach.Name = "labelSach";
-            labelSach.Size = new Size(86, 20);
-            labelSach.TabIndex = 8;
-            labelSach.Text = "Sách mượn:";
-            // 
-            // listBoxSach
-            // 
-            listBoxSach.Dock = DockStyle.Fill;
-            listBoxSach.FormattingEnabled = true;
-            listBoxSach.ItemHeight = 20;
-            listBoxSach.Location = new Point(153, 115);
-            listBoxSach.Name = "listBoxSach";
-            listBoxSach.SelectionMode = SelectionMode.None;
-            listBoxSach.Size = new Size(344, 202);
-            listBoxSach.TabIndex = 9;
-            // 
-            // FormChiTietMuonSach
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            labelNgayMuon.Size = new Size(73, 15);
+            labelNgayMuon.TabIndex = 6;
+            labelNgayMuon.Text = "Ngày Mượn:";
+            labelNgayMuon.TextAlign = ContentAlignment.MiddleLeft;
+
+            textBoxNgayMuon.Dock = DockStyle.Fill;
+            textBoxNgayMuon.Location = new Point(171, 78);
+            textBoxNgayMuon.Name = "textBoxNgayMuon";
+            textBoxNgayMuon.ReadOnly = true;
+            textBoxNgayMuon.Size = new Size(386, 23);
+            textBoxNgayMuon.TabIndex = 7;
+
+            labelNgayHenTra.Anchor = AnchorStyles.Left;
+            labelNgayHenTra.AutoSize = true;
+            labelNgayHenTra.Location = new Point(3, 105);
+            labelNgayHenTra.Name = "labelNgayHenTra";
+            labelNgayHenTra.Size = new Size(81, 15);
+            labelNgayHenTra.TabIndex = 8;
+            labelNgayHenTra.Text = "Ngày Hẹn Trả:";
+            labelNgayHenTra.TextAlign = ContentAlignment.MiddleLeft;
+
+            textBoxNgayHenTra.Dock = DockStyle.Fill;
+            textBoxNgayHenTra.Location = new Point(171, 103);
+            textBoxNgayHenTra.Name = "textBoxNgayHenTra";
+            textBoxNgayHenTra.ReadOnly = true;
+            textBoxNgayHenTra.Size = new Size(386, 23);
+            textBoxNgayHenTra.TabIndex = 9;
+   
+            textBoxTrangThai.Dock = DockStyle.Fill;
+            textBoxTrangThai.Location = new Point(171, 128);
+            textBoxTrangThai.Name = "textBoxTrangThai";
+            textBoxTrangThai.ReadOnly = true;
+            textBoxTrangThai.Size = new Size(386, 23);
+            textBoxTrangThai.TabIndex = 11;
+ 
+            labelTrangThai.Anchor = AnchorStyles.Left;
+            labelTrangThai.AutoSize = true;
+            labelTrangThai.Location = new Point(3, 132);
+            labelTrangThai.Name = "labelTrangThai";
+            labelTrangThai.Size = new Size(64, 15);
+            labelTrangThai.TabIndex = 10;
+            labelTrangThai.Text = "Trạng Thái:";
+            labelTrangThai.TextAlign = ContentAlignment.MiddleLeft;
+
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(589, 529);
+            ClientSize = new Size(640, 495);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "FormChiTietMuonSach";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Chi Tiết Phiếu Mượn";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
-            tableLayoutPanelButtons.ResumeLayout(false);
-            tableLayoutPanelContent.ResumeLayout(false);
-            tableLayoutPanelContent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvSachMuon).EndInit();
+            tableLayoutPanelInfo.ResumeLayout(false);
+            tableLayoutPanelInfo.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Panel panelContent;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContent;
-        private System.Windows.Forms.Label labelNhanVien;
-        private System.Windows.Forms.Label lblNhanVienValue;
-        private System.Windows.Forms.Label labelThanhVien;
-        private System.Windows.Forms.Label lblThanhVienValue;
-        private System.Windows.Forms.Label labelNgayMuon;
-        private System.Windows.Forms.Label lblNgayMuonValue;
-        private System.Windows.Forms.Label labelHanTra;
-        private System.Windows.Forms.Label lblHanTraValue;
-        private System.Windows.Forms.Label labelSach;
-        private System.Windows.Forms.ListBox listBoxSach;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelButtons;
-        private System.Windows.Forms.Button btnQuayLai;
+        private Panel panelTop;
+        private Label labelTitle;
+        private Panel panelContent;
+        private TableLayoutPanel tableLayoutPanelInfo;
+        private Label labelIdPhieuMuon;
+        private TextBox textBoxIdPhieuMuon;
+        private Label labelNhanVien;
+        private TextBox textBoxNhanVien;
+        private Label labelDocGia;
+        private TextBox textBoxDocGia;
+        private Label labelNgayMuon;
+        private TextBox textBoxNgayMuon;
+        private Label labelNgayHenTra;
+        private TextBox textBoxNgayHenTra;
+        private Label labelTrangThai;
+        private TextBox textBoxTrangThai;
+        private DataGridView dgvSachMuon;
+        private Button btnDong;
     }
 }

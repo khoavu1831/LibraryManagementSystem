@@ -24,12 +24,12 @@ namespace LibraryManagementSystem.Entities
         [ForeignKey("IdTheThanhVien")]
         public TheThanhVien? TheThanhVien { get; set; }
         public ICollection<ChiTietPhieuMuon>? ChiTietPhieuMuons { get; set; }
+
         public enum TrangThaiEnum
         {
-            DangMuon,
+            DangMuon,   
             DaTra,
-            QuaHen
+            QuaHan     
         }
-
     }
 }

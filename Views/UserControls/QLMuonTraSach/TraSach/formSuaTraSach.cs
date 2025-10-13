@@ -1,51 +1,106 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Repository;
+using LibraryManagementSystem.Services;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
 {
     public partial class FormSuaTraSach : Form
     {
+        private readonly LibraryDbContext _context;
+        private readonly ChiTietPhieuMuonRepository _chiTietRepo;
+        private ChiTietPhieuMuon? _chiTiet;
+
         public FormSuaTraSach()
         {
             InitializeComponent();
-            LoadData();
+            _context = new LibraryDbContext();
+            _chiTietRepo = new ChiTietPhieuMuonRepository(_context);
         }
 
-        private void LoadData()
+        public void SetChiTietId(int idChiTietPhieuMuon)
         {
-            textBoxNhanVien.Text = "NV1 - Nguyễn A";
-            textBoxThanhVien.Text = "TV101 - Lê C";
-            textBoxNgayMuon.Text = DateTime.Now.AddDays(-7).ToShortDateString();
-            textBoxHanTra.Text = DateTime.Now.ToShortDateString();
-            dateTimePickerNgayTra.Value = DateTime.Now;
+            _chiTiet = _chiTietRepo.GetById(idChiTietPhieuMuon);
+            if (_chiTiet == null)
+            {
+                MessageBox.Show("Không tìm thấy chi tiết phiếu mượn.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+                return;
+            }
 
-            checkedListBoxSach.Items.Clear();
-            checkedListBoxSach.Items.Add("Bản sao #001 - Lập trình C#");
-            checkedListBoxSach.Items.Add("Bản sao #002 - Cơ sở dữ liệu");
-            checkedListBoxSach.Items.Add("Bản sao #003 - Hệ điều hành");
+            textBoxIdPhieuMuon.Text = _chiTiet.IdPhieuMuon.ToString();
+            textBoxIdChiTiet.Text = _chiTiet.IdChiTietPhieuMuon.ToString();
+            textBoxIdBanSao.Text = _chiTiet.IdBanSaoSach.ToString();
+            textBoxTenSach.Text = _chiTiet.BanSaoSach?.Sach?.TenSach ?? "(Không có dữ liệu)";
+            dateTimePickerNgayTra.Value = _chiTiet.NgayTra ?? DateTime.Now;
 
-            checkedListBoxSach.SetItemChecked(0, true);
-            checkedListBoxSach.SetItemChecked(1, true);
+            comboBoxTinhTrang.SelectedItem = _chiTiet.TinhTrangTra switch
+            {
+                ChiTietPhieuMuon.TinhTrangTraEnum.Tot => "Tốt",
+                ChiTietPhieuMuon.TinhTrangTraEnum.HuHong => "Hư hỏng",
+                ChiTietPhieuMuon.TinhTrangTraEnum.Mat => "Mất",
+                _ => "Tốt"
+            };
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Đã cập nhật thông tin phiếu trả. (Thêm logic DB vào)", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if (_chiTiet == null)
+            {
+                MessageBox.Show("Không có dữ liệu chi tiết để lưu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                string tinhTrangStr = comboBoxTinhTrang.SelectedItem?.ToString() ?? "Tốt";
+                var tinhTrang = tinhTrangStr switch
+                {
+                    "Tốt" => ChiTietPhieuMuon.TinhTrangTraEnum.Tot,
+                    "Hư hỏng" => ChiTietPhieuMuon.TinhTrangTraEnum.HuHong,
+                    "Mất" => ChiTietPhieuMuon.TinhTrangTraEnum.Mat,
+                    _ => ChiTietPhieuMuon.TinhTrangTraEnum.Tot
+                };
+
+                _chiTiet.NgayTra = dateTimePickerNgayTra.Value;
+                _chiTiet.TinhTrangTra = tinhTrang;
+                _chiTietRepo.Update(_chiTiet);
+
+                var banSao = _context.BanSaoSachs.FirstOrDefault(bs => bs.IdBanSaoSach == _chiTiet.IdBanSaoSach);
+                if (banSao != null)
+                {
+                    banSao.TinhTrangSach = tinhTrang switch
+                    {
+                        ChiTietPhieuMuon.TinhTrangTraEnum.Tot => BanSaoSach.TinhTrangSachEnum.Tot,
+                        ChiTietPhieuMuon.TinhTrangTraEnum.HuHong => BanSaoSach.TinhTrangSachEnum.Hong,
+                        ChiTietPhieuMuon.TinhTrangTraEnum.Mat => BanSaoSach.TinhTrangSachEnum.Mat,
+                        _ => BanSaoSach.TinhTrangSachEnum.Tot
+                    };
+
+                    _context.BanSaoSachs.Update(banSao);
+                    _context.SaveChanges();
+                }
+
+                MessageBox.Show("Cập nhật thông tin trả sách thành công!", "Thành công",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi lưu: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }

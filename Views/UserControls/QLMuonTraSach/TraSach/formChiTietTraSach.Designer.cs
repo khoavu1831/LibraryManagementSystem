@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
+﻿namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
 {
     partial class FormChiTietTraSach
     {
@@ -10,9 +7,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
             base.Dispose(disposing);
         }
 
@@ -23,246 +18,209 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
             labelTitle = new Label();
             panelTop = new Panel();
             panelContent = new Panel();
-            tableLayoutPanelButtons = new TableLayoutPanel();
-            btnQuayLai = new Button();
-            tableLayoutPanelContent = new TableLayoutPanel();
+            labelIdChiTiet = new Label();
+            textBoxIdChiTiet = new TextBox();
+            labelIdPhieuMuon = new Label();
+            textBoxIdPhieuMuon = new TextBox();
             labelNhanVien = new Label();
-            lblNhanVienValue = new Label();
-            labelThanhVien = new Label();
-            lblThanhVienValue = new Label();
+            textBoxNhanVien = new TextBox();
+            labelDocGia = new Label();
+            textBoxDocGia = new TextBox();
+            labelTenSach = new Label();
+            textBoxTenSach = new TextBox();
             labelNgayMuon = new Label();
-            lblNgayMuonValue = new Label();
-            labelHanTra = new Label();
-            lblHanTraValue = new Label();
+            textBoxNgayMuon = new TextBox();
+            labelNgayHenTra = new Label();
+            textBoxNgayHenTra = new TextBox();
             labelNgayTra = new Label();
-            lblNgayTraValue = new Label();
-            labelSach = new Label();
-            listBoxSach = new ListBox();
+            textBoxNgayTra = new TextBox();
+            labelTinhTrangTra = new Label();
+            textBoxTinhTrangTra = new TextBox();
+            btnDong = new Button();
             panelTop.SuspendLayout();
             panelContent.SuspendLayout();
-            tableLayoutPanelButtons.SuspendLayout();
-            tableLayoutPanelContent.SuspendLayout();
             SuspendLayout();
-            // 
-            // labelTitle
-            // 
-            labelTitle.BackColor = SystemColors.HotTrack;
+      
             labelTitle.Dock = DockStyle.Fill;
-            labelTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            labelTitle.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             labelTitle.ForeColor = Color.White;
             labelTitle.Location = new Point(0, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(589, 100);
+            labelTitle.Size = new Size(600, 70);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "CHI TIẾT PHIẾU TRẢ";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // panelTop
-            // 
+      
+            panelTop.BackColor = SystemColors.HotTrack;
             panelTop.Controls.Add(labelTitle);
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(589, 100);
-            panelTop.TabIndex = 0;
-            // 
-            // panelContent
-            // 
-            panelContent.Controls.Add(tableLayoutPanelButtons);
-            panelContent.Controls.Add(tableLayoutPanelContent);
+            panelTop.Size = new Size(600, 70);
+            panelTop.TabIndex = 1;
+        
+            panelContent.BackColor = Color.White;
+            panelContent.Controls.Add(labelIdChiTiet);
+            panelContent.Controls.Add(textBoxIdChiTiet);
+            panelContent.Controls.Add(labelIdPhieuMuon);
+            panelContent.Controls.Add(textBoxIdPhieuMuon);
+            panelContent.Controls.Add(labelNhanVien);
+            panelContent.Controls.Add(textBoxNhanVien);
+            panelContent.Controls.Add(labelDocGia);
+            panelContent.Controls.Add(textBoxDocGia);
+            panelContent.Controls.Add(labelTenSach);
+            panelContent.Controls.Add(textBoxTenSach);
+            panelContent.Controls.Add(labelNgayMuon);
+            panelContent.Controls.Add(textBoxNgayMuon);
+            panelContent.Controls.Add(labelNgayHenTra);
+            panelContent.Controls.Add(textBoxNgayHenTra);
+            panelContent.Controls.Add(labelNgayTra);
+            panelContent.Controls.Add(textBoxNgayTra);
+            panelContent.Controls.Add(labelTinhTrangTra);
+            panelContent.Controls.Add(textBoxTinhTrangTra);
+            panelContent.Controls.Add(btnDong);
             panelContent.Dock = DockStyle.Fill;
-            panelContent.Location = new Point(0, 100);
+            panelContent.Location = new Point(0, 70);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(589, 429);
-            panelContent.TabIndex = 1;
-            // 
-            // tableLayoutPanelButtons
-            // 
-            tableLayoutPanelButtons.ColumnCount = 1;
-            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanelButtons.Controls.Add(btnQuayLai, 0, 0);
-            tableLayoutPanelButtons.Location = new Point(190, 360);
-            tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
-            tableLayoutPanelButtons.RowCount = 1;
-            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelButtons.Size = new Size(200, 50);
-            tableLayoutPanelButtons.TabIndex = 1;
-            // 
-            // btnQuayLai
-            // 
-            btnQuayLai.Dock = DockStyle.Fill;
-            btnQuayLai.Location = new Point(3, 3);
-            btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(194, 44);
-            btnQuayLai.TabIndex = 15;
-            btnQuayLai.Text = "Quay lại";
-            btnQuayLai.UseVisualStyleBackColor = true;
-            btnQuayLai.Click += btnQuayLai_Click;
-            // 
-            // tableLayoutPanelContent
-            // 
-            tableLayoutPanelContent.ColumnCount = 2;
-            tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
-            tableLayoutPanelContent.Controls.Add(labelNhanVien, 0, 0);
-            tableLayoutPanelContent.Controls.Add(lblNhanVienValue, 1, 0);
-            tableLayoutPanelContent.Controls.Add(labelThanhVien, 0, 1);
-            tableLayoutPanelContent.Controls.Add(lblThanhVienValue, 1, 1);
-            tableLayoutPanelContent.Controls.Add(labelNgayMuon, 0, 2);
-            tableLayoutPanelContent.Controls.Add(lblNgayMuonValue, 1, 2);
-            tableLayoutPanelContent.Controls.Add(labelHanTra, 0, 3);
-            tableLayoutPanelContent.Controls.Add(lblHanTraValue, 1, 3);
-            tableLayoutPanelContent.Controls.Add(labelNgayTra, 0, 4);
-            tableLayoutPanelContent.Controls.Add(lblNgayTraValue, 1, 4);
-            tableLayoutPanelContent.Controls.Add(labelSach, 0, 5);
-            tableLayoutPanelContent.Controls.Add(listBoxSach, 1, 5);
-            tableLayoutPanelContent.Location = new Point(50, 20);
-            tableLayoutPanelContent.Name = "tableLayoutPanelContent";
-            tableLayoutPanelContent.RowCount = 6;
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelContent.Size = new Size(500, 320);
-            tableLayoutPanelContent.TabIndex = 0;
-            // 
-            // labelNhanVien
-            // 
-            labelNhanVien.Anchor = AnchorStyles.Left;
-            labelNhanVien.AutoSize = true;
-            labelNhanVien.Location = new Point(3, 4);
+            panelContent.Padding = new Padding(40, 20, 40, 20);
+            panelContent.Size = new Size(600, 390);
+            panelContent.TabIndex = 0;
+      
+            labelIdChiTiet.Location = new Point(30, 20);
+            labelIdChiTiet.Name = "labelIdChiTiet";
+            labelIdChiTiet.Size = new Size(120, 25);
+            labelIdChiTiet.TabIndex = 0;
+            labelIdChiTiet.Text = "Mã Chi Tiết PM:";
+            labelIdChiTiet.TextAlign = ContentAlignment.MiddleLeft;
+       
+            textBoxIdChiTiet.Location = new Point(160, 18);
+            textBoxIdChiTiet.Name = "textBoxIdChiTiet";
+            textBoxIdChiTiet.ReadOnly = true;
+            textBoxIdChiTiet.Size = new Size(380, 23);
+            textBoxIdChiTiet.TabIndex = 1;
+       
+            labelIdPhieuMuon.Location = new Point(30, 53);
+            labelIdPhieuMuon.Name = "labelIdPhieuMuon";
+            labelIdPhieuMuon.Size = new Size(120, 25);
+            labelIdPhieuMuon.TabIndex = 2;
+            labelIdPhieuMuon.Text = "Mã Phiếu Mượn:";
+            labelIdPhieuMuon.TextAlign = ContentAlignment.MiddleLeft;
+        
+            textBoxIdPhieuMuon.Location = new Point(160, 51);
+            textBoxIdPhieuMuon.Name = "textBoxIdPhieuMuon";
+            textBoxIdPhieuMuon.ReadOnly = true;
+            textBoxIdPhieuMuon.Size = new Size(380, 23);
+            textBoxIdPhieuMuon.TabIndex = 3;
+        
+            labelNhanVien.Location = new Point(30, 86);
             labelNhanVien.Name = "labelNhanVien";
-            labelNhanVien.Size = new Size(103, 20);
-            labelNhanVien.TabIndex = 0;
-            labelNhanVien.Text = "Nhân viên lập:";
-            // 
-            // lblNhanVienValue
-            // 
-            lblNhanVienValue.Anchor = AnchorStyles.Left;
-            lblNhanVienValue.AutoSize = true;
-            lblNhanVienValue.Location = new Point(153, 4);
-            lblNhanVienValue.Name = "lblNhanVienValue";
-            lblNhanVienValue.Size = new Size(94, 20);
-            lblNhanVienValue.TabIndex = 1;
-            lblNhanVienValue.Text = "(Tên NV ở đây)";
-            // 
-            // labelThanhVien
-            // 
-            labelThanhVien.Anchor = AnchorStyles.Left;
-            labelThanhVien.AutoSize = true;
-            labelThanhVien.Location = new Point(3, 32);
-            labelThanhVien.Name = "labelThanhVien";
-            labelThanhVien.Size = new Size(83, 20);
-            labelThanhVien.TabIndex = 2;
-            labelThanhVien.Text = "Thành viên:";
-            // 
-            // lblThanhVienValue
-            // 
-            lblThanhVienValue.Anchor = AnchorStyles.Left;
-            lblThanhVienValue.AutoSize = true;
-            lblThanhVienValue.Location = new Point(153, 32);
-            lblThanhVienValue.Name = "lblThanhVienValue";
-            lblThanhVienValue.Size = new Size(107, 20);
-            lblThanhVienValue.TabIndex = 3;
-            lblThanhVienValue.Text = "(Tên TV ở đây)";
-            // 
-            // labelNgayMuon
-            // 
-            labelNgayMuon.Anchor = AnchorStyles.Left;
-            labelNgayMuon.AutoSize = true;
-            labelNgayMuon.Location = new Point(3, 60);
+            labelNhanVien.Size = new Size(120, 25);
+            labelNhanVien.TabIndex = 4;
+            labelNhanVien.Text = "Nhân Viên:";
+            labelNhanVien.TextAlign = ContentAlignment.MiddleLeft;
+        
+            textBoxNhanVien.Location = new Point(160, 84);
+            textBoxNhanVien.Name = "textBoxNhanVien";
+            textBoxNhanVien.ReadOnly = true;
+            textBoxNhanVien.Size = new Size(380, 23);
+            textBoxNhanVien.TabIndex = 5;
+      
+            labelDocGia.Location = new Point(30, 119);
+            labelDocGia.Name = "labelDocGia";
+            labelDocGia.Size = new Size(120, 25);
+            labelDocGia.TabIndex = 6;
+            labelDocGia.Text = "Độc Giả:";
+            labelDocGia.TextAlign = ContentAlignment.MiddleLeft;
+      
+            textBoxDocGia.Location = new Point(160, 117);
+            textBoxDocGia.Name = "textBoxDocGia";
+            textBoxDocGia.ReadOnly = true;
+            textBoxDocGia.Size = new Size(380, 23);
+            textBoxDocGia.TabIndex = 7;
+         
+            labelTenSach.Location = new Point(30, 152);
+            labelTenSach.Name = "labelTenSach";
+            labelTenSach.Size = new Size(120, 25);
+            labelTenSach.TabIndex = 8;
+            labelTenSach.Text = "Tên Sách:";
+            labelTenSach.TextAlign = ContentAlignment.MiddleLeft;
+         
+            textBoxTenSach.Location = new Point(160, 150);
+            textBoxTenSach.Name = "textBoxTenSach";
+            textBoxTenSach.ReadOnly = true;
+            textBoxTenSach.Size = new Size(380, 23);
+            textBoxTenSach.TabIndex = 9;
+       
+            labelNgayMuon.Location = new Point(30, 185);
             labelNgayMuon.Name = "labelNgayMuon";
-            labelNgayMuon.Size = new Size(90, 20);
-            labelNgayMuon.TabIndex = 4;
-            labelNgayMuon.Text = "Ngày mượn:";
-            // 
-            // lblNgayMuonValue
-            // 
-            lblNgayMuonValue.Anchor = AnchorStyles.Left;
-            lblNgayMuonValue.AutoSize = true;
-            lblNgayMuonValue.Location = new Point(153, 60);
-            lblNgayMuonValue.Name = "lblNgayMuonValue";
-            lblNgayMuonValue.Size = new Size(97, 20);
-            lblNgayMuonValue.TabIndex = 5;
-            lblNgayMuonValue.Text = "(dd/MM/yyyy)";
-            // 
-            // labelHanTra
-            // 
-            labelHanTra.Anchor = AnchorStyles.Left;
-            labelHanTra.AutoSize = true;
-            labelHanTra.Location = new Point(3, 88);
-            labelHanTra.Name = "labelHanTra";
-            labelHanTra.Size = new Size(61, 20);
-            labelHanTra.TabIndex = 6;
-            labelHanTra.Text = "Hạn trả:";
-            // 
-            // lblHanTraValue
-            // 
-            lblHanTraValue.Anchor = AnchorStyles.Left;
-            lblHanTraValue.AutoSize = true;
-            lblHanTraValue.Location = new Point(153, 88);
-            lblHanTraValue.Name = "lblHanTraValue";
-            lblHanTraValue.Size = new Size(97, 20);
-            lblHanTraValue.TabIndex = 7;
-            lblHanTraValue.Text = "(dd/MM/yyyy)";
-            // 
-            // labelNgayTra
-            // 
-            labelNgayTra.Anchor = AnchorStyles.Left;
-            labelNgayTra.AutoSize = true;
-            labelNgayTra.Location = new Point(3, 116);
+            labelNgayMuon.Size = new Size(120, 25);
+            labelNgayMuon.TabIndex = 10;
+            labelNgayMuon.Text = "Ngày Mượn:";
+            labelNgayMuon.TextAlign = ContentAlignment.MiddleLeft;
+          
+            textBoxNgayMuon.Location = new Point(160, 183);
+            textBoxNgayMuon.Name = "textBoxNgayMuon";
+            textBoxNgayMuon.ReadOnly = true;
+            textBoxNgayMuon.Size = new Size(380, 23);
+            textBoxNgayMuon.TabIndex = 11;
+       
+            labelNgayHenTra.Location = new Point(30, 218);
+            labelNgayHenTra.Name = "labelNgayHenTra";
+            labelNgayHenTra.Size = new Size(120, 25);
+            labelNgayHenTra.TabIndex = 12;
+            labelNgayHenTra.Text = "Hẹn Trả:";
+            labelNgayHenTra.TextAlign = ContentAlignment.MiddleLeft;
+        
+            textBoxNgayHenTra.Location = new Point(160, 216);
+            textBoxNgayHenTra.Name = "textBoxNgayHenTra";
+            textBoxNgayHenTra.ReadOnly = true;
+            textBoxNgayHenTra.Size = new Size(380, 23);
+            textBoxNgayHenTra.TabIndex = 13;
+       
+            labelNgayTra.Location = new Point(30, 251);
             labelNgayTra.Name = "labelNgayTra";
-            labelNgayTra.Size = new Size(70, 20);
-            labelNgayTra.TabIndex = 8;
-            labelNgayTra.Text = "Ngày trả:";
-            // 
-            // lblNgayTraValue
-            // 
-            lblNgayTraValue.Anchor = AnchorStyles.Left;
-            lblNgayTraValue.AutoSize = true;
-            lblNgayTraValue.Location = new Point(153, 116);
-            lblNgayTraValue.Name = "lblNgayTraValue";
-            lblNgayTraValue.Size = new Size(97, 20);
-            lblNgayTraValue.TabIndex = 9;
-            lblNgayTraValue.Text = "(dd/MM/yyyy)";
-            // 
-            // labelSach
-            // 
-            labelSach.Anchor = AnchorStyles.Left;
-            labelSach.AutoSize = true;
-            labelSach.Location = new Point(3, 196);
-            labelSach.Name = "labelSach";
-            labelSach.Size = new Size(78, 20);
-            labelSach.TabIndex = 10;
-            labelSach.Text = "Sách trả lại:";
-            // 
-            // listBoxSach
-            // 
-            listBoxSach.Dock = DockStyle.Fill;
-            listBoxSach.FormattingEnabled = true;
-            listBoxSach.ItemHeight = 20;
-            listBoxSach.Location = new Point(153, 143);
-            listBoxSach.Name = "listBoxSach";
-            listBoxSach.SelectionMode = SelectionMode.None;
-            listBoxSach.Size = new Size(344, 174);
-            listBoxSach.TabIndex = 11;
-            // 
-            // FormChiTietTraSach
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(589, 529);
+            labelNgayTra.Size = new Size(120, 25);
+            labelNgayTra.TabIndex = 14;
+            labelNgayTra.Text = "Ngày Trả:";
+            labelNgayTra.TextAlign = ContentAlignment.MiddleLeft;
+        
+            textBoxNgayTra.Location = new Point(160, 249);
+            textBoxNgayTra.Name = "textBoxNgayTra";
+            textBoxNgayTra.ReadOnly = true;
+            textBoxNgayTra.Size = new Size(380, 23);
+            textBoxNgayTra.TabIndex = 15;
+        
+            labelTinhTrangTra.Location = new Point(30, 284);
+            labelTinhTrangTra.Name = "labelTinhTrangTra";
+            labelTinhTrangTra.Size = new Size(120, 25);
+            labelTinhTrangTra.TabIndex = 16;
+            labelTinhTrangTra.Text = "Tình Trạng Trả:";
+            labelTinhTrangTra.TextAlign = ContentAlignment.MiddleLeft;
+        
+            textBoxTinhTrangTra.Location = new Point(160, 282);
+            textBoxTinhTrangTra.Name = "textBoxTinhTrangTra";
+            textBoxTinhTrangTra.ReadOnly = true;
+            textBoxTinhTrangTra.Size = new Size(380, 23);
+            textBoxTinhTrangTra.TabIndex = 17;
+  
+            btnDong.Location = new Point(223, 332);
+            btnDong.Name = "btnDong";
+            btnDong.Size = new Size(140, 35);
+            btnDong.TabIndex = 18;
+            btnDong.Text = "Đóng";
+            btnDong.Click += btnDong_Click;
+     
+            ClientSize = new Size(600, 460);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "FormChiTietTraSach";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Chi Tiết Phiếu Trả";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
-            tableLayoutPanelButtons.ResumeLayout(false);
-            tableLayoutPanelContent.ResumeLayout(false);
-            tableLayoutPanelContent.PerformLayout();
+            panelContent.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -271,20 +229,24 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
         private Panel panelTop;
         private Label labelTitle;
         private Panel panelContent;
-        private TableLayoutPanel tableLayoutPanelContent;
+        private Label labelIdChiTiet;
+        private TextBox textBoxIdChiTiet;
+        private Label labelIdPhieuMuon;
+        private TextBox textBoxIdPhieuMuon;
         private Label labelNhanVien;
-        private Label lblNhanVienValue;
-        private Label labelThanhVien;
-        private Label lblThanhVienValue;
+        private TextBox textBoxNhanVien;
+        private Label labelDocGia;
+        private TextBox textBoxDocGia;
+        private Label labelTenSach;
+        private TextBox textBoxTenSach;
         private Label labelNgayMuon;
-        private Label lblNgayMuonValue;
-        private Label labelHanTra;
-        private Label lblHanTraValue;
+        private TextBox textBoxNgayMuon;
+        private Label labelNgayHenTra;
+        private TextBox textBoxNgayHenTra;
         private Label labelNgayTra;
-        private Label lblNgayTraValue;
-        private Label labelSach;
-        private ListBox listBoxSach;
-        private TableLayoutPanel tableLayoutPanelButtons;
-        private Button btnQuayLai;
+        private TextBox textBoxNgayTra;
+        private Label labelTinhTrangTra;
+        private TextBox textBoxTinhTrangTra;
+        private Button btnDong;
     }
 }

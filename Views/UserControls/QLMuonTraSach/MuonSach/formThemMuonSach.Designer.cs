@@ -39,79 +39,70 @@
             tableLayoutPanelButtons.SuspendLayout();
             tableLayoutPanelContent.SuspendLayout();
             SuspendLayout();
-            // 
-            // labelTitle
-            // 
+
             labelTitle.BackColor = SystemColors.HotTrack;
             labelTitle.Dock = DockStyle.Fill;
             labelTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
             labelTitle.ForeColor = Color.White;
             labelTitle.Location = new Point(0, 0);
             labelTitle.Name = "labelTitle";
-            labelTitle.Size = new Size(589, 100);
+            labelTitle.Size = new Size(700, 60);
             labelTitle.TabIndex = 0;
             labelTitle.Text = "THÊM PHIẾU MƯỢN";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // panelTop
-            // 
+
             panelTop.Controls.Add(labelTitle);
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
+            panelTop.Margin = new Padding(3, 2, 3, 2);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(589, 100);
+            panelTop.Size = new Size(700, 60);
             panelTop.TabIndex = 0;
-            // 
-            // panelContent
-            // 
+    
             panelContent.Controls.Add(tableLayoutPanelButtons);
             panelContent.Controls.Add(tableLayoutPanelContent);
             panelContent.Dock = DockStyle.Fill;
-            panelContent.Location = new Point(0, 100);
+            panelContent.Location = new Point(0, 60);
+            panelContent.Margin = new Padding(3, 2, 3, 2);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(589, 429);
+            panelContent.Size = new Size(700, 352);
             panelContent.TabIndex = 1;
-            // 
-            // tableLayoutPanelButtons
-            // 
+
             tableLayoutPanelButtons.ColumnCount = 2;
             tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanelButtons.Controls.Add(btnThem, 0, 0);
             tableLayoutPanelButtons.Controls.Add(btnHuy, 1, 0);
-            tableLayoutPanelButtons.Location = new Point(97, 347);
+            tableLayoutPanelButtons.Location = new Point(175, 270);
+            tableLayoutPanelButtons.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             tableLayoutPanelButtons.RowCount = 1;
             tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelButtons.Size = new Size(400, 50);
+            tableLayoutPanelButtons.Size = new Size(350, 38);
             tableLayoutPanelButtons.TabIndex = 1;
-            // 
-            // btnThem
-            // 
+
             btnThem.Dock = DockStyle.Top;
-            btnThem.Location = new Point(3, 3);
+            btnThem.Location = new Point(3, 2);
+            btnThem.Margin = new Padding(3, 2, 3, 2);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(194, 44);
+            btnThem.Size = new Size(169, 33);
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
             btnThem.Click += btnThem_Click;
-            // 
-            // btnHuy
-            // 
+   
             btnHuy.Dock = DockStyle.Top;
-            btnHuy.Location = new Point(203, 3);
+            btnHuy.Location = new Point(178, 2);
+            btnHuy.Margin = new Padding(3, 2, 3, 2);
             btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(194, 44);
+            btnHuy.Size = new Size(169, 33);
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.Click += btnHuy_Click;
-            // 
-            // tableLayoutPanelContent
-            // 
+  
             tableLayoutPanelContent.ColumnCount = 2;
-            tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
-            tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+            tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.666666F));
+            tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 83.3333359F));
             tableLayoutPanelContent.Controls.Add(labelNhanVien, 0, 0);
             tableLayoutPanelContent.Controls.Add(comboBoxNhanVien, 1, 0);
             tableLayoutPanelContent.Controls.Add(labelThanhVien, 0, 1);
@@ -122,117 +113,102 @@
             tableLayoutPanelContent.Controls.Add(dateTimePickerHanTra, 1, 3);
             tableLayoutPanelContent.Controls.Add(labelSach, 0, 4);
             tableLayoutPanelContent.Controls.Add(checkedListBoxSach, 1, 4);
-            tableLayoutPanelContent.Location = new Point(50, 20);
+            tableLayoutPanelContent.Location = new Point(44, 15);
+            tableLayoutPanelContent.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelContent.Name = "tableLayoutPanelContent";
             tableLayoutPanelContent.RowCount = 5;
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 21F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 21F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 21F));
+            tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 21F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelContent.Size = new Size(500, 300);
+            tableLayoutPanelContent.Size = new Size(612, 240);
             tableLayoutPanelContent.TabIndex = 0;
-            // 
-            // labelNhanVien
-            // 
+     
             labelNhanVien.Anchor = AnchorStyles.Left;
             labelNhanVien.AutoSize = true;
-            labelNhanVien.Location = new Point(3, 4);
+            labelNhanVien.Location = new Point(3, 3);
             labelNhanVien.Name = "labelNhanVien";
-            labelNhanVien.Size = new Size(103, 20);
+            labelNhanVien.Size = new Size(83, 15);
             labelNhanVien.TabIndex = 0;
             labelNhanVien.Text = "Nhân viên lập:";
-            // 
-            // comboBoxNhanVien
-            // 
+       
             comboBoxNhanVien.Dock = DockStyle.Fill;
-            comboBoxNhanVien.Location = new Point(153, 3);
+            comboBoxNhanVien.Location = new Point(105, 2);
+            comboBoxNhanVien.Margin = new Padding(3, 2, 3, 2);
             comboBoxNhanVien.Name = "comboBoxNhanVien";
-            comboBoxNhanVien.Size = new Size(344, 28);
+            comboBoxNhanVien.Size = new Size(504, 23);
             comboBoxNhanVien.TabIndex = 1;
-            // 
-            // labelThanhVien
-            // 
+     
             labelThanhVien.Anchor = AnchorStyles.Left;
             labelThanhVien.AutoSize = true;
-            labelThanhVien.Location = new Point(3, 32);
+            labelThanhVien.Location = new Point(3, 24);
             labelThanhVien.Name = "labelThanhVien";
-            labelThanhVien.Size = new Size(83, 20);
+            labelThanhVien.Size = new Size(68, 15);
             labelThanhVien.TabIndex = 2;
             labelThanhVien.Text = "Thành viên:";
-            // 
-            // comboBoxThanhVien
-            // 
+         
             comboBoxThanhVien.Dock = DockStyle.Fill;
-            comboBoxThanhVien.Location = new Point(153, 31);
+            comboBoxThanhVien.Location = new Point(105, 23);
+            comboBoxThanhVien.Margin = new Padding(3, 2, 3, 2);
             comboBoxThanhVien.Name = "comboBoxThanhVien";
-            comboBoxThanhVien.Size = new Size(344, 28);
+            comboBoxThanhVien.Size = new Size(504, 23);
             comboBoxThanhVien.TabIndex = 3;
-            // 
-            // labelNgayMuon
-            // 
+       
             labelNgayMuon.Anchor = AnchorStyles.Left;
             labelNgayMuon.AutoSize = true;
-            labelNgayMuon.Location = new Point(3, 60);
+            labelNgayMuon.Location = new Point(3, 45);
             labelNgayMuon.Name = "labelNgayMuon";
-            labelNgayMuon.Size = new Size(90, 20);
+            labelNgayMuon.Size = new Size(73, 15);
             labelNgayMuon.TabIndex = 4;
             labelNgayMuon.Text = "Ngày mượn:";
-            // 
-            // dateTimePickerNgayMuon
-            // 
+      
             dateTimePickerNgayMuon.Dock = DockStyle.Fill;
             dateTimePickerNgayMuon.Format = DateTimePickerFormat.Short;
-            dateTimePickerNgayMuon.Location = new Point(153, 59);
+            dateTimePickerNgayMuon.Location = new Point(105, 44);
+            dateTimePickerNgayMuon.Margin = new Padding(3, 2, 3, 2);
             dateTimePickerNgayMuon.Name = "dateTimePickerNgayMuon";
-            dateTimePickerNgayMuon.Size = new Size(344, 27);
+            dateTimePickerNgayMuon.Size = new Size(504, 23);
             dateTimePickerNgayMuon.TabIndex = 5;
-            // 
-            // labelHanTra
-            // 
+        
             labelHanTra.Anchor = AnchorStyles.Left;
             labelHanTra.AutoSize = true;
-            labelHanTra.Location = new Point(3, 88);
+            labelHanTra.Location = new Point(3, 66);
             labelHanTra.Name = "labelHanTra";
-            labelHanTra.Size = new Size(61, 20);
+            labelHanTra.Size = new Size(49, 15);
             labelHanTra.TabIndex = 6;
             labelHanTra.Text = "Hạn trả:";
-            // 
-            // dateTimePickerHanTra
-            // 
+          
             dateTimePickerHanTra.Dock = DockStyle.Fill;
             dateTimePickerHanTra.Format = DateTimePickerFormat.Short;
-            dateTimePickerHanTra.Location = new Point(153, 87);
+            dateTimePickerHanTra.Location = new Point(105, 65);
+            dateTimePickerHanTra.Margin = new Padding(3, 2, 3, 2);
             dateTimePickerHanTra.Name = "dateTimePickerHanTra";
-            dateTimePickerHanTra.Size = new Size(344, 27);
+            dateTimePickerHanTra.Size = new Size(504, 23);
             dateTimePickerHanTra.TabIndex = 7;
-            // 
-            // labelSach
-            // 
+       
             labelSach.Anchor = AnchorStyles.Left;
             labelSach.AutoSize = true;
-            labelSach.Location = new Point(3, 196);
+            labelSach.Location = new Point(3, 154);
             labelSach.Name = "labelSach";
-            labelSach.Size = new Size(86, 20);
+            labelSach.Size = new Size(70, 15);
             labelSach.TabIndex = 8;
             labelSach.Text = "Sách mượn:";
-            // 
-            // checkedListBoxSach
-            // 
+     
             checkedListBoxSach.CheckOnClick = true;
             checkedListBoxSach.Dock = DockStyle.Fill;
-            checkedListBoxSach.Location = new Point(153, 115);
+            checkedListBoxSach.Location = new Point(105, 86);
+            checkedListBoxSach.Margin = new Padding(3, 2, 3, 2);
             checkedListBoxSach.Name = "checkedListBoxSach";
-            checkedListBoxSach.Size = new Size(344, 182);
+            checkedListBoxSach.Size = new Size(504, 152);
             checkedListBoxSach.TabIndex = 9;
-            // 
-            // FormThemMuonSach
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+       
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(589, 529);
+            ClientSize = new Size(700, 412);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemMuonSach";
             Text = "Thêm Phiếu Mượn";
             panelTop.ResumeLayout(false);
