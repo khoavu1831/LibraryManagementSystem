@@ -33,10 +33,12 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
             {
                 var repo = new Repository.VaiTroRepository(context);
                 var vaiTroService = new Services.VaiTroService(repo);
-                vaiTroService.UpdateVaiTro(new Entities.VaiTro { IdVaiTro = _idVaiTro, TenVaiTro = tenVaiTro });
-                this.Close();
-                MessageBox.Show("Sửa vai trò thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DialogResult = DialogResult.OK;
+                if(vaiTroService.UpdateVaiTro(new Entities.VaiTro { IdVaiTro = _idVaiTro, TenVaiTro = tenVaiTro }) == true)
+                {
+                    this.Close();
+                    MessageBox.Show("Sửa vai trò thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                }
             }
         }
     }

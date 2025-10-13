@@ -43,10 +43,12 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
         {
 
             string tenVaiTro = textBoxHVT.Text.Trim();
-            _vaiTroService.AddVaiTro(new Entities.VaiTro { TenVaiTro = tenVaiTro });
-            this.Close();
-            MessageBox.Show("Thêm vai trò thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
+            if(_vaiTroService.AddVaiTro(new Entities.VaiTro { TenVaiTro = tenVaiTro }))
+            {
+                this.Close();
+                MessageBox.Show("Thêm vai trò thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
+            }
         }
     }
 }
