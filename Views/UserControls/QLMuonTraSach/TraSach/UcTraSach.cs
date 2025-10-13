@@ -128,7 +128,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
 
         private void btnSua_Click(object? sender, EventArgs e)
         {
-            if (dgvTraSach.SelectedRows.Count == 0)
+            if (dgvTraSach.SelectedCells.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn một dòng để sửa.", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -137,7 +137,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
 
             try
             {
-                var selectedRow = dgvTraSach.SelectedRows[0];
+                int rowIndex = dgvTraSach.SelectedCells[0].RowIndex;
+                var selectedRow = dgvTraSach.Rows[rowIndex];
                 int idChiTietPhieuMuon = Convert.ToInt32(selectedRow.Cells["IdChiTietPhieuMuon"].Value);
 
                 using (var formSua = new FormSuaTraSach())
@@ -158,14 +159,15 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            if (dgvTraSach.SelectedRows.Count == 0)
+            if (dgvTraSach.SelectedCells.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn một dòng để xem chi tiết.",
                                 "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
-            int idChiTiet = Convert.ToInt32(dgvTraSach.SelectedRows[0].Cells["IdChiTietPhieuMuon"].Value);
+            int rowIndex = dgvTraSach.SelectedCells[0].RowIndex;
+            int idChiTiet = Convert.ToInt32(dgvTraSach.Rows[rowIndex].Cells["IdChiTietPhieuMuon"].Value);
 
             using (var f = new FormChiTietTraSach(idChiTiet))
             {
@@ -176,7 +178,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dgvTraSach.SelectedRows.Count == 0)
+            if (dgvTraSach.SelectedCells.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn một dòng để xóa.", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -185,7 +187,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
 
             try
             {
-                var selectedRow = dgvTraSach.SelectedRows[0];
+                int rowIndex = dgvTraSach.SelectedCells[0].RowIndex;
+                var selectedRow = dgvTraSach.Rows[rowIndex];
                 int idChiTietPhieuMuon = Convert.ToInt32(selectedRow.Cells["IdChiTietPhieuMuon"].Value);
 
                 var chiTiet = _context.ChiTietPhieuMuons
@@ -237,6 +240,18 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach
             {
                 MessageBox.Show($"Lỗi khi xóa: {ex.Message}", "Lỗi",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvTraSach_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dgvTraSach.ClearSelection();
+                foreach (DataGridViewCell cell in dgvTraSach.Rows[e.RowIndex].Cells)
+                {
+                    cell.Selected = true;
+                }
             }
         }
     }

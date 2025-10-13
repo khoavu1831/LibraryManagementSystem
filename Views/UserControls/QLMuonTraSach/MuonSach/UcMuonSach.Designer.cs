@@ -188,10 +188,11 @@
             dgvMuonSach.Dock = DockStyle.Fill;
             dgvMuonSach.Location = new Point(0, 72);
             dgvMuonSach.Name = "dgvMuonSach";
-            dgvMuonSach.RowHeadersVisible = false;
-            dgvMuonSach.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMuonSach.RowHeadersVisible = true;
+            dgvMuonSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvMuonSach.Size = new Size(774, 491);
             dgvMuonSach.TabIndex = 0;
+            dgvMuonSach.RowHeaderMouseClick += dgvMuonSach_RowHeaderMouseClick;
             // 
             // UcMuonSach
             // 
