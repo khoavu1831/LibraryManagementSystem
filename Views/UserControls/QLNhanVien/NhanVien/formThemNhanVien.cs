@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Repository;
 using LibraryManagementSystem.Services;
 using System;
@@ -80,10 +81,13 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien
 
             //_taiKhoanService.AddTaiKhoan(new Entities.TaiKhoan { IdVaiTro = 2,TenTaiKhoan = taiKhoan, MatKhau = matKhau });
             //_nhanVienService.AddNhanVien(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email});
-            _nhanVienService.AddNVTK(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email, NgaySinh = ngaySinh }, new Entities.TaiKhoan { IdVaiTro = 2, TenTaiKhoan = taiKhoan, MatKhau = matKhau });
-            MessageBox.Show("Thêm nhân viên thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DialogResult = DialogResult.OK;
-            Close();
+            if (_nhanVienService.AddNVTK(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email, NgaySinh = ngaySinh }, new Entities.TaiKhoan { IdVaiTro = 2, TenTaiKhoan = taiKhoan, MatKhau = matKhau }) ==true)
+            {
+                MessageBox.Show("Thêm nhân viên thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            
         }
     }
 }
