@@ -49,7 +49,6 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
                 MessageBox.Show("Thêm vai trò thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
             }
-            
         }
     }
 }

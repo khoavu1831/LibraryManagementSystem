@@ -54,10 +54,13 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
                 {
                     taiKhoan.TenTaiKhoan = tenDangNhap;
                     taiKhoan.MatKhau = matKhau;
-                    taiKhoanService.UpdateTaiKhoan(taiKhoan);
-                    MessageBox.Show("Sửa tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult = DialogResult.OK;
-                    this.Close();
+                    if(taiKhoanService.UpdateTaiKhoan(taiKhoan))
+                    {
+                        MessageBox.Show("Sửa tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                   
                 }
 
 
