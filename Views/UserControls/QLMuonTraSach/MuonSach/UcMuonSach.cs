@@ -17,6 +17,9 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
         public UcMuonSach()
         {
             InitializeComponent();
+           
+            // Gán sự kiện cho DataGridView
+            dgvMuonSach.CellContentClick += dgvMuonSach_CellContentClick;
             this.VisibleChanged += (s, e) =>
             {
                 if (this.Visible)
@@ -49,10 +52,35 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
             }
         }
 
+        // private void BindToGrid(List<PhieuMuon> list)
+        // {
+        //     dgvMuonSach.DataSource = null;
+        //     dgvMuonSach.AutoGenerateColumns = true;
+
+        //     var displayList = list.Select(pm => new
+        //     {
+        //         IdPhieuMuon = pm.IdPhieuMuon,
+        //         TenNhanVien = pm.NhanVien?.TenNhanVien ?? "(Không có)",
+        //         TenDocGia = pm.TheThanhVien?.DocGias?.TenDocGia ?? "(Không có)",
+        //         NgayMuon = pm.NgayMuon.ToString("dd/MM/yyyy"),
+        //         NgayHanTra = pm.NgayHenTra.ToString("dd/MM/yyyy"),
+        //         TrangThai = pm.TrangThai.ToString()
+        //     }).ToList();
+
+        //     dgvMuonSach.DataSource = displayList;
+        //     dgvMuonSach.Columns["IdPhieuMuon"].HeaderText = "Mã Phiếu Mượn";
+        //     dgvMuonSach.Columns["TenNhanVien"].HeaderText = "Nhân Viên";
+        //     dgvMuonSach.Columns["TenDocGia"].HeaderText = "Độc Giả";
+        //     dgvMuonSach.Columns["NgayMuon"].HeaderText = "Ngày Mượn";
+        //     dgvMuonSach.Columns["NgayHanTra"].HeaderText = "Hạn Trả";
+        //     dgvMuonSach.Columns["TrangThai"].HeaderText = "Trạng Thái";
+        // }
+
         private void BindToGrid(List<PhieuMuon> list)
         {
             dgvMuonSach.DataSource = null;
-            dgvMuonSach.AutoGenerateColumns = true;
+            dgvMuonSach.AutoGenerateColumns = false; // Thay đổi thành false
+            dgvMuonSach.Columns.Clear(); // Xóa các cột cũ
 
             var displayList = list.Select(pm => new
             {
@@ -64,13 +92,118 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach
                 TrangThai = pm.TrangThai.ToString()
             }).ToList();
 
+            // Tạo các cột thủ công
+            dgvMuonSach.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "IdPhieuMuon",
+                DataPropertyName = "IdPhieuMuon",
+                HeaderText = "Mã Phiếu Mượn"
+            });
+            
+            dgvMuonSach.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "TenNhanVien",
+                DataPropertyName = "TenNhanVien",
+                HeaderText = "Nhân Viên"
+            });
+            
+            dgvMuonSach.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "TenDocGia",
+                DataPropertyName = "TenDocGia",
+                HeaderText = "Độc Giả"
+            });
+            
+            dgvMuonSach.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "NgayMuon",
+                DataPropertyName = "NgayMuon",
+                HeaderText = "Ngày Mượn"
+            });
+            
+            dgvMuonSach.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "NgayHanTra",
+                DataPropertyName = "NgayHanTra",
+                HeaderText = "Hạn Trả"
+            });
+            
+            dgvMuonSach.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "TrangThai",
+                DataPropertyName = "TrangThai",
+                HeaderText = "Trạng Thái"
+            });
+            
+            // Thêm cột nút Phạt
+            var btnPhat = new DataGridViewButtonColumn
+            {
+                Name = "btnPhat",
+                HeaderText = "Phạt",
+                Text = "Phạt",
+                UseColumnTextForButtonValue = true, // Hiển thị text "Phạt" cho tất cả các nút
+                Width = 60
+            };
+
+            var btnTra = new DataGridViewButtonColumn
+            {
+                Name = "btnTra",
+                HeaderText = "Trả Sách",
+                Text = "Trả Sách",
+                UseColumnTextForButtonValue = true, // Hiển thị text "Trả Sách" cho tất cả các nút
+                Width = 80
+            };
+
+            dgvMuonSach.Columns.Add(btnPhat);
+            dgvMuonSach.Columns.Add(btnTra);
+
             dgvMuonSach.DataSource = displayList;
-            dgvMuonSach.Columns["IdPhieuMuon"].HeaderText = "Mã Phiếu Mượn";
-            dgvMuonSach.Columns["TenNhanVien"].HeaderText = "Nhân Viên";
-            dgvMuonSach.Columns["TenDocGia"].HeaderText = "Độc Giả";
-            dgvMuonSach.Columns["NgayMuon"].HeaderText = "Ngày Mượn";
-            dgvMuonSach.Columns["NgayHanTra"].HeaderText = "Hạn Trả";
-            dgvMuonSach.Columns["TrangThai"].HeaderText = "Trạng Thái";
+            dgvMuonSach.EnableHeadersVisualStyles = false;
+            dgvMuonSach.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvMuonSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvMuonSach.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+        }
+
+        private void dgvMuonSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu click vào cột nút Phạt
+            if (e.RowIndex >= 0 && dgvMuonSach.Columns[e.ColumnIndex].Name == "btnPhat")
+            {
+                try
+                {
+                    int idPhieuMuon = Convert.ToInt32(dgvMuonSach.Rows[e.RowIndex].Cells["IdPhieuMuon"].Value);
+                    
+                    // Lấy thông tin phiếu mượn
+                    var phieuMuon = _phieuMuonService.GetAllPhieuMuon()
+                        .FirstOrDefault(pm => pm.IdPhieuMuon == idPhieuMuon);
+                    
+                    if (phieuMuon == null)
+                    {
+                        MessageBox.Show("Không tìm thấy phiếu mượn.", "Lỗi", 
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    
+                    // Mở form tạo phiếu phạt - bạn cần tạo form này
+                    // using (var formPhat = new FormThemPhieuPhat(idPhieuMuon))
+                    // {
+                    //     if (formPhat.ShowDialog() == DialogResult.OK)
+                    //     {
+                    //         LoadData(); // Refresh lại danh sách nếu cần
+                    //     }
+                    // }
+                    
+                    // Tạm thời hiển thị thông báo để test
+                    MessageBox.Show($"Tạo phiếu phạt cho phiếu mượn #{idPhieuMuon}", 
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi khi tạo phiếu phạt:\n{ex.Message}", 
+                        "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnTimKiem_Click(object? sender, EventArgs e)

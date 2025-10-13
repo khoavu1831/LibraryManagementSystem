@@ -15,10 +15,8 @@ namespace LibraryManagementSystem.Entities
         public int IdChiTietPhieuMuon { get; set; }
         public int IdPhieuMuon { get; set; }
         public string? IdBanSaoSach { get; set; }
-
         public DateTime? NgayTra { get; set; }
         public TinhTrangTraEnum? TinhTrangTra { get; set; }
-
         [ForeignKey("IdPhieuMuon")]
         public PhieuMuon? PhieuMuon { get; set; }
         [ForeignKey("IdBanSaoSach")]

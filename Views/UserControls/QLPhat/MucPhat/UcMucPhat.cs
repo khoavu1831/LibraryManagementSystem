@@ -46,13 +46,16 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
                     dgvMucPhat.AutoGenerateColumns = true;
                     dgvMucPhat.DataSource = mucPhatDataView;
-
-    
-                    dgvMucPhat.Columns["IdMucPhat"].HeaderText = "ID Mức Phạt";
+                    dgvMucPhat.Columns["IdMucPhat"].HeaderText = " Mã Mức Phạt";
                     dgvMucPhat.Columns["TenMucPhat"].HeaderText = "Tên Mức Phạt";
                     dgvMucPhat.Columns["SoTienPhat"].HeaderText = "Số Tiền Phạt";
                     dgvMucPhat.Columns["MoTa"].HeaderText = "Mô Tả";
                     dgvMucPhat.Columns["LoaiPhat"].HeaderText = "Loại Phạt";
+
+                    dgvMucPhat.EnableHeadersVisualStyles = false;
+                    dgvMucPhat.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+                    dgvMucPhat.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    dgvMucPhat.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 }
             }
             catch (Exception ex)

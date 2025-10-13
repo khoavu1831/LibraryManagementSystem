@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelCRUD = new Panel();
             panelSearch = new TableLayoutPanel();
             btnTimKiem = new Button();
@@ -185,10 +186,17 @@
             dgvMuonSach.AllowUserToDeleteRows = false;
             dgvMuonSach.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvMuonSach.BackgroundColor = Color.White;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvMuonSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvMuonSach.Dock = DockStyle.Fill;
             dgvMuonSach.Location = new Point(0, 72);
             dgvMuonSach.Name = "dgvMuonSach";
-            dgvMuonSach.RowHeadersVisible = true;
             dgvMuonSach.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvMuonSach.Size = new Size(774, 491);
             dgvMuonSach.TabIndex = 0;

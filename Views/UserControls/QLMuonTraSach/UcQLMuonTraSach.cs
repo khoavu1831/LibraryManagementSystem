@@ -25,6 +25,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
             panelSubContent.Controls.Clear();
             uc.Dock = DockStyle.Fill;
             panelSubContent.Controls.Add(uc);
+            uc.BringToFront();
         }
         private void btnMuonSach_Click(object sender, EventArgs e)
         {

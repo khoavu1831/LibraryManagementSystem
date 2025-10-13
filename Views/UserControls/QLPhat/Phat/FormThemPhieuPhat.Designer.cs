@@ -295,7 +295,6 @@
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemPhieuPhat";
-            Text = "formThemPhieuPhat";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);
