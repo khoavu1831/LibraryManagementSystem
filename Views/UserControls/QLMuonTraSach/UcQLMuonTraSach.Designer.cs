@@ -30,9 +30,7 @@
             panelSubContent = new Panel();
             panelNavMenu.SuspendLayout();
             SuspendLayout();
-            // 
-            // panelNavMenu
-            // 
+           
             panelNavMenu.BackColor = Color.White;
             panelNavMenu.Controls.Add(btnTraSach);
             panelNavMenu.Controls.Add(btnMuonSach);
@@ -41,9 +39,7 @@
             panelNavMenu.Name = "panelNavMenu";
             panelNavMenu.Size = new Size(861, 67);
             panelNavMenu.TabIndex = 1;
-            // 
-            // btnTraSach
-            // 
+            
             btnTraSach.BackColor = Color.White;
             btnTraSach.Dock = DockStyle.Left;
             btnTraSach.FlatStyle = FlatStyle.Flat;
@@ -54,9 +50,7 @@
             btnTraSach.Text = "Trả Sách";
             btnTraSach.UseVisualStyleBackColor = false;
             btnTraSach.Click += btnTraSach_Click;
-            // 
-            // btnMuonSach
-            // 
+          
             btnMuonSach.BackColor = Color.White;
             btnMuonSach.Dock = DockStyle.Left;
             btnMuonSach.FlatStyle = FlatStyle.Flat;
@@ -67,17 +61,13 @@
             btnMuonSach.Text = "Mượn Sách";
             btnMuonSach.UseVisualStyleBackColor = false;
             btnMuonSach.Click += btnMuonSach_Click;
-            // 
-            // panelSubContent
-            // 
+            
             panelSubContent.Dock = DockStyle.Fill;
             panelSubContent.Location = new Point(0, 67);
             panelSubContent.Name = "panelSubContent";
             panelSubContent.Size = new Size(861, 542);
             panelSubContent.TabIndex = 2;
-            // 
-            // UcQLMuonTra
-            // 
+           
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelSubContent);
