@@ -29,7 +29,9 @@ namespace LibraryManagementSystem.Entities
         public ICollection<ChiTietPhieuNhap>? ChiTietPhieuNhaps { get; set; }
         public enum LoaiPhieuNhapEnum
         {
+            [Display(Name = "Mua")]
             Mua,
+            [Display(Name = "Tặng")]
             Tang
         }
     }
