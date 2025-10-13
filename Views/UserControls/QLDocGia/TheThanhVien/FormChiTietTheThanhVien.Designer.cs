@@ -30,6 +30,7 @@
         {
             labelTitle = new Label();
             panel1 = new Panel();
+            btnQuayLai = new Button();
             dateTimePickerNgayCap = new DateTimePicker();
             dateTimePickerNgayHetHan = new DateTimePicker();
             comboBoxTrangThai = new ComboBox();
@@ -40,7 +41,6 @@
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
-            btnQuayLai = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,6 +75,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(499, 430);
             panel1.TabIndex = 28;
+            // 
+            // btnQuayLai
+            // 
+            btnQuayLai.Location = new Point(156, 340);
+            btnQuayLai.Name = "btnQuayLai";
+            btnQuayLai.Size = new Size(180, 40);
+            btnQuayLai.TabIndex = 37;
+            btnQuayLai.Text = "Quay lại";
+            btnQuayLai.UseVisualStyleBackColor = true;
+            btnQuayLai.Click += btnQuayLai_Click_1;
             // 
             // dateTimePickerNgayCap
             // 
@@ -171,15 +181,6 @@
             label2.TabIndex = 31;
             label2.Text = "ID thẻ thành viên:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // btnQuayLai
-            // 
-            btnQuayLai.Location = new Point(156, 340);
-            btnQuayLai.Name = "btnQuayLai";
-            btnQuayLai.Size = new Size(180, 40);
-            btnQuayLai.TabIndex = 37;
-            btnQuayLai.Text = "Quay lại";
-            btnQuayLai.UseVisualStyleBackColor = true;
             // 
             // FormChiTietTheThanhVien
             // 

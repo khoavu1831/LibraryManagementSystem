@@ -30,11 +30,11 @@
         {
             labelTitle = new Label();
             panel1 = new Panel();
+            dateTimePickerDob = new DateTimePicker();
             tableLayoutPanelButtons = new TableLayoutPanel();
             btnQuayLai = new Button();
             textBoxEmail = new TextBox();
             textBoxSoDienThoai = new TextBox();
-            textBoxNgaySinh = new TextBox();
             textBoxDiaChi = new TextBox();
             textBoxTenKhachHang = new TextBox();
             label5 = new Label();
@@ -61,10 +61,10 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(dateTimePickerDob);
             panel1.Controls.Add(tableLayoutPanelButtons);
             panel1.Controls.Add(textBoxEmail);
             panel1.Controls.Add(textBoxSoDienThoai);
-            panel1.Controls.Add(textBoxNgaySinh);
             panel1.Controls.Add(textBoxDiaChi);
             panel1.Controls.Add(textBoxTenKhachHang);
             panel1.Controls.Add(label5);
@@ -77,6 +77,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(499, 430);
             panel1.TabIndex = 4;
+            // 
+            // dateTimePickerDob
+            // 
+            dateTimePickerDob.CalendarMonthBackground = Color.White;
+            dateTimePickerDob.Enabled = false;
+            dateTimePickerDob.Location = new Point(200, 154);
+            dateTimePickerDob.Name = "dateTimePickerDob";
+            dateTimePickerDob.Size = new Size(278, 27);
+            dateTimePickerDob.TabIndex = 22;
             // 
             // tableLayoutPanelButtons
             // 
@@ -101,6 +110,7 @@
             btnQuayLai.TabIndex = 15;
             btnQuayLai.Text = "Quay lại";
             btnQuayLai.UseVisualStyleBackColor = true;
+            btnQuayLai.Click += btnQuayLai_Click;
             // 
             // textBoxEmail
             // 
@@ -117,14 +127,6 @@
             textBoxSoDienThoai.ReadOnly = true;
             textBoxSoDienThoai.Size = new Size(278, 27);
             textBoxSoDienThoai.TabIndex = 10;
-            // 
-            // textBoxNgaySinh
-            // 
-            textBoxNgaySinh.Location = new Point(200, 147);
-            textBoxNgaySinh.Name = "textBoxNgaySinh";
-            textBoxNgaySinh.ReadOnly = true;
-            textBoxNgaySinh.Size = new Size(278, 27);
-            textBoxNgaySinh.TabIndex = 11;
             // 
             // textBoxDiaChi
             // 
@@ -220,7 +222,6 @@
         private Button btnQuayLai;
         private TextBox textBoxEmail;
         private TextBox textBoxSoDienThoai;
-        private TextBox textBoxNgaySinh;
         private TextBox textBoxDiaChi;
         private TextBox textBoxTenKhachHang;
         private Label label5;
@@ -228,5 +229,6 @@
         private Label label3;
         private Label label1;
         private Label label2;
+        private DateTimePicker dateTimePickerDob;
     }
 }

@@ -38,12 +38,12 @@
             notifyIcon1 = new NotifyIcon(components);
             textBoxTenKhachHang = new TextBox();
             textBoxDiaChi = new TextBox();
-            textBoxNgaySinh = new TextBox();
             textBoxSoDienThoai = new TextBox();
             textBoxEmail = new TextBox();
             tableLayoutPanelButtons = new TableLayoutPanel();
             btnThem = new Button();
             btnHuy = new Button();
+            dateTimePickerDob = new DateTimePicker();
             tableLayoutPanelButtons.SuspendLayout();
             SuspendLayout();
             // 
@@ -134,13 +134,6 @@
             textBoxDiaChi.Size = new Size(278, 27);
             textBoxDiaChi.TabIndex = 3;
             // 
-            // textBoxNgaySinh
-            // 
-            textBoxNgaySinh.Location = new Point(189, 273);
-            textBoxNgaySinh.Name = "textBoxNgaySinh";
-            textBoxNgaySinh.Size = new Size(278, 27);
-            textBoxNgaySinh.TabIndex = 3;
-            // 
             // textBoxSoDienThoai
             // 
             textBoxSoDienThoai.Location = new Point(189, 332);
@@ -179,6 +172,7 @@
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
+            btnThem.Click += btnThem_Click;
             // 
             // btnHuy
             // 
@@ -189,16 +183,24 @@
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
+            // 
+            // dateTimePickerDob
+            // 
+            dateTimePickerDob.Location = new Point(189, 283);
+            dateTimePickerDob.Name = "dateTimePickerDob";
+            dateTimePickerDob.Size = new Size(278, 27);
+            dateTimePickerDob.TabIndex = 21;
             // 
             // FormThemKhachHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(499, 555);
+            Controls.Add(dateTimePickerDob);
             Controls.Add(tableLayoutPanelButtons);
             Controls.Add(textBoxEmail);
             Controls.Add(textBoxSoDienThoai);
-            Controls.Add(textBoxNgaySinh);
             Controls.Add(textBoxDiaChi);
             Controls.Add(textBoxTenKhachHang);
             Controls.Add(label5);
@@ -225,11 +227,11 @@
         private NotifyIcon notifyIcon1;
         private TextBox textBoxTenKhachHang;
         private TextBox textBoxDiaChi;
-        private TextBox textBoxNgaySinh;
         private TextBox textBoxSoDienThoai;
         private TextBox textBoxEmail;
         private TableLayoutPanel tableLayoutPanelButtons;
         private Button btnThem;
         private Button btnHuy;
+        private DateTimePicker dateTimePickerDob;
     }
 }

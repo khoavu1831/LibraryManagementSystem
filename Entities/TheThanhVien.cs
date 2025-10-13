@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Entities
 {
@@ -23,8 +18,12 @@ namespace LibraryManagementSystem.Entities
         public ICollection<PhieuMuon>? PhieuMuons { get; set; }
         public enum TrangThaiEnum
         {
-            HoatDong, 
+
+            [Display(Name = "Hoạt động")]
+            HoatDong,
+            [Display(Name = "Bị khóa")]
             BiKhoa,
+            [Display(Name = "Hết hạn")]
             HetHan
         }
 

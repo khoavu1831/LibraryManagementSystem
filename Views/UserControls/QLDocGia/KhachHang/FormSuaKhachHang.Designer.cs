@@ -30,9 +30,12 @@
         {
             labelTitle = new Label();
             panel1 = new Panel();
+            dateTimePickerDob = new DateTimePicker();
+            tableLayoutPanelButtons = new TableLayoutPanel();
+            btnSua = new Button();
+            btnHuy = new Button();
             textBoxEmail = new TextBox();
             textBoxSoDienThoai = new TextBox();
-            textBoxNgaySinh = new TextBox();
             textBoxDiaChi = new TextBox();
             textBoxTenKhachHang = new TextBox();
             label5 = new Label();
@@ -40,9 +43,6 @@
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
-            tableLayoutPanelButtons = new TableLayoutPanel();
-            btnSua = new Button();
-            btnHuy = new Button();
             panel1.SuspendLayout();
             tableLayoutPanelButtons.SuspendLayout();
             SuspendLayout();
@@ -62,10 +62,10 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(dateTimePickerDob);
             panel1.Controls.Add(tableLayoutPanelButtons);
             panel1.Controls.Add(textBoxEmail);
             panel1.Controls.Add(textBoxSoDienThoai);
-            panel1.Controls.Add(textBoxNgaySinh);
             panel1.Controls.Add(textBoxDiaChi);
             panel1.Controls.Add(textBoxTenKhachHang);
             panel1.Controls.Add(label5);
@@ -78,6 +78,50 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(499, 430);
             panel1.TabIndex = 3;
+            // 
+            // dateTimePickerDob
+            // 
+            dateTimePickerDob.Location = new Point(200, 154);
+            dateTimePickerDob.Name = "dateTimePickerDob";
+            dateTimePickerDob.Size = new Size(278, 27);
+            dateTimePickerDob.TabIndex = 22;
+            // 
+            // tableLayoutPanelButtons
+            // 
+            tableLayoutPanelButtons.ColumnCount = 2;
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanelButtons.Controls.Add(btnSua, 0, 0);
+            tableLayoutPanelButtons.Controls.Add(btnHuy, 1, 0);
+            tableLayoutPanelButtons.Location = new Point(50, 328);
+            tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
+            tableLayoutPanelButtons.RowCount = 1;
+            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanelButtons.Size = new Size(409, 53);
+            tableLayoutPanelButtons.TabIndex = 21;
+            // 
+            // btnSua
+            // 
+            btnSua.Dock = DockStyle.Top;
+            btnSua.Location = new Point(3, 3);
+            btnSua.Name = "btnSua";
+            btnSua.Size = new Size(198, 45);
+            btnSua.TabIndex = 15;
+            btnSua.Text = "Sửa";
+            btnSua.UseVisualStyleBackColor = true;
+            btnSua.Click += btnSua_Click;
+            // 
+            // btnHuy
+            // 
+            btnHuy.Dock = DockStyle.Top;
+            btnHuy.Location = new Point(207, 3);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(199, 45);
+            btnHuy.TabIndex = 18;
+            btnHuy.Text = "Hủy";
+            btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // textBoxEmail
             // 
@@ -92,13 +136,6 @@
             textBoxSoDienThoai.Name = "textBoxSoDienThoai";
             textBoxSoDienThoai.Size = new Size(278, 27);
             textBoxSoDienThoai.TabIndex = 10;
-            // 
-            // textBoxNgaySinh
-            // 
-            textBoxNgaySinh.Location = new Point(200, 147);
-            textBoxNgaySinh.Name = "textBoxNgaySinh";
-            textBoxNgaySinh.Size = new Size(278, 27);
-            textBoxNgaySinh.TabIndex = 11;
             // 
             // textBoxDiaChi
             // 
@@ -169,41 +206,6 @@
             label2.Text = "Tên khách hàng:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // tableLayoutPanelButtons
-            // 
-            tableLayoutPanelButtons.ColumnCount = 2;
-            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanelButtons.Controls.Add(btnSua, 0, 0);
-            tableLayoutPanelButtons.Controls.Add(btnHuy, 1, 0);
-            tableLayoutPanelButtons.Location = new Point(50, 328);
-            tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
-            tableLayoutPanelButtons.RowCount = 1;
-            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelButtons.Size = new Size(409, 53);
-            tableLayoutPanelButtons.TabIndex = 21;
-            // 
-            // btnSua
-            // 
-            btnSua.Dock = DockStyle.Top;
-            btnSua.Location = new Point(3, 3);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(198, 45);
-            btnSua.TabIndex = 15;
-            btnSua.Text = "Sửa";
-            btnSua.UseVisualStyleBackColor = true;
-            // 
-            // btnHuy
-            // 
-            btnHuy.Dock = DockStyle.Top;
-            btnHuy.Location = new Point(207, 3);
-            btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(199, 45);
-            btnHuy.TabIndex = 18;
-            btnHuy.Text = "Hủy";
-            btnHuy.UseVisualStyleBackColor = true;
-            // 
             // FormSuaKhachHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -225,7 +227,6 @@
         private Panel panel1;
         private TextBox textBoxEmail;
         private TextBox textBoxSoDienThoai;
-        private TextBox textBoxNgaySinh;
         private TextBox textBoxDiaChi;
         private TextBox textBoxTenKhachHang;
         private Label label5;
@@ -236,5 +237,6 @@
         private TableLayoutPanel tableLayoutPanelButtons;
         private Button btnSua;
         private Button btnHuy;
+        private DateTimePicker dateTimePickerDob;
     }
 }
