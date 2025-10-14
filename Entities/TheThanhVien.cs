@@ -19,7 +19,7 @@ namespace LibraryManagementSystem.Entities
         public TrangThaiEnum TrangThai { get; set; }
 
         [ForeignKey("IdDocGia")]
-        public DocGia? DocGias { get; set; }
+        public DocGia? DocGia { get; set; }
         public ICollection<PhieuMuon>? PhieuMuons { get; set; }
         public enum TrangThaiEnum
         {

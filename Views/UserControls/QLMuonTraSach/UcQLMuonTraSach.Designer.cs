@@ -26,20 +26,24 @@
         {
             panelNavMenu = new Panel();
             btnTraSach = new Button();
-            btnMuonSach = new Button();
+            btnMuonTraSach = new Button();
             panelSubContent = new Panel();
             panelNavMenu.SuspendLayout();
             SuspendLayout();
-           
+            // 
+            // panelNavMenu
+            // 
             panelNavMenu.BackColor = Color.White;
             panelNavMenu.Controls.Add(btnTraSach);
-            panelNavMenu.Controls.Add(btnMuonSach);
+            panelNavMenu.Controls.Add(btnMuonTraSach);
             panelNavMenu.Dock = DockStyle.Top;
             panelNavMenu.Location = new Point(0, 0);
             panelNavMenu.Name = "panelNavMenu";
             panelNavMenu.Size = new Size(861, 67);
             panelNavMenu.TabIndex = 1;
-            
+            // 
+            // btnTraSach
+            // 
             btnTraSach.BackColor = Color.White;
             btnTraSach.Dock = DockStyle.Left;
             btnTraSach.FlatStyle = FlatStyle.Flat;
@@ -47,33 +51,39 @@
             btnTraSach.Name = "btnTraSach";
             btnTraSach.Size = new Size(111, 67);
             btnTraSach.TabIndex = 1;
-            btnTraSach.Text = "Trả Sách";
+            btnTraSach.Text = "NOTHING";
             btnTraSach.UseVisualStyleBackColor = false;
             btnTraSach.Click += btnTraSach_Click;
-          
-            btnMuonSach.BackColor = Color.White;
-            btnMuonSach.Dock = DockStyle.Left;
-            btnMuonSach.FlatStyle = FlatStyle.Flat;
-            btnMuonSach.Location = new Point(0, 0);
-            btnMuonSach.Name = "btnMuonSach";
-            btnMuonSach.Size = new Size(111, 67);
-            btnMuonSach.TabIndex = 0;
-            btnMuonSach.Text = "Mượn Sách";
-            btnMuonSach.UseVisualStyleBackColor = false;
-            btnMuonSach.Click += btnMuonSach_Click;
-            
+            // 
+            // btnMuonTraSach
+            // 
+            btnMuonTraSach.BackColor = Color.White;
+            btnMuonTraSach.Dock = DockStyle.Left;
+            btnMuonTraSach.FlatStyle = FlatStyle.Flat;
+            btnMuonTraSach.Location = new Point(0, 0);
+            btnMuonTraSach.Name = "btnMuonTraSach";
+            btnMuonTraSach.Size = new Size(111, 67);
+            btnMuonTraSach.TabIndex = 0;
+            btnMuonTraSach.Text = "Mượn Trả Sách";
+            btnMuonTraSach.UseVisualStyleBackColor = false;
+            btnMuonTraSach.Click += btnMuonSach_Click;
+            // 
+            // panelSubContent
+            // 
             panelSubContent.Dock = DockStyle.Fill;
             panelSubContent.Location = new Point(0, 67);
             panelSubContent.Name = "panelSubContent";
             panelSubContent.Size = new Size(861, 542);
             panelSubContent.TabIndex = 2;
-           
+            // 
+            // UcQLMuonTraSach
+            // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelSubContent);
             Controls.Add(panelNavMenu);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UcQLMuonTra";
+            Name = "UcQLMuonTraSach";
             Size = new Size(861, 609);
             panelNavMenu.ResumeLayout(false);
             ResumeLayout(false);
@@ -83,7 +93,7 @@
 
         private Panel panelNavMenu;
         private Button btnTraSach;
-        private Button btnMuonSach;
+        private Button btnMuonTraSach;
         private Panel panelSubContent;
     }
 }

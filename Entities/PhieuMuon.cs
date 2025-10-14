@@ -27,9 +27,11 @@ namespace LibraryManagementSystem.Entities
 
         public enum TrangThaiEnum
         {
-            DangMuon,   
+            [Display(Name = "Đang mượn")]
+            DangMuon,
+            [Display(Name = "Đã trả")]
             DaTra,
-            QuaHan     
+            // Bỏ trạng thái Qúa hạn, chỉ dùng 2 trạng thái trên để quản lý tổng quan phiếu mượn trả 
         }
     }
 }

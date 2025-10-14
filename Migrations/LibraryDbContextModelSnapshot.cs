@@ -720,13 +720,13 @@ namespace LibraryManagementSystem.Migrations
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.TheThanhVien", b =>
                 {
-                    b.HasOne("LibraryManagementSystem.Entities.DocGia", "DocGias")
+                    b.HasOne("LibraryManagementSystem.Entities.DocGia", "DocGia")
                         .WithMany("TheThanhViens")
                         .HasForeignKey("IdDocGia")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DocGias");
+                    b.Navigation("DocGia");
                 });
 
             modelBuilder.Entity("Sach_TacGia", b =>

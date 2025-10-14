@@ -1,6 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace LibraryManagementSystem.Repository
 {
@@ -8,40 +8,34 @@ namespace LibraryManagementSystem.Repository
     {
         private readonly LibraryDbContext _context;
         public PhieuMuonRepository(LibraryDbContext context) => _context = context;
-
-        public List<PhieuMuon> GetAll() => _context.PhieuMuons.ToList();
-
+        public List<PhieuMuon> GetAll()
+        {
+            return _context.PhieuMuons
+                .Include(pn => pn.NhanVien)
+                .Include(pn => pn.TheThanhVien!)
+                    .ThenInclude(tv => tv.DocGia)
+                .ToList();
+        }
         public PhieuMuon? GetById(int id) => _context.PhieuMuons.Find(id);
 
-        public PhieuMuon? GetByIdWithDetails(int id)
+        public PhieuMuon? GetChiTiet(int idPhieuMuon)
         {
             return _context.PhieuMuons
-                .Include(pm => pm.ChiTietPhieuMuons)
-                    .ThenInclude(ct => ct.BanSaoSach)
-                .Include(pm => pm.TheThanhVien)
-                .Include(pm => pm.NhanVien)
-                .FirstOrDefault(pm => pm.IdPhieuMuon == id);
+                .Include(pm => pm.TheThanhVien!)
+                    .ThenInclude(ttv => ttv.DocGia)
+                .Include(pm => pm.ChiTietPhieuMuons!)
+                    .ThenInclude(ct => ct.BanSaoSach!)
+                        .ThenInclude(bss => bss.Sach)
+                .FirstOrDefault(pm => pm.IdPhieuMuon == idPhieuMuon);
         }
 
-        public List<PhieuMuon> GetDangMuonByTheThanhVien(int idTheThanhVien)
+        public ChiTietPhieuMuon? GetChiTietById(int idChiTiet)
         {
-            return _context.PhieuMuons
-                .Include(pm => pm.ChiTietPhieuMuons)
-                    .ThenInclude(ct => ct.BanSaoSach)
-                .Where(pm => pm.IdTheThanhVien == idTheThanhVien
-                    && pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon)
-                .ToList();
-        }
-
-        public List<PhieuMuon> GetPhieuQuaHan()
-        {
-            var today = DateTime.Now.Date;
-            return _context.PhieuMuons
-                .Include(pm => pm.ChiTietPhieuMuons)
-                .Include(pm => pm.TheThanhVien)
-                .Where(pm => pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon
-                    && pm.NgayHenTra < today)
-                .ToList();
+            return _context.ChiTietPhieuMuons
+                .Include(ct => ct.PhieuMuon!)
+                    .ThenInclude(pm => pm.ChiTietPhieuMuons)
+                .Include(ct => ct.BanSaoSach!)
+                .FirstOrDefault(ct => ct.IdChiTietPhieuMuon == idChiTiet);
         }
 
         public PhieuMuon Add(PhieuMuon phieuMuon)
@@ -58,6 +52,12 @@ namespace LibraryManagementSystem.Repository
             return phieuMuon;
         }
 
+        public void UpdateChiTiet(ChiTietPhieuMuon chiTiet)
+        {
+            _context.ChiTietPhieuMuons.Update(chiTiet);
+            _context.SaveChanges();
+        }
+
         public PhieuMuon? Delete(int id)
         {
             var phieuMuon = GetById(id);
@@ -66,35 +66,25 @@ namespace LibraryManagementSystem.Repository
             _context.SaveChanges();
             return phieuMuon;
         }
-
-        public List<PhieuMuon> Search(string keyword)
+        public void UpdateBanSao(BanSaoSach bss)
         {
-            return _context.PhieuMuons
-                .Include(pm => pm.TheThanhVien)
-                    .ThenInclude(tv => tv.DocGias)
-                .Include(pm => pm.NhanVien)
-                .Include(pm => pm.ChiTietPhieuMuons)
-                .Where(pm =>
-                    (pm.TheThanhVien != null &&
-                     pm.TheThanhVien.DocGias != null &&
-                     pm.TheThanhVien.DocGias.TenDocGia != null &&
-                     pm.TheThanhVien.DocGias.TenDocGia.Contains(keyword)) ||
-                    (pm.NhanVien != null &&
-                     pm.NhanVien.TenNhanVien != null &&
-                     pm.NhanVien.TenNhanVien.Contains(keyword)))
-                .ToList();
+            _context.BanSaoSachs.Update(bss);
         }
-
-        public List<PhieuMuon> GetAllWithDetails()
+        //public MucPhat? GetMucPhatTheoLoai(string loaiPhat)
+        //{
+        //    return _context.MucPhats.FirstOrDefault(m => m.LoaiPhat == loaiPhat);
+        //}
+        public void AddPhieuPhat(PhieuPhat pp)
         {
-            return _context.PhieuMuons
-                .Include(pm => pm.ChiTietPhieuMuons)
-                    .ThenInclude(ct => ct.BanSaoSach)
-                .Include(pm => pm.TheThanhVien)
-                    .ThenInclude(tv => tv.DocGias) 
-                .Include(pm => pm.NhanVien)
-                .OrderBy(pm => pm.IdPhieuMuon)   
-                .ToList();
+            _context.PhieuPhats.Add(pp);
+        }
+        public void AddChiTietPhieuPhat(ChiTietPhieuPhat ctpp)
+        {
+            _context.ChiTietPhieuPhats.Add(ctpp);
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }
