@@ -51,7 +51,7 @@
             btnTraSach.Name = "btnTraSach";
             btnTraSach.Size = new Size(111, 67);
             btnTraSach.TabIndex = 1;
-            btnTraSach.Text = "Trả Sách";
+            btnTraSach.Text = "NOTHING";
             btnTraSach.UseVisualStyleBackColor = false;
             btnTraSach.Click += btnTraSach_Click;
             // 

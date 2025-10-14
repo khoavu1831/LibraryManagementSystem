@@ -87,6 +87,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\UserControls\QLMuonTraSach\MuonTraSach\FormTraSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\UserControls\QLMuonTraSach\MuonTraSach\FormThemPhieuMuonTra.cs">
       <SubType>Form</SubType>
     </Compile>

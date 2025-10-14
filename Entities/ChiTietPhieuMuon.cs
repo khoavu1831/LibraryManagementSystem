@@ -24,6 +24,8 @@ namespace LibraryManagementSystem.Entities
 
         public enum TinhTrangTraEnum
         {
+            [Display(Name = "Chưa trả")]
+            ChuaTra,
             [Display(Name = "Tốt")]
             Tot,
             [Display(Name = "Hư hỏng")]

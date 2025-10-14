@@ -88,7 +88,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
             {
                 if (comboBoxThanhVien.SelectedItem == null)
                 {
-                    MessageBox.Show("Vui lòng thành viên!", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn thành viên!", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 

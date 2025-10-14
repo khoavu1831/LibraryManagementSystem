@@ -12,30 +12,79 @@ namespace LibraryManagementSystem.Repository
         {
             return _context.PhieuMuons
                 .Include(pn => pn.NhanVien)
-                .Include(pn => pn.TheThanhVien)
+                .Include(pn => pn.TheThanhVien!)
                     .ThenInclude(tv => tv.DocGia)
                 .ToList();
         }
         public PhieuMuon? GetById(int id) => _context.PhieuMuons.Find(id);
-        public PhieuMuon Add(PhieuMuon PhieuMuon)
+
+        public PhieuMuon? GetChiTiet(int idPhieuMuon)
         {
-            _context.PhieuMuons.Add(PhieuMuon);
-            _context.SaveChanges();
-            return PhieuMuon;
+            return _context.PhieuMuons
+                .Include(pm => pm.TheThanhVien!)
+                    .ThenInclude(ttv => ttv.DocGia)
+                .Include(pm => pm.ChiTietPhieuMuons!)
+                    .ThenInclude(ct => ct.BanSaoSach!)
+                        .ThenInclude(bss => bss.Sach)
+                .FirstOrDefault(pm => pm.IdPhieuMuon == idPhieuMuon);
         }
-        public PhieuMuon Update(PhieuMuon PhieuMuon)
+
+        public ChiTietPhieuMuon? GetChiTietById(int idChiTiet)
         {
-            _context.PhieuMuons.Update(PhieuMuon);
-            _context.SaveChanges();
-            return PhieuMuon;
+            return _context.ChiTietPhieuMuons
+                .Include(ct => ct.PhieuMuon!)
+                    .ThenInclude(pm => pm.ChiTietPhieuMuons)
+                .Include(ct => ct.BanSaoSach!)
+                .FirstOrDefault(ct => ct.IdChiTietPhieuMuon == idChiTiet);
         }
+
+        public PhieuMuon Add(PhieuMuon phieuMuon)
+        {
+            _context.PhieuMuons.Add(phieuMuon);
+            _context.SaveChanges();
+            return phieuMuon;
+        }
+
+        public PhieuMuon Update(PhieuMuon phieuMuon)
+        {
+            _context.PhieuMuons.Update(phieuMuon);
+            _context.SaveChanges();
+            return phieuMuon;
+        }
+
+        public void UpdateChiTiet(ChiTietPhieuMuon chiTiet)
+        {
+            _context.ChiTietPhieuMuons.Update(chiTiet);
+            _context.SaveChanges();
+        }
+
         public PhieuMuon? Delete(int id)
         {
-            var PhieuMuon = GetById(id);
-            if (PhieuMuon == null) return null;
-            _context.PhieuMuons.Remove(PhieuMuon);
+            var phieuMuon = GetById(id);
+            if (phieuMuon == null) return null;
+            _context.PhieuMuons.Remove(phieuMuon);
             _context.SaveChanges();
-            return PhieuMuon;
+            return phieuMuon;
+        }
+        public void UpdateBanSao(BanSaoSach bss)
+        {
+            _context.BanSaoSachs.Update(bss);
+        }
+        //public MucPhat? GetMucPhatTheoLoai(string loaiPhat)
+        //{
+        //    return _context.MucPhats.FirstOrDefault(m => m.LoaiPhat == loaiPhat);
+        //}
+        public void AddPhieuPhat(PhieuPhat pp)
+        {
+            _context.PhieuPhats.Add(pp);
+        }
+        public void AddChiTietPhieuPhat(ChiTietPhieuPhat ctpp)
+        {
+            _context.ChiTietPhieuPhats.Add(ctpp);
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

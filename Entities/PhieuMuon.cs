@@ -31,8 +31,7 @@ namespace LibraryManagementSystem.Entities
             DangMuon,
             [Display(Name = "Đã trả")]
             DaTra,
-            [Display(Name = "Quá hạn")]
-            QuaHan     
+            // Bỏ trạng thái Qúa hạn, chỉ dùng 2 trạng thái trên để quản lý tổng quan phiếu mượn trả 
         }
     }
 }
