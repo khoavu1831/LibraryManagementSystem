@@ -35,7 +35,7 @@
             btnLamMoi = new Button();
             btnExcel = new Button();
             btnChiTiet = new Button();
-            btnXoa = new Button();
+            btnHuy = new Button();
             btnSua = new Button();
             btnThem = new Button();
             dgvPhat = new DataGridView();
@@ -50,7 +50,7 @@
             panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnExcel);
             panelCRUD.Controls.Add(btnChiTiet);
-            panelCRUD.Controls.Add(btnXoa);
+            panelCRUD.Controls.Add(btnHuy);
             panelCRUD.Controls.Add(btnSua);
             panelCRUD.Controls.Add(btnThem);
             panelCRUD.Dock = DockStyle.Top;
@@ -148,22 +148,22 @@
             btnChiTiet.UseVisualStyleBackColor = false;
             btnChiTiet.Click += btnChiTiet_Click;
             // 
-            // btnXoa
+            // btnHuy
             // 
-            btnXoa.BackColor = Color.White;
-            btnXoa.Dock = DockStyle.Left;
-            btnXoa.FlatAppearance.BorderSize = 0;
-            btnXoa.FlatStyle = FlatStyle.Flat;
-            btnXoa.Image = Properties.Resources.iconxoa;
-            btnXoa.Location = new Point(154, 0);
-            btnXoa.Margin = new Padding(0);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(77, 72);
-            btnXoa.TabIndex = 2;
-            btnXoa.Text = "Xóa";
-            btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += btnXoa_Click;
+            btnHuy.BackColor = Color.White;
+            btnHuy.Dock = DockStyle.Left;
+            btnHuy.FlatAppearance.BorderSize = 0;
+            btnHuy.FlatStyle = FlatStyle.Flat;
+            btnHuy.Image = Properties.Resources.iconxoa;
+            btnHuy.Location = new Point(154, 0);
+            btnHuy.Margin = new Padding(0);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(77, 72);
+            btnHuy.TabIndex = 2;
+            btnHuy.Text = "Huỷ phiếu";
+            btnHuy.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnXoa_Click;
             // 
             // btnSua
             // 
@@ -202,6 +202,7 @@
             // dgvPhat
             // 
             dgvPhat.AccessibleRole = AccessibleRole.None;
+            dgvPhat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPhat.BackgroundColor = SystemColors.ButtonHighlight;
             dgvPhat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhat.Dock = DockStyle.Fill;
@@ -231,7 +232,7 @@
         private Panel panelCRUD;
         private Button btnThem;
         private DataGridView dgvPhat;
-        private Button btnXoa;
+        private Button btnHuy;
         private Button btnSua;
         private Button btnChiTiet;
         private Button btnExcel;

@@ -22,8 +22,12 @@ namespace LibraryManagementSystem.Entities
         public ICollection<ChiTietPhieuPhat>? ChiTietPhieuPhats { get; set; }
         public enum TrangThaiEnum
         {
+            [Display(Name = "Chưa thu")]
             ChuaThu,
-            DaThu
+            [Display(Name = "Đã thu")]
+            DaThu,
+            [Display(Name = "Đã hủy")]
+            DaHuy
         }
     }
 }
