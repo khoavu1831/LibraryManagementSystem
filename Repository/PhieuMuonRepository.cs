@@ -71,6 +71,17 @@ namespace LibraryManagementSystem.Repository
             _context.BanSaoSachs.Update(bss);
         }
         
+        public PhieuPhat? GetOpenPhieuPhatByPhieuMuon(int idPhieuMuon)
+        {
+            return _context.PhieuPhats
+                .Include(pp => pp.ChiTietPhieuPhats!)
+                    .ThenInclude(ct => ct.ChiTietPhieuMuon!)
+                        .ThenInclude(x => x.PhieuMuon)
+                .FirstOrDefault(pp =>
+                    pp.TrangThai == PhieuPhat.TrangThaiEnum.ChuaThu &&
+                    pp.ChiTietPhieuPhats!.Any(ct => ct.ChiTietPhieuMuon!.IdPhieuMuon == idPhieuMuon));
+        }
+
         public MucPhat? GetPerDayFine()
         {
             return _context.MucPhats

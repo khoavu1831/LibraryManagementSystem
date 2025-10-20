@@ -153,6 +153,7 @@ namespace LibraryManagementSystem.Services
             public int? IdMucPhatFixed { get; set; }
         }
 
+        // Services/PhieuMuonService.cs
         public void TraSachBulk(int idPhieuMuon, List<TraSachItem> items)
         {
             var pm = _pmRepository.GetChiTiet(idPhieuMuon);
@@ -160,8 +161,9 @@ namespace LibraryManagementSystem.Services
 
             var mucPhatPerDay = _pmRepository.GetPerDayFine();
 
-            PhieuPhat? pp = null;
-            decimal tongTien = 0m;
+            // 1) Tìm phiếu phạt “chưa thu” của phiếu mượn này (nếu có)
+            var pp = _pmRepository.GetOpenPhieuPhatByPhieuMuon(idPhieuMuon);
+            decimal tongTien = pp?.TienPhatPhaiNop ?? 0m;
 
             foreach (var item in items)
             {
@@ -178,19 +180,31 @@ namespace LibraryManagementSystem.Services
                     "Mất" => ChiTietPhieuMuon.TinhTrangTraEnum.Mat,
                     _ => ChiTietPhieuMuon.TinhTrangTraEnum.Tot
                 };
-
-                bss.TinhTrangSach = ctp.TinhTrangTra switch
-                {
-                    ChiTietPhieuMuon.TinhTrangTraEnum.Tot => BanSaoSach.TinhTrangSachEnum.Tot,
-                    ChiTietPhieuMuon.TinhTrangTraEnum.HuHong => BanSaoSach.TinhTrangSachEnum.Hong,
-                    ChiTietPhieuMuon.TinhTrangTraEnum.Mat => BanSaoSach.TinhTrangSachEnum.Mat,
-                    _ => BanSaoSach.TinhTrangSachEnum.Tot
-                };
+                bss.TinhTrangSach = ctp.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Tot
+                    ? BanSaoSach.TinhTrangSachEnum.Tot
+                    : (ctp.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
+                        ? BanSaoSach.TinhTrangSachEnum.Mat
+                        : BanSaoSach.TinhTrangSachEnum.Hong);
 
                 _pmRepository.UpdateChiTiet(ctp);
                 _pmRepository.UpdateBanSao(bss);
 
-                // Phạt trễ (nếu có)
+                // 2) Khởi tạo phiếu phạt 1 lần duy nhất khi thật sự có khoản phạt
+                void EnsurePhieuPhat()
+                {
+                    if (pp != null) return;
+                    pp = new PhieuPhat
+                    {
+                        NgayLap = DateTime.Now,
+                        LyDoPhat = "Phạt khi trả sách",
+                        TienPhatPhaiNop = 0m,
+                        TrangThai = PhieuPhat.TrangThaiEnum.ChuaThu
+                    };
+                    _pmRepository.AddPhieuPhat(pp);
+                    _pmRepository.Save();
+                }
+
+                // Phạt trễ
                 int soNgayTre = 0;
                 if (ctp.NgayTra.HasValue)
                 {
@@ -200,69 +214,43 @@ namespace LibraryManagementSystem.Services
                 }
                 if (soNgayTre > 0 && mucPhatPerDay != null)
                 {
-                    if (pp == null)
-                    {
-                        pp = new PhieuPhat
-                        {
-                            NgayLap = DateTime.Now,
-                            LyDoPhat = "Phạt khi trả sách",
-                            TienPhatPhaiNop = 0,
-                            TrangThai = PhieuPhat.TrangThaiEnum.ChuaThu
-                        };
-                        _pmRepository.AddPhieuPhat(pp);
-                        _pmRepository.Save();
-                    }
-
+                    EnsurePhieuPhat();
                     var soTienTre = mucPhatPerDay.SoTienPhat * soNgayTre;
-                    var ctppTre = new ChiTietPhieuPhat
+                    _pmRepository.AddChiTietPhieuPhat(new ChiTietPhieuPhat
                     {
-                        IdPhieuPhat = pp.IdPhieuPhat,
+                        IdPhieuPhat = pp!.IdPhieuPhat,
                         IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
                         IdMucPhat = mucPhatPerDay.IdMucPhat,
                         SoNgayTreHen = soNgayTre,
                         TienPhatTra = soTienTre
-                    };
+                    });
                     tongTien += soTienTre;
-                    _pmRepository.AddChiTietPhieuPhat(ctppTre);
                 }
 
-                // Phạt fixed (nếu có chọn)
+                // Phạt fixed
                 if (item.IdMucPhatFixed.HasValue)
                 {
                     var mf = _pmRepository.GetMucPhatById(item.IdMucPhatFixed.Value);
                     if (mf != null)
                     {
-                        if (pp == null)
+                        EnsurePhieuPhat();
+                        _pmRepository.AddChiTietPhieuPhat(new ChiTietPhieuPhat
                         {
-                            pp = new PhieuPhat
-                            {
-                                NgayLap = DateTime.Now,
-                                LyDoPhat = "Phạt khi trả sách",
-                                TienPhatPhaiNop = 0,
-                                TrangThai = PhieuPhat.TrangThaiEnum.ChuaThu
-                            };
-                            _pmRepository.AddPhieuPhat(pp);
-                            _pmRepository.Save();
-                        }
-
-                        var ctppFixed = new ChiTietPhieuPhat
-                        {
-                            IdPhieuPhat = pp.IdPhieuPhat,
+                            IdPhieuPhat = pp!.IdPhieuPhat,
                             IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
                             IdMucPhat = mf.IdMucPhat,
                             SoNgayTreHen = 0,
                             TienPhatTra = mf.SoTienPhat
-                        };
+                        });
                         tongTien += mf.SoTienPhat;
-                        _pmRepository.AddChiTietPhieuPhat(ctppFixed);
                     }
                 }
             }
 
             if (pp != null)
             {
-                pp.TienPhatPhaiNop = tongTien;
-                _pmRepository.Save(); // lưu ct + tổng tiền
+                pp.TienPhatPhaiNop = tongTien;   // cộng dồn
+                _pmRepository.Save();
             }
 
             if (pm.ChiTietPhieuMuons!.All(x => x.TinhTrangTra != ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra))
@@ -271,7 +259,7 @@ namespace LibraryManagementSystem.Services
             _pmRepository.Update(pm);
             _pmRepository.Save();
         }
-
+        
         public void TraSach(int idChiTietPhieuMuon, string tinhTrangTra)
         {
             var ctp = _pmRepository.GetChiTietById(idChiTietPhieuMuon);
