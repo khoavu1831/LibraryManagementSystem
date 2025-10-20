@@ -344,7 +344,23 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
         private void btnChiTiet_Click(object sender, EventArgs e)
         {
-            using (var formChiTietPhieuPhat = new FormChiTietPhieuPhat())
+            if (dgvPhat.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 phiếu phạt để xem chi tiết.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var row = dgvPhat.SelectedRows[0];
+            if (row.Cells["IdPhieuPhat"]?.Value == null)
+            {
+                MessageBox.Show("Không xác định được phiếu phạt.", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int idPhieuPhat = Convert.ToInt32(row.Cells["IdPhieuPhat"].Value);
+            using (var formChiTietPhieuPhat = new FormChiTietPhieuPhat(idPhieuPhat))
             {
                 formChiTietPhieuPhat.ShowDialog(this);
             }
