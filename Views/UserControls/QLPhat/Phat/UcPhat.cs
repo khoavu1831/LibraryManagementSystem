@@ -27,6 +27,12 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
         {
             InitializeComponent();
             LoadData();
+            // Event handlers cho các nút lọc
+            btnDSThu.Click += btnDSThu_Click;
+            btnDSHuy.Click += btnDSHuy_Click;
+            
+            // Event handler cho tìm kiếm
+            btnTimKiem.Click += btnTimKiem_Click;
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -152,23 +158,28 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
         //     }
         // }
 
-        private void LoadData()
+        private void LoadData(string? trangThai = null)
         {
             try
             {
                 using (var context = new LibraryDbContext())
                 {
-                    var phieuPhats = context.PhieuPhats
+                    var query = context.PhieuPhats
                         .Include(pp => pp.ChiTietPhieuPhats!)
                             .ThenInclude(ct => ct.ChiTietPhieuMuon!)
                                 .ThenInclude(ctpm => ctpm.PhieuMuon!)
                                     .ThenInclude(pm => pm.TheThanhVien!)
                                         .ThenInclude(ttv => ttv.DocGia)
                         .AsNoTracking()
-                        .ToList();
+                        .AsQueryable();
 
-                    
-                    var dataView = phieuPhats
+                    if (trangThai == "Đã thu")
+                        query = query.Where(pp => pp.TrangThai == PhieuPhat.TrangThaiEnum.DaThu);
+                    else if (trangThai == "Đã huỷ")
+                        query = query.Where(pp => pp.TrangThai == PhieuPhat.TrangThaiEnum.DaHuy);
+
+                    var dataView = query
+                        .ToList()
                         .Select(pp => new
                         {
                             IdPhieuPhat = pp.IdPhieuPhat,
@@ -182,7 +193,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
                         .OrderByDescending(x => x.NgayLap)
                         .ToList();
 
-                    dgvPhat.Columns.Clear(); // tránh giữ cột cũ
+                    dgvPhat.Columns.Clear();
                     dgvPhat.AutoGenerateColumns = true;
                     dgvPhat.DataSource = dataView;
 
@@ -218,7 +229,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
                     // Đăng ký sự kiện để disable nút theo trạng thái
                     dgvPhat.DataBindingComplete -= dgvPhat_DataBindingComplete;
                     dgvPhat.DataBindingComplete += dgvPhat_DataBindingComplete;
-
+                    DisablePayButtons();
                 }
             }
             catch (Exception ex)
@@ -353,7 +364,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
                 var row = dgvPhat.Rows[e.RowIndex];
                 var idValue = row.Cells["IdPhieuPhat"].Value;
                 var trangThai = row.Cells["TrangThai"].Value?.ToString() ?? "";
-                
+
                 if (idValue == null) return;
 
                 // Chặn thanh toán khi không phải "Chưa thu"
@@ -401,10 +412,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
                     MessageBox.Show("Thanh toán thành công!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
                     // Reload dữ liệu
                     LoadData();
-                    
+
                     // Gọi trực tiếp để disable nút
                     DisablePayButtons();
                 }
@@ -418,12 +429,74 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
         private void btnDSThu_Click(object sender, EventArgs e)
         {
-
+            LoadData("Đã thu");
         }
 
         private void btnDSHuy_Click(object sender, EventArgs e)
         {
+            LoadData("Đã huỷ");
+        }
 
+        // Thêm vào UcPhat.cs
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var keyword = txtBoxTimKiem.Text.Trim();
+            
+            // Kiểm tra nếu không nhập gì
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm", "Cảnh báo", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus(); // Focus vào textbox để người dùng nhập
+                return;
+            }
+            
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var query = context.PhieuPhats
+                        .Include(pp => pp.ChiTietPhieuPhats)
+                        .ThenInclude(ctpp => ctpp.ChiTietPhieuMuon)
+                        .ThenInclude(ctpm => ctpm.PhieuMuon)
+                        .ThenInclude(pm => pm.TheThanhVien)
+                        .ThenInclude(ttv => ttv.DocGia)
+                        .AsNoTracking()
+                        .AsQueryable();
+
+                    // Tìm kiếm theo tên độc giả
+                    query = query.Where(pp => 
+                        pp.ChiTietPhieuPhats.Any(ctpp => 
+                            ctpp.ChiTietPhieuMuon.PhieuMuon.TheThanhVien.DocGia.TenDocGia
+                                .Contains(keyword)));
+
+                    var phieuPhats = query.ToList();
+
+                    var data = phieuPhats.Select(pp => new
+                    {
+                        IdPhieuPhat = pp.IdPhieuPhat,
+                        NgayLap = pp.NgayLap,
+                        DocGia = pp.ChiTietPhieuPhats.FirstOrDefault()?.ChiTietPhieuMuon?.PhieuMuon?.TheThanhVien?.DocGia?.TenDocGia ?? "",
+                        TongTienPhat = pp.ChiTietPhieuPhats.Sum(ctpp => ctpp.TienPhatTra),
+                        TrangThai = pp.TrangThai.GetDisplayName()
+                    }).ToList();
+                    
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy kết quả phù hợp", "Thông báo", 
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return; // Không cần set DataSource nếu không có kết quả
+                    }
+                    
+                    dgvPhat.DataSource = data;
+                    DisablePayButtons();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -88,6 +88,7 @@
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
@@ -179,8 +180,8 @@
             btnDSHuy.TabIndex = 1;
             btnDSHuy.Text = "DS Đã Huỷ";
             btnDSHuy.TextImageRelation = TextImageRelation.ImageAboveText;
-            //btnDSHuy.UseVisualStyleBackColor = false;
-            //btnDSHuy.Click += btnDSHuy_Click;
+            btnDSHuy.UseVisualStyleBackColor = false;
+            btnDSHuy.Click += btnDSHuy_Click;
             // 
             // btnDSThu
             // 
@@ -197,7 +198,7 @@
             btnDSThu.Text = "DS Đã Thu";
             btnDSThu.TextImageRelation = TextImageRelation.ImageAboveText;
             btnDSThu.UseVisualStyleBackColor = false;
-            //btnDSThu.Click += btnDSThu_Click;
+            btnDSThu.Click += btnDSThu_Click;
             // 
             // dgvPhat
             // 
