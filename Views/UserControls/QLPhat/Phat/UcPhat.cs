@@ -22,6 +22,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
     public partial class UcPhat : UserControl
     {
         //private readonly PhatService _phatService;
+        private List<dynamic> _allPhieuPhatData = new List<dynamic>();
         public UcPhat()
         {
             InitializeComponent();
@@ -166,7 +167,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
                         .AsNoTracking()
                         .ToList();
 
-                    // Bỏ SoChiTiet, chỉ giữ các cột cần
+                    
                     var dataView = phieuPhats
                         .Select(pp => new
                         {
@@ -214,7 +215,10 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
                         dgvPhat.Columns.Add(btnCol);
                     }
 
-                    
+                    // Đăng ký sự kiện để disable nút theo trạng thái
+                    dgvPhat.DataBindingComplete -= dgvPhat_DataBindingComplete;
+                    dgvPhat.DataBindingComplete += dgvPhat_DataBindingComplete;
+
                 }
             }
             catch (Exception ex)
@@ -223,7 +227,34 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
             }
         }
 
-        
+        private void dgvPhat_DataBindingComplete(object? sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            DisablePayButtons();
+        }
+
+        private void DisablePayButtons()
+        {
+            if (dgvPhat.Columns["ThanhToan"] == null) return;
+            int payColIndex = dgvPhat.Columns["ThanhToan"].Index;
+
+            foreach (DataGridViewRow row in dgvPhat.Rows)
+            {
+                var status = row.Cells["TrangThai"].Value?.ToString() ?? "";
+                bool canPay = status.Equals("Chưa thu", StringComparison.OrdinalIgnoreCase);
+
+                if (!canPay)
+                {
+                    // Thay nút bằng text cell để disable
+                    var textCell = new DataGridViewTextBoxCell
+                    {
+                        Value = "" // để trống
+                    };
+
+                    row.Cells[payColIndex] = textCell;
+                    textCell.ReadOnly = true;
+                }
+            }
+        }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
@@ -231,11 +262,6 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
             {
                 formThemPhieuPhat.ShowDialog(this);
             }
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -324,18 +350,80 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
             if (dgvPhat.Columns[e.ColumnIndex].Name == "ThanhToan")
             {
-                var idValue = dgvPhat.Rows[e.RowIndex].Cells["IdPhieuPhat"].Value;
+                var row = dgvPhat.Rows[e.RowIndex];
+                var idValue = row.Cells["IdPhieuPhat"].Value;
+                var trangThai = row.Cells["TrangThai"].Value?.ToString() ?? "";
+                
                 if (idValue == null) return;
 
+                // Chặn thanh toán khi không phải "Chưa thu"
+                if (!string.Equals(trangThai, "Chưa thu", StringComparison.OrdinalIgnoreCase))
+                {
+                    return; // Không làm gì cả
+                }
+
                 int idPhieuPhat = Convert.ToInt32(idValue);
+                var tongTien = row.Cells["TongTienPhat"].Value?.ToString() ?? "0";
 
-                // Tạm thời báo; sau sẽ mở form thanh toán
-                MessageBox.Show($"Thanh toán phiếu phạt #{idPhieuPhat} (sẽ implement sau).",
-                    "Thanh toán", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Xác nhận thanh toán
+                var confirm = MessageBox.Show(
+                    $"Xác nhận thanh toán phiếu phạt #{idPhieuPhat}?\nTổng tiền: {tongTien}đ",
+                    "Xác nhận thanh toán",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
-                // TODO: mở form thanh toán:
-                // using (var form = new FormTraPhat(idPhieuPhat)) { if (form.ShowDialog(this) == DialogResult.OK) LoadData(); }
+                if (confirm != DialogResult.Yes) return;
+
+                try
+                {
+                    using (var context = new LibraryDbContext())
+                    {
+                        var repo = new PhieuPhatRepository(context);
+                        var pp = repo.GetById(idPhieuPhat);
+                        if (pp == null)
+                        {
+                            MessageBox.Show("Không tìm thấy phiếu phạt.", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        if (pp.TrangThai != PhieuPhat.TrangThaiEnum.ChuaThu)
+                        {
+                            MessageBox.Show("Phiếu phạt không ở trạng thái Chưa thu.", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+
+                        // Cập nhật trạng thái thành "Đã thu"
+                        pp.TrangThai = PhieuPhat.TrangThaiEnum.DaThu;
+                        repo.Update(pp);
+                    }
+
+                    MessageBox.Show("Thanh toán thành công!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    // Reload dữ liệu
+                    LoadData();
+                    
+                    // Gọi trực tiếp để disable nút
+                    DisablePayButtons();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Thanh toán thất bại.\n{ex.Message}", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+        }
+
+        private void btnDSThu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDSHuy_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

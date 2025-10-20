@@ -65,6 +65,7 @@
             // 
             btnTraPhat.BackColor = Color.White;
             btnTraPhat.Dock = DockStyle.Left;
+            btnTraPhat.Enabled = false;
             btnTraPhat.FlatStyle = FlatStyle.Flat;
             btnTraPhat.Location = new Point(111, 0);
             btnTraPhat.Name = "btnTraPhat";
@@ -72,6 +73,7 @@
             btnTraPhat.TabIndex = 1;
             btnTraPhat.Text = "Trả Phạt";
             btnTraPhat.UseVisualStyleBackColor = false;
+            btnTraPhat.Visible = false;
             btnTraPhat.Click += btnTraPhat_Click;
             // 
             // btnPhat
@@ -95,14 +97,14 @@
             panelSubContent.Size = new Size(861, 542);
             panelSubContent.TabIndex = 2;
             // 
-            // UserControl1
+            // UcQLPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelSubContent);
             Controls.Add(panelNavMenu);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UserControl1";
+            Name = "UcQLPhat";
             Size = new Size(861, 609);
             panelNavMenu.ResumeLayout(false);
             ResumeLayout(false);
