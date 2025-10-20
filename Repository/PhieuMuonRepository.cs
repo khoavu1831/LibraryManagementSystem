@@ -80,7 +80,9 @@ namespace LibraryManagementSystem.Repository
 
         public MucPhat? GetMucPhatById(int id)
         {
-            return _context.MucPhats.AsNoTracking().FirstOrDefault(m => m.IdMucPhat == id);
+            return _context.MucPhats
+                .AsNoTracking()
+                .FirstOrDefault(m => m.IdMucPhat == id && m.IsActive == 1);
         }
 
         public List<MucPhat> GetActiveFixedFines()

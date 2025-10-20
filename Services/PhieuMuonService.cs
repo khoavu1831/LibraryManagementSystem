@@ -146,6 +146,132 @@ namespace LibraryManagementSystem.Services
         //     _pmRepository.Save();
         // }
 
+        public class TraSachItem
+        {
+            public int IdChiTietPhieuMuon { get; set; }
+            public string TinhTrangTra { get; set; } = "";
+            public int? IdMucPhatFixed { get; set; }
+        }
+
+        public void TraSachBulk(int idPhieuMuon, List<TraSachItem> items)
+        {
+            var pm = _pmRepository.GetChiTiet(idPhieuMuon);
+            if (pm == null || items.Count == 0) return;
+
+            var mucPhatPerDay = _pmRepository.GetPerDayFine();
+
+            PhieuPhat? pp = null;
+            decimal tongTien = 0m;
+
+            foreach (var item in items)
+            {
+                var ctp = _pmRepository.GetChiTietById(item.IdChiTietPhieuMuon);
+                if (ctp == null) continue;
+
+                var bss = ctp.BanSaoSach!;
+                ctp.NgayTra = DateTime.Now;
+                ctp.TinhTrangTra = item.TinhTrangTra switch
+                {
+                    "Tốt" => ChiTietPhieuMuon.TinhTrangTraEnum.Tot,
+                    "Hư hỏng" or "Hỏng" or "Hư hỏng nhẹ" or "Hư hỏng vừa" or "Hư hỏng nặng" or "Hư hỏng nghiêm trọng"
+                        => ChiTietPhieuMuon.TinhTrangTraEnum.HuHong,
+                    "Mất" => ChiTietPhieuMuon.TinhTrangTraEnum.Mat,
+                    _ => ChiTietPhieuMuon.TinhTrangTraEnum.Tot
+                };
+
+                bss.TinhTrangSach = ctp.TinhTrangTra switch
+                {
+                    ChiTietPhieuMuon.TinhTrangTraEnum.Tot => BanSaoSach.TinhTrangSachEnum.Tot,
+                    ChiTietPhieuMuon.TinhTrangTraEnum.HuHong => BanSaoSach.TinhTrangSachEnum.Hong,
+                    ChiTietPhieuMuon.TinhTrangTraEnum.Mat => BanSaoSach.TinhTrangSachEnum.Mat,
+                    _ => BanSaoSach.TinhTrangSachEnum.Tot
+                };
+
+                _pmRepository.UpdateChiTiet(ctp);
+                _pmRepository.UpdateBanSao(bss);
+
+                // Phạt trễ (nếu có)
+                int soNgayTre = 0;
+                if (ctp.NgayTra.HasValue)
+                {
+                    var ngayTra = ctp.NgayTra.Value.Date;
+                    var henTra = pm.NgayHenTra.Date;
+                    if (ngayTra > henTra) soNgayTre = (ngayTra - henTra).Days;
+                }
+                if (soNgayTre > 0 && mucPhatPerDay != null)
+                {
+                    if (pp == null)
+                    {
+                        pp = new PhieuPhat
+                        {
+                            NgayLap = DateTime.Now,
+                            LyDoPhat = "Phạt khi trả sách",
+                            TienPhatPhaiNop = 0,
+                            TrangThai = PhieuPhat.TrangThaiEnum.ChuaThu
+                        };
+                        _pmRepository.AddPhieuPhat(pp);
+                        _pmRepository.Save();
+                    }
+
+                    var soTienTre = mucPhatPerDay.SoTienPhat * soNgayTre;
+                    var ctppTre = new ChiTietPhieuPhat
+                    {
+                        IdPhieuPhat = pp.IdPhieuPhat,
+                        IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
+                        IdMucPhat = mucPhatPerDay.IdMucPhat,
+                        SoNgayTreHen = soNgayTre,
+                        TienPhatTra = soTienTre
+                    };
+                    tongTien += soTienTre;
+                    _pmRepository.AddChiTietPhieuPhat(ctppTre);
+                }
+
+                // Phạt fixed (nếu có chọn)
+                if (item.IdMucPhatFixed.HasValue)
+                {
+                    var mf = _pmRepository.GetMucPhatById(item.IdMucPhatFixed.Value);
+                    if (mf != null)
+                    {
+                        if (pp == null)
+                        {
+                            pp = new PhieuPhat
+                            {
+                                NgayLap = DateTime.Now,
+                                LyDoPhat = "Phạt khi trả sách",
+                                TienPhatPhaiNop = 0,
+                                TrangThai = PhieuPhat.TrangThaiEnum.ChuaThu
+                            };
+                            _pmRepository.AddPhieuPhat(pp);
+                            _pmRepository.Save();
+                        }
+
+                        var ctppFixed = new ChiTietPhieuPhat
+                        {
+                            IdPhieuPhat = pp.IdPhieuPhat,
+                            IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
+                            IdMucPhat = mf.IdMucPhat,
+                            SoNgayTreHen = 0,
+                            TienPhatTra = mf.SoTienPhat
+                        };
+                        tongTien += mf.SoTienPhat;
+                        _pmRepository.AddChiTietPhieuPhat(ctppFixed);
+                    }
+                }
+            }
+
+            if (pp != null)
+            {
+                pp.TienPhatPhaiNop = tongTien;
+                _pmRepository.Save(); // lưu ct + tổng tiền
+            }
+
+            if (pm.ChiTietPhieuMuons!.All(x => x.TinhTrangTra != ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra))
+                pm.TrangThai = PhieuMuon.TrangThaiEnum.DaTra;
+
+            _pmRepository.Update(pm);
+            _pmRepository.Save();
+        }
+
         public void TraSach(int idChiTietPhieuMuon, string tinhTrangTra)
         {
             var ctp = _pmRepository.GetChiTietById(idChiTietPhieuMuon);
