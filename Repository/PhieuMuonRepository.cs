@@ -70,10 +70,40 @@ namespace LibraryManagementSystem.Repository
         {
             _context.BanSaoSachs.Update(bss);
         }
-        //public MucPhat? GetMucPhatTheoLoai(string loaiPhat)
-        //{
-        //    return _context.MucPhats.FirstOrDefault(m => m.LoaiPhat == loaiPhat);
-        //}
+        
+        public PhieuPhat? GetOpenPhieuPhatByPhieuMuon(int idPhieuMuon)
+        {
+            return _context.PhieuPhats
+                .Include(pp => pp.ChiTietPhieuPhats!)
+                    .ThenInclude(ct => ct.ChiTietPhieuMuon!)
+                        .ThenInclude(x => x.PhieuMuon)
+                .FirstOrDefault(pp =>
+                    pp.TrangThai == PhieuPhat.TrangThaiEnum.ChuaThu &&
+                    pp.ChiTietPhieuPhats!.Any(ct => ct.ChiTietPhieuMuon!.IdPhieuMuon == idPhieuMuon));
+        }
+
+        public MucPhat? GetPerDayFine()
+        {
+            return _context.MucPhats
+                .AsNoTracking()
+                .FirstOrDefault(mp => mp.LoaiPhat == MucPhat.LoaiPhatEnum.PerDay && mp.IsActive == 1);
+        }
+
+        public MucPhat? GetMucPhatById(int id)
+        {
+            return _context.MucPhats
+                .AsNoTracking()
+                .FirstOrDefault(m => m.IdMucPhat == id && m.IsActive == 1);
+        }
+
+        public List<MucPhat> GetActiveFixedFines()
+        {
+            return _context.MucPhats
+                .AsNoTracking()
+                .Where(mp => mp.LoaiPhat == MucPhat.LoaiPhatEnum.Fixed && mp.IsActive == 1)
+                .ToList();
+        }
+
         public void AddPhieuPhat(PhieuPhat pp)
         {
             _context.PhieuPhats.Add(pp);

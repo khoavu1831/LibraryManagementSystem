@@ -23,12 +23,10 @@ namespace LibraryManagementSystem.Entities
         public int IsActive { get; set; } = 1;
         public enum LoaiPhatEnum
         {
-            [Display(Name = "Quá hạn")]
-            QuaHan,
-            [Display(Name = "Làm mất")]
-            LamMat,
-            [Display(Name = "Làm hỏng")]
-            LamHong
+            [Display(Name = "Cố định")]
+            Fixed,
+            [Display(Name = "Theo ngày")]
+            PerDay
         }
     }
 }
