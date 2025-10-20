@@ -301,6 +301,47 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
             }
         }
 
+        // private void btnXacNhan_Click(object sender, EventArgs e)
+        // {
+        //     bool daTra = false;
+
+        //     foreach (DataGridViewRow row in dgvChiTietMuon.Rows)
+        //     {
+        //         bool chon = Convert.ToBoolean(row.Cells["Chon"].Value);
+        //         if (!chon) continue;
+
+        //         int idCTPM = Convert.ToInt32(row.Cells["IdChiTietPhieuMuon"].Value);
+        //         string tinhTrangTra = row.Cells["TinhTrangTra"].Value?.ToString() ?? "Tốt";
+
+        //         int? idMucPhatFixed = null;
+        //         if (!string.Equals(tinhTrangTra, "Tốt", StringComparison.OrdinalIgnoreCase))
+        //         {
+        //             string mucPhatStr = row.Cells["MucPhat"].Value?.ToString() ?? "";
+        //             if (string.IsNullOrWhiteSpace(mucPhatStr))
+        //             {
+        //                 MessageBox.Show("Vui lòng chọn mức phạt cho sách không ở tình trạng Tốt.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //                 return;
+        //             }
+        //             var mp = _mucPhatFixed.FirstOrDefault(x => mucPhatStr.Contains(x.TenMucPhat ?? "", StringComparison.OrdinalIgnoreCase));
+        //             if (mp != null) idMucPhatFixed = mp.IdMucPhat;
+        //         }
+
+        //         _phieuMuonService.TraSach(idCTPM, tinhTrangTra);
+        //         daTra = true;
+        //     }
+
+        //     if (daTra)
+        //     {
+        //         MessageBox.Show("Trả sách thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //         this.DialogResult = DialogResult.OK;
+        //         this.Close();
+        //     }
+        //     else
+        //     {
+        //         MessageBox.Show("Vui lòng chọn ít nhất một sách để trả.", "Chú ý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //     }
+        // }
+
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
             bool daTra = false;
@@ -313,7 +354,27 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
                 int idCTPM = Convert.ToInt32(row.Cells["IdChiTietPhieuMuon"].Value);
                 string tinhTrangTra = row.Cells["TinhTrangTra"].Value?.ToString() ?? "Tốt";
 
-                _phieuMuonService.TraSach(idCTPM, tinhTrangTra);
+                int? idMucPhatFixed = null;
+                if (!string.Equals(tinhTrangTra, "Tốt", StringComparison.OrdinalIgnoreCase))
+                {
+                    string mucPhatStr = row.Cells["MucPhat"].Value?.ToString() ?? "";
+                    if (string.IsNullOrWhiteSpace(mucPhatStr))
+                    {
+                        MessageBox.Show("Vui lòng chọn mức phạt cho sách không ở tình trạng Tốt.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    var mp = _mucPhatFixed.FirstOrDefault(x =>
+                        mucPhatStr.StartsWith(x.TenMucPhat ?? "", StringComparison.OrdinalIgnoreCase));
+                    if (mp == null)
+                    {
+                        MessageBox.Show("Không xác định được mức phạt cố định. Vui lòng chọn lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    idMucPhatFixed = mp.IdMucPhat;
+                }
+
+                _phieuMuonService.TraSachWithFixed(idCTPM, tinhTrangTra, idMucPhatFixed);
                 daTra = true;
             }
 

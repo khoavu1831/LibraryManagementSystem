@@ -51,6 +51,101 @@ namespace LibraryManagementSystem.Services
 
             return addedPhieu;
         }
+        // public void TraSach(int idChiTietPhieuMuon, string tinhTrangTra)
+        // {
+        //     var ctp = _pmRepository.GetChiTietById(idChiTietPhieuMuon);
+        //     if (ctp == null) return;
+
+        //     var pm = ctp.PhieuMuon!;
+        //     var bss = ctp.BanSaoSach!;
+
+        //     // Gán tình trạng trả
+        //     ctp.NgayTra = DateTime.Now;
+        //     ctp.TinhTrangTra = tinhTrangTra switch
+        //     {
+        //         "Tốt" => ChiTietPhieuMuon.TinhTrangTraEnum.Tot,
+        //         "Hư hỏng" or "Hỏng" => ChiTietPhieuMuon.TinhTrangTraEnum.HuHong,
+        //         "Mất" => ChiTietPhieuMuon.TinhTrangTraEnum.Mat,
+        //         _ => ChiTietPhieuMuon.TinhTrangTraEnum.Tot
+        //     };
+
+        //     // Cập nhật tình trạng bản sao
+        //     bss.TinhTrangSach = ctp.TinhTrangTra switch
+        //     {
+        //         ChiTietPhieuMuon.TinhTrangTraEnum.Tot => BanSaoSach.TinhTrangSachEnum.Tot,
+        //         ChiTietPhieuMuon.TinhTrangTraEnum.HuHong => BanSaoSach.TinhTrangSachEnum.Hong,
+        //         ChiTietPhieuMuon.TinhTrangTraEnum.Mat => BanSaoSach.TinhTrangSachEnum.Mat,
+        //         _ => BanSaoSach.TinhTrangSachEnum.Tot
+        //     };
+
+        //     _pmRepository.UpdateChiTiet(ctp);
+        //     _pmRepository.UpdateBanSao(bss);
+
+        //     //// ===== Xử lý phạt trả trễ =====
+        //     //if (DateTime.Now > pm.NgayHenTra)
+        //     //{
+        //     //    int soNgayTre = (DateTime.Now - pm.NgayHenTra).Days;
+        //     //    var mucPhatTre = _pmRepository.GetMucPhatTheoLoai("PerDay");
+        //     //    if (mucPhatTre != null)
+        //     //    {
+        //     //        var pp = new PhieuPhat
+        //     //        {
+        //     //            NgayLap = DateTime.Now,
+        //     //            LyDoPhat = $"Trễ {soNgayTre} ngày",
+        //     //            TienPhatPhaiNop = mucPhatTre.SoTienPhat * soNgayTre,
+        //     //            TrangThai = "ChuaThu"
+        //     //        };
+        //     //        _pmRepository.AddPhieuPhat(pp);
+        //     //        _pmRepository.Save();
+
+        //     //        var ctpp = new ChiTietPhieuPhat
+        //     //        {
+        //     //            IdPhieuPhat = pp.IdPhieuPhat,
+        //     //            IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
+        //     //            IdMucPhat = mucPhatTre.IdMucPhat,
+        //     //            SoNgayTreHan = soNgayTre,
+        //     //            TienPhatTra = mucPhatTre.SoTienPhat * soNgayTre
+        //     //        };
+        //     //        _pmRepository.AddChiTietPhieuPhat(ctpp);
+        //     //    }
+        //     //}
+
+        //     //// ===== Xử lý phạt hư hỏng / mất =====
+        //     //if (ctp.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong ||
+        //     //    ctp.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat)
+        //     //{
+        //     //    var mucPhatHong = _pmRepository.GetMucPhatTheoLoai("Fixed");
+        //     //    if (mucPhatHong != null)
+        //     //    {
+        //     //        var pp = new PhieuPhat
+        //     //        {
+        //     //            NgayLap = DateTime.Now,
+        //     //            LyDoPhat = $"Sách {ctp.TinhTrangTra.GetDisplayName()}",
+        //     //            TienPhatPhaiNop = mucPhatHong.SoTienPhat,
+        //     //            TrangThai = "ChuaThu"
+        //     //        };
+        //     //        _pmRepository.AddPhieuPhat(pp);
+        //     //        _pmRepository.Save();
+
+        //     //        var ctpp = new ChiTietPhieuPhat
+        //     //        {
+        //     //            IdPhieuPhat = pp.IdPhieuPhat,
+        //     //            IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
+        //     //            IdMucPhat = mucPhatHong.IdMucPhat,
+        //     //            TienPhatTra = mucPhatHong.SoTienPhat
+        //     //        };
+        //     //        _pmRepository.AddChiTietPhieuPhat(ctpp);
+        //     //    }
+        //     //}
+
+        //     // ===== Kiểm tra nếu đã trả hết =====
+        //     if (pm.ChiTietPhieuMuons!.All(x => x.TinhTrangTra != ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra))
+        //         pm.TrangThai = PhieuMuon.TrangThaiEnum.DaTra;
+
+        //     _pmRepository.Update(pm);
+        //     _pmRepository.Save();
+        // }
+
         public void TraSach(int idChiTietPhieuMuon, string tinhTrangTra)
         {
             var ctp = _pmRepository.GetChiTietById(idChiTietPhieuMuon);
@@ -81,64 +176,148 @@ namespace LibraryManagementSystem.Services
             _pmRepository.UpdateChiTiet(ctp);
             _pmRepository.UpdateBanSao(bss);
 
-            //// ===== Xử lý phạt trả trễ =====
-            //if (DateTime.Now > pm.NgayHenTra)
-            //{
-            //    int soNgayTre = (DateTime.Now - pm.NgayHenTra).Days;
-            //    var mucPhatTre = _pmRepository.GetMucPhatTheoLoai("PerDay");
-            //    if (mucPhatTre != null)
-            //    {
-            //        var pp = new PhieuPhat
-            //        {
-            //            NgayLap = DateTime.Now,
-            //            LyDoPhat = $"Trễ {soNgayTre} ngày",
-            //            TienPhatPhaiNop = mucPhatTre.SoTienPhat * soNgayTre,
-            //            TrangThai = "ChuaThu"
-            //        };
-            //        _pmRepository.AddPhieuPhat(pp);
-            //        _pmRepository.Save();
+                    // ===== TỰ ĐỘNG XỬ LÝ PHẠT TRỄ HẠN =====
+            var ngayTra = (ctp.NgayTra ?? DateTime.Now).Date;       // vừa gán phía trên
+            var henTra = pm.NgayHenTra.Date;
+            int soNgayTre = (ngayTra > henTra) ? (ngayTra - henTra).Days : 0;
 
-            //        var ctpp = new ChiTietPhieuPhat
-            //        {
-            //            IdPhieuPhat = pp.IdPhieuPhat,
-            //            IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
-            //            IdMucPhat = mucPhatTre.IdMucPhat,
-            //            SoNgayTreHan = soNgayTre,
-            //            TienPhatTra = mucPhatTre.SoTienPhat * soNgayTre
-            //        };
-            //        _pmRepository.AddChiTietPhieuPhat(ctpp);
-            //    }
-            //}
+            if (soNgayTre > 0)
+            {
+                var mucPhatTre = _pmRepository.GetPerDayFine();
+                if (mucPhatTre != null)
+                {
+                    var soTien = mucPhatTre.SoTienPhat * soNgayTre;
 
-            //// ===== Xử lý phạt hư hỏng / mất =====
-            //if (ctp.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong ||
-            //    ctp.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat)
-            //{
-            //    var mucPhatHong = _pmRepository.GetMucPhatTheoLoai("Fixed");
-            //    if (mucPhatHong != null)
-            //    {
-            //        var pp = new PhieuPhat
-            //        {
-            //            NgayLap = DateTime.Now,
-            //            LyDoPhat = $"Sách {ctp.TinhTrangTra.GetDisplayName()}",
-            //            TienPhatPhaiNop = mucPhatHong.SoTienPhat,
-            //            TrangThai = "ChuaThu"
-            //        };
-            //        _pmRepository.AddPhieuPhat(pp);
-            //        _pmRepository.Save();
+                    var pp = new PhieuPhat
+                    {
+                        NgayLap = DateTime.Now,
+                        LyDoPhat = $"Trễ {soNgayTre} ngày",
+                        TienPhatPhaiNop = soTien,
+                        TrangThai = PhieuPhat.TrangThaiEnum.ChuaThu
+                    };
+                    _pmRepository.AddPhieuPhat(pp);
+                    _pmRepository.Save(); // để có IdPhieuPhat
 
-            //        var ctpp = new ChiTietPhieuPhat
-            //        {
-            //            IdPhieuPhat = pp.IdPhieuPhat,
-            //            IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
-            //            IdMucPhat = mucPhatHong.IdMucPhat,
-            //            TienPhatTra = mucPhatHong.SoTienPhat
-            //        };
-            //        _pmRepository.AddChiTietPhieuPhat(ctpp);
-            //    }
-            //}
+                    var ctpp = new ChiTietPhieuPhat
+                    {
+                        IdPhieuPhat = pp.IdPhieuPhat,
+                        IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
+                        IdMucPhat = mucPhatTre.IdMucPhat,
+                        SoNgayTreHen = soNgayTre,
+                        TienPhatTra = soTien
+                    };
+                    _pmRepository.AddChiTietPhieuPhat(ctpp);
+                    _pmRepository.Save(); // LƯU NGAY chi tiết phạt
+                }
+            }
 
             // ===== Kiểm tra nếu đã trả hết =====
+            if (pm.ChiTietPhieuMuons!.All(x => x.TinhTrangTra != ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra))
+                pm.TrangThai = PhieuMuon.TrangThaiEnum.DaTra;
+
+            _pmRepository.Update(pm);
+            _pmRepository.Save();
+        }
+
+        public void TraSachWithFixed(int idChiTietPhieuMuon, string tinhTrangTra, int? idMucPhatFixed)
+        {
+            var ctp = _pmRepository.GetChiTietById(idChiTietPhieuMuon);
+            if (ctp == null) return;
+
+            var pm = ctp.PhieuMuon!;
+            var bss = ctp.BanSaoSach!;
+
+            // Gán tình trạng trả
+            ctp.NgayTra = DateTime.Now;
+            ctp.TinhTrangTra = tinhTrangTra switch
+            {
+                "Tốt" => ChiTietPhieuMuon.TinhTrangTraEnum.Tot,
+                "Hư hỏng" or "Hỏng" => ChiTietPhieuMuon.TinhTrangTraEnum.HuHong,
+                "Mất" => ChiTietPhieuMuon.TinhTrangTraEnum.Mat,
+                _ => ChiTietPhieuMuon.TinhTrangTraEnum.Tot
+            };
+
+            // Cập nhật tình trạng bản sao
+            bss.TinhTrangSach = ctp.TinhTrangTra switch
+            {
+                ChiTietPhieuMuon.TinhTrangTraEnum.Tot => BanSaoSach.TinhTrangSachEnum.Tot,
+                ChiTietPhieuMuon.TinhTrangTraEnum.HuHong => BanSaoSach.TinhTrangSachEnum.Hong,
+                ChiTietPhieuMuon.TinhTrangTraEnum.Mat => BanSaoSach.TinhTrangSachEnum.Mat,
+                _ => BanSaoSach.TinhTrangSachEnum.Tot
+            };
+
+            _pmRepository.UpdateChiTiet(ctp);
+            _pmRepository.UpdateBanSao(bss);
+
+            // Tính các khoản phạt cần tạo chi tiết
+            var ngayTra = (ctp.NgayTra ?? DateTime.Now).Date;
+            var henTra = pm.NgayHenTra.Date;
+            int soNgayTre = (ngayTra > henTra) ? (ngayTra - henTra).Days : 0;
+
+            var mucPhatPerDay = _pmRepository.GetPerDayFine();
+            decimal soTienTre = (soNgayTre > 0 && mucPhatPerDay != null) ? mucPhatPerDay.SoTienPhat * soNgayTre : 0m;
+
+            MucPhat? mucPhatFixed = null;
+            if (ctp.TinhTrangTra != ChiTietPhieuMuon.TinhTrangTraEnum.Tot && idMucPhatFixed.HasValue)
+            {
+                mucPhatFixed = _pmRepository.GetMucPhatById(idMucPhatFixed.Value);
+            }
+
+            // Nếu không có khoản phạt nào → không tạo phiếu phạt
+            if (soTienTre <= 0 && mucPhatFixed == null)
+            {
+                // Kiểm tra nếu đã trả hết
+                if (pm.ChiTietPhieuMuons!.All(x => x.TinhTrangTra != ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra))
+                    pm.TrangThai = PhieuMuon.TrangThaiEnum.DaTra;
+
+                _pmRepository.Update(pm);
+                _pmRepository.Save();
+                return;
+            }
+
+            // Tạo phiếu phạt và các chi tiết
+            var pp = new PhieuPhat
+            {
+                NgayLap = DateTime.Now,
+                LyDoPhat = "Phạt khi trả sách",
+                TienPhatPhaiNop = 0,
+                TrangThai = PhieuPhat.TrangThaiEnum.ChuaThu
+            };
+            _pmRepository.AddPhieuPhat(pp);
+            _pmRepository.Save(); // lấy Id
+
+            if (soTienTre > 0 && mucPhatPerDay != null)
+            {
+                var ctppTre = new ChiTietPhieuPhat
+                {
+                    IdPhieuPhat = pp.IdPhieuPhat,
+                    IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
+                    IdMucPhat = mucPhatPerDay.IdMucPhat,
+                    SoNgayTreHen = soNgayTre,
+                    TienPhatTra = soTienTre
+                };
+                pp.TienPhatPhaiNop += soTienTre;
+                _pmRepository.AddChiTietPhieuPhat(ctppTre);
+            }
+
+            if (mucPhatFixed != null)
+            {
+                var ctppFixed = new ChiTietPhieuPhat
+                {
+                    IdPhieuPhat = pp.IdPhieuPhat,
+                    IdChiTietPhieuMuon = ctp.IdChiTietPhieuMuon,
+                    IdMucPhat = mucPhatFixed.IdMucPhat,
+                    SoNgayTreHen = 0,
+                    TienPhatTra = mucPhatFixed.SoTienPhat
+                };
+                pp.TienPhatPhaiNop += mucPhatFixed.SoTienPhat;
+                _pmRepository.AddChiTietPhieuPhat(ctppFixed);
+            }
+
+// -            _pmRepository.Update(pp);
+            _pmRepository.Save();
+
+            // Kiểm tra nếu đã trả hết
             if (pm.ChiTietPhieuMuons!.All(x => x.TinhTrangTra != ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra))
                 pm.TrangThai = PhieuMuon.TrangThaiEnum.DaTra;
 

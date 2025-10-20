@@ -42,7 +42,7 @@
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
-                SuspendLayout();
+            SuspendLayout();
             // 
             // panelCRUD
             // 
@@ -202,12 +202,14 @@
             // dgvPhat
             // 
             dgvPhat.AccessibleRole = AccessibleRole.None;
+            dgvPhat.BackgroundColor = SystemColors.ButtonHighlight;
             dgvPhat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhat.Dock = DockStyle.Fill;
             dgvPhat.Location = new Point(0, 72);
             dgvPhat.Name = "dgvPhat";
             dgvPhat.Size = new Size(774, 491);
             dgvPhat.TabIndex = 1;
+            dgvPhat.CellContentClick += dgvPhat_CellContentClick;
             // 
             // UcPhat
             // 

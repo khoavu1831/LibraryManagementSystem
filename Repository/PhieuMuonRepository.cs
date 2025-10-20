@@ -70,10 +70,27 @@ namespace LibraryManagementSystem.Repository
         {
             _context.BanSaoSachs.Update(bss);
         }
-        //public MucPhat? GetMucPhatTheoLoai(string loaiPhat)
-        //{
-        //    return _context.MucPhats.FirstOrDefault(m => m.LoaiPhat == loaiPhat);
-        //}
+        
+        public MucPhat? GetPerDayFine()
+        {
+            return _context.MucPhats
+                .AsNoTracking()
+                .FirstOrDefault(mp => mp.LoaiPhat == MucPhat.LoaiPhatEnum.PerDay && mp.IsActive == 1);
+        }
+
+        public MucPhat? GetMucPhatById(int id)
+        {
+            return _context.MucPhats.AsNoTracking().FirstOrDefault(m => m.IdMucPhat == id);
+        }
+
+        public List<MucPhat> GetActiveFixedFines()
+        {
+            return _context.MucPhats
+                .AsNoTracking()
+                .Where(mp => mp.LoaiPhat == MucPhat.LoaiPhatEnum.Fixed && mp.IsActive == 1)
+                .ToList();
+        }
+
         public void AddPhieuPhat(PhieuPhat pp)
         {
             _context.PhieuPhats.Add(pp);
