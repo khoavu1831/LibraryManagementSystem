@@ -36,8 +36,8 @@
             btnExcel = new Button();
             btnChiTiet = new Button();
             btnHuy = new Button();
-            btnSua = new Button();
-            btnThem = new Button();
+            btnDSHuy = new Button();
+            btnDSThu = new Button();
             dgvPhat = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
@@ -51,8 +51,8 @@
             panelCRUD.Controls.Add(btnExcel);
             panelCRUD.Controls.Add(btnChiTiet);
             panelCRUD.Controls.Add(btnHuy);
-            panelCRUD.Controls.Add(btnSua);
-            panelCRUD.Controls.Add(btnThem);
+            panelCRUD.Controls.Add(btnDSHuy);
+            panelCRUD.Controls.Add(btnDSThu);
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
             panelCRUD.Name = "panelCRUD";
@@ -160,44 +160,44 @@
             btnHuy.Name = "btnHuy";
             btnHuy.Size = new Size(77, 72);
             btnHuy.TabIndex = 2;
-            btnHuy.Text = "Huỷ phiếu";
+            btnHuy.Text = "Huỷ Phiếu";
             btnHuy.TextImageRelation = TextImageRelation.ImageAboveText;
             btnHuy.UseVisualStyleBackColor = false;
             btnHuy.Click += btnXoa_Click;
             // 
-            // btnSua
+            // btnDSHuy
             // 
-            btnSua.BackColor = Color.White;
-            btnSua.Dock = DockStyle.Left;
-            btnSua.FlatAppearance.BorderSize = 0;
-            btnSua.FlatStyle = FlatStyle.Flat;
-            btnSua.Image = Properties.Resources.iconsua;
-            btnSua.Location = new Point(77, 0);
-            btnSua.Margin = new Padding(0);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(77, 72);
-            btnSua.TabIndex = 1;
-            btnSua.Text = "Sửa";
-            btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnSua.UseVisualStyleBackColor = false;
-            btnSua.Click += btnSua_Click;
+            btnDSHuy.BackColor = Color.White;
+            btnDSHuy.Dock = DockStyle.Left;
+            btnDSHuy.FlatAppearance.BorderSize = 0;
+            btnDSHuy.FlatStyle = FlatStyle.Flat;
+            btnDSHuy.Image = Properties.Resources.iconRac2;
+            btnDSHuy.Location = new Point(77, 0);
+            btnDSHuy.Margin = new Padding(0);
+            btnDSHuy.Name = "btnDSHuy";
+            btnDSHuy.Size = new Size(77, 72);
+            btnDSHuy.TabIndex = 1;
+            btnDSHuy.Text = "DS Đã Huỷ";
+            btnDSHuy.TextImageRelation = TextImageRelation.ImageAboveText;
+            //btnDSHuy.UseVisualStyleBackColor = false;
+            //btnDSHuy.Click += btnDSHuy_Click;
             // 
-            // btnThem
+            // btnDSThu
             // 
-            btnThem.BackColor = Color.White;
-            btnThem.Dock = DockStyle.Left;
-            btnThem.FlatAppearance.BorderSize = 0;
-            btnThem.FlatStyle = FlatStyle.Flat;
-            btnThem.Image = Properties.Resources.iconthem;
-            btnThem.Location = new Point(0, 0);
-            btnThem.Margin = new Padding(0);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(77, 72);
-            btnThem.TabIndex = 0;
-            btnThem.Text = "Thêm";
-            btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += btnThem_Click;
+            btnDSThu.BackColor = Color.White;
+            btnDSThu.Dock = DockStyle.Left;
+            btnDSThu.FlatAppearance.BorderSize = 0;
+            btnDSThu.FlatStyle = FlatStyle.Flat;
+            btnDSThu.Image = Properties.Resources.check;
+            btnDSThu.Location = new Point(0, 0);
+            btnDSThu.Margin = new Padding(0);
+            btnDSThu.Name = "btnDSThu";
+            btnDSThu.Size = new Size(77, 72);
+            btnDSThu.TabIndex = 0;
+            btnDSThu.Text = "DS Đã Thu";
+            btnDSThu.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnDSThu.UseVisualStyleBackColor = false;
+            //btnDSThu.Click += btnDSThu_Click;
             // 
             // dgvPhat
             // 
@@ -230,10 +230,10 @@
         #endregion
 
         private Panel panelCRUD;
-        private Button btnThem;
+        private Button btnDSThu;
         private DataGridView dgvPhat;
         private Button btnHuy;
-        private Button btnSua;
+        private Button btnDSHuy;
         private Button btnChiTiet;
         private Button btnExcel;
         private Button btnLamMoi;
