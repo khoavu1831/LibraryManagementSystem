@@ -6,12 +6,16 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ForceDesignerDPIUnaware>true</ForceDesignerDPIUnaware>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Views\Shared\**" />
+    <Compile Remove="Views\UserControls\QLMuonTra\**" />
     <EmbeddedResource Remove="Views\Shared\**" />
+    <EmbeddedResource Remove="Views\UserControls\QLMuonTra\**" />
     <None Remove="Views\Shared\**" />
+    <None Remove="Views\UserControls\QLMuonTra\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -83,6 +87,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Views\UserControls\QLMuonTraSach\MuonTraSach\FormTraSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLMuonTraSach\MuonTraSach\FormThemPhieuMuonTra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\UserControls\QLMuonTraSach\MuonTraSach\UcMuonTraSach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UserControls\QLNhapSach\NCC\FormChiTietNCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,10 +161,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\UserControls\QLMuonTra\" />
   </ItemGroup>
 
 </Project>

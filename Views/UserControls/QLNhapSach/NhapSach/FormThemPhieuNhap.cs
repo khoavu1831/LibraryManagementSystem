@@ -6,10 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Net.Mime;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Helpers;
 using LibraryManagementSystem.Repository;
 using LibraryManagementSystem.Services;
 
@@ -39,10 +41,22 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
 
         private void FormThemPhieuNhap_Load(object sender, EventArgs e)
         {
+            LoadLoaiPhieuNhap();
             LoadNCC();
             LoadSach();
 
             textBoxNhanVien.Text = "Nhan vien hien tai ne/ Sau phai assign cho nay";
+        }
+        private void LoadLoaiPhieuNhap()
+        {
+            var loaiPhieuNhapList = Enum.GetValues(typeof(PhieuNhap.LoaiPhieuNhapEnum))
+                .Cast<PhieuNhap.LoaiPhieuNhapEnum>()
+                .Select(e => new { Value = e, Display = e.GetDisplayName() })
+                .ToList();
+            
+            comboBoxLoaiPN.DataSource = loaiPhieuNhapList;
+            comboBoxLoaiPN.DisplayMember = "Display";
+            comboBoxLoaiPN.ValueMember = "Value";
         }
         private void LoadNCC()
         {
@@ -99,7 +113,6 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
                 if (col.Name != "SoLuongNhap" && col.Name != "Chon")
                     col.ReadOnly = true;
             }
-
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -109,10 +122,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
                 MessageBox.Show("Vui lòng chọn Nhà cung cấp.");
                 return;
             }
-
-            var textPN = comboBoxLoaiPN.Text.Trim();
-            if (textPN == "Tặng") textPN = "Tang";
-
+            var loaiPhieuNhap = comboBoxLoaiPN.SelectedValue;
+            
             var ncc = _nccService.GetAllNCC().FirstOrDefault(n => n.TenNCC == comboBoxNCC.SelectedItem!.ToString());
             var ngayNhap = DateTime.Now;
 
@@ -125,7 +136,15 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
                 bool chon = Convert.ToBoolean(row.Cells["Chon"].Value ?? false);
                 if (!chon) continue;
 
-                int soLuongNhap = Convert.ToInt32(row.Cells["SoLuongNhap"].Value ?? 0);
+                string soLuongNhapString = row.Cells["SoLuongNhap"].Value.ToString() ?? "0";
+
+                if (!Regex.IsMatch(soLuongNhapString, @"^\d+$"))
+                {
+                    MessageBox.Show($"Số lượng nhập không hợp lệ.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                int soLuongNhap = Convert.ToInt32(soLuongNhapString);
                 if (soLuongNhap <= 0) continue;
 
                 int idSach = Convert.ToInt32(row.Cells["IdSach"].Value);
@@ -136,7 +155,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
 
             if (selectedSachs.Count == 0)
             {
-                MessageBox.Show("Chưa chọn sách nào để nhập.");
+                MessageBox.Show("Chưa chọn sách nào để nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -150,7 +169,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
                 IdNCC = ncc!.IdNCC,
                 NgayNhap = ngayNhap,
                 SoLuongSach = tongSL,
-                LoaiPhieuNhap = Enum.Parse<PhieuNhap.LoaiPhieuNhapEnum>(textPN),
+                LoaiPhieuNhap = (PhieuNhap.LoaiPhieuNhapEnum)loaiPhieuNhap!,
                 TongTienNhap = tongTien,
                 IdNhanVien = 1 // Chữa cháy
             };

@@ -35,14 +35,14 @@
             btnLamMoi = new Button();
             btnExcel = new Button();
             btnChiTiet = new Button();
-            btnXoa = new Button();
-            btnSua = new Button();
-            btnThem = new Button();
+            btnHuy = new Button();
+            btnDSHuy = new Button();
+            btnDSThu = new Button();
             dgvPhat = new DataGridView();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
-                SuspendLayout();
+            SuspendLayout();
             // 
             // panelCRUD
             // 
@@ -50,9 +50,9 @@
             panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnExcel);
             panelCRUD.Controls.Add(btnChiTiet);
-            panelCRUD.Controls.Add(btnXoa);
-            panelCRUD.Controls.Add(btnSua);
-            panelCRUD.Controls.Add(btnThem);
+            panelCRUD.Controls.Add(btnHuy);
+            panelCRUD.Controls.Add(btnDSHuy);
+            panelCRUD.Controls.Add(btnDSThu);
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
             panelCRUD.Name = "panelCRUD";
@@ -88,6 +88,7 @@
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
@@ -148,66 +149,69 @@
             btnChiTiet.UseVisualStyleBackColor = false;
             btnChiTiet.Click += btnChiTiet_Click;
             // 
-            // btnXoa
+            // btnHuy
             // 
-            btnXoa.BackColor = Color.White;
-            btnXoa.Dock = DockStyle.Left;
-            btnXoa.FlatAppearance.BorderSize = 0;
-            btnXoa.FlatStyle = FlatStyle.Flat;
-            btnXoa.Image = Properties.Resources.iconxoa;
-            btnXoa.Location = new Point(154, 0);
-            btnXoa.Margin = new Padding(0);
-            btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(77, 72);
-            btnXoa.TabIndex = 2;
-            btnXoa.Text = "Xóa";
-            btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnXoa.UseVisualStyleBackColor = false;
-            btnXoa.Click += btnXoa_Click;
+            btnHuy.BackColor = Color.White;
+            btnHuy.Dock = DockStyle.Left;
+            btnHuy.FlatAppearance.BorderSize = 0;
+            btnHuy.FlatStyle = FlatStyle.Flat;
+            btnHuy.Image = Properties.Resources.iconxoa;
+            btnHuy.Location = new Point(154, 0);
+            btnHuy.Margin = new Padding(0);
+            btnHuy.Name = "btnHuy";
+            btnHuy.Size = new Size(77, 72);
+            btnHuy.TabIndex = 2;
+            btnHuy.Text = "Huỷ Phiếu";
+            btnHuy.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnHuy.UseVisualStyleBackColor = false;
+            btnHuy.Click += btnXoa_Click;
             // 
-            // btnSua
+            // btnDSHuy
             // 
-            btnSua.BackColor = Color.White;
-            btnSua.Dock = DockStyle.Left;
-            btnSua.FlatAppearance.BorderSize = 0;
-            btnSua.FlatStyle = FlatStyle.Flat;
-            btnSua.Image = Properties.Resources.iconsua;
-            btnSua.Location = new Point(77, 0);
-            btnSua.Margin = new Padding(0);
-            btnSua.Name = "btnSua";
-            btnSua.Size = new Size(77, 72);
-            btnSua.TabIndex = 1;
-            btnSua.Text = "Sửa";
-            btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnSua.UseVisualStyleBackColor = false;
-            btnSua.Click += btnSua_Click;
+            btnDSHuy.BackColor = Color.White;
+            btnDSHuy.Dock = DockStyle.Left;
+            btnDSHuy.FlatAppearance.BorderSize = 0;
+            btnDSHuy.FlatStyle = FlatStyle.Flat;
+            btnDSHuy.Image = Properties.Resources.iconRac2;
+            btnDSHuy.Location = new Point(77, 0);
+            btnDSHuy.Margin = new Padding(0);
+            btnDSHuy.Name = "btnDSHuy";
+            btnDSHuy.Size = new Size(77, 72);
+            btnDSHuy.TabIndex = 1;
+            btnDSHuy.Text = "DS Đã Huỷ";
+            btnDSHuy.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnDSHuy.UseVisualStyleBackColor = false;
+            btnDSHuy.Click += btnDSHuy_Click;
             // 
-            // btnThem
+            // btnDSThu
             // 
-            btnThem.BackColor = Color.White;
-            btnThem.Dock = DockStyle.Left;
-            btnThem.FlatAppearance.BorderSize = 0;
-            btnThem.FlatStyle = FlatStyle.Flat;
-            btnThem.Image = Properties.Resources.iconthem;
-            btnThem.Location = new Point(0, 0);
-            btnThem.Margin = new Padding(0);
-            btnThem.Name = "btnThem";
-            btnThem.Size = new Size(77, 72);
-            btnThem.TabIndex = 0;
-            btnThem.Text = "Thêm";
-            btnThem.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnThem.UseVisualStyleBackColor = false;
-            btnThem.Click += btnThem_Click;
+            btnDSThu.BackColor = Color.White;
+            btnDSThu.Dock = DockStyle.Left;
+            btnDSThu.FlatAppearance.BorderSize = 0;
+            btnDSThu.FlatStyle = FlatStyle.Flat;
+            btnDSThu.Image = Properties.Resources.check;
+            btnDSThu.Location = new Point(0, 0);
+            btnDSThu.Margin = new Padding(0);
+            btnDSThu.Name = "btnDSThu";
+            btnDSThu.Size = new Size(77, 72);
+            btnDSThu.TabIndex = 0;
+            btnDSThu.Text = "DS Đã Thu";
+            btnDSThu.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnDSThu.UseVisualStyleBackColor = false;
+            btnDSThu.Click += btnDSThu_Click;
             // 
             // dgvPhat
             // 
             dgvPhat.AccessibleRole = AccessibleRole.None;
+            dgvPhat.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPhat.BackgroundColor = SystemColors.ButtonHighlight;
             dgvPhat.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhat.Dock = DockStyle.Fill;
             dgvPhat.Location = new Point(0, 72);
             dgvPhat.Name = "dgvPhat";
             dgvPhat.Size = new Size(774, 491);
             dgvPhat.TabIndex = 1;
+            dgvPhat.CellContentClick += dgvPhat_CellContentClick;
             // 
             // UcPhat
             // 
@@ -227,10 +231,10 @@
         #endregion
 
         private Panel panelCRUD;
-        private Button btnThem;
+        private Button btnDSThu;
         private DataGridView dgvPhat;
-        private Button btnXoa;
-        private Button btnSua;
+        private Button btnHuy;
+        private Button btnDSHuy;
         private Button btnChiTiet;
         private Button btnExcel;
         private Button btnLamMoi;

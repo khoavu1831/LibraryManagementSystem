@@ -1,6 +1,4 @@
-﻿using LibraryManagementSystem.Views.UserControls.QLMuonTraSach.MuonSach;
-using LibraryManagementSystem.Views.UserControls.QLMuonTraSach.TraSach;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +15,8 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
         public UcQLMuonTraSach()
         {
             InitializeComponent();
-            LoadSubControl(new UcMuonSach());
+            LoadSubControl(new UcMuonTraSach());
+
         }
         private void LoadSubControl(UserControl uc)
         {
@@ -27,13 +26,12 @@ namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
         }
         private void btnMuonSach_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcMuonSach());
+            LoadSubControl(new UcMuonTraSach());
         }
 
         private void btnTraSach_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcTraSach());
+            LoadSubControl(new UcMuonTraSach());
         }
-
     }
 }

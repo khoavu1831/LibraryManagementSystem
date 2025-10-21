@@ -21,10 +21,14 @@ namespace LibraryManagementSystem.Entities
         public ICollection<ChiTietPhieuMuon>? ChiTietPhieuMuons { get; set; }
         public enum TinhTrangSachEnum
         {
-            Tot, 
-            Hong, 
-            Mat, 
-            ChoMuon 
+            [Display(Name = "Tốt")]
+            Tot,
+            [Display(Name = "Hỏng")]
+            Hong,
+            [Display(Name = "Mất")]
+            Mat,
+            [Display(Name = "Cho mượn")]
+            ChoMuon
         }
     }
 }

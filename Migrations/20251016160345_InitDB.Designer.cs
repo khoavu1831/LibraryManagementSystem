@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.Migrations
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20251009000058_NewMigration")]
-    partial class NewMigration
+    [Migration("20251016160345_InitDB")]
+    partial class InitDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,11 +58,10 @@ namespace LibraryManagementSystem.Migrations
                     b.Property<int>("IdPhieuMuon")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("NgayTra")
+                    b.Property<DateTime?>("NgayTra")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("TinhTrangTra")
-                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("IdChiTietPhieuMuon");
@@ -174,6 +173,9 @@ namespace LibraryManagementSystem.Migrations
                         .HasColumnType("int");
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdMucPhat"));
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("int");
 
                     b.Property<string>("LoaiPhat")
                         .IsRequired()
@@ -721,13 +723,13 @@ namespace LibraryManagementSystem.Migrations
 
             modelBuilder.Entity("LibraryManagementSystem.Entities.TheThanhVien", b =>
                 {
-                    b.HasOne("LibraryManagementSystem.Entities.DocGia", "DocGias")
+                    b.HasOne("LibraryManagementSystem.Entities.DocGia", "DocGia")
                         .WithMany("TheThanhViens")
                         .HasForeignKey("IdDocGia")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("DocGias");
+                    b.Navigation("DocGia");
                 });
 
             modelBuilder.Entity("Sach_TacGia", b =>

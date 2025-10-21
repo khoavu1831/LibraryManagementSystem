@@ -46,6 +46,16 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
                     dgvMucPhat.AutoGenerateColumns = true;
                     dgvMucPhat.DataSource = mucPhatDataView;
+                    dgvMucPhat.Columns["IdMucPhat"].HeaderText = " Mã Mức Phạt";
+                    dgvMucPhat.Columns["TenMucPhat"].HeaderText = "Tên Mức Phạt";
+                    dgvMucPhat.Columns["SoTienPhat"].HeaderText = "Số Tiền Phạt";
+                    dgvMucPhat.Columns["MoTa"].HeaderText = "Mô Tả";
+                    dgvMucPhat.Columns["LoaiPhat"].HeaderText = "Loại Phạt";
+
+                    dgvMucPhat.EnableHeadersVisualStyles = false;
+                    dgvMucPhat.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+                    dgvMucPhat.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    dgvMucPhat.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 }
             }
             catch (Exception ex)
@@ -74,26 +84,34 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            //if (dgvMucPhat.SelectedRows.Count == 0)
-            //{
-            //    MessageBox.Show("Vui lòng chọn 1 mức phạt để sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    return;
-            //}
+            if (dgvMucPhat.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 mức phạt để sửa", "Thông báo", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
-            //var selectedRow = dgvMucPhat.SelectedRows[0];
-            //int idMucPhat = Convert.ToInt32(selectedRow.Cells["IdMucPhat"].Value);
-            //string tenMucPhat = selectedRow.Cells["TenMucPhat"].Value.ToString() ?? "";
-            //decimal soTienPhat = Convert.ToDecimal(selectedRow.Cells["SoTienPhat"].Value);
-            //string moTa = selectedRow.Cells["MoTa"].Value.ToString() ?? "";
-            //string loaiPhat = selectedRow.Cells["LoaiPhat"].Value.ToString() ?? "";
+            var selectedRow = dgvMucPhat.SelectedRows[0];
+            int idMucPhat = Convert.ToInt32(selectedRow.Cells["IdMucPhat"].Value);
+            string tenMucPhat = selectedRow.Cells["TenMucPhat"].Value.ToString() ?? "";
+            decimal soTienPhat = Convert.ToDecimal(selectedRow.Cells["SoTienPhat"].Value);
+            string moTa = selectedRow.Cells["MoTa"].Value?.ToString() ?? "";
+            
+            // Parse string về enum - cần vì DataGridView hiển thị string có dấu
+            string loaiPhatDisplay = selectedRow.Cells["LoaiPhat"].Value.ToString() ?? "";
+            
+            // Tìm enum value tương ứng
+            var loaiPhat = Enum.GetValues(typeof(MucPhat.LoaiPhatEnum))
+                .Cast<MucPhat.LoaiPhatEnum>()
+                .FirstOrDefault(e => e.GetDisplayName() == loaiPhatDisplay);
 
-            //using (var formSuaMucPhat = new FormSuaMucPhat(idMucPhat, tenMucPhat, soTienPhat, moTa, loaiPhat))
-            //{
-            //    if (formSuaMucPhat.ShowDialog(this) == DialogResult.OK)
-            //    {
-            //        LoadData();
-            //    }
-            //}
+            using (var formSuaMucPhat = new FormSuaMucPhat(idMucPhat, tenMucPhat, soTienPhat, moTa, loaiPhat))
+            {
+                if (formSuaMucPhat.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -159,6 +177,16 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
+            
+            // Kiểm tra nếu không nhập gì
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm", "Cảnh báo", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus(); // Focus vào textbox để người dùng nhập
+                return;
+            }
+            
             try
             {
                 using (var context = new LibraryDbContext())
@@ -167,16 +195,31 @@ namespace LibraryManagementSystem.Views.UserControls.QLPhat
                     var mucPhatService = new MucPhatService(repo);
 
                     var data = mucPhatService.SearchMucPhat(keyword);
-                    if (data.Count == 0)
+                    
+                    // Hiển thị có dấu cho loại phạt trong kết quả tìm kiếm
+                    var mucPhatDataView = data.Select(mp => new
                     {
-                        MessageBox.Show("Không tìm thấy kết quả phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        IdMucPhat = mp.IdMucPhat,
+                        TenMucPhat = mp.TenMucPhat,
+                        SoTienPhat = mp.SoTienPhat,
+                        MoTa = mp.MoTa,
+                        LoaiPhat = mp.LoaiPhat.GetDisplayName()
+                    }).ToList();
+                    
+                    if (mucPhatDataView.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy kết quả phù hợp", "Thông báo", 
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return; // Không cần set DataSource nếu không có kết quả
                     }
-                    dgvMucPhat.DataSource = data;
+                    
+                    dgvMucPhat.DataSource = mucPhatDataView;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi", 
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

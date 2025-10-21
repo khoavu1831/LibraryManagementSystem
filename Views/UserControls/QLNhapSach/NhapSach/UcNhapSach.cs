@@ -1,5 +1,6 @@
 ﻿using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Helpers;
 using LibraryManagementSystem.Repository;
 using LibraryManagementSystem.Services;
 using LibraryManagementSystem.Views.UserControls.QLSach;
@@ -37,7 +38,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
                         TenNCC = pn.NCC != null ? pn.NCC.TenNCC : "Chua co",
                         TenNhanVien = pn.NhanVien != null ? pn.NhanVien.TenNhanVien : "Chua co",
                         SoLuongNhap = pn.SoLuongSach,
-                        LoaiPhieuNhap = pn.LoaiPhieuNhap
+                        LoaiPhieuNhap = pn.LoaiPhieuNhap.GetDisplayName()
                     }).ToList();
 
                     dgvPhieuNhap.DataSource = pnDataView;

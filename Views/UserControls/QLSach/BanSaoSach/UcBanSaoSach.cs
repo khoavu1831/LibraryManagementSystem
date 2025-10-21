@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Helpers;
 using LibraryManagementSystem.Repository;
 using LibraryManagementSystem.Services;
 
@@ -47,7 +48,7 @@ namespace LibraryManagementSystem.Views.UserControls.QLSach
                     IdBanSaoSach = bss.IdBanSaoSach,
                     IdSach = bss.IdSach,
                     TenSach = bss.Sach!.TenSach,
-                    TrangThai = bss.TinhTrangSach
+                    TrangThai = bss.TinhTrangSach.GetDisplayName()
                 }).ToList();
 
                 dgvBanSaoSach.DataSource = bssDataView;

@@ -19,7 +19,6 @@ namespace LibraryManagementSystem.Entities
         public int SoLuong { get; set; }
         [Precision(12, 2)]
         public decimal GiaTien { get; set; }
-        // public string? MaDauSach { get; set; }
 
         [ForeignKey("IdPhieuNhap")]
         public PhieuNhap? PhieuNhap { get; set; }

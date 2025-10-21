@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LibraryManagementSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class IntitDb : Migration
+    public partial class InitDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,7 +49,8 @@ namespace LibraryManagementSystem.Migrations
                     MoTa = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     LoaiPhat = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsActive = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -453,8 +454,8 @@ namespace LibraryManagementSystem.Migrations
                     IdPhieuMuon = table.Column<int>(type: "int", nullable: false),
                     IdBanSaoSach = table.Column<string>(type: "varchar(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    NgayTra = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    TinhTrangTra = table.Column<string>(type: "longtext", nullable: false)
+                    NgayTra = table.Column<DateTime>(type: "datetime(6)", nullable: true),
+                    TinhTrangTra = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>

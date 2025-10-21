@@ -5,7 +5,7 @@
 namespace LibraryManagementSystem.Migrations
 {
     /// <inheritdoc />
-    public partial class NewMigration : Migration
+    public partial class PhatEnum : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
