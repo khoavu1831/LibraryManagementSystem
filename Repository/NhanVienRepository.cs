@@ -1,4 +1,4 @@
-using LibraryManagementSystem.Data;
+﻿using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan;
 
@@ -28,9 +28,19 @@ namespace LibraryManagementSystem.Repository
         }
         public NhanVien Update(NhanVien nhanVien)
         {
-            _context.NhanViens.Update(nhanVien);
+            var existing = _context.NhanViens.FirstOrDefault(x => x.IdNhanVien == nhanVien.IdNhanVien);
+            if (existing == null)
+                throw new Exception("Không tìm thấy nhân viên.");
+
+            // Gán lại giá trị mới cho entity đã được track
+            existing.TenNhanVien = nhanVien.TenNhanVien;
+            existing.NgaySinh = nhanVien.NgaySinh;
+            existing.DiaChi = nhanVien.DiaChi;
+            existing.SDT = nhanVien.SDT;
+            existing.Email = nhanVien.Email;
+
             _context.SaveChanges();
-            return nhanVien;
+            return existing;
         }
         public NhanVien? Delete(int id)
         {

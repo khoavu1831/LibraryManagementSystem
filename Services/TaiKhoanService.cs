@@ -25,35 +25,19 @@ namespace LibraryManagementSystem.Services
         public List<Entities.TaiKhoan> getAllTaiKhoan() => _taiKhoanRepository.GetAll();
         public Entities.TaiKhoan? GetTaiKhoanById(int id) => _taiKhoanRepository.GetById(id);
         public Entities.TaiKhoan AddTaiKhoan(TaiKhoan taiKhoan) => _taiKhoanRepository.Add(taiKhoan);
-        public Boolean UpdateTaiKhoan(TaiKhoan taiKhoan)
+        public TaiKhoan UpdateTaiKhoan(TaiKhoan taiKhoan)
         {
-            if (string.IsNullOrEmpty(taiKhoan.TenTaiKhoan) || string.IsNullOrEmpty(taiKhoan.MatKhau))
-            {
-                MessageBox.Show(
-                     "Tài khoản hoặc mật khẩu không hợp lệ. Tài khoản hoặc mật khẩu Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+            if (string.IsNullOrWhiteSpace(taiKhoan.TenTaiKhoan) || string.IsNullOrWhiteSpace(taiKhoan.MatKhau))
+                throw new Exception("Tài khoản hoặc mật khẩu không được để trống.");
 
-            if (!Regex.IsMatch(taiKhoan.TenTaiKhoan, @"^[A-Za-z0-9]{1,20}$") || !Regex.IsMatch(taiKhoan.MatKhau, @"^[A-Za-z0-9]{1,20}$"))
-            {
-                MessageBox.Show(
-                     "Tài khoản hoặc mật khẩu không hợp lệ. Tài khoản hoặc mật khẩu chỉ chứa chữ cái và có độ dài từ 1 đến 20 ký tự.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else
-            {
-                _taiKhoanRepository.Update(taiKhoan);
-                return true;
-            }
-           
+            if (!Regex.IsMatch(taiKhoan.TenTaiKhoan, @"^[A-Za-z0-9]{1,20}$"))
+                throw new Exception("Tên tài khoản chỉ được chứa chữ và số, tối đa 20 ký tự.");
+
+            if (!Regex.IsMatch(taiKhoan.MatKhau, @"^[A-Za-z0-9]{1,20}$"))
+                throw new Exception("Mật khẩu chỉ được chứa chữ và số, tối đa 20 ký tự.");
+
+            return _taiKhoanRepository.Update(taiKhoan);
+
         }
         public Entities.TaiKhoan? DeleteTaiKhoan(int id) => _taiKhoanRepository.Delete(id);
     }

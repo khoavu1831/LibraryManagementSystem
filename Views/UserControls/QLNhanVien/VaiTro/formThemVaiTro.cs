@@ -1,4 +1,6 @@
 ﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
 {
@@ -43,11 +46,18 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
         {
 
             string tenVaiTro = textBoxHVT.Text.Trim();
-            if(_vaiTroService.AddVaiTro(new Entities.VaiTro { TenVaiTro = tenVaiTro }))
+
+            try
             {
-                this.Close();
+                _vaiTroService.AddVaiTro(new Entities.VaiTro { TenVaiTro = tenVaiTro });
                 MessageBox.Show("Thêm vai trò thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
         }
     }

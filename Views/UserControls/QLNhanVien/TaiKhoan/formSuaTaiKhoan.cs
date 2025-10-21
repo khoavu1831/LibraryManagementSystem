@@ -1,5 +1,6 @@
 ﻿using LibraryManagementSystem.Data;
 using LibraryManagementSystem.Entities;
+using LibraryManagementSystem.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
 {
@@ -54,13 +56,19 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
                 {
                     taiKhoan.TenTaiKhoan = tenDangNhap;
                     taiKhoan.MatKhau = matKhau;
-                    if(taiKhoanService.UpdateTaiKhoan(taiKhoan))
+                    try
                     {
+                        taiKhoanService.UpdateTaiKhoan(taiKhoan);
                         MessageBox.Show("Sửa tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         DialogResult = DialogResult.OK;
                         this.Close();
                     }
-                   
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                 }
 
 
