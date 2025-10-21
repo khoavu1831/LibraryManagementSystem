@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLDocGia.KhachHang
+﻿namespace LMS.Views.UserControls.QLDocGia.KhachHang
 {
     partial class FormThemKhachHang
     {

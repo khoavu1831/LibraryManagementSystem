@@ -1,5 +1,5 @@
-﻿using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Services;
+﻿using LMS.Data;
+using LMS.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
+namespace LMS.Views.UserControls.QLNhanVien.VaiTro
 {
     public partial class FormSuaVaiTro : Form
     {

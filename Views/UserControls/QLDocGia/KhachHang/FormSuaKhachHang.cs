@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLDocGia.KhachHang
+namespace LMS.Views.UserControls.QLDocGia.KhachHang
 {
     public partial class FormSuaKhachHang : Form
     {

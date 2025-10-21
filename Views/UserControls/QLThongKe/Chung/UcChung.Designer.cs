@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLThongKe.Chung
+﻿namespace LMS.Views.UserControls.QLThongKe.Chung
 {
     partial class UcChung
     {

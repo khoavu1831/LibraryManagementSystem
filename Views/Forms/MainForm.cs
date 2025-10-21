@@ -1,16 +1,16 @@
-﻿using LibraryManagementSystem.Forms;
-using LibraryManagementSystem.Views.UserControls.QLDocGia;
-using LibraryManagementSystem.Views.UserControls.QLMuonTraSach;
-using LibraryManagementSystem.Views.UserControls.QLNhanVien;
-using LibraryManagementSystem.Views.UserControls.QLPhat;
-using LibraryManagementSystem.Views.UserControls.QLThongKe;
-using LibraryManagementSystem.Views.UserControls.QLSach;
-using LibraryManagementSystem.Views.UserControls.TrangChu;
-using LibraryManagementSystem.Views.UserControls.QLNhapSach;
-using LibraryManagementSystem.Views.UserControls.QuanLy;
+﻿using LMS.Forms;
+using LMS.Views.UserControls.QLDocGia;
+using LMS.Views.UserControls.QLMuonTraSach;
+using LMS.Views.UserControls.QLNhanVien;
+using LMS.Views.UserControls.QLPhat;
+using LMS.Views.UserControls.QLThongKe;
+using LMS.Views.UserControls.QLSach;
+using LMS.Views.UserControls.TrangChu;
+using LMS.Views.UserControls.QLNhapSach;
+using LMS.Views.UserControls.QuanLy;
 
 
-namespace LibraryManagementSystem.Views.Forms
+namespace LMS.Views.Forms
 {
     public partial class MainForm : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLDocGia
+﻿namespace LMS.Views.UserControls.QLDocGia
 {
     partial class UcQLDocGia
     {

@@ -1,7 +1,7 @@
-﻿using LibraryManagementSystem.Repository;
-using LibraryManagementSystem.Services;
-using LibraryManagementSystem.Views.UserControls.QLPhat;
-using LibraryManagementSystem.Views.UserControls.QLSach;
+﻿using LMS.Repository;
+using LMS.Services;
+using LMS.Views.UserControls.QLPhat;
+using LMS.Views.UserControls.QLSach;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,13 +11,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Entities;
+using LMS.Data;
+using LMS.Entities;
 using Microsoft.EntityFrameworkCore;
-using LibraryManagementSystem.Helpers;
+using LMS.Helpers;
 
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat
+namespace LMS.Views.UserControls.QLPhat
 {
     public partial class UcPhat : UserControl
     {

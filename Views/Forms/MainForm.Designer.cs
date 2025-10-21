@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.Forms
+﻿namespace LMS.Views.Forms
 {
     partial class MainForm
     {

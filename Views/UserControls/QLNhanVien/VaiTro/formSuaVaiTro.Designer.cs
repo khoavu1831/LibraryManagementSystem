@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
+﻿namespace LMS.Views.UserControls.QLNhanVien.VaiTro
 {
     partial class FormSuaVaiTro
     {

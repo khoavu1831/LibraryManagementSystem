@@ -1,7 +1,7 @@
-﻿using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Entities;
-using LibraryManagementSystem.Repository;
-using LibraryManagementSystem.Services;
+﻿using LMS.Data;
+using LMS.Entities;
+using LMS.Repository;
+using LMS.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
+namespace LMS.Views.UserControls.QLNhanVien.NhanVien
 {
     public partial class FormSuaNhanVien : Form
     {

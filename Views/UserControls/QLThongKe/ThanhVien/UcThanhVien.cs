@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLThongKe.ThanhVien
+namespace LMS.Views.UserControls.QLThongKe.ThanhVien
 {
     public partial class UcThanhVien : UserControl
     {

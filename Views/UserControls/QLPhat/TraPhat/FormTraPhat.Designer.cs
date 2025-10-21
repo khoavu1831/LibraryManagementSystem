@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
+﻿namespace LMS.Views.UserControls.QLPhat.TraPhat
 {
     partial class FormTraPhat
     {

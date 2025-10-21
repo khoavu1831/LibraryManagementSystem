@@ -1,7 +1,7 @@
-﻿using LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien;
-using LibraryManagementSystem.Views.UserControls.QLNhanVien.Quyen;
-using LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan;
-using LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro;
+﻿using LMS.Views.UserControls.QLNhanVien.NhanVien;
+using LMS.Views.UserControls.QLNhanVien.Quyen;
+using LMS.Views.UserControls.QLNhanVien.TaiKhoan;
+using LMS.Views.UserControls.QLNhanVien.VaiTro;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien
+namespace LMS.Views.UserControls.QLNhanVien
 {
     public partial class UcQLNhanVien : UserControl
     {

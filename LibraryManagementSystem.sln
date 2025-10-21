@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36212.18 d17.14
+VisualStudioVersion = 17.14.36212.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagementSystem", "LibraryManagementSystem.csproj", "{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Views", "LMS.Views.csproj", "{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Models", "LMS.Models\LMS.Models.csproj", "{DF6DD760-815E-49B4-9D8B-623F4316FFED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Repositories", "LMS.Repositories\LMS.Repositories.csproj", "{733FEF67-BE2E-4EE2-A03A-EC5AC05C56B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Services", "LMS.Services\LMS.Services.csproj", "{218B3DAE-2D5C-4778-A60C-0B08D93CC2A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Utils", "LMS.Utils\LMS.Utils.csproj", "{EAD021FD-ED63-4616-8C4C-69B2D32A9120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Data", "LMS.Data\LMS.Data.csproj", "{AEB1301D-C761-4EA3-BBCA-153F4D685B3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF6DD760-815E-49B4-9D8B-623F4316FFED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF6DD760-815E-49B4-9D8B-623F4316FFED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF6DD760-815E-49B4-9D8B-623F4316FFED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF6DD760-815E-49B4-9D8B-623F4316FFED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{733FEF67-BE2E-4EE2-A03A-EC5AC05C56B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{733FEF67-BE2E-4EE2-A03A-EC5AC05C56B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{733FEF67-BE2E-4EE2-A03A-EC5AC05C56B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{733FEF67-BE2E-4EE2-A03A-EC5AC05C56B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218B3DAE-2D5C-4778-A60C-0B08D93CC2A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218B3DAE-2D5C-4778-A60C-0B08D93CC2A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218B3DAE-2D5C-4778-A60C-0B08D93CC2A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218B3DAE-2D5C-4778-A60C-0B08D93CC2A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAD021FD-ED63-4616-8C4C-69B2D32A9120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAD021FD-ED63-4616-8C4C-69B2D32A9120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAD021FD-ED63-4616-8C4C-69B2D32A9120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAD021FD-ED63-4616-8C4C-69B2D32A9120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEB1301D-C761-4EA3-BBCA-153F4D685B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEB1301D-C761-4EA3-BBCA-153F4D685B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEB1301D-C761-4EA3-BBCA-153F4D685B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEB1301D-C761-4EA3-BBCA-153F4D685B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

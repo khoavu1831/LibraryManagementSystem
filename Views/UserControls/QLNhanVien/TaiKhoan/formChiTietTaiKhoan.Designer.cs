@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
+﻿namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
 {
     partial class FormChiTietTaiKhoan
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
+namespace LMS.Views.UserControls.QLMuonTraSach
 {
     public partial class UcQLMuonTraSach : UserControl
     {

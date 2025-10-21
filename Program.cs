@@ -1,7 +1,7 @@
-﻿using LibraryManagementSystem.Forms;
-using LibraryManagementSystem.Views.Forms;
+﻿using LMS.Forms;
+using LMS.Views.Forms;
 
-namespace LibraryManagementSystem
+namespace LMS
 {
     internal static class Program
     {

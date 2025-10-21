@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLThongKe.ThanhVien
+﻿namespace LMS.Views.UserControls.QLThongKe.ThanhVien
 {
     partial class UcThanhVien
     {

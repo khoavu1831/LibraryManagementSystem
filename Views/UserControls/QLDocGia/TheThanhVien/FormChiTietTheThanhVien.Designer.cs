@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLDocGia.TheThanhVien
+﻿namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
 {
     partial class FormChiTietTheThanhVien
     {

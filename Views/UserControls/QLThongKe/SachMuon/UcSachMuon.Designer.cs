@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLThongKe.SachMuon
+﻿namespace LMS.Views.UserControls.QLThongKe.SachMuon
 {
     partial class UcSachMuon
     {

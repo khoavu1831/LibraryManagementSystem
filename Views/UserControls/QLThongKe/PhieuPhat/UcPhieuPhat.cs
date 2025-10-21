@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLThongKe.PhieuPhat
+namespace LMS.Views.UserControls.QLThongKe.PhieuPhat
 {
     public partial class UcPhieuPhat : UserControl
     {

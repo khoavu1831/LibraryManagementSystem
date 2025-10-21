@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat.TraPhat
+namespace LMS.Views.UserControls.QLPhat.TraPhat
 {
     public partial class FormTraPhat : Form
     {

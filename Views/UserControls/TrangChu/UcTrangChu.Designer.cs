@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.TrangChu
+﻿namespace LMS.Views.UserControls.TrangChu
 {
     partial class UcTrangChu
     {

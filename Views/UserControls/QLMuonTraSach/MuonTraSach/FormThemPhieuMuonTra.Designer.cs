@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
+﻿namespace LMS.Views.UserControls.QLMuonTraSach
 {
     partial class FormThemPhieuMuonTra
     {

@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Forms
+﻿namespace LMS.Forms
 {
     partial class LoginForm
     {
@@ -132,7 +132,7 @@
             // pictureBoxImage
             // 
             pictureBoxImage.Dock = DockStyle.Left;
-            pictureBoxImage.Image = Properties.Resources.thuvien;
+            pictureBoxImage.Image = LMS.Views.Properties.Resources.thuvien;
             pictureBoxImage.Location = new Point(0, 0);
             pictureBoxImage.Name = "pictureBoxImage";
             pictureBoxImage.Size = new Size(428, 417);

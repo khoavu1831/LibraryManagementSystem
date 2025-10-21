@@ -1,6 +1,6 @@
-﻿using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Entities;
-using LibraryManagementSystem.Services;
+﻿using LMS.Data;
+using LMS.Entities;
+using LMS.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
+namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
 {
     public partial class FormSuaTaiKhoan : Form
     {
