@@ -10,67 +10,28 @@ namespace LibraryManagementSystem.Services
         public VaiTroService(VaiTroRepository vaiTroRepository) => _vaiTroRepository = vaiTroRepository;
         public List<VaiTro> GetAllVaiTro() => _vaiTroRepository.GetAll();
         public VaiTro? GetVaiTroById(int id) => _vaiTroRepository.GetById(id);
-        public Boolean AddVaiTro(VaiTro vaiTro)
+        public VaiTro AddVaiTro(VaiTro vaiTro)
         {
-            if (string.IsNullOrEmpty(vaiTro.TenVaiTro))
-            {
-                MessageBox.Show(
-                     "Tên vai trò không hợp lệ. Tên vai trò Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+            if (string.IsNullOrWhiteSpace(vaiTro.TenVaiTro))
+                throw new Exception("Tên vai trò không được để trống.");
 
             if (!Regex.IsMatch(vaiTro.TenVaiTro, @"^[\p{L}\s]{1,20}$"))
-            {
-                MessageBox.Show(
-                     "Tên vai trò không hợp lệ. Tên vai trò chỉ chứa chữ cái và có độ dài từ 1 đến 20 ký tự.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else
-            {
-                _vaiTroRepository.Add(vaiTro);
-                return true;
-            }
+                throw new Exception("Tên vai trò chỉ được chứa chữ cái và tối đa 20 ký tự.");
+
+            return _vaiTroRepository.Add(vaiTro);
         }
 
-        public Boolean UpdateVaiTro(VaiTro vaiTro)
+        public VaiTro UpdateVaiTro(VaiTro vaiTro)
         {
-            if (string.IsNullOrEmpty(vaiTro.TenVaiTro))
-            {
-                MessageBox.Show(
-                     "Tên vai trò không hợp lệ. Tên vai trò Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+            if (string.IsNullOrWhiteSpace(vaiTro.TenVaiTro))
+                throw new Exception("Tên vai trò không được để trống.");
 
             if (!Regex.IsMatch(vaiTro.TenVaiTro, @"^[\p{L}\s]{1,20}$"))
-            {
-                MessageBox.Show(
-                     "Tên vai trò không hợp lệ. Tên vai trò chỉ chứa chữ cái và có độ dài từ 1 đến 20 ký tự.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            } else
-            {
-                _vaiTroRepository.Update(vaiTro);
-                return true;
-            }
+                throw new Exception("Tên vai trò chỉ được chứa chữ cái và tối đa 20 ký tự.");
 
-                
+            return _vaiTroRepository.Update(vaiTro);
         }
-       
+
         public VaiTro? DeleteVaiTro(int id) => _vaiTroRepository.DeleteById(id);
     }
 }

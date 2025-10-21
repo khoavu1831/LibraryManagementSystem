@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,11 +34,18 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
             {
                 var repo = new Repository.VaiTroRepository(context);
                 var vaiTroService = new Services.VaiTroService(repo);
-                if(vaiTroService.UpdateVaiTro(new Entities.VaiTro { IdVaiTro = _idVaiTro, TenVaiTro = tenVaiTro }) == true)
+
+                try
                 {
-                    this.Close();
+                    vaiTroService.UpdateVaiTro(new Entities.VaiTro { IdVaiTro = _idVaiTro, TenVaiTro = tenVaiTro });
                     MessageBox.Show("Sửa vai trò thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult = DialogResult.OK;
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
         }

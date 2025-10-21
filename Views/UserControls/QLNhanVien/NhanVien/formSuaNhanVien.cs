@@ -1,4 +1,5 @@
 ﻿using LibraryManagementSystem.Data;
+using LibraryManagementSystem.Entities;
 using LibraryManagementSystem.Repository;
 using LibraryManagementSystem.Services;
 using System;
@@ -16,8 +17,6 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
     public partial class FormSuaNhanVien : Form
     {
         private readonly int _idNhanVien;
-        private readonly int _idTaiKhoan;
-        private readonly LibraryDbContext _context;
         private readonly NhanVienService _nhanVienService;
         public FormSuaNhanVien(string idNhanVien, string tenNhanVien, string ngaySinh, string diaChi, string sdt, string email)
         {
@@ -28,11 +27,9 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
             textBoxDC.Text = diaChi;
             textBoxSDT.Text = sdt;
             textBoxEmail.Text = email;
-            _context = new LibraryDbContext(); 
-            var repo = new NhanVienRepository(_context);
+            var context = new LibraryDbContext();
+            var repo = new NhanVienRepository(context);
             _nhanVienService = new NhanVienService(repo);
-            var nhanVienID = _nhanVienService.GetNhanVienById(_idNhanVien);
-            _idTaiKhoan = nhanVienID.IdTaiKhoan;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -53,20 +50,27 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
             var sdt = textBoxSDT.Text.Trim();
             var email = textBoxEmail.Text.Trim();
 
-            var nhanVien = _context.NhanViens.FirstOrDefault(x => x.IdNhanVien == _idNhanVien);
-            if (nhanVien != null)
+            try
             {
-                nhanVien.TenNhanVien = tenNhanVien;
-                nhanVien.NgaySinh = DateTime.ParseExact(ngaySinh, "dd/MM/yyyy", null);
-                nhanVien.DiaChi = diaChi;
-                nhanVien.SDT = sdt;
-                nhanVien.Email = email;
+                _nhanVienService.UpdateNhanVien(new Entities.NhanVien
+                {
+                    IdNhanVien = _idNhanVien,
+                    TenNhanVien = textBoxHVT.Text.Trim(),
+                    NgaySinh = DateTime.ParseExact(textBoxNS.Text.Trim(), "dd/MM/yyyy", null),
+                    DiaChi = textBoxDC.Text.Trim(),
+                    SDT = textBoxSDT.Text.Trim(),
+                    Email = textBoxEmail.Text.Trim()
+                });
 
-                _context.SaveChanges();
-                MessageBox.Show("Sửa thông tin nhân viên thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sửa thông tin nhân viên thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

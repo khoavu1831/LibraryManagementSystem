@@ -78,16 +78,20 @@ namespace LibraryManagementSystem.Views.UserControls.QLNhanVien
             string diaChi = textBoxDC.Text;
             string sdt = textBoxSDT.Text;
             string email = textBoxEmail.Text;
-
             //_taiKhoanService.AddTaiKhoan(new Entities.TaiKhoan { IdVaiTro = 2,TenTaiKhoan = taiKhoan, MatKhau = matKhau });
             //_nhanVienService.AddNhanVien(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email});
-            if (_nhanVienService.AddNVTK(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email, NgaySinh = ngaySinh }, new Entities.TaiKhoan { IdVaiTro = 2, TenTaiKhoan = taiKhoan, MatKhau = matKhau }) ==true)
+            try
             {
+                _nhanVienService.AddNVTK(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email, NgaySinh = ngaySinh }, new Entities.TaiKhoan { IdVaiTro = 2, TenTaiKhoan = taiKhoan, MatKhau = matKhau });
                 MessageBox.Show("Thêm nhân viên thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }

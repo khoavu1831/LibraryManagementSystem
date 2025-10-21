@@ -17,233 +17,119 @@ namespace LibraryManagementSystem.Services
         public NhanVienService(NhanVienRepository nhanVienRepository) => _nhanVienRepository = nhanVienRepository;
         public List<Entities.NhanVien> getAllNhanVien() => _nhanVienRepository.GetAll();
         public Entities.NhanVien? GetNhanVienById(int id) => _nhanVienRepository.GetById(id);
-        public Boolean AddNhanVien(NhanVien nhanVien)
+        public NhanVien AddNhanVien(NhanVien nhanVien)
         {
+            // Validate tên nhân viên
             if (string.IsNullOrEmpty(nhanVien.TenNhanVien))
-            {
-                MessageBox.Show(
-                     "Tên nhân viên không hợp lệ. Tên nhân viên  Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+                throw new Exception("Tên nhân viên không được để trống.");
 
+            if (!Regex.IsMatch(nhanVien.TenNhanVien.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ\s]{1,50}$"))
+                throw new Exception("Tên nhân viên không hợp lệ. Không chứa số hoặc ký tự đặc biệt, tối đa 50 ký tự.");
+
+            // Validate Email
             if (string.IsNullOrEmpty(nhanVien.Email))
-            {
-                MessageBox.Show(
-                     "Email không hợp lệ. Email Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+                throw new Exception("Email không được để trống.");
 
+            if (!Regex.IsMatch(nhanVien.Email.Trim(), @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
+                throw new Exception("Email không đúng định dạng.");
+
+            // Validate địa chỉ
             if (string.IsNullOrEmpty(nhanVien.DiaChi))
-            {
-                MessageBox.Show(
-                     "Địa chỉ không hợp lệ. Địa chỉ Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+                throw new Exception("Địa chỉ không được để trống.");
 
+            if (!Regex.IsMatch(nhanVien.DiaChi.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ0-9\s]{1,100}$"))
+                throw new Exception("Địa chỉ không hợp lệ, không chứa ký tự đặc biệt.");
+
+            // Validate số điện thoại
             if (string.IsNullOrEmpty(nhanVien.SDT))
-            {
-                MessageBox.Show(
-                     "Số điện thoại không hợp lệ. Số điện thoại Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+                throw new Exception("Số điện thoại không được để trống.");
 
-            if (!Regex.IsMatch(nhanVien.TenNhanVien, @"^[A-Za-zÀ-Ỹà-ỹ\s]{1,50}$"))
-            {
-                MessageBox.Show(
-                     "Họ và tên không hợp lệ.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            if (!Regex.IsMatch(nhanVien.DiaChi, @"^[A-Za-zÀ-Ỹà-ỹ0-9\s]{1,30}$"))
-            {
-                MessageBox.Show(
-                     "Địa chỉ không hợp lệ, không được chứa ký tự đặc biệt.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            if (!Regex.IsMatch(nhanVien.SDT, @"^0\d{9}$"))
-            {
-                MessageBox.Show(
-                     "Số điện thoại phải gồm 10 chữ số và bắt đầu bằng 0.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            if (!Regex.IsMatch(nhanVien.Email, @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
-            {
-                MessageBox.Show(
-                     "Email không đúng định dạng.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else
-            {
-                _nhanVienRepository.Add(nhanVien);
-                return true;
-            }
-            
+            if (!Regex.IsMatch(nhanVien.SDT.Trim(), @"^0\d{9}$"))
+                throw new Exception("Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0.");
+
+            // Thêm nhân viên
+            return _nhanVienRepository.Add(nhanVien);
         }
-       
-        public Boolean AddNVTK(NhanVien nhanVien, TaiKhoan taiKhoan)
+
+
+        public NhanVien AddNVTK(NhanVien nhanVien, TaiKhoan taiKhoan)
         {
-            if (string.IsNullOrEmpty(nhanVien.TenNhanVien))
-            {
-                MessageBox.Show(
-                     "Tên nhân viên không hợp lệ. Tên nhân viên  Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+            // Validate Nhân viên -----------------------------
+            if (string.IsNullOrWhiteSpace(nhanVien.TenNhanVien))
+                throw new Exception("Tên nhân viên không được để trống.");
 
-            else if (string.IsNullOrEmpty(nhanVien.Email))
-            {
-                MessageBox.Show(
-                     "Email không hợp lệ. Email Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+            if (!Regex.IsMatch(nhanVien.TenNhanVien.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ\s]{1,50}$"))
+                throw new Exception("Tên nhân viên không hợp lệ. Không được chứa số hoặc ký tự đặc biệt.");
 
-            else if (string.IsNullOrEmpty(nhanVien.DiaChi))
-            {
-                MessageBox.Show(
-                     "Địa chỉ không hợp lệ. Địa chỉ Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+            if (string.IsNullOrWhiteSpace(nhanVien.Email))
+                throw new Exception("Email không được để trống.");
 
-            else if (string.IsNullOrEmpty(nhanVien.SDT))
-            {
-                MessageBox.Show(
-                     "Số điện thoại không hợp lệ. Số điện thoại Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else if (string.IsNullOrEmpty(taiKhoan.TenTaiKhoan))
-            {
-                MessageBox.Show(
-                     "Tài khoản không hợp lệ. Tài khoản Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else if (string.IsNullOrEmpty(taiKhoan.MatKhau))
-            {
-                MessageBox.Show(
-                     "Mật khẩu không hợp lệ. Mật khẩu Không được để trống",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
+            if (!Regex.IsMatch(nhanVien.Email.Trim(), @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
+                throw new Exception("Email không đúng định dạng.");
 
-            else if (!Regex.IsMatch(nhanVien.TenNhanVien, @"^[A-Za-zÀ-Ỹà-ỹ\s]{1,50}$"))
-            {
-                MessageBox.Show(
-                     "Họ và tên không hợp lệ.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else if (!Regex.IsMatch(nhanVien.DiaChi, @"^[A-Za-zÀ-Ỹà-ỹ0-9\s]{1,30}$"))
-            {
-                MessageBox.Show(
-                     "Địa chỉ không hợp lệ, không được chứa ký tự đặc biệt.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else if (!Regex.IsMatch(nhanVien.SDT, @"^0\d{9}$"))
-            {
-                MessageBox.Show(
-                     "Số điện thoại phải gồm 10 chữ số và bắt đầu bằng 0.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else if (!Regex.IsMatch(nhanVien.Email, @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
-            {
-                MessageBox.Show(
-                     "Email không đúng định dạng.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else if (!Regex.IsMatch(taiKhoan.TenTaiKhoan, @"^[A-Za-z0-9]{1,20}$"))
-            {
-                MessageBox.Show(
-                     "Tài khoản chỉ chứa chữ và số, tối đa 20 ký tự.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else if (!Regex.IsMatch(taiKhoan.MatKhau, @"^[A-Za-z0-9@#$_!%^&*]{1,20}$"))
-            {
-                MessageBox.Show(
-                     "Mật khẩu không hợp lệ, tối đa 20 ký tự.",
-                     "Lỗi nhập liệu",
-                     MessageBoxButtons.OK,
-                     MessageBoxIcon.Warning
-                 );
-                return false;
-            }
-            else
-            {
-                _nhanVienRepository.AddNVTK(nhanVien, taiKhoan);
-                return true;
-            }
+            if (string.IsNullOrWhiteSpace(nhanVien.DiaChi))
+                throw new Exception("Địa chỉ không được để trống.");
+
+            if (!Regex.IsMatch(nhanVien.DiaChi.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ0-9\s]{1,100}$"))
+                throw new Exception("Địa chỉ không hợp lệ. Không chứa ký tự đặc biệt.");
+
+            if (string.IsNullOrWhiteSpace(nhanVien.SDT))
+                throw new Exception("Số điện thoại không được để trống.");
+
+            if (!Regex.IsMatch(nhanVien.SDT.Trim(), @"^0\d{9}$"))
+                throw new Exception("Số điện thoại phải gồm 10 chữ số và bắt đầu bằng 0.");
+
+            // Validate Tài khoản -----------------------------
+            if (string.IsNullOrWhiteSpace(taiKhoan.TenTaiKhoan))
+                throw new Exception("Tên tài khoản không được để trống.");
+
+            if (!Regex.IsMatch(taiKhoan.TenTaiKhoan.Trim(), @"^[A-Za-z0-9]{4,20}$"))
+                throw new Exception("Tên tài khoản chỉ chứa chữ và số, tối thiểu 4 ký tự và tối đa 20 ký tự.");
+
+            if (string.IsNullOrWhiteSpace(taiKhoan.MatKhau))
+                throw new Exception("Mật khẩu không được để trống.");
+
+            if (!Regex.IsMatch(taiKhoan.MatKhau.Trim(), @"^[A-Za-z0-9@#$_!%^&*]{6,20}$"))
+                throw new Exception("Mật khẩu phải từ 6-20 ký tự, cho phép ký tự đặc biệt.");
+
+            // Thực hiện thêm -------------------------------
+            return _nhanVienRepository.AddNVTK(nhanVien, taiKhoan);
         }
-        public Entities.NhanVien UpdateNhanVien(NhanVien nhanVien) => _nhanVienRepository.Update(nhanVien);
+
+        public NhanVien UpdateNhanVien(NhanVien nhanVien)
+        {
+            if (nhanVien.IdNhanVien <= 0)
+                throw new Exception("Nhân viên không hợp lệ.");
+
+            // Validate dữ liệu
+            if (string.IsNullOrWhiteSpace(nhanVien.TenNhanVien))
+                throw new Exception("Tên nhân viên không được để trống.");
+
+            if (!Regex.IsMatch(nhanVien.TenNhanVien.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ\s]{1,50}$"))
+                throw new Exception("Tên nhân viên không hợp lệ. Không chứa số và ký tự đặc biệt.");
+
+            if (string.IsNullOrWhiteSpace(nhanVien.Email))
+                throw new Exception("Email không được để trống.");
+
+            if (!Regex.IsMatch(nhanVien.Email.Trim(), @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
+                throw new Exception("Email không đúng định dạng.");
+
+            if (string.IsNullOrWhiteSpace(nhanVien.DiaChi))
+                throw new Exception("Địa chỉ không được để trống.");
+
+            if (!Regex.IsMatch(nhanVien.DiaChi.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ0-9\s]{1,100}$"))
+                throw new Exception("Địa chỉ không hợp lệ, không chứa ký tự đặc biệt.");
+
+            if (string.IsNullOrWhiteSpace(nhanVien.SDT))
+                throw new Exception("Số điện thoại không được để trống.");
+
+            if (!Regex.IsMatch(nhanVien.SDT.Trim(), @"^0\d{9}$"))
+                throw new Exception("Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0.");
+
+            // Cập nhật nhân viên
+            return _nhanVienRepository.Update(nhanVien);
+        }
+
         public Entities.NhanVien? DeleteNhanVien(int id) => _nhanVienRepository.Delete(id);
     }
 }
