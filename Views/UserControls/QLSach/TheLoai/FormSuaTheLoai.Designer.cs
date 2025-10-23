@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLSach
+﻿namespace LMS.Views.UserControls.QLSach
 {
     partial class FormSuaTheLoai
     {

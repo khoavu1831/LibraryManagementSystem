@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLThongKe.Chung
+namespace LMS.Views.UserControls.QLThongKe.Chung
 {
     public partial class UcChung : UserControl
     {

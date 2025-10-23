@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLThongKe.SachMuon
+namespace LMS.Views.UserControls.QLThongKe.SachMuon
 {
     public partial class UcSachMuon : UserControl
     {

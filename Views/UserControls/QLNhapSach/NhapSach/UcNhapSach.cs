@@ -1,9 +1,9 @@
-﻿using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Entities;
-using LibraryManagementSystem.Helpers;
-using LibraryManagementSystem.Repository;
-using LibraryManagementSystem.Services;
-using LibraryManagementSystem.Views.UserControls.QLSach;
+﻿using LMS.Data;
+using LMS.Entities;
+using LMS.Helpers;
+using LMS.Repository;
+using LMS.Services;
+using LMS.Views.UserControls.QLSach;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
+namespace LMS.Views.UserControls.QLNhapSach
 {
     public partial class UcNhapSach : UserControl
     {

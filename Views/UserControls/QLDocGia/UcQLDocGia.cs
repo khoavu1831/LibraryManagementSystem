@@ -1,7 +1,7 @@
-﻿using LibraryManagementSystem.Views.UserControls.QLDocGia.KhachHang;
-using LibraryManagementSystem.Views.UserControls.QLDocGia.TheThanhVien;
+﻿using LMS.Views.UserControls.QLDocGia.KhachHang;
+using LMS.Views.UserControls.QLDocGia.TheThanhVien;
 
-namespace LibraryManagementSystem.Views.UserControls.QLDocGia
+namespace LMS.Views.UserControls.QLDocGia
 {
     public partial class UcQLDocGia : UserControl
     {

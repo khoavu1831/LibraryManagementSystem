@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QuanLy
+﻿namespace LMS.Views.UserControls.QuanLy
 {
     partial class UcQuanLy
     {

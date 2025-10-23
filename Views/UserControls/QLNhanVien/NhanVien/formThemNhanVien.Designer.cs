@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLNhanVien
+﻿namespace LMS.Views.UserControls.QLNhanVien
 {
     partial class FormThemNhanVien
     {

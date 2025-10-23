@@ -1,4 +1,4 @@
-﻿using LibraryManagementSystem.Data;
+﻿using LMS.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.TaiKhoan
+namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
 {
     public partial class FormChiTietTaiKhoan : Form
     {

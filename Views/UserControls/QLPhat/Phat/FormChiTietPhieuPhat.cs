@@ -1,5 +1,5 @@
-﻿using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Helpers;
+﻿using LMS.Data;
+using LMS.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat
+namespace LMS.Views.UserControls.QLPhat
 {
     public partial class FormChiTietPhieuPhat : Form
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.TrangChu
+namespace LMS.Views.UserControls.TrangChu
 {
     public partial class UcTrangChu : UserControl
     {

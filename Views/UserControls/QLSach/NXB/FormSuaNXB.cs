@@ -1,7 +1,7 @@
-﻿using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Entities;
-using LibraryManagementSystem.Repository;
-using LibraryManagementSystem.Services;
+﻿using LMS.Data;
+using LMS.Entities;
+using LMS.Repository;
+using LMS.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLSach
+namespace LMS.Views.UserControls.QLSach
 {
     public partial class FormSuaNXB : Form
     {

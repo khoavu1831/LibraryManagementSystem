@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryManagementSystem.Views.UserControls.QLPhat;
+using LMS.Views.UserControls.QLPhat;
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat
+namespace LMS.Views.UserControls.QLPhat
 {
     public partial class UcQLPhat : UserControl
     {

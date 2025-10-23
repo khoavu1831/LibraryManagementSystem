@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
+﻿namespace LMS.Views.UserControls.QLNhapSach
 {
     partial class UcNhapSach
     {

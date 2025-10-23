@@ -1,10 +1,10 @@
-﻿using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Entities;
-using LibraryManagementSystem.Repository;
-using LibraryManagementSystem.Services;
-using LibraryManagementSystem.Helpers;
+﻿using LMS.Data;
+using LMS.Entities;
+using LMS.Repository;
+using LMS.Services;
+using LMS.Helpers;
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat
+namespace LMS.Views.UserControls.QLPhat
 {
     public partial class FormThemMucPhat : Form
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.Quyen
+namespace LMS.Views.UserControls.QLNhanVien.Quyen
 {
     public partial class FormThemQuyen : Form
     {

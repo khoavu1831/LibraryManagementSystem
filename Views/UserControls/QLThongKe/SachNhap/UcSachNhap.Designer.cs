@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLThongKe.SachNhap
+﻿namespace LMS.Views.UserControls.QLThongKe.SachNhap
 {
     partial class UcSachNhap
     {

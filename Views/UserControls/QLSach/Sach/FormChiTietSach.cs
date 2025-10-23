@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Repository;
-using LibraryManagementSystem.Services;
+using LMS.Data;
+using LMS.Repository;
+using LMS.Services;
 
-namespace LibraryManagementSystem.Views.UserControls.QLSach
+namespace LMS.Views.UserControls.QLSach
 {
     public partial class FormChiTietSach : Form
     {

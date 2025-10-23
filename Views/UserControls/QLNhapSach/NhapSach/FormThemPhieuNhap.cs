@@ -9,13 +9,13 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Entities;
-using LibraryManagementSystem.Helpers;
-using LibraryManagementSystem.Repository;
-using LibraryManagementSystem.Services;
+using LMS.Data;
+using LMS.Entities;
+using LMS.Helpers;
+using LMS.Repository;
+using LMS.Services;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhapSach
+namespace LMS.Views.UserControls.QLNhapSach
 {
     public partial class FormThemPhieuNhap : Form
     {

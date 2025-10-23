@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLSach
+namespace LMS.Views.UserControls.QLSach
 {
     public partial class FormChiTietBSS : Form
     {

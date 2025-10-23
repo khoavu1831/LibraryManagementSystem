@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLPhat
+namespace LMS.Views.UserControls.QLPhat
 {
     public partial class UcTraPhat : UserControl
     {

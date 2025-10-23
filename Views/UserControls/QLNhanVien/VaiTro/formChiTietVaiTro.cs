@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.VaiTro
+namespace LMS.Views.UserControls.QLNhanVien.VaiTro
 {
     public partial class FormChiTietVaiTro : Form
     {

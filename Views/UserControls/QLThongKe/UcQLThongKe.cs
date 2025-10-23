@@ -1,12 +1,12 @@
-﻿using LibraryManagementSystem.Views.UserControls.QLThongKe.Chung;
-using LibraryManagementSystem.Views.UserControls.QLThongKe.PhieuPhat;
-using LibraryManagementSystem.Views.UserControls.QLThongKe.SachMuon;
-using LibraryManagementSystem.Views.UserControls.QLThongKe.SachNhap;
-using LibraryManagementSystem.Views.UserControls.QLThongKe.ThanhVien;
+﻿using LMS.Views.UserControls.QLThongKe.Chung;
+using LMS.Views.UserControls.QLThongKe.PhieuPhat;
+using LMS.Views.UserControls.QLThongKe.SachMuon;
+using LMS.Views.UserControls.QLThongKe.SachNhap;
+using LMS.Views.UserControls.QLThongKe.ThanhVien;
 
 
 
-namespace LibraryManagementSystem.Views.UserControls.QLThongKe
+namespace LMS.Views.UserControls.QLThongKe
 {
     public partial class UcQLThongKe : UserControl
     {

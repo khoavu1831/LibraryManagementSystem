@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QuanLy
+namespace LMS.Views.UserControls.QuanLy
 {
     public partial class FormSuaThongTin : Form
     {

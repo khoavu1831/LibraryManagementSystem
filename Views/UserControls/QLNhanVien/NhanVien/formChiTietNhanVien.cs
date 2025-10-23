@@ -1,4 +1,4 @@
-﻿using LibraryManagementSystem.Views.UserControls.QLSach;
+﻿using LMS.Views.UserControls.QLSach;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLNhanVien.NhanVien
+namespace LMS.Views.UserControls.QLNhanVien.NhanVien
 {
     public partial class FormChiTietNhanVien : Form
     {

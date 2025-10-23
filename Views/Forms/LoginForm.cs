@@ -1,4 +1,4 @@
-﻿using LibraryManagementSystem.Views.Forms;
+﻿using LMS.Views.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Forms
+namespace LMS.Forms
 {
     public partial class LoginForm : Form
     {

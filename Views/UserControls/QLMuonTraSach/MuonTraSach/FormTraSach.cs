@@ -8,12 +8,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LibraryManagementSystem.Data;
-using LibraryManagementSystem.Entities;
-using LibraryManagementSystem.Repository;
-using LibraryManagementSystem.Services;
+using LMS.Data;
+using LMS.Entities;
+using LMS.Repository;
+using LMS.Services;
 
-namespace LibraryManagementSystem.Views.UserControls.QLMuonTraSach
+namespace LMS.Views.UserControls.QLMuonTraSach
 {
     public partial class FormTraSach : Form
     {

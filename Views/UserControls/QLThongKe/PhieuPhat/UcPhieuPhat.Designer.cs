@@ -1,4 +1,4 @@
-﻿namespace LibraryManagementSystem.Views.UserControls.QLThongKe.PhieuPhat
+﻿namespace LMS.Views.UserControls.QLThongKe.PhieuPhat
 {
     partial class UcPhieuPhat
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibraryManagementSystem.Views.UserControls.QLThongKe.SachNhap
+namespace LMS.Views.UserControls.QLThongKe.SachNhap
 {
     public partial class UcSachNhap : UserControl
     {
