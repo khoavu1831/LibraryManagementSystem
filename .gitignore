@@ -35,3 +35,6 @@ packages/
 # Others
 *.dbmdl
 *.jfm
+
+# Bỏ qua workspace
+*.code-workspace
