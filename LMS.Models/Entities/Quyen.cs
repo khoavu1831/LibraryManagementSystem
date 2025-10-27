@@ -14,6 +14,7 @@ namespace LMS.Entities
         [Key]
         public int IdQuyen { get; set; }
         public string? TenQuyen { get; set; }
+        public string? MaQuyen { get; set; }
         public ICollection<VaiTro>? VaiTros { get; set; }
     }
 }

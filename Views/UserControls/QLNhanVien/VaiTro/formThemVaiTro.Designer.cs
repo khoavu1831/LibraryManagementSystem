@@ -100,7 +100,7 @@
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Size = new Size(497, 125);
             tableLayoutPanel3.TabIndex = 21;
-            tableLayoutPanel3.Paint += tableLayoutPanel3_Paint;
+            //tableLayoutPanel3.Paint += tableLayoutPanel3_Paint;
             // 
             // checkBox4
             // 
