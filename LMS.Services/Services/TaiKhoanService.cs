@@ -3,7 +3,6 @@ using LMS.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -12,9 +11,9 @@ namespace LMS.Services
     internal class TaiKhoanService
     {
         private readonly TaiKhoanRepository _taiKhoanRepository;
-        private VaiTroRepository repo;
+        private VaiTroRepository repo;  // Giữ nguyên, nhưng không dùng ở đây
 
-        public TaiKhoanService(TaiKhoanRepository taiKHoanRepository) => _taiKhoanRepository = taiKHoanRepository;
+        public TaiKhoanService(TaiKhoanRepository taiKhoanRepository) => _taiKhoanRepository = taiKhoanRepository;
 
         public TaiKhoanService(VaiTroRepository repo)
         {
@@ -36,8 +35,10 @@ namespace LMS.Services
                 throw new Exception("Mật khẩu chỉ được chứa chữ và số, tối đa 20 ký tự.");
 
             return _taiKhoanRepository.Update(taiKhoan);
-
         }
         public Entities.TaiKhoan? DeleteTaiKhoan(int id) => _taiKhoanRepository.Delete(id);
+
+        // THÊM PHƯƠNG THỨC AUTHENTICATE MỚI (nếu muốn dùng Service)
+        public TaiKhoan? Authenticate(string username, string password) => _taiKhoanRepository.Authenticate(username, password);
     }
 }

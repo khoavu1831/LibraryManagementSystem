@@ -15,19 +15,19 @@ namespace LMS
             // see https://aka.ms/applicationconfiguration
 
             ApplicationConfiguration.Initialize();
-            //using (var loginForm = new LoginForm())
-            //{
-            //    var result = loginForm.ShowDialog();
-            //    if (result == DialogResult.OK)
-            //    {
-            //        Application.Run(new MainForm());
-            //    }
-            //    else
-            //    {
-            //        Application.Exit();
-            //    }
-            //}
-            Application.Run(new MainForm());
+            using (var loginForm = new LoginForm())
+            {
+                var result = loginForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Application.Run(new MainForm());
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+            //Application.Run(new MainForm());
         }
     }
 }
