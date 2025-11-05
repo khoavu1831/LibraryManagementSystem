@@ -17,9 +17,18 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
 {
     public partial class UcVaiTro : UserControl
     {
-        public UcVaiTro()
+        public UcVaiTro(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("VAITRO_ADD");
+            var canEdit = permissions.Contains("VAITRO_EDIT");
+            var canDelete = permissions.Contains("VAITRO_DELETE");
+            var canViewDetails = permissions.Contains("VAITRO_VIEW");
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+
             LoadData();
         }
 

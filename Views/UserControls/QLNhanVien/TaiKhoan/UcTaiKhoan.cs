@@ -15,9 +15,16 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
 {
     public partial class UcTaiKhoan : UserControl
     {
-        public UcTaiKhoan()
+        public UcTaiKhoan(List<string> permissions)
         {
             InitializeComponent();
+            var canEdit = permissions.Contains("TAIKHOAN_EDIT");
+            var canDelete = permissions.Contains("TAIKHOAN_DELETE");
+            var canViewDetails = permissions.Contains("TAIKHOAN_VIEW");
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+
             LoadData();
         }
 

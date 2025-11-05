@@ -1,5 +1,6 @@
 ﻿using LMS.Data;
 using LMS.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Repository
 {
@@ -31,6 +32,17 @@ namespace LMS.Repository
                 return entity;
             }
             return null;
+        }
+
+        public async Task<List<string>> GetPermissionsByRoleIdAsync(int roleId)
+        {
+            var permissions = await _context.VaiTros
+                .Where(v => v.IdVaiTro == roleId)
+                .SelectMany(v => v.Quyens)
+                .Select(q => q.MaQuyen)
+                .ToListAsync();
+
+            return permissions;
         }
     }
 }

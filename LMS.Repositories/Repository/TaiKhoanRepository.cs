@@ -40,15 +40,15 @@ namespace LMS.Repository
             return taiKhoan;
         }
 
-        public List<int> GetQuyenIdsByVaiTroId(int vaiTroId)
-        {
-            // SQL raw: SELECT IdQuyen WHERE IdVaiTro = @p0 (parameter @p0 để tránh injection)
-            var sql = "SELECT IdQuyen FROM vaitro_quyen WHERE IdVaiTro = {0}";  // Hoặc dùng @p0 cho EF Core cũ
+        //public List<int> GetQuyenIdsByVaiTroId(int vaiTroId)
+        //{
+        //    // SQL raw: SELECT IdQuyen WHERE IdVaiTro = @p0 (parameter @p0 để tránh injection)
+        //    var sql = "SELECT IdQuyen FROM vaitro_quyen WHERE IdVaiTro = {0}";  // Hoặc dùng @p0 cho EF Core cũ
 
-            // Dùng Database.SqlQueryRaw<int>: Trả về IQueryable<int>, rồi ToList()
-            return _context.Database
-                .SqlQueryRaw<int>(sql, vaiTroId)  // {0} thay bằng vaiTroId an toàn
-                .ToList();
-        }
+        //    // Dùng Database.SqlQueryRaw<int>: Trả về IQueryable<int>, rồi ToList()
+        //    return _context.Database
+        //        .SqlQueryRaw<int>(sql, vaiTroId)  // {0} thay bằng vaiTroId an toàn
+        //        .ToList();
+        //}
     }
 }

@@ -19,9 +19,13 @@ namespace LMS.Views.UserControls.QLSach
         private int _currentPage = 1;
         private int _totalRecords = 0;
         private int _totalPages = 0;
-        public UcBanSaoSach()
+        public UcBanSaoSach(List<string> permissions)
         {
             InitializeComponent();
+            var canEdit = permissions.Contains("SACH_BANSAO_EDIT");
+            var canDelete = permissions.Contains("SACH_BANSAO_DELETE");
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
             LoadData();
         }
 

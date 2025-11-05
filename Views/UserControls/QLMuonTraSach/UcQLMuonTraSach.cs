@@ -12,10 +12,12 @@ namespace LMS.Views.UserControls.QLMuonTraSach
 {
     public partial class UcQLMuonTraSach : UserControl
     {
-        public UcQLMuonTraSach()
+        private readonly List<string> _permissions;
+        public UcQLMuonTraSach(List<string> permissions)
         {
             InitializeComponent();
-            LoadSubControl(new UcMuonTraSach());
+            _permissions = permissions;
+            LoadSubControl(new UcMuonTraSach(_permissions));
 
         }
         private void LoadSubControl(UserControl uc)
@@ -26,12 +28,12 @@ namespace LMS.Views.UserControls.QLMuonTraSach
         }
         private void btnMuonSach_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcMuonTraSach());
+            LoadSubControl(new UcMuonTraSach(_permissions));
         }
 
         private void btnTraSach_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcMuonTraSach());
+            LoadSubControl(new UcMuonTraSach(_permissions));
         }
     }
 }

@@ -16,9 +16,19 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
 {
     public partial class UcNhanVien : UserControl
     {
-        public UcNhanVien()
+        public UcNhanVien(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("NHANVIEN_ADD");
+            var canEdit = permissions.Contains("NHANVIEN_EDIT");
+            var canDelete = permissions.Contains("NHANVIEN_DELETE");
+            var canViewDetails = permissions.Contains("NHANVIEN_VIEW");
+            var canExport = permissions.Contains("NHANVIEN_EXPORT");
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+            btnExcel.Enabled = canExport;
             LoadData();
         }
 

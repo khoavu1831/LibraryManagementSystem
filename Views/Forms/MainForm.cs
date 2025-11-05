@@ -14,6 +14,8 @@ namespace LMS.Views.Forms
 {
     public partial class MainForm : Form
     {
+        private readonly List<string> _userPermissions;
+
         private readonly UcTrangChu _ucTrangChu;
         private readonly UcQLSach _ucQLSach;
         private readonly UcQLNhapSach _ucQLNhapSach;
@@ -23,17 +25,19 @@ namespace LMS.Views.Forms
         private readonly UcQLThongKe _ucQLThongKe;
         private readonly UcQLDocGia _ucQLDocGia;
         private readonly UcQuanLy _ucQuanLy;
-        public MainForm()
+        public MainForm(List<string> userPermissions)
         {
             InitializeComponent();
+            _userPermissions = userPermissions;
+
             _ucTrangChu = new UcTrangChu();
-            _ucQLSach = new UcQLSach();
-            _ucQLNhapSach = new UcQLNhapSach();
-            _ucQLNhanVien = new UcQLNhanVien();
-            _ucQLPhat = new UcQLPhat();
-            _ucQLMuonTraSach = new UcQLMuonTraSach();
+            _ucQLSach = new UcQLSach(_userPermissions);
+            _ucQLNhapSach = new UcQLNhapSach(_userPermissions);
+            _ucQLNhanVien = new UcQLNhanVien(_userPermissions);
+            _ucQLPhat = new UcQLPhat(_userPermissions);
+            _ucQLMuonTraSach = new UcQLMuonTraSach(_userPermissions);
             _ucQLThongKe = new UcQLThongKe();
-            _ucQLDocGia = new UcQLDocGia();
+            _ucQLDocGia = new UcQLDocGia(_userPermissions);
             _ucQuanLy = new UcQuanLy();
             LoadUserControl(_ucTrangChu);
         }
