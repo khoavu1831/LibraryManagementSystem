@@ -2,9 +2,19 @@
 {
     public partial class UcKhachHang : UserControl
     {
-        public UcKhachHang()
+        public UcKhachHang(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("KHACHHANG_ADD");
+            var canEdit = permissions.Contains("KHACHHANG_EDIT");
+            var canDelete = permissions.Contains("KHACHHANG_DELETE");
+            var canViewDetails = permissions.Contains("KHACHHANG_VIEW");
+            var canExport = permissions.Contains("KHACHHANG_EXPORT");
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+            btnExcel.Enabled = canExport;
         }
 
         private void btnThem_Click(object sender, EventArgs e)

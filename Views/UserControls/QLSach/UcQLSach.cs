@@ -13,10 +13,13 @@ namespace LMS.Views.UserControls.QLSach
 {
     public partial class UcQLSach : UserControl
     {
-        public UcQLSach()
+        private readonly List<string> _permissions;
+        public UcQLSach(List<string> permissions)
         {
             InitializeComponent();
-            LoadSubControl(new UcSach());
+            _permissions = permissions;
+            LoadSubControl(new UcSach(_permissions));
+            
         }
         private void LoadSubControl(UserControl uc)
         {
@@ -26,27 +29,27 @@ namespace LMS.Views.UserControls.QLSach
         }
         private void btnSach_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcSach());
+            LoadSubControl(new UcSach(_permissions));
         }
 
         private void btnTacGia_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcTacGia());
+            LoadSubControl(new UcTacGia(_permissions));
         }
 
         private void btnBanSaoSach_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcBanSaoSach());
+            LoadSubControl(new UcBanSaoSach(_permissions));
         }
 
         private void btnNXB_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcNXB());
+            LoadSubControl(new UcNXB(_permissions));
         }
 
         private void btnTheLoai_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcTheLoai());
+            LoadSubControl(new UcTheLoai(_permissions));
         }
     }
 }

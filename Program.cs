@@ -20,7 +20,9 @@ namespace LMS
                 var result = loginForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    Application.Run(new MainForm());
+                    // Nhận quyền từ LoginForm
+                    var userPermissions = loginForm.UserPermissions;
+                    Application.Run(new MainForm(userPermissions));
                 }
                 else
                 {

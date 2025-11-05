@@ -15,9 +15,19 @@ namespace LMS.Views.UserControls.QLNhapSach
 {
     public partial class UcNCC : UserControl
     {
-        public UcNCC()
+        public UcNCC(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("NHACUNGCAP_ADD");
+            var canEdit = permissions.Contains("NHACUNGCAP_EDIT");
+            var canDelete = permissions.Contains("NHACUNGCAP_DELETE");
+            var canViewDetails = permissions.Contains("NHACUNGCAP_VIEW");
+            var canExport = permissions.Contains("NHACUNGCAP_EXPORT");
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+            btnExcel.Enabled = canExport;
             LoadData();
         }
         private void LoadData()

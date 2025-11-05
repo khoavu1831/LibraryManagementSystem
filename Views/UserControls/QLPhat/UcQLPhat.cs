@@ -13,10 +13,12 @@ namespace LMS.Views.UserControls.QLPhat
 {
     public partial class UcQLPhat : UserControl
     {
-        public UcQLPhat()
+        private readonly List<string> _permissions;
+        public UcQLPhat(List<string> permissions)
         {
             InitializeComponent();
-            LoadSubControl(new UcPhat());
+            _permissions = permissions;
+            LoadSubControl(new UcPhat(_permissions));
         }
 
         private void LoadSubControl(UserControl uc)
@@ -29,17 +31,17 @@ namespace LMS.Views.UserControls.QLPhat
 
         private void btnPhat_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcPhat());
+            LoadSubControl(new UcPhat(_permissions));
         }
 
         private void btnTraPhat_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcTraPhat());
+            LoadSubControl(new UcTraPhat(_permissions));
         }
 
         private void btnMucPhat_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcMucPhat());
+            LoadSubControl(new UcMucPhat(_permissions));
         }
     }
 }

@@ -5,10 +5,12 @@ namespace LMS.Views.UserControls.QLDocGia
 {
     public partial class UcQLDocGia : UserControl
     {
-        public UcQLDocGia()
+        private readonly List<string> _permissions;
+        public UcQLDocGia(List<string> permissions)
         {
             InitializeComponent();
-            LoadSubControl(new UcKhachHang());
+            _permissions = permissions;
+            LoadSubControl(new UcKhachHang(_permissions));
         }
         private void LoadSubControl(UserControl uc)
         {
@@ -19,12 +21,12 @@ namespace LMS.Views.UserControls.QLDocGia
 
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcKhachHang());
+            LoadSubControl(new UcKhachHang(_permissions));
         }
 
         private void btnTheThanhVien_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcTheThanhVien());
+            LoadSubControl(new UcTheThanhVien(_permissions));
         }
     }
 }

@@ -18,9 +18,17 @@ namespace LMS.Views.UserControls.QLMuonTraSach
     public partial class UcMuonTraSach : UserControl
     {
         private bool _isColumnConfigured = false;
-        public UcMuonTraSach()
+        public UcMuonTraSach(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("MUONTRA_ADD");
+            var canDelete = permissions.Contains("MUONTRA_CANCEL");
+            var canViewDetails = permissions.Contains("MUONTRA_VIEW");
+            var canExport = permissions.Contains("MUONTRA_EXPORT");
+            btnThem.Enabled = canAdd;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+            btnListHuy.Enabled = canExport;
             LoadData();
         }
         private void LoadData()

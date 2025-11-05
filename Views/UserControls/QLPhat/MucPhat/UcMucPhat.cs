@@ -19,9 +19,19 @@ namespace LMS.Views.UserControls.QLPhat
 {
     public partial class UcMucPhat : UserControl
     {
-        public UcMucPhat()
+        public UcMucPhat(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("MUC_PHAT_ADD");
+            var canEdit = permissions.Contains("MUC_PHAT_EDIT");
+            var canDelete = permissions.Contains("MUC_PHAT_DELETE");
+            var canViewDetails = permissions.Contains("MUC_PHAT_VIEW");
+            var canExport = permissions.Contains("MUC_PHAT_EXPORT");
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+            btnExcel.Enabled = canExport;
             LoadData();
         }
 

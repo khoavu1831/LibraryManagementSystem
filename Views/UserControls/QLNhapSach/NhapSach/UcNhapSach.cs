@@ -17,9 +17,19 @@ namespace LMS.Views.UserControls.QLNhapSach
 {
     public partial class UcNhapSach : UserControl
     {
-        public UcNhapSach()
+        public UcNhapSach(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("NHAPSACH_ADD");
+            var canEdit = permissions.Contains("NHAPSACH_EDIT");
+            var canDelete = permissions.Contains("NHAPSACH_DELETE");
+            var canViewDetails = permissions.Contains("NHAPSACH_VIEW");
+            var canExport = permissions.Contains("NHAPSACH_EXPORT");
+            btnThem.Enabled = canAdd;
+            btnChiTiet.Enabled = canViewDetails;
+            btnXoa.Enabled = canDelete;
+            btnLamMoi.Enabled = true;
+            btnExcel.Enabled = canExport;
             LoadData();
         }
         private void LoadData()

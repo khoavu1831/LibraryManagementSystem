@@ -23,9 +23,18 @@ namespace LMS.Views.UserControls.QLPhat
     {
         //private readonly PhatService _phatService;
         private List<dynamic> _allPhieuPhatData = new List<dynamic>();
-        public UcPhat()
+        public UcPhat(List<string> permissions)
         {
             InitializeComponent();
+            var canCollected = permissions.Contains("PHAT_COLLECTED_LIST");
+            var canDelete = permissions.Contains("PHAT_CANCEL");
+            var canViewDetails = permissions.Contains("PHAT_VIEW");
+            var canExportExcel = permissions.Contains("PHAT_EXPORT");
+
+            btnDSThu.Enabled = canCollected;
+            btnHuy.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+            btnExcel.Enabled = canExportExcel;
             LoadData();
             // Event handlers cho các nút lọc
             btnDSThu.Click += btnDSThu_Click;
