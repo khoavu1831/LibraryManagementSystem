@@ -283,6 +283,7 @@
             pictureBoxAvatar.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxAvatar.TabIndex = 0;
             pictureBoxAvatar.TabStop = false;
+            pictureBoxAvatar.Click += pictureBoxAvatar_Click_1;
             // 
             // panelContent
             // 
