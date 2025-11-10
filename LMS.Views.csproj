@@ -85,6 +85,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
+		<PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
 	</ItemGroup>
 
   <ItemGroup>

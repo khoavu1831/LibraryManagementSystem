@@ -28,15 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             panelCRUD = new Panel();
             panelSearch = new TableLayoutPanel();
-            btnTimKiem = new Button();
-            txtBoxTimKiem = new TextBox();
-            btnLamMoi = new Button();
-            PhieuPhatdataGridView = new DataGridView();
+            dateTimePickerYear = new DateTimePicker();
+            chartThongKe = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PhieuPhatdataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)chartThongKe).BeginInit();
             SuspendLayout();
             // 
             // panelCRUD
@@ -45,9 +46,8 @@
             panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
-            panelCRUD.Margin = new Padding(3, 4, 3, 4);
             panelCRUD.Name = "panelCRUD";
-            panelCRUD.Size = new Size(885, 96);
+            panelCRUD.Size = new Size(774, 72);
             panelCRUD.TabIndex = 3;
             // 
             // panelSearch
@@ -56,80 +56,54 @@
             panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.8620682F));
             panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60.3448257F));
             panelSearch.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 14.08046F));
-            panelSearch.Controls.Add(btnTimKiem, 0, 0);
-            panelSearch.Controls.Add(txtBoxTimKiem, 1, 0);
-            panelSearch.Controls.Add(btnLamMoi, 2, 0);
+            panelSearch.Controls.Add(dateTimePickerYear, 1, 0);
             panelSearch.Dock = DockStyle.Right;
-            panelSearch.Location = new Point(487, 0);
-            panelSearch.Margin = new Padding(3, 4, 3, 4);
+            panelSearch.Location = new Point(426, 0);
             panelSearch.Name = "panelSearch";
             panelSearch.RowCount = 1;
             panelSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            panelSearch.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            panelSearch.Size = new Size(398, 96);
+            panelSearch.RowStyles.Add(new RowStyle(SizeType.Absolute, 72F));
+            panelSearch.Size = new Size(348, 72);
             panelSearch.TabIndex = 9;
             // 
-            // btnTimKiem
+            // dateTimePickerYear
             // 
-            btnTimKiem.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btnTimKiem.BackColor = Color.White;
-            btnTimKiem.FlatAppearance.BorderColor = Color.Black;
-            btnTimKiem.FlatStyle = FlatStyle.Flat;
-            btnTimKiem.Location = new Point(3, 32);
-            btnTimKiem.Margin = new Padding(3, 4, 3, 4);
-            btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(96, 32);
-            btnTimKiem.TabIndex = 8;
-            btnTimKiem.Text = "Tìm Kiếm";
-            btnTimKiem.UseVisualStyleBackColor = false;
+            dateTimePickerYear.Anchor = AnchorStyles.None;
+            dateTimePickerYear.Location = new Point(93, 24);
+            dateTimePickerYear.Name = "dateTimePickerYear";
+            dateTimePickerYear.Size = new Size(200, 23);
+            dateTimePickerYear.TabIndex = 0;
+            dateTimePickerYear.ValueChanged += dateTimePickerYear_ValueChanged;
             // 
-            // txtBoxTimKiem
+            // chartThongKe
             // 
-            txtBoxTimKiem.Anchor = AnchorStyles.None;
-            txtBoxTimKiem.Location = new Point(106, 34);
-            txtBoxTimKiem.Margin = new Padding(3, 4, 3, 4);
-            txtBoxTimKiem.Name = "txtBoxTimKiem";
-            txtBoxTimKiem.PlaceholderText = "Tìm kiếm...";
-            txtBoxTimKiem.Size = new Size(231, 27);
-            txtBoxTimKiem.TabIndex = 9;
-            // 
-            // btnLamMoi
-            // 
-            btnLamMoi.BackColor = Color.White;
-            btnLamMoi.Dock = DockStyle.Fill;
-            btnLamMoi.FlatAppearance.BorderSize = 0;
-            btnLamMoi.FlatStyle = FlatStyle.Flat;
-            btnLamMoi.Image = Properties.Resources.iconRefesh;
-            btnLamMoi.Location = new Point(341, 0);
-            btnLamMoi.Margin = new Padding(0);
-            btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(57, 96);
-            btnLamMoi.TabIndex = 7;
-            btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnLamMoi.UseVisualStyleBackColor = false;
-            // 
-            // PhieuPhatdataGridView
-            // 
-            PhieuPhatdataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PhieuPhatdataGridView.Dock = DockStyle.Fill;
-            PhieuPhatdataGridView.Location = new Point(0, 96);
-            PhieuPhatdataGridView.Name = "PhieuPhatdataGridView";
-            PhieuPhatdataGridView.RowHeadersWidth = 51;
-            PhieuPhatdataGridView.Size = new Size(885, 559);
-            PhieuPhatdataGridView.TabIndex = 4;
+            chartArea2.Name = "ChartArea1";
+            chartThongKe.ChartAreas.Add(chartArea2);
+            chartThongKe.Dock = DockStyle.Fill;
+            legend2.Name = "Legend1";
+            chartThongKe.Legends.Add(legend2);
+            chartThongKe.Location = new Point(0, 72);
+            chartThongKe.Name = "chartThongKe";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            chartThongKe.Series.Add(series2);
+            chartThongKe.Size = new Size(774, 419);
+            chartThongKe.TabIndex = 4;
+            chartThongKe.Text = "chart1";
             // 
             // UcPhieuPhat
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(PhieuPhatdataGridView);
+            Controls.Add(chartThongKe);
             Controls.Add(panelCRUD);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UcPhieuPhat";
-            Size = new Size(885, 655);
+            Size = new Size(774, 491);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
-            panelSearch.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)PhieuPhatdataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)chartThongKe).EndInit();
             ResumeLayout(false);
         }
 
@@ -137,10 +111,8 @@
 
         private Panel panelCRUD;
         private TableLayoutPanel panelSearch;
-        private Button btnTimKiem;
-        private TextBox txtBoxTimKiem;
-        private Button btnLamMoi;
-        private DataGridView PhieuPhatdataGridView;
         private Button button1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartThongKe;
+        private DateTimePicker dateTimePickerYear;
     }
 }
