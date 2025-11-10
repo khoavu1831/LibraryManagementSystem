@@ -32,8 +32,14 @@
             btnDoimatkhau = new Button();
             btnSua = new Button();
             panelSubContent = new Panel();
+            labelVaiTro = new Label();
+            lableEmail = new Label();
+            labelGioiTinh = new Label();
+            labelDiaChi = new Label();
+            labelSDT = new Label();
+            labelNgaySinh = new Label();
+            labelTen = new Label();
             txtVaiTro = new TextBox();
-            btnVaitro = new Button();
             picAvatar = new PictureBox();
             txtEmail = new TextBox();
             txtGioiTinh = new TextBox();
@@ -41,12 +47,6 @@
             txtSDT = new TextBox();
             txtNgaySinh = new TextBox();
             txtTen = new TextBox();
-            btnEmail = new Button();
-            btnGt = new Button();
-            btnDc = new Button();
-            btnSdt = new Button();
-            btnNs = new Button();
-            btnTen = new Button();
             panelNavMenu.SuspendLayout();
             panelSubContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
@@ -94,8 +94,14 @@
             // panelSubContent
             // 
             panelSubContent.BackColor = Color.White;
+            panelSubContent.Controls.Add(labelVaiTro);
+            panelSubContent.Controls.Add(lableEmail);
+            panelSubContent.Controls.Add(labelGioiTinh);
+            panelSubContent.Controls.Add(labelDiaChi);
+            panelSubContent.Controls.Add(labelSDT);
+            panelSubContent.Controls.Add(labelNgaySinh);
+            panelSubContent.Controls.Add(labelTen);
             panelSubContent.Controls.Add(txtVaiTro);
-            panelSubContent.Controls.Add(btnVaitro);
             panelSubContent.Controls.Add(picAvatar);
             panelSubContent.Controls.Add(txtEmail);
             panelSubContent.Controls.Add(txtGioiTinh);
@@ -103,18 +109,75 @@
             panelSubContent.Controls.Add(txtSDT);
             panelSubContent.Controls.Add(txtNgaySinh);
             panelSubContent.Controls.Add(txtTen);
-            panelSubContent.Controls.Add(btnEmail);
-            panelSubContent.Controls.Add(btnGt);
-            panelSubContent.Controls.Add(btnDc);
-            panelSubContent.Controls.Add(btnSdt);
-            panelSubContent.Controls.Add(btnNs);
-            panelSubContent.Controls.Add(btnTen);
             panelSubContent.Enabled = false;
             panelSubContent.Location = new Point(0, 67);
             panelSubContent.Name = "panelSubContent";
             panelSubContent.Size = new Size(1488, 599);
             panelSubContent.TabIndex = 0;
             panelSubContent.TabStop = true;
+            // 
+            // labelVaiTro
+            // 
+            labelVaiTro.AutoSize = true;
+            labelVaiTro.Location = new Point(169, 358);
+            labelVaiTro.Name = "labelVaiTro";
+            labelVaiTro.Size = new Size(43, 15);
+            labelVaiTro.TabIndex = 21;
+            labelVaiTro.Text = "Vai trò:";
+            // 
+            // lableEmail
+            // 
+            lableEmail.AutoSize = true;
+            lableEmail.Location = new Point(586, 399);
+            lableEmail.Name = "lableEmail";
+            lableEmail.Size = new Size(39, 15);
+            lableEmail.TabIndex = 20;
+            lableEmail.Text = "Email:";
+            // 
+            // labelGioiTinh
+            // 
+            labelGioiTinh.AutoSize = true;
+            labelGioiTinh.Location = new Point(586, 333);
+            labelGioiTinh.Name = "labelGioiTinh";
+            labelGioiTinh.Size = new Size(55, 15);
+            labelGioiTinh.TabIndex = 19;
+            labelGioiTinh.Text = "Giới tính:";
+            // 
+            // labelDiaChi
+            // 
+            labelDiaChi.AutoSize = true;
+            labelDiaChi.Location = new Point(586, 259);
+            labelDiaChi.Name = "labelDiaChi";
+            labelDiaChi.Size = new Size(46, 15);
+            labelDiaChi.TabIndex = 18;
+            labelDiaChi.Text = "Địa chỉ:";
+            // 
+            // labelSDT
+            // 
+            labelSDT.AutoSize = true;
+            labelSDT.Location = new Point(586, 200);
+            labelSDT.Name = "labelSDT";
+            labelSDT.Size = new Size(79, 15);
+            labelSDT.TabIndex = 17;
+            labelSDT.Text = "Số điện thoại:";
+            // 
+            // labelNgaySinh
+            // 
+            labelNgaySinh.AutoSize = true;
+            labelNgaySinh.Location = new Point(586, 139);
+            labelNgaySinh.Name = "labelNgaySinh";
+            labelNgaySinh.Size = new Size(63, 15);
+            labelNgaySinh.TabIndex = 16;
+            labelNgaySinh.Text = "Ngày sinh:";
+            // 
+            // labelTen
+            // 
+            labelTen.AutoSize = true;
+            labelTen.Location = new Point(586, 66);
+            labelTen.Name = "labelTen";
+            labelTen.Size = new Size(61, 15);
+            labelTen.TabIndex = 15;
+            labelTen.Text = "Họ và tên:";
             // 
             // txtVaiTro
             // 
@@ -123,16 +186,6 @@
             txtVaiTro.Name = "txtVaiTro";
             txtVaiTro.Size = new Size(217, 23);
             txtVaiTro.TabIndex = 14;
-            // 
-            // btnVaitro
-            // 
-            btnVaitro.Location = new Point(169, 337);
-            btnVaitro.Margin = new Padding(0);
-            btnVaitro.Name = "btnVaitro";
-            btnVaitro.Size = new Size(82, 22);
-            btnVaitro.TabIndex = 13;
-            btnVaitro.Text = "Vai Trò:";
-            btnVaitro.UseVisualStyleBackColor = false;
             // 
             // picAvatar
             // 
@@ -193,66 +246,6 @@
             txtTen.Size = new Size(322, 23);
             txtTen.TabIndex = 6;
             // 
-            // btnEmail
-            // 
-            btnEmail.Location = new Point(586, 392);
-            btnEmail.Margin = new Padding(0);
-            btnEmail.Name = "btnEmail";
-            btnEmail.Size = new Size(82, 22);
-            btnEmail.TabIndex = 5;
-            btnEmail.Text = "Email:";
-            btnEmail.UseVisualStyleBackColor = false;
-            // 
-            // btnGt
-            // 
-            btnGt.Location = new Point(586, 316);
-            btnGt.Margin = new Padding(0);
-            btnGt.Name = "btnGt";
-            btnGt.Size = new Size(82, 22);
-            btnGt.TabIndex = 4;
-            btnGt.Text = "Giới tính:";
-            btnGt.UseVisualStyleBackColor = false;
-            // 
-            // btnDc
-            // 
-            btnDc.Location = new Point(586, 252);
-            btnDc.Margin = new Padding(0);
-            btnDc.Name = "btnDc";
-            btnDc.Size = new Size(82, 22);
-            btnDc.TabIndex = 3;
-            btnDc.Text = "Địa chỉ:";
-            btnDc.UseVisualStyleBackColor = false;
-            // 
-            // btnSdt
-            // 
-            btnSdt.Location = new Point(586, 193);
-            btnSdt.Margin = new Padding(0);
-            btnSdt.Name = "btnSdt";
-            btnSdt.Size = new Size(100, 22);
-            btnSdt.TabIndex = 2;
-            btnSdt.Text = "Số điện thoại:";
-            btnSdt.UseVisualStyleBackColor = false;
-            // 
-            // btnNs
-            // 
-            btnNs.Location = new Point(586, 126);
-            btnNs.Margin = new Padding(0);
-            btnNs.Name = "btnNs";
-            btnNs.Size = new Size(82, 28);
-            btnNs.TabIndex = 1;
-            btnNs.Text = "Ngày sinh:";
-            btnNs.UseVisualStyleBackColor = false;
-            // 
-            // btnTen
-            // 
-            btnTen.Location = new Point(586, 59);
-            btnTen.Margin = new Padding(0);
-            btnTen.Name = "btnTen";
-            btnTen.Size = new Size(82, 22);
-            btnTen.TabIndex = 0;
-            btnTen.Text = "Họ và tên:";
-            btnTen.UseVisualStyleBackColor = false;
-            // 
             // UcQuanLy
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -282,14 +275,14 @@
         private TextBox txtSDT;
         private TextBox txtNgaySinh;
         private TextBox txtTen;
-        private Button btnEmail;
-        private Button btnGt;
-        private Button btnDc;
-        private Button btnSdt;
-        private Button btnNs;
-        private Button btnTen;
         private PictureBox picAvatar;
         private TextBox txtVaiTro;
-        private Button btnVaitro;
+        private Label labelVaiTro;
+        private Label lableEmail;
+        private Label labelGioiTinh;
+        private Label labelDiaChi;
+        private Label labelSDT;
+        private Label labelNgaySinh;
+        private Label labelTen;
     }
 }

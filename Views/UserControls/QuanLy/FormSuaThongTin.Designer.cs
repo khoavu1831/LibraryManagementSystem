@@ -30,6 +30,13 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            labelEmail = new Label();
+            labelGioiTinh = new Label();
+            labelDiaChi = new Label();
+            labelSDT = new Label();
+            labelVaiTro = new Label();
+            labelNgaySinh = new Label();
+            labelTen = new Label();
             button8 = new Button();
             txtEmail = new TextBox();
             txtGioiTinh = new TextBox();
@@ -38,13 +45,6 @@
             txtVaiTro = new TextBox();
             txtNgaySinh = new TextBox();
             txtTen = new TextBox();
-            button7 = new Button();
-            button6 = new Button();
-            button5 = new Button();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,6 +63,13 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(labelEmail);
+            panel1.Controls.Add(labelGioiTinh);
+            panel1.Controls.Add(labelDiaChi);
+            panel1.Controls.Add(labelSDT);
+            panel1.Controls.Add(labelVaiTro);
+            panel1.Controls.Add(labelNgaySinh);
+            panel1.Controls.Add(labelTen);
             panel1.Controls.Add(button8);
             panel1.Controls.Add(txtEmail);
             panel1.Controls.Add(txtGioiTinh);
@@ -71,18 +78,74 @@
             panel1.Controls.Add(txtVaiTro);
             panel1.Controls.Add(txtNgaySinh);
             panel1.Controls.Add(txtTen);
-            panel1.Controls.Add(button7);
-            panel1.Controls.Add(button6);
-            panel1.Controls.Add(button5);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
             panel1.Location = new Point(0, 55);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(774, 321);
             panel1.TabIndex = 1;
+            // 
+            // labelEmail
+            // 
+            labelEmail.AutoSize = true;
+            labelEmail.Location = new Point(427, 182);
+            labelEmail.Name = "labelEmail";
+            labelEmail.Size = new Size(39, 15);
+            labelEmail.TabIndex = 21;
+            labelEmail.Text = "Email:";
+            // 
+            // labelGioiTinh
+            // 
+            labelGioiTinh.AutoSize = true;
+            labelGioiTinh.Location = new Point(427, 115);
+            labelGioiTinh.Name = "labelGioiTinh";
+            labelGioiTinh.Size = new Size(55, 15);
+            labelGioiTinh.TabIndex = 20;
+            labelGioiTinh.Text = "Giới tính:";
+            // 
+            // labelDiaChi
+            // 
+            labelDiaChi.AutoSize = true;
+            labelDiaChi.Location = new Point(427, 54);
+            labelDiaChi.Name = "labelDiaChi";
+            labelDiaChi.Size = new Size(46, 15);
+            labelDiaChi.TabIndex = 19;
+            labelDiaChi.Text = "Địa chỉ:";
+            // 
+            // labelSDT
+            // 
+            labelSDT.AutoSize = true;
+            labelSDT.Location = new Point(119, 249);
+            labelSDT.Name = "labelSDT";
+            labelSDT.Size = new Size(79, 15);
+            labelSDT.TabIndex = 18;
+            labelSDT.Text = "Số điện thoại:";
+            // 
+            // labelVaiTro
+            // 
+            labelVaiTro.AutoSize = true;
+            labelVaiTro.Location = new Point(119, 182);
+            labelVaiTro.Name = "labelVaiTro";
+            labelVaiTro.Size = new Size(43, 15);
+            labelVaiTro.TabIndex = 17;
+            labelVaiTro.Text = "Vai trò:";
+            // 
+            // labelNgaySinh
+            // 
+            labelNgaySinh.AutoSize = true;
+            labelNgaySinh.Location = new Point(119, 115);
+            labelNgaySinh.Name = "labelNgaySinh";
+            labelNgaySinh.Size = new Size(63, 15);
+            labelNgaySinh.TabIndex = 16;
+            labelNgaySinh.Text = "Ngày sinh:";
+            // 
+            // labelTen
+            // 
+            labelTen.AutoSize = true;
+            labelTen.Location = new Point(119, 54);
+            labelTen.Name = "labelTen";
+            labelTen.Size = new Size(61, 15);
+            labelTen.TabIndex = 15;
+            labelTen.Text = "Họ và tên:";
             // 
             // button8
             // 
@@ -152,83 +215,6 @@
             txtTen.Size = new Size(238, 23);
             txtTen.TabIndex = 7;
             // 
-            // button7
-            // 
-            button7.FlatStyle = FlatStyle.Flat;
-            button7.Location = new Point(119, 240);
-            button7.Margin = new Padding(3, 2, 3, 2);
-            button7.Name = "button7";
-            button7.Size = new Size(108, 22);
-            button7.TabIndex = 6;
-            button7.Text = "Số điện thoại:";
-            button7.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.FlatStyle = FlatStyle.Flat;
-            button6.Location = new Point(427, 172);
-            button6.Margin = new Padding(3, 2, 3, 2);
-            button6.Name = "button6";
-            button6.Size = new Size(82, 22);
-            button6.TabIndex = 5;
-            button6.Text = "Email:";
-            button6.UseVisualStyleBackColor = false;
-            // 
-            // button5
-            // 
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Location = new Point(119, 172);
-            button5.Margin = new Padding(3, 2, 3, 2);
-            button5.Name = "button5";
-            button5.Size = new Size(82, 22);
-            button5.TabIndex = 4;
-            button5.Text = "Vai trò:";
-            button5.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Location = new Point(427, 106);
-            button4.Margin = new Padding(3, 2, 3, 2);
-            button4.Name = "button4";
-            button4.Size = new Size(82, 22);
-            button4.TabIndex = 3;
-            button4.Text = "Giới tính:";
-            button4.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Location = new Point(119, 106);
-            button3.Margin = new Padding(3, 2, 3, 2);
-            button3.Name = "button3";
-            button3.Size = new Size(82, 22);
-            button3.TabIndex = 2;
-            button3.Text = "Ngày sinh:";
-            button3.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(427, 45);
-            button2.Margin = new Padding(3, 2, 3, 2);
-            button2.Name = "button2";
-            button2.Size = new Size(82, 22);
-            button2.TabIndex = 1;
-            button2.Text = "Địa chỉ:";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(119, 45);
-            button1.Margin = new Padding(3, 2, 3, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(82, 22);
-            button1.TabIndex = 0;
-            button1.Text = "Họ và tên:";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // FormSuaThongTin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -249,7 +235,6 @@
 
         private Label label1;
         private Panel panel1;
-        private Button button1;
         private TextBox txtEmail;
         private TextBox txtGioiTinh;
         private TextBox txtDiaChi;
@@ -257,12 +242,13 @@
         private TextBox txtVaiTro;
         private TextBox txtNgaySinh;
         private TextBox txtTen;
-        private Button button7;
-        private Button button6;
-        private Button button5;
-        private Button button4;
-        private Button button3;
-        private Button button2;
         private Button button8;
+        private Label labelEmail;
+        private Label labelGioiTinh;
+        private Label labelDiaChi;
+        private Label labelSDT;
+        private Label labelVaiTro;
+        private Label labelNgaySinh;
+        private Label labelTen;
     }
 }

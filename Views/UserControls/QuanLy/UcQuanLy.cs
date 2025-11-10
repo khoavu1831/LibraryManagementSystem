@@ -52,7 +52,7 @@ namespace LMS.Views.UserControls.QuanLy
                     txtTen.Text = nv.TenNhanVien;
                     txtNgaySinh.Text = nv.NgaySinh.ToString("dd/MM/yyyy");
                     txtDiaChi.Text = nv.DiaChi;
-                    //txtGioiTinh.Text = nv.GioiTinh ?? "";
+                    txtGioiTinh.Text = nv.GioiTinh ?? "";
                     txtSDT.Text = nv.SDT;
                     txtEmail.Text = nv.Email;
                     txtVaiTro.Text = nv.TaiKhoan?.VaiTro?.TenVaiTro ?? "";
