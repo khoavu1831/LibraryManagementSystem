@@ -1,4 +1,4 @@
-using LMS.Data;
+﻿using LMS.Data;
 using LMS.Entities;
 
 namespace LMS.Repository
@@ -23,11 +23,14 @@ namespace LMS.Repository
         }
         public VaiTro? DeleteById(int id)
         {
-            var vaiTro = GetById(id);
-            if (vaiTro == null) return null;
-            _context.VaiTros.Remove(vaiTro);
-            _context.SaveChanges();
-            return vaiTro;
+            var entity = _context.VaiTros.Find(id);
+            if (entity != null)
+            {
+                _context.VaiTros.Remove(entity);
+                _context.SaveChanges();  // Đảm bảo SaveChanges ở đây để commit xóa (bao gồm cascade)
+                return entity;
+            }
+            return null;
         }
     }
 }
