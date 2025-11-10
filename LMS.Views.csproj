@@ -88,6 +88,13 @@
 		<PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="LMS.Data\LMS.Data.csproj" />
+	  <ProjectReference Include="LMS.Models\LMS.Models.csproj" />
+	  <ProjectReference Include="LMS.Repositories\LMS.Repositories.csproj" />
+	  <ProjectReference Include="LMS.Services\LMS.Services.csproj" />
+	</ItemGroup>
+
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>

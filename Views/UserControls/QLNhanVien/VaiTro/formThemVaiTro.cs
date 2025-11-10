@@ -1,11 +1,5 @@
 ﻿using LMS.Data;
-using LMS.Entities;
 using LMS.Services;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace LMS.Views.UserControls.QLNhanVien.VaiTro
 {
@@ -15,7 +9,7 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
         private readonly VaiTroService _vaiTroService;
 
         private List<CheckBox> _quyenCheckboxes = new List<CheckBox>();
-        private List<LMS.Entities.Quyen> _cachedQuyenList;  // Cache để tránh load DB nhiều lần, tăng tốc
+        private List<Entities.Quyen> _cachedQuyenList;  // Cache để tránh load DB nhiều lần, tăng tốc
 
         public FormThemVaiTro()
         {
@@ -252,7 +246,7 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
             try
             {
                 // Thêm vai trò (cập nhật để lưu quyền từ checkboxes)
-                var vaiTro = new LMS.Entities.VaiTro { TenVaiTro = tenVaiTro };
+                var vaiTro = new Entities.VaiTro { TenVaiTro = tenVaiTro };
                 _vaiTroService.AddVaiTro(vaiTro);
 
                 // Lưu quyền (giả sử service có method AssignQuyenToVaiTro)
