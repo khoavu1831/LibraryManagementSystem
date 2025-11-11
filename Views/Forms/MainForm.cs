@@ -8,7 +8,9 @@ using LMS.Views.UserControls.QLSach;
 using LMS.Views.UserControls.TrangChu;
 using LMS.Views.UserControls.QLNhapSach;
 using LMS.Views.UserControls.QuanLy;
-
+using LMS.Helpers;
+using LMS.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Views.Forms
 {
@@ -29,6 +31,20 @@ namespace LMS.Views.Forms
         {
             InitializeComponent();
             _userPermissions = userPermissions;
+            if (CurrentUserContext.CurrentUser != null)
+            {
+                using (var db = new LibraryDbContext())
+                {
+                    var nv = db.NhanViens
+                               .Include(n => n.TaiKhoan)
+                               .FirstOrDefault(n => n.IdTaiKhoan == CurrentUserContext.CurrentUser.IdTaiKhoan);
+
+                    if (nv != null)
+                        labelUsername.Text = nv.TenNhanVien;
+                    else
+                        labelUsername.Text = CurrentUserContext.CurrentUser.TenTaiKhoan ;
+                }
+            }
 
             _ucTrangChu = new UcTrangChu();
             _ucQLSach = new UcQLSach(_userPermissions);
@@ -136,11 +152,11 @@ namespace LMS.Views.Forms
 
         }
 
-        private void pictureBoxAvatar_Click(object sender, EventArgs e)
-        {
 
+        private void pictureBoxAvatar_Click_1(object sender, EventArgs e)
+        {
             LoadUserControl(_ucQuanLy);
-           
+
         }
     }
 }
