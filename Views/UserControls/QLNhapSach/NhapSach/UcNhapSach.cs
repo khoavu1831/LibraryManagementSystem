@@ -22,7 +22,7 @@ namespace LMS.Views.UserControls.QLNhapSach
             InitializeComponent();
             var canAdd = permissions.Contains("NHAPSACH_ADD");
             var canEdit = permissions.Contains("NHAPSACH_EDIT");
-            var canDelete = permissions.Contains("NHAPSACH_DELETE");
+            var canDelete = permissions.Contains("NHAPSACH_CANCEL");
             var canViewDetails = permissions.Contains("NHAPSACH_VIEW");
             var canExport = permissions.Contains("NHAPSACH_EXPORT");
             btnThem.Enabled = canAdd;

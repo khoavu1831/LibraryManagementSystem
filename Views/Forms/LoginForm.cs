@@ -49,10 +49,8 @@ namespace LMS.Forms
 
                     // Lưu user và quyền hiện tại vào CurrentUserContext
                     CurrentUserContext.SetUser(user);
-                    CurrentUserContext.SetQuyenIds(await vaiTroRepo.GetPermissionIdsByRoleIdAsync(roleId));
-                    UserPermissions = (await vaiTroRepo.GetPermissionIdsByRoleIdAsync(roleId))
-                      .Select(id => id.ToString())
-                      .ToList();
+                    //CurrentUserContext.SetQuyenIds(await vaiTroRepo.GetPermissionIdsByRoleIdAsync(roleId));
+                    UserPermissions = await vaiTroRepo.GetPermissionsByRoleIdAsync(roleId);
 
 
                     this.DialogResult = DialogResult.OK;
