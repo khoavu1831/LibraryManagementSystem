@@ -20,17 +20,7 @@ namespace LMS.Services
         }
 
         public BindingList<DocGia> GetAllDocGia() => _docGiaRepository.GetAll();
-        public List<DocGia> GetAllDocGiaExcel() => _docGiaRepository.GetAll().Select(d => new DocGia
-        {
-            IdDocGia = d.IdDocGia,
-            TenDocGia = d.TenDocGia,
-            DiaChi = d.DiaChi,
-            NgaySinh = d.NgaySinh,
-            SDT = d.SDT,
-            Email = d.Email,
 
-        })
-        .ToList();
 
         public DocGia? GetDocGiaById(int id)
         {
