@@ -1,5 +1,6 @@
 using LMS.Data;
 using LMS.Entities;
+using System.ComponentModel;
 
 namespace LMS.Repository
 {
@@ -7,7 +8,10 @@ namespace LMS.Repository
     {
         private readonly LibraryDbContext _context;
         public DocGiaRepository(LibraryDbContext context) => _context = context;
-        public List<DocGia> GetAll() => _context.DocGias.ToList();
+        public BindingList<DocGia> GetAll()
+        {
+            return new BindingList<DocGia>(_context.DocGias.ToList());
+        }
         public DocGia? GetById(int id) => _context.DocGias.Find(id);
         public DocGia Add(DocGia docGia)
         {

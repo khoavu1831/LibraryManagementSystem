@@ -1,16 +1,6 @@
-﻿using LMS.Views.Forms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using LMS.Repository;  // THÊM: Để dùng TaiKhoanRepository
-using LMS.Data;        // THÊM: Để dùng LibraryDbContext
+﻿using LMS.Data;        // THÊM: Để dùng LibraryDbContext
 using LMS.Helpers;   // THÊM NẾU CÓ CurrentUserContext từ mã cũ
+using LMS.Repository;  // THÊM: Để dùng TaiKhoanRepository
 
 namespace LMS.Forms
 {

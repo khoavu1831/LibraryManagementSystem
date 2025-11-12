@@ -2,6 +2,7 @@
 using LMS.Entities;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace LMS.Repository
 {
     public class VaiTroRepository

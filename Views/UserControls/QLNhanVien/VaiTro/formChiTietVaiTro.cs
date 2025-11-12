@@ -1,13 +1,7 @@
 ﻿using LMS.Data;
-using LMS.Entities;
-using LMS.Repository;
 using LMS.Services;
+
 using Microsoft.EntityFrameworkCore;  // For Include
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace LMS.Views.UserControls.QLNhanVien.VaiTro
 {
@@ -17,8 +11,8 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
         private readonly VaiTroService _vaiTroService;
 
         private List<CheckBox> _quyenCheckboxes = new List<CheckBox>();
-        private List<LMS.Entities.Quyen> _cachedQuyenList;  // Cache Quyens
-        private LMS.Entities.VaiTro _currentVaiTro;  // Lưu vai trò hiện tại
+        private List<Entities.Quyen> _cachedQuyenList;  // Cache Quyens
+        private Entities.VaiTro _currentVaiTro;  // Lưu vai trò hiện tại
 
         public FormChiTietVaiTro(int idVaiTro, string tenVaiTro)
         {
