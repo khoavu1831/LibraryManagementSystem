@@ -70,11 +70,11 @@
             // labelUsername
             // 
             labelUsername.AutoSize = true;
-            labelUsername.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            labelUsername.Font = new Font("Segoe UI", 14.25F);
             labelUsername.Location = new Point(0, 120);
             labelUsername.Margin = new Padding(0, 120, 0, 0);
             labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(143, 25);
+            labelUsername.Size = new Size(141, 25);
             labelUsername.TabIndex = 0;
             labelUsername.Text = "Tên đăng nhập:";
             // 
@@ -88,10 +88,10 @@
             // labelPassword
             // 
             labelPassword.AutoSize = true;
-            labelPassword.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold);
+            labelPassword.Font = new Font("Segoe UI", 14.25F);
             labelPassword.Location = new Point(3, 174);
             labelPassword.Name = "labelPassword";
-            labelPassword.Size = new Size(99, 25);
+            labelPassword.Size = new Size(95, 25);
             labelPassword.TabIndex = 2;
             labelPassword.Text = "Mật khẩu:";
             // 
@@ -132,7 +132,7 @@
             // pictureBoxImage
             // 
             pictureBoxImage.Dock = DockStyle.Left;
-            pictureBoxImage.Image = LMS.Views.Properties.Resources.thuvien;
+            pictureBoxImage.Image = Views.Properties.Resources.thuvien;
             pictureBoxImage.Location = new Point(0, 0);
             pictureBoxImage.Name = "pictureBoxImage";
             pictureBoxImage.Size = new Size(428, 417);

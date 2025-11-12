@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LMS.Helpers; // để nhận CurrentUserContext
 using LMS.Data;//  để nhận LibraryDbContext
-using Microsoft.EntityFrameworkCore; // để dùng Include()
+using Microsoft.EntityFrameworkCore;
+using LMS.Views.Views.UserControls.QuanLy; // để dùng Include()
 
 namespace LMS.Views.UserControls.QuanLy
 {
