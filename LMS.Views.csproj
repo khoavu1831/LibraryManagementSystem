@@ -48,6 +48,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>4</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Resources\Icons\icon1.jpg" />
     <Content Include="Resources\Icons\icon10.jpg" />
     <Content Include="Resources\Icons\icon11.jpg" />
@@ -75,6 +84,8 @@
   </ItemGroup>
 
   <ItemGroup>
+
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
 
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="9.0.0" />
   </ItemGroup>

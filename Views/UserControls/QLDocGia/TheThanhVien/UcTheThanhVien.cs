@@ -11,6 +11,10 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
         public UcTheThanhVien(List<string> permissions)
         {
             InitializeComponent();
+            dgvTheThanhVien.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             try
             {
                 var context = new LibraryDbContext();
@@ -87,6 +91,12 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
             dgvTheThanhVien.AutoGenerateColumns = true;
             dgvTheThanhVien.Columns["NgayCap"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dgvTheThanhVien.Columns["NgayHetHan"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvTheThanhVien.Columns["IdTheThanhVien"].HeaderText = "Mã thẻ thành viên";
+            dgvTheThanhVien.Columns["IdDocGia"].HeaderText = "Mã độc giả";
+            dgvTheThanhVien.Columns["NgayCap"].HeaderText = "Ngày cấp";
+            dgvTheThanhVien.Columns["NgayHetHan"].HeaderText = "Ngày hết hạn";
+            dgvTheThanhVien.Columns["TrangThai"].HeaderText = "Trạng thái";
+
 
             if (dgvTheThanhVien.Columns["DocGia"] != null)
                 dgvTheThanhVien.Columns["DocGia"].Visible = false;
@@ -130,7 +140,7 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
                 var list = _theThanhVienService.GetAllTheThanhVien();
                 var filtered = list
                .Where(t =>
-                   t.IdTheThanhVien.ToString().Contains(keyword)).Select(t => new
+                   t.IdTheThanhVien.ToString().Equals(keyword)).Select(t => new
                    {
                        t.IdTheThanhVien,
                        t.IdDocGia,

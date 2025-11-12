@@ -1,6 +1,6 @@
 ﻿using LMS.Data;
+using LMS.Entities;
 using LMS.Services;
-
 namespace LMS.Views.UserControls.QLDocGia.KhachHang
 {
     public partial class UcKhachHang : UserControl
@@ -11,7 +11,10 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
         public UcKhachHang(List<string> permissions)
         {
             InitializeComponent();
-
+            dgvKhachHang.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvKhachHang.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvKhachHang.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvKhachHang.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             try
             {
                 // Khởi tạo DbContext và repository
@@ -63,6 +66,11 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
 
             if (dgvKhachHang.Columns["TheThanhViens"] != null)
                 dgvKhachHang.Columns["TheThanhViens"].Visible = false;
+            dgvKhachHang.Columns["IdDocGia"].HeaderText = "Mã độc giả";
+            dgvKhachHang.Columns["TenDocGia"].HeaderText = "Tên độc giả";
+            dgvKhachHang.Columns["DiaChi"].HeaderText = "Địa chỉ";
+            dgvKhachHang.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+            dgvKhachHang.Columns["SDT"].HeaderText = "Số điện thoại";
             dgvKhachHang.AutoGenerateColumns = true;
         }
 
@@ -188,7 +196,27 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
 
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            var data = _docGiaService.GetAllDocGia().ToList();
+            var stream = LMS.Utils.Helpers.ExportExcel.Export<DocGia>(data, "doc gia", ["TheThanhViens"]);
+            stream.Position = 0; // reset stream về đầu
+
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "Excel Workbook|*.xlsx";
+                sfd.FileName = "DocGia.xlsx";
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        stream.CopyTo(fileStream);
+                    }
+                    MessageBox.Show("Xuất Excel thành công!");
+                }
+            }
         }
     }
 }

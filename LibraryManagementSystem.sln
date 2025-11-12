@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Services", "LMS.Services\LMS.Services.csproj", "{218B3DAE-2D5C-4778-A60C-0B08D93CC2A0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Utils", "LMS.Utils\LMS.Utils.csproj", "{EAD021FD-ED63-4616-8C4C-69B2D32A9120}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE} = {FB3C1A7C-5659-4FD9-8B5A-2E84D976FCAE}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMS.Data", "LMS.Data\LMS.Data.csproj", "{AEB1301D-C761-4EA3-BBCA-153F4D685B3D}"
 EndProject
