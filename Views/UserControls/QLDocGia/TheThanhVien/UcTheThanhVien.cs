@@ -6,9 +6,9 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
 {
     public partial class UcTheThanhVien : UserControl
     {
-        //private readonly LibraryDbContext _context;
         private readonly TheThanhVienService _theThanhVienService;
-        public UcTheThanhVien()
+
+        public UcTheThanhVien(List<string> permissions)
         {
             InitializeComponent();
             try
@@ -24,7 +24,15 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
                 MessageBox.Show($"Không thể kết nối đến database\n[{ex.Message}]",
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            var canEdit = permissions.Contains("THETHANHVIEN_EDIT");
+            var canDelete = permissions.Contains("THETHANHVIEN_DELETE");
+            var canViewDetails = permissions.Contains("THETHANHVIEN_VIEW");
+            btnSua.Enabled = canEdit;
+            btnChiTiet.Enabled = canViewDetails;
+            btnXoa.Enabled = canDelete;
         }
+
+
 
         private void btnSua_Click(object sender, EventArgs e)
         {

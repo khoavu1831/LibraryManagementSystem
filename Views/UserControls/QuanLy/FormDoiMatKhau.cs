@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LMS.Data;//  để nhận LibraryDbContext
+using LMS.Helpers; // để nhận CurrentUserContext
 
 namespace LMS.Views.UserControls.QuanLy
 {
@@ -17,43 +19,33 @@ namespace LMS.Views.UserControls.QuanLy
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+       
+
+        private void btnXong_Click(object sender, EventArgs e)
         {
-            string taiKhoan = texttk.Text.Trim();
-            string mkCu = txtMatKhauCu.Text.Trim();
-            string mkMoi = textmkm.Text.Trim();
-            string nhapLai = textnhaplaimk.Text.Trim();
-
-            // 🔹 Kiểm tra dữ liệu rỗng
-            if (string.IsNullOrEmpty(taiKhoan) ||
-                string.IsNullOrEmpty(mkCu) ||
-                string.IsNullOrEmpty(mkMoi) ||
-                string.IsNullOrEmpty(nhapLai))
+            using (var db = new LibraryDbContext())
             {
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                var tk = db.TaiKhoans.FirstOrDefault(x => x.IdTaiKhoan == CurrentUserContext.CurrentUser.IdTaiKhoan);
+
+                if (tk != null && tk.MatKhau == txtMatKhauCu.Text)
+                {
+                    if (textmkm.Text == textnhaplaimk.Text)
+                    {
+                        tk.MatKhau = textmkm.Text;
+                        db.SaveChanges();
+                        MessageBox.Show("Đổi mật khẩu thành công!");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Mật khẩu mới không khớp!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Mật khẩu hiện tại không đúng!");
+                }
             }
-
-            // 🔹 Kiểm tra mật khẩu mới và nhập lại
-            if (mkMoi != nhapLai)
-            {
-                MessageBox.Show("Mật khẩu mới và nhập lại không khớp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // 🔹 Giả lập kiểm tra mật khẩu hiện tại (sau này thay bằng truy vấn DB)
-            string mkHienTaiTrongDB = "123456"; // ví dụ tạm
-            if (mkCu != mkHienTaiTrongDB)
-            {
-                MessageBox.Show("Mật khẩu hiện tại không đúng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // 🔹 Cập nhật mật khẩu mới (sau này thêm code truy vấn DB ở đây)
-            MessageBox.Show("Đổi mật khẩu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // 🔹 Đóng form sau khi đổi xong
-            this.Close();
         }
     }
 }

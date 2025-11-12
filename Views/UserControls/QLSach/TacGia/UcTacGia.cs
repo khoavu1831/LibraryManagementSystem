@@ -16,9 +16,18 @@ namespace LMS.Views.UserControls.QLSach
 {
     public partial class UcTacGia : UserControl
     {
-        public UcTacGia()
+        public UcTacGia(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("TACGIA_ADD");
+            var canEdit = permissions.Contains("TACGIA_EDIT");
+            var canDelete = permissions.Contains("TACGIA_DELETE");
+            var canViewDetails = permissions.Contains("TACGIA_VIEW");
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+
             LoadData();
         }
 

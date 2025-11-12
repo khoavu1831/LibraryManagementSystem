@@ -8,7 +8,7 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
         private readonly LibraryDbContext _context;
         private readonly DocGiaService _docGiaService;
 
-        public UcKhachHang()
+        public UcKhachHang(List<string> permissions)
         {
             InitializeComponent();
 
@@ -30,6 +30,18 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
                 MessageBox.Show($"Không thể kết nối đến database\n[{ex.Message}]",
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            dgvKhachHang.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            var canAdd = permissions.Contains("KHACHHANG_ADD");
+            var canEdit = permissions.Contains("KHACHHANG_EDIT");
+            var canDelete = permissions.Contains("KHACHHANG_DELETE");
+            var canViewDetails = permissions.Contains("KHACHHANG_VIEW");
+            var canExport = permissions.Contains("KHACHHANG_EXPORT");
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+            btnExcel.Enabled = canExport;
+
         }
 
         private void LoadData()
@@ -47,7 +59,7 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
             dgvKhachHang.DataSource = docGiaList;
 
 
-            dgvKhachHang.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
+
 
             if (dgvKhachHang.Columns["TheThanhViens"] != null)
                 dgvKhachHang.Columns["TheThanhViens"].Visible = false;

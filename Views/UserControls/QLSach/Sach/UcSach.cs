@@ -16,9 +16,18 @@ namespace LMS.Views.UserControls.QLSach
 {
     public partial class UcSach : UserControl
     {
-        public UcSach()
+        public UcSach(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("SACH_ADD");
+            var canEdit = permissions.Contains("SACH_EDIT");
+            var canDelete = permissions.Contains("SACH_DELETE");
+            var canViewDetails = permissions.Contains("SACH_VIEW");
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
+
             LoadData();
         }
         private void LoadData()

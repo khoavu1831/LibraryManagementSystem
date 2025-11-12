@@ -15,9 +15,16 @@ namespace LMS.Views.UserControls.QLSach
 {
     public partial class UcTheLoai : UserControl
     {
-        public UcTheLoai()
+        public UcTheLoai(List<string> permissions)
         {
             InitializeComponent();
+            var canAdd = permissions.Contains("THELOAI_ADD");
+            var canEdit = permissions.Contains("THELOAI_EDIT");
+            var canDelete = permissions.Contains("THELOAI_DELETE");
+            
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnXoa.Enabled = canDelete;
             LoadData();
         }
         private void LoadData()

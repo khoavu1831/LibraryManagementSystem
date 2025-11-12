@@ -2,10 +2,12 @@
 {
     public partial class UcQLNhapSach : UserControl
     {
-        public UcQLNhapSach()
+        private readonly List<string> _permissions;
+        public UcQLNhapSach(List<string> permissions)
         {
             InitializeComponent();
-            LoadSubControl(new UcNhapSach());
+            _permissions = permissions;
+            LoadSubControl(new UcNhapSach(_permissions));
         }
         private void LoadSubControl(UserControl uc)
         {
@@ -16,12 +18,12 @@
 
         private void btnNhapSach_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcNhapSach());
+            LoadSubControl(new UcNhapSach(_permissions));
         }
 
         private void btnNCC_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcNCC());
+            LoadSubControl(new UcNCC(_permissions));
         }
     }
 }

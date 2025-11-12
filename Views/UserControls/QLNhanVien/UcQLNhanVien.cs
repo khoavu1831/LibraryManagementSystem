@@ -16,10 +16,13 @@ namespace LMS.Views.UserControls.QLNhanVien
 {
     public partial class UcQLNhanVien : UserControl
     {
-        public UcQLNhanVien()
+        private readonly List<string> _permissions;
+        public UcQLNhanVien(List<string> permissions)
         {
             InitializeComponent();
-            LoadSubControl(new UcNhanVien());
+            _permissions = permissions;
+            LoadSubControl(new UcNhanVien(_permissions));
+            
         }
 
         private void LoadSubControl(UserControl uc)
@@ -31,17 +34,17 @@ namespace LMS.Views.UserControls.QLNhanVien
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcNhanVien());
+            LoadSubControl(new UcNhanVien(_permissions));
         }
 
         private void btnTaiKhoan_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcTaiKhoan());
+            LoadSubControl(new UcTaiKhoan(_permissions));
         }
 
         private void btnVaiTro_Click(object sender, EventArgs e)
         {
-            LoadSubControl(new UcVaiTro());
+            LoadSubControl(new UcVaiTro(_permissions));
         }
 
         private void btnQuyen_Click(object sender, EventArgs e)

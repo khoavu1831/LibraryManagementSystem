@@ -8,12 +8,16 @@ using LMS.Views.UserControls.QLSach;
 using LMS.Views.UserControls.TrangChu;
 using LMS.Views.UserControls.QLNhapSach;
 using LMS.Views.UserControls.QuanLy;
-
+using LMS.Helpers;
+using LMS.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Views.Forms
 {
     public partial class MainForm : Form
     {
+        private readonly List<string> _userPermissions;
+
         private readonly UcTrangChu _ucTrangChu;
         private readonly UcQLSach _ucQLSach;
         private readonly UcQLNhapSach _ucQLNhapSach;
@@ -23,17 +27,33 @@ namespace LMS.Views.Forms
         private readonly UcQLThongKe _ucQLThongKe;
         private readonly UcQLDocGia _ucQLDocGia;
         private readonly UcQuanLy _ucQuanLy;
-        public MainForm()
+        public MainForm(List<string> userPermissions)
         {
             InitializeComponent();
+            _userPermissions = userPermissions;
+            if (CurrentUserContext.CurrentUser != null)
+            {
+                using (var db = new LibraryDbContext())
+                {
+                    var nv = db.NhanViens
+                               .Include(n => n.TaiKhoan)
+                               .FirstOrDefault(n => n.IdTaiKhoan == CurrentUserContext.CurrentUser.IdTaiKhoan);
+
+                    if (nv != null)
+                        labelUsername.Text = nv.TenNhanVien;
+                    else
+                        labelUsername.Text = CurrentUserContext.CurrentUser.TenTaiKhoan ;
+                }
+            }
+
             _ucTrangChu = new UcTrangChu();
-            _ucQLSach = new UcQLSach();
-            _ucQLNhapSach = new UcQLNhapSach();
-            _ucQLNhanVien = new UcQLNhanVien();
-            _ucQLPhat = new UcQLPhat();
-            _ucQLMuonTraSach = new UcQLMuonTraSach();
+            _ucQLSach = new UcQLSach(_userPermissions);
+            _ucQLNhapSach = new UcQLNhapSach(_userPermissions);
+            _ucQLNhanVien = new UcQLNhanVien(_userPermissions);
+            _ucQLPhat = new UcQLPhat(_userPermissions);
+            _ucQLMuonTraSach = new UcQLMuonTraSach(_userPermissions);
             _ucQLThongKe = new UcQLThongKe();
-            _ucQLDocGia = new UcQLDocGia();
+            _ucQLDocGia = new UcQLDocGia(_userPermissions);
             _ucQuanLy = new UcQuanLy();
             LoadUserControl(_ucTrangChu);
         }
@@ -132,11 +152,11 @@ namespace LMS.Views.Forms
 
         }
 
-        private void pictureBoxAvatar_Click(object sender, EventArgs e)
-        {
 
+        private void pictureBoxAvatar_Click_1(object sender, EventArgs e)
+        {
             LoadUserControl(_ucQuanLy);
-           
+
         }
     }
 }

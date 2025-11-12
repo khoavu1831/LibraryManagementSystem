@@ -12,9 +12,10 @@ namespace LMS.Views.UserControls.QLPhat
 {
     public partial class UcTraPhat : UserControl
     {
-        public UcTraPhat()
+        public UcTraPhat(List<string> permissions)
         {
             InitializeComponent();
+            //thêm sau nếu có phân quyền
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)

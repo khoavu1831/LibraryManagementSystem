@@ -15,9 +15,19 @@ namespace LMS.Views.UserControls.QLSach
 {
     public partial class UcNXB : UserControl
     {
-        public UcNXB()
+        public UcNXB(List<string> permissions)
         {
             InitializeComponent();
+
+            var canAdd = permissions.Contains("NHAXUATBAN_ADD");
+            var canEdit = permissions.Contains("NHAXUATBAN_EDIT");
+            var canDelete = permissions.Contains("NHAXUATBAN_DELETE");
+            var canViewDetails = permissions.Contains("NHAXUATBAN_VIEW");
+
+            btnThem.Enabled = canAdd;
+            btnSua.Enabled = canEdit;
+            btnSua.Enabled = canDelete;
+            btnChiTiet.Enabled = canViewDetails;
             LoadData();
         }
         private void LoadData()
