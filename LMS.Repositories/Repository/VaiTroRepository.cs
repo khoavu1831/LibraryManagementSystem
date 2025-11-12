@@ -34,12 +34,15 @@ namespace LMS.Repository
             return null;
         }
 
-        public async Task<List<int>> GetPermissionIdsByRoleIdAsync(int roleId)
+        public async Task<List<string>> GetPermissionsByRoleIdAsync(int roleId)
         {
-            return await _context.Quyens
-                .Where(q => q.VaiTros.Any(v => v.IdVaiTro == roleId))
-                .Select(q => q.IdQuyen)
+            var permissions = await _context.VaiTros
+                .Where(v => v.IdVaiTro == roleId)
+                .SelectMany(v => v.Quyens)
+                .Select(q => q.MaQuyen)
                 .ToListAsync();
+
+            return permissions;
         }
     }
 }
