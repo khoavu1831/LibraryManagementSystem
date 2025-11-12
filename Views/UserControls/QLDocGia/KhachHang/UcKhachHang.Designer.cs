@@ -130,6 +130,7 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
+            btnExcel.Click += btnExcel_Click;
             // 
             // btnChiTiet
             // 
@@ -201,7 +202,9 @@
             // 
             // dgvKhachHang
             // 
+            dgvKhachHang.AllowUserToAddRows = false;
             dgvKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvKhachHang.BackgroundColor = Color.White;
             dgvKhachHang.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvKhachHang.Dock = DockStyle.Fill;
             dgvKhachHang.Location = new Point(0, 72);

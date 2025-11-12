@@ -21,6 +21,7 @@ namespace LMS.Services
 
         public BindingList<DocGia> GetAllDocGia() => _docGiaRepository.GetAll();
 
+
         public DocGia? GetDocGiaById(int id)
         {
             if (id <= 0)

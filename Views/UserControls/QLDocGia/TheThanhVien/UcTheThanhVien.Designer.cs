@@ -151,7 +151,7 @@
             btnSua.Dock = DockStyle.Left;
             btnSua.FlatAppearance.BorderSize = 0;
             btnSua.FlatStyle = FlatStyle.Flat;
-            btnSua.Image = Properties.Resources.iconsua;
+            btnSua.Image =  Properties.Resources.iconsua;
             btnSua.Location = new Point(0, 0);
             btnSua.Margin = new Padding(0);
             btnSua.Name = "btnSua";
@@ -164,7 +164,9 @@
             // 
             // dgvTheThanhVien
             // 
+            dgvTheThanhVien.AllowUserToAddRows = false;
             dgvTheThanhVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTheThanhVien.BackgroundColor = Color.White;
             dgvTheThanhVien.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTheThanhVien.Dock = DockStyle.Fill;
             dgvTheThanhVien.Location = new Point(0, 72);
