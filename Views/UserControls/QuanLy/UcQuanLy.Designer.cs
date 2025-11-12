@@ -32,6 +32,7 @@
             btnDoimatkhau = new Button();
             btnSua = new Button();
             panelSubContent = new Panel();
+            pictureBox1 = new PictureBox();
             labelVaiTro = new Label();
             lableEmail = new Label();
             labelGioiTinh = new Label();
@@ -40,7 +41,6 @@
             labelNgaySinh = new Label();
             labelTen = new Label();
             txtVaiTro = new TextBox();
-            picAvatar = new PictureBox();
             txtEmail = new TextBox();
             txtGioiTinh = new TextBox();
             txtDiaChi = new TextBox();
@@ -49,7 +49,7 @@
             txtTen = new TextBox();
             panelNavMenu.SuspendLayout();
             panelSubContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelNavMenu
@@ -59,7 +59,7 @@
             panelNavMenu.Controls.Add(btnSua);
             panelNavMenu.Location = new Point(0, 0);
             panelNavMenu.Name = "panelNavMenu";
-            panelNavMenu.Size = new Size(1485, 67);
+            panelNavMenu.Size = new Size(1038, 67);
             panelNavMenu.TabIndex = 0;
             // 
             // btnDoimatkhau
@@ -94,6 +94,7 @@
             // panelSubContent
             // 
             panelSubContent.BackColor = Color.White;
+            panelSubContent.Controls.Add(pictureBox1);
             panelSubContent.Controls.Add(labelVaiTro);
             panelSubContent.Controls.Add(lableEmail);
             panelSubContent.Controls.Add(labelGioiTinh);
@@ -102,24 +103,32 @@
             panelSubContent.Controls.Add(labelNgaySinh);
             panelSubContent.Controls.Add(labelTen);
             panelSubContent.Controls.Add(txtVaiTro);
-            panelSubContent.Controls.Add(picAvatar);
             panelSubContent.Controls.Add(txtEmail);
             panelSubContent.Controls.Add(txtGioiTinh);
             panelSubContent.Controls.Add(txtDiaChi);
             panelSubContent.Controls.Add(txtSDT);
             panelSubContent.Controls.Add(txtNgaySinh);
             panelSubContent.Controls.Add(txtTen);
-            panelSubContent.Enabled = false;
             panelSubContent.Location = new Point(0, 67);
             panelSubContent.Name = "panelSubContent";
-            panelSubContent.Size = new Size(1488, 599);
+            panelSubContent.Size = new Size(1038, 599);
             panelSubContent.TabIndex = 0;
             panelSubContent.TabStop = true;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.staff_symbol_svgrepo_com;
+            pictureBox1.Location = new Point(24, 60);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(300, 321);
+            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox1.TabIndex = 22;
+            pictureBox1.TabStop = false;
             // 
             // labelVaiTro
             // 
             labelVaiTro.AutoSize = true;
-            labelVaiTro.Location = new Point(169, 358);
+            labelVaiTro.Location = new Point(57, 407);
             labelVaiTro.Name = "labelVaiTro";
             labelVaiTro.Size = new Size(43, 15);
             labelVaiTro.TabIndex = 21;
@@ -128,7 +137,7 @@
             // lableEmail
             // 
             lableEmail.AutoSize = true;
-            lableEmail.Location = new Point(586, 399);
+            lableEmail.Location = new Point(405, 407);
             lableEmail.Name = "lableEmail";
             lableEmail.Size = new Size(39, 15);
             lableEmail.TabIndex = 20;
@@ -137,7 +146,7 @@
             // labelGioiTinh
             // 
             labelGioiTinh.AutoSize = true;
-            labelGioiTinh.Location = new Point(586, 333);
+            labelGioiTinh.Location = new Point(405, 341);
             labelGioiTinh.Name = "labelGioiTinh";
             labelGioiTinh.Size = new Size(55, 15);
             labelGioiTinh.TabIndex = 19;
@@ -146,7 +155,7 @@
             // labelDiaChi
             // 
             labelDiaChi.AutoSize = true;
-            labelDiaChi.Location = new Point(586, 259);
+            labelDiaChi.Location = new Point(405, 269);
             labelDiaChi.Name = "labelDiaChi";
             labelDiaChi.Size = new Size(46, 15);
             labelDiaChi.TabIndex = 18;
@@ -155,7 +164,7 @@
             // labelSDT
             // 
             labelSDT.AutoSize = true;
-            labelSDT.Location = new Point(586, 200);
+            labelSDT.Location = new Point(405, 201);
             labelSDT.Name = "labelSDT";
             labelSDT.Size = new Size(79, 15);
             labelSDT.TabIndex = 17;
@@ -164,7 +173,7 @@
             // labelNgaySinh
             // 
             labelNgaySinh.AutoSize = true;
-            labelNgaySinh.Location = new Point(586, 139);
+            labelNgaySinh.Location = new Point(405, 133);
             labelNgaySinh.Name = "labelNgaySinh";
             labelNgaySinh.Size = new Size(63, 15);
             labelNgaySinh.TabIndex = 16;
@@ -173,7 +182,7 @@
             // labelTen
             // 
             labelTen.AutoSize = true;
-            labelTen.Location = new Point(586, 66);
+            labelTen.Location = new Point(405, 60);
             labelTen.Name = "labelTen";
             labelTen.Size = new Size(61, 15);
             labelTen.TabIndex = 15;
@@ -181,69 +190,72 @@
             // 
             // txtVaiTro
             // 
-            txtVaiTro.Location = new Point(169, 375);
+            txtVaiTro.BackColor = SystemColors.InactiveBorder;
+            txtVaiTro.Location = new Point(57, 424);
             txtVaiTro.Margin = new Padding(3, 2, 3, 2);
             txtVaiTro.Name = "txtVaiTro";
+            txtVaiTro.ReadOnly = true;
             txtVaiTro.Size = new Size(217, 23);
             txtVaiTro.TabIndex = 14;
             // 
-            // picAvatar
-            // 
-            picAvatar.Image = Properties.Resources.icon1;
-            picAvatar.Location = new Point(153, 83);
-            picAvatar.Margin = new Padding(3, 2, 3, 2);
-            picAvatar.Name = "picAvatar";
-            picAvatar.Size = new Size(268, 234);
-            picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
-            picAvatar.TabIndex = 12;
-            picAvatar.TabStop = false;
-            // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(586, 416);
+            txtEmail.BackColor = SystemColors.InactiveBorder;
+            txtEmail.Location = new Point(405, 424);
             txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(322, 23);
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new Size(265, 23);
             txtEmail.TabIndex = 11;
             // 
             // txtGioiTinh
             // 
-            txtGioiTinh.Location = new Point(586, 350);
+            txtGioiTinh.BackColor = SystemColors.InactiveBorder;
+            txtGioiTinh.Location = new Point(405, 358);
             txtGioiTinh.Margin = new Padding(3, 2, 3, 2);
             txtGioiTinh.Name = "txtGioiTinh";
-            txtGioiTinh.Size = new Size(322, 23);
+            txtGioiTinh.ReadOnly = true;
+            txtGioiTinh.Size = new Size(265, 23);
             txtGioiTinh.TabIndex = 10;
             // 
             // txtDiaChi
             // 
-            txtDiaChi.Location = new Point(586, 276);
+            txtDiaChi.BackColor = SystemColors.InactiveBorder;
+            txtDiaChi.Location = new Point(405, 286);
             txtDiaChi.Margin = new Padding(3, 2, 3, 2);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(322, 23);
+            txtDiaChi.ReadOnly = true;
+            txtDiaChi.Size = new Size(265, 23);
             txtDiaChi.TabIndex = 9;
             // 
             // txtSDT
             // 
-            txtSDT.Location = new Point(586, 217);
+            txtSDT.BackColor = SystemColors.InactiveBorder;
+            txtSDT.Location = new Point(405, 218);
             txtSDT.Margin = new Padding(3, 2, 3, 2);
             txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(322, 23);
+            txtSDT.ReadOnly = true;
+            txtSDT.Size = new Size(265, 23);
             txtSDT.TabIndex = 8;
             // 
             // txtNgaySinh
             // 
-            txtNgaySinh.Location = new Point(586, 156);
+            txtNgaySinh.BackColor = SystemColors.InactiveBorder;
+            txtNgaySinh.Location = new Point(405, 150);
             txtNgaySinh.Margin = new Padding(3, 2, 3, 2);
             txtNgaySinh.Name = "txtNgaySinh";
-            txtNgaySinh.Size = new Size(322, 23);
+            txtNgaySinh.ReadOnly = true;
+            txtNgaySinh.Size = new Size(265, 23);
             txtNgaySinh.TabIndex = 7;
             // 
             // txtTen
             // 
-            txtTen.Location = new Point(586, 83);
+            txtTen.BackColor = SystemColors.InactiveBorder;
+            txtTen.Location = new Point(405, 77);
             txtTen.Margin = new Padding(3, 2, 3, 2);
             txtTen.Name = "txtTen";
-            txtTen.Size = new Size(322, 23);
+            txtTen.ReadOnly = true;
+            txtTen.Size = new Size(265, 23);
             txtTen.TabIndex = 6;
             // 
             // UcQuanLy
@@ -259,7 +271,7 @@
             panelNavMenu.ResumeLayout(false);
             panelSubContent.ResumeLayout(false);
             panelSubContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -275,7 +287,6 @@
         private TextBox txtSDT;
         private TextBox txtNgaySinh;
         private TextBox txtTen;
-        private PictureBox picAvatar;
         private TextBox txtVaiTro;
         private Label labelVaiTro;
         private Label lableEmail;
@@ -284,5 +295,6 @@
         private Label labelSDT;
         private Label labelNgaySinh;
         private Label labelTen;
+        private PictureBox pictureBox1;
     }
 }

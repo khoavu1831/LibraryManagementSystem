@@ -1,4 +1,4 @@
-﻿namespace LMS.Views.UserControls.QuanLy
+﻿namespace LMS.Views.Views.UserControls.QuanLy
 {
     partial class FormSuaThongTin
     {
@@ -29,226 +29,234 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            panel1 = new Panel();
-            labelEmail = new Label();
-            labelGioiTinh = new Label();
-            labelDiaChi = new Label();
-            labelSDT = new Label();
-            labelVaiTro = new Label();
-            labelNgaySinh = new Label();
-            labelTen = new Label();
-            button8 = new Button();
-            txtEmail = new TextBox();
-            txtGioiTinh = new TextBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            txtHoTen = new TextBox();
+            dtpNgaySinh = new DateTimePicker();
             txtDiaChi = new TextBox();
-            txtSDT = new TextBox();
-            txtVaiTro = new TextBox();
-            txtNgaySinh = new TextBox();
-            txtTen = new TextBox();
-            panel1.SuspendLayout();
+            txtSoDienThoai = new TextBox();
+            txtEmail = new TextBox();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            btnDong = new Button();
+            btnLuu = new Button();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.BackColor = SystemColors.HotTrack;
-            label1.FlatStyle = FlatStyle.Flat;
-            label1.Font = new Font("Times New Roman", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.Font = new Font("Segoe UI", 16F);
+            label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(779, 52);
-            label1.TabIndex = 0;
-            label1.Text = "SỬA THÔNG TIN NHÂN VIÊN";
+            label1.Size = new Size(612, 94);
+            label1.TabIndex = 1;
+            label1.Text = "SỬA THÔNG TIN CÁ NHÂN";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // tableLayoutPanel1
             // 
-            panel1.Controls.Add(labelEmail);
-            panel1.Controls.Add(labelGioiTinh);
-            panel1.Controls.Add(labelDiaChi);
-            panel1.Controls.Add(labelSDT);
-            panel1.Controls.Add(labelVaiTro);
-            panel1.Controls.Add(labelNgaySinh);
-            panel1.Controls.Add(labelTen);
-            panel1.Controls.Add(button8);
-            panel1.Controls.Add(txtEmail);
-            panel1.Controls.Add(txtGioiTinh);
-            panel1.Controls.Add(txtDiaChi);
-            panel1.Controls.Add(txtSDT);
-            panel1.Controls.Add(txtVaiTro);
-            panel1.Controls.Add(txtNgaySinh);
-            panel1.Controls.Add(txtTen);
-            panel1.Location = new Point(0, 55);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(774, 321);
-            panel1.TabIndex = 1;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 22.439024F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 77.5609741F));
+            tableLayoutPanel1.Controls.Add(txtHoTen, 1, 0);
+            tableLayoutPanel1.Controls.Add(dtpNgaySinh, 1, 1);
+            tableLayoutPanel1.Controls.Add(txtDiaChi, 1, 2);
+            tableLayoutPanel1.Controls.Add(txtSoDienThoai, 1, 3);
+            tableLayoutPanel1.Controls.Add(txtEmail, 1, 4);
+            tableLayoutPanel1.Controls.Add(label2, 0, 0);
+            tableLayoutPanel1.Controls.Add(label3, 0, 1);
+            tableLayoutPanel1.Controls.Add(label4, 0, 2);
+            tableLayoutPanel1.Controls.Add(label5, 0, 3);
+            tableLayoutPanel1.Controls.Add(label6, 0, 4);
+            tableLayoutPanel1.Location = new Point(94, 153);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 5;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(410, 142);
+            tableLayoutPanel1.TabIndex = 2;
             // 
-            // labelEmail
+            // txtHoTen
             // 
-            labelEmail.AutoSize = true;
-            labelEmail.Location = new Point(427, 182);
-            labelEmail.Name = "labelEmail";
-            labelEmail.Size = new Size(39, 15);
-            labelEmail.TabIndex = 21;
-            labelEmail.Text = "Email:";
+            txtHoTen.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtHoTen.Location = new Point(95, 3);
+            txtHoTen.Name = "txtHoTen";
+            txtHoTen.Size = new Size(312, 23);
+            txtHoTen.TabIndex = 0;
             // 
-            // labelGioiTinh
+            // dtpNgaySinh
             // 
-            labelGioiTinh.AutoSize = true;
-            labelGioiTinh.Location = new Point(427, 115);
-            labelGioiTinh.Name = "labelGioiTinh";
-            labelGioiTinh.Size = new Size(55, 15);
-            labelGioiTinh.TabIndex = 20;
-            labelGioiTinh.Text = "Giới tính:";
-            // 
-            // labelDiaChi
-            // 
-            labelDiaChi.AutoSize = true;
-            labelDiaChi.Location = new Point(427, 54);
-            labelDiaChi.Name = "labelDiaChi";
-            labelDiaChi.Size = new Size(46, 15);
-            labelDiaChi.TabIndex = 19;
-            labelDiaChi.Text = "Địa chỉ:";
-            // 
-            // labelSDT
-            // 
-            labelSDT.AutoSize = true;
-            labelSDT.Location = new Point(119, 249);
-            labelSDT.Name = "labelSDT";
-            labelSDT.Size = new Size(79, 15);
-            labelSDT.TabIndex = 18;
-            labelSDT.Text = "Số điện thoại:";
-            // 
-            // labelVaiTro
-            // 
-            labelVaiTro.AutoSize = true;
-            labelVaiTro.Location = new Point(119, 182);
-            labelVaiTro.Name = "labelVaiTro";
-            labelVaiTro.Size = new Size(43, 15);
-            labelVaiTro.TabIndex = 17;
-            labelVaiTro.Text = "Vai trò:";
-            // 
-            // labelNgaySinh
-            // 
-            labelNgaySinh.AutoSize = true;
-            labelNgaySinh.Location = new Point(119, 115);
-            labelNgaySinh.Name = "labelNgaySinh";
-            labelNgaySinh.Size = new Size(63, 15);
-            labelNgaySinh.TabIndex = 16;
-            labelNgaySinh.Text = "Ngày sinh:";
-            // 
-            // labelTen
-            // 
-            labelTen.AutoSize = true;
-            labelTen.Location = new Point(119, 54);
-            labelTen.Name = "labelTen";
-            labelTen.Size = new Size(61, 15);
-            labelTen.TabIndex = 15;
-            labelTen.Text = "Họ và tên:";
-            // 
-            // button8
-            // 
-            button8.BackColor = Color.DarkSeaGreen;
-            button8.Font = new Font("Segoe UI", 16F);
-            button8.Location = new Point(498, 240);
-            button8.Name = "button8";
-            button8.Size = new Size(119, 49);
-            button8.TabIndex = 14;
-            button8.Text = "XONG";
-            button8.UseVisualStyleBackColor = false;
-            button8.Click += button8_Click;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(427, 199);
-            txtEmail.Margin = new Padding(3, 2, 3, 2);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(254, 23);
-            txtEmail.TabIndex = 13;
-            // 
-            // txtGioiTinh
-            // 
-            txtGioiTinh.Location = new Point(427, 132);
-            txtGioiTinh.Margin = new Padding(3, 2, 3, 2);
-            txtGioiTinh.Name = "txtGioiTinh";
-            txtGioiTinh.Size = new Size(254, 23);
-            txtGioiTinh.TabIndex = 12;
+            dtpNgaySinh.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dtpNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dtpNgaySinh.Format = DateTimePickerFormat.Custom;
+            dtpNgaySinh.Location = new Point(95, 31);
+            dtpNgaySinh.Name = "dtpNgaySinh";
+            dtpNgaySinh.Size = new Size(312, 23);
+            dtpNgaySinh.TabIndex = 1;
             // 
             // txtDiaChi
             // 
-            txtDiaChi.Location = new Point(427, 71);
-            txtDiaChi.Margin = new Padding(3, 2, 3, 2);
+            txtDiaChi.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtDiaChi.Location = new Point(95, 59);
             txtDiaChi.Name = "txtDiaChi";
-            txtDiaChi.Size = new Size(254, 23);
-            txtDiaChi.TabIndex = 11;
+            txtDiaChi.Size = new Size(312, 23);
+            txtDiaChi.TabIndex = 2;
             // 
-            // txtSDT
+            // txtSoDienThoai
             // 
-            txtSDT.Location = new Point(119, 266);
-            txtSDT.Margin = new Padding(3, 2, 3, 2);
-            txtSDT.Name = "txtSDT";
-            txtSDT.Size = new Size(238, 23);
-            txtSDT.TabIndex = 10;
+            txtSoDienThoai.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtSoDienThoai.Location = new Point(95, 87);
+            txtSoDienThoai.Name = "txtSoDienThoai";
+            txtSoDienThoai.Size = new Size(312, 23);
+            txtSoDienThoai.TabIndex = 3;
             // 
-            // txtVaiTro
+            // txtEmail
             // 
-            txtVaiTro.Location = new Point(119, 199);
-            txtVaiTro.Margin = new Padding(3, 2, 3, 2);
-            txtVaiTro.Name = "txtVaiTro";
-            txtVaiTro.Size = new Size(238, 23);
-            txtVaiTro.TabIndex = 9;
+            txtEmail.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txtEmail.Location = new Point(95, 115);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(312, 23);
+            txtEmail.TabIndex = 4;
             // 
-            // txtNgaySinh
+            // label2
             // 
-            txtNgaySinh.Location = new Point(119, 132);
-            txtNgaySinh.Margin = new Padding(3, 2, 3, 2);
-            txtNgaySinh.Name = "txtNgaySinh";
-            txtNgaySinh.Size = new Size(238, 23);
-            txtNgaySinh.TabIndex = 8;
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(86, 28);
+            label2.TabIndex = 5;
+            label2.Text = "Họ và tên:";
+            label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // txtTen
+            // label3
             // 
-            txtTen.Location = new Point(119, 71);
-            txtTen.Margin = new Padding(3, 2, 3, 2);
-            txtTen.Name = "txtTen";
-            txtTen.Size = new Size(238, 23);
-            txtTen.TabIndex = 7;
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(3, 28);
+            label3.Name = "label3";
+            label3.Size = new Size(86, 28);
+            label3.TabIndex = 6;
+            label3.Text = "Ngày sinh:";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 56);
+            label4.Name = "label4";
+            label4.Size = new Size(86, 28);
+            label4.TabIndex = 7;
+            label4.Text = "Địa chỉ:";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Location = new Point(3, 84);
+            label5.Name = "label5";
+            label5.Size = new Size(86, 28);
+            label5.TabIndex = 8;
+            label5.Text = "Số điện thoại:";
+            label5.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Location = new Point(3, 112);
+            label6.Name = "label6";
+            label6.Size = new Size(86, 30);
+            label6.TabIndex = 9;
+            label6.Text = "Email:";
+            label6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(btnDong, 1, 0);
+            tableLayoutPanel2.Controls.Add(btnLuu, 0, 0);
+            tableLayoutPanel2.Location = new Point(170, 361);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(264, 41);
+            tableLayoutPanel2.TabIndex = 17;
+            // 
+            // btnDong
+            // 
+            btnDong.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnDong.BackColor = Color.White;
+            btnDong.Font = new Font("Segoe UI", 9F);
+            btnDong.Location = new Point(135, 3);
+            btnDong.Name = "btnDong";
+            btnDong.Size = new Size(126, 35);
+            btnDong.TabIndex = 11;
+            btnDong.Text = "Huỷ";
+            btnDong.UseVisualStyleBackColor = false;
+            btnDong.Click += btnDong_Click;
+            // 
+            // btnLuu
+            // 
+            btnLuu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            btnLuu.BackColor = Color.White;
+            btnLuu.Font = new Font("Segoe UI", 9F);
+            btnLuu.Location = new Point(3, 3);
+            btnLuu.Name = "btnLuu";
+            btnLuu.Size = new Size(126, 35);
+            btnLuu.TabIndex = 10;
+            btnLuu.Text = "Đổi thông tin";
+            btnLuu.UseVisualStyleBackColor = false;
+            btnLuu.Click += btnLuu_Click;
             // 
             // FormSuaThongTin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(770, 375);
-            Controls.Add(panel1);
+            ClientSize = new Size(612, 449);
+            Controls.Add(tableLayoutPanel2);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaThongTin";
-            Text = "FormSuaThongTin";
-            Load += FormSuaThongTin_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            Text = "Sửa thông tin cá nhân";
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private Label label1;
-        private Panel panel1;
-        private TextBox txtEmail;
-        private TextBox txtGioiTinh;
+        private TableLayoutPanel tableLayoutPanel1;
+        private TextBox txtHoTen;
+        private DateTimePicker dtpNgaySinh;
         private TextBox txtDiaChi;
-        private TextBox txtSDT;
-        private TextBox txtVaiTro;
-        private TextBox txtNgaySinh;
-        private TextBox txtTen;
-        private Button button8;
-        private Label labelEmail;
-        private Label labelGioiTinh;
-        private Label labelDiaChi;
-        private Label labelSDT;
-        private Label labelVaiTro;
-        private Label labelNgaySinh;
-        private Label labelTen;
+        private TextBox txtSoDienThoai;
+        private TextBox txtEmail;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Button btnDong;
+        private Button btnLuu;
     }
 }

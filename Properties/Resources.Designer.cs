@@ -73,6 +73,16 @@ namespace LMS.Views.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap employee_card_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("employee-card-svgrepo-com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icon1 {
             get {
                 object obj = ResourceManager.GetObject("icon1", resourceCulture);
@@ -263,6 +273,16 @@ namespace LMS.Views.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconStaff {
+            get {
+                object obj = ResourceManager.GetObject("iconStaff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconsua {
             get {
                 object obj = ResourceManager.GetObject("iconsua", resourceCulture);
@@ -286,6 +306,16 @@ namespace LMS.Views.Properties {
         internal static System.Drawing.Bitmap iconxoa {
             get {
                 object obj = ResourceManager.GetObject("iconxoa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap staff_symbol_svgrepo_com {
+            get {
+                object obj = ResourceManager.GetObject("staff-symbol-svgrepo-com", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
