@@ -15,6 +15,7 @@ using LMS.Data;
 using LMS.Entities;
 using Microsoft.EntityFrameworkCore;
 using LMS.Helpers;
+using System.IO;
 
 
 namespace LMS.Views.UserControls.QLPhat
@@ -23,6 +24,14 @@ namespace LMS.Views.UserControls.QLPhat
     {
         //private readonly PhatService _phatService;
         private List<dynamic> _allPhieuPhatData = new List<dynamic>();
+
+        // Thêm vào sau dòng: private List<dynamic> _allPhieuPhatData = new List<dynamic>();
+        private int _pageSize = 10;
+        private int _currentPage = 1;
+        private int _totalRecords = 0;
+        private int _totalPages = 0;
+        private string? _currentTrangThai = null; // Lưu filter hiện tại
+
         public UcPhat(List<string> permissions)
         {
             InitializeComponent();
@@ -39,7 +48,7 @@ namespace LMS.Views.UserControls.QLPhat
             // Event handlers cho các nút lọc
             btnDSThu.Click += btnDSThu_Click;
             btnDSHuy.Click += btnDSHuy_Click;
-            
+
             // Event handler cho tìm kiếm
             btnTimKiem.Click += btnTimKiem_Click;
         }
@@ -49,126 +58,16 @@ namespace LMS.Views.UserControls.QLPhat
             LoadData();
         }
 
-        // private void LoadData()
-        // {
-        //     try
-        //     {
-        //         using (var context = new LibraryDbContext())
-        //         {
-        //             var phieuPhats = context.PhieuPhats
-        //                 .Include(pp => pp.ChiTietPhieuPhats!)
-        //                     .ThenInclude(ct => ct.ChiTietPhieuMuon!)
-        //                         .ThenInclude(ctpm => ctpm.PhieuMuon!)
-        //                             .ThenInclude(pm => pm.TheThanhVien!)
-        //                                 .ThenInclude(ttv => ttv.DocGia)
-        //                 .AsNoTracking()
-        //                 .ToList();
-
-        //             var dataView = phieuPhats
-        //                 .Select(pp => new
-        //                 {
-        //                     IdPhieuPhat = pp.IdPhieuPhat,
-        //                     NgayLap = pp.NgayLap,
-        //                     DocGia = pp.ChiTietPhieuPhats?.FirstOrDefault()?.ChiTietPhieuMuon?.PhieuMuon?.TheThanhVien?.DocGia?.TenDocGia ?? "Không rõ",
-        //                     SoChiTiet = pp.ChiTietPhieuPhats?.Count ?? 0,
-        //                     TienPhatPhaiNop = pp.TienPhatPhaiNop,
-        //                     TrangThai = pp.TrangThai == PhieuPhat.TrangThaiEnum.DaThu ? "Đã thu" : "Chưa thu"
-        //                 })
-        //                 .OrderByDescending(x => x.NgayLap)
-        //                 .ToList();
-
-        //             dgvPhat.AutoGenerateColumns = true;
-        //             dgvPhat.DataSource = dataView;
-
-        //             dgvPhat.Columns["IdPhieuPhat"].HeaderText = "Mã phiếu phạt";
-        //             dgvPhat.Columns["NgayLap"].HeaderText = "Ngày lập";
-        //             dgvPhat.Columns["DocGia"].HeaderText = "Độc giả";
-        //             dgvPhat.Columns["SoChiTiet"].HeaderText = "Số dòng phạt";
-        //             dgvPhat.Columns["TienPhatPhaiNop"].HeaderText = "Tổng tiền phạt";
-        //             dgvPhat.Columns["TrangThai"].HeaderText = "Trạng thái";
-
-        //             dgvPhat.Columns["NgayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
-        //             dgvPhat.Columns["TienPhatPhaiNop"].DefaultCellStyle.Format = "N0";
-        //             dgvPhat.Columns["TienPhatPhaiNop"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-        //             dgvPhat.EnableHeadersVisualStyles = false;
-        //             dgvPhat.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
-        //             dgvPhat.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        //             dgvPhat.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-        //         }
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         MessageBox.Show($"Không thể tải dữ liệu phiếu phạt\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //     }
-        // }
-
-        // private void LoadData()
-        // {
-        //     try
-        //     {
-        //         using (var context = new LibraryDbContext())
-        //         {
-        //             var phieuPhats = context.PhieuPhats
-        //                 .Include(pp => pp.ChiTietPhieuPhats!)
-        //                     .ThenInclude(ct => ct.ChiTietPhieuMuon!)
-        //                         .ThenInclude(ctpm => ctpm.PhieuMuon!)
-        //                             .ThenInclude(pm => pm.TheThanhVien!)
-        //                                 .ThenInclude(ttv => ttv.DocGia)
-        //                 .AsNoTracking()
-        //                 .ToList();
-
-        //             var dataView = phieuPhats
-        //                 .Select(pp =>
-        //                 {
-        //                     var ctList = pp.ChiTietPhieuPhats ?? new List<ChiTietPhieuPhat>();
-        //                     var tongTien = ctList.Sum(x => x.TienPhatTra);
-        //                     var soDong = ctList.Count;
-        //                     var docGia = ctList
-        //                         .Select(x => x.ChiTietPhieuMuon?.PhieuMuon?.TheThanhVien?.DocGia?.TenDocGia)
-        //                         .FirstOrDefault(n => !string.IsNullOrWhiteSpace(n)) ?? "Không rõ";
-
-        //                     return new
-        //                     {
-        //                         IdPhieuPhat = pp.IdPhieuPhat,
-        //                         NgayLap = pp.NgayLap,
-        //                         DocGia = docGia,
-        //                         SoChiTiet = soDong,
-        //                         TongTienPhat = tongTien,
-        //                         TrangThai = pp.TrangThai == PhieuPhat.TrangThaiEnum.DaThu ? "Đã thu" : "Chưa thu"
-        //                     };
-        //                 })
-        //                 .OrderByDescending(x => x.NgayLap)
-        //                 .ToList();
-
-        //             dgvPhat.AutoGenerateColumns = true;
-        //             dgvPhat.DataSource = dataView;
-
-        //             dgvPhat.Columns["IdPhieuPhat"].HeaderText = "Mã phiếu phạt";
-        //             dgvPhat.Columns["NgayLap"].HeaderText = "Ngày lập";
-        //             dgvPhat.Columns["DocGia"].HeaderText = "Độc giả";
-        //             dgvPhat.Columns["SoChiTiet"].HeaderText = "Số dòng phạt";
-        //             dgvPhat.Columns["TongTienPhat"].HeaderText = "Tổng tiền phạt";
-        //             dgvPhat.Columns["TrangThai"].HeaderText = "Trạng thái";
-
-        //             dgvPhat.Columns["NgayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
-        //             dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Format = "N0";
-        //             dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-        //             dgvPhat.EnableHeadersVisualStyles = false;
-        //             dgvPhat.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
-        //             dgvPhat.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-        //             dgvPhat.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-        //         }
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         MessageBox.Show($"Không thể tải dữ liệu phiếu phạt\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //     }
-        // }
-
         private void LoadData(string? trangThai = null)
         {
+            _currentTrangThai = trangThai; // Lưu filter
+            LoadPage(1); // Load trang đầu tiên
+        }
+
+        private void LoadPage(int page)
+        {
+            _currentPage = page;
+
             try
             {
                 using (var context = new LibraryDbContext())
@@ -182,12 +81,34 @@ namespace LMS.Views.UserControls.QLPhat
                         .AsNoTracking()
                         .AsQueryable();
 
-                    if (trangThai == "Đã thu")
+                    // Áp dụng filter nếu có
+                    if (_currentTrangThai == "Đã thu")
                         query = query.Where(pp => pp.TrangThai == PhieuPhat.TrangThaiEnum.DaThu);
-                    else if (trangThai == "Đã huỷ")
+                    else if (_currentTrangThai == "Đã huỷ")
                         query = query.Where(pp => pp.TrangThai == PhieuPhat.TrangThaiEnum.DaHuy);
 
+                    // Đếm tổng số records
+                    _totalRecords = query.Count();
+                    _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
+
+                    // Nếu không có dữ liệu
+                    if (_totalPages == 0)
+                    {
+                        _totalPages = 1;
+                        dgvPhat.DataSource = new List<object>();
+                        labelTrang.Text = "Trang 0/0";
+                        return;
+                    }
+
+                    // Đảm bảo currentPage không vượt quá totalPages
+                    if (_currentPage > _totalPages)
+                        _currentPage = _totalPages;
+
+                    // Lấy dữ liệu theo trang
                     var dataView = query
+                        .OrderByDescending(pp => pp.NgayLap)
+                        .Skip((_currentPage - 1) * _pageSize)
+                        .Take(_pageSize)
                         .ToList()
                         .Select(pp => new
                         {
@@ -199,7 +120,6 @@ namespace LMS.Views.UserControls.QLPhat
                             TongTienPhat = pp.ChiTietPhieuPhats?.Sum(x => x.TienPhatTra) ?? 0m,
                             TrangThai = pp.TrangThai.GetDisplayName()
                         })
-                        .OrderByDescending(x => x.NgayLap)
                         .ToList();
 
                     dgvPhat.Columns.Clear();
@@ -221,7 +141,7 @@ namespace LMS.Views.UserControls.QLPhat
                     dgvPhat.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     dgvPhat.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
 
-                    // Thêm nút Thanh toán ở ngoài cùng
+                    // Thêm nút Thanh toán
                     if (dgvPhat.Columns["ThanhToan"] == null)
                     {
                         var btnCol = new DataGridViewButtonColumn
@@ -235,6 +155,9 @@ namespace LMS.Views.UserControls.QLPhat
                         dgvPhat.Columns.Add(btnCol);
                     }
 
+                    // Cập nhật label trang
+                    labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
+
                     // Đăng ký sự kiện để disable nút theo trạng thái
                     dgvPhat.DataBindingComplete -= dgvPhat_DataBindingComplete;
                     dgvPhat.DataBindingComplete += dgvPhat_DataBindingComplete;
@@ -246,6 +169,86 @@ namespace LMS.Views.UserControls.QLPhat
                 MessageBox.Show($"Không thể tải dữ liệu phiếu phạt\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // private void LoadData(string? trangThai = null)
+        // {
+        //     try
+        //     {
+        //         using (var context = new LibraryDbContext())
+        //         {
+        //             var query = context.PhieuPhats
+        //                 .Include(pp => pp.ChiTietPhieuPhats!)
+        //                     .ThenInclude(ct => ct.ChiTietPhieuMuon!)
+        //                         .ThenInclude(ctpm => ctpm.PhieuMuon!)
+        //                             .ThenInclude(pm => pm.TheThanhVien!)
+        //                                 .ThenInclude(ttv => ttv.DocGia)
+        //                 .AsNoTracking()
+        //                 .AsQueryable();
+
+        //             if (trangThai == "Đã thu")
+        //                 query = query.Where(pp => pp.TrangThai == PhieuPhat.TrangThaiEnum.DaThu);
+        //             else if (trangThai == "Đã huỷ")
+        //                 query = query.Where(pp => pp.TrangThai == PhieuPhat.TrangThaiEnum.DaHuy);
+
+        //             var dataView = query
+        //                 .ToList()
+        //                 .Select(pp => new
+        //                 {
+        //                     IdPhieuPhat = pp.IdPhieuPhat,
+        //                     NgayLap = pp.NgayLap,
+        //                     DocGia = pp.ChiTietPhieuPhats?
+        //                                 .Select(x => x.ChiTietPhieuMuon?.PhieuMuon?.TheThanhVien?.DocGia?.TenDocGia)
+        //                                 .FirstOrDefault(n => !string.IsNullOrWhiteSpace(n)) ?? "Không rõ",
+        //                     TongTienPhat = pp.ChiTietPhieuPhats?.Sum(x => x.TienPhatTra) ?? 0m,
+        //                     TrangThai = pp.TrangThai.GetDisplayName()
+        //                 })
+        //                 .OrderByDescending(x => x.NgayLap)
+        //                 .ToList();
+
+        //             dgvPhat.Columns.Clear();
+        //             dgvPhat.AutoGenerateColumns = true;
+        //             dgvPhat.DataSource = dataView;
+
+        //             dgvPhat.Columns["IdPhieuPhat"].HeaderText = "Mã phiếu phạt";
+        //             dgvPhat.Columns["NgayLap"].HeaderText = "Ngày lập";
+        //             dgvPhat.Columns["DocGia"].HeaderText = "Độc giả";
+        //             dgvPhat.Columns["TongTienPhat"].HeaderText = "Tổng tiền phạt";
+        //             dgvPhat.Columns["TrangThai"].HeaderText = "Trạng thái";
+
+        //             dgvPhat.Columns["NgayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        //             dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Format = "N0";
+        //             dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+        //             dgvPhat.EnableHeadersVisualStyles = false;
+        //             dgvPhat.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+        //             dgvPhat.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+        //             dgvPhat.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+        //             // Thêm nút Thanh toán ở ngoài cùng
+        //             if (dgvPhat.Columns["ThanhToan"] == null)
+        //             {
+        //                 var btnCol = new DataGridViewButtonColumn
+        //                 {
+        //                     Name = "ThanhToan",
+        //                     HeaderText = "Thanh toán",
+        //                     Text = "Thanh toán",
+        //                     UseColumnTextForButtonValue = true,
+        //                     AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        //                 };
+        //                 dgvPhat.Columns.Add(btnCol);
+        //             }
+
+        //             // Đăng ký sự kiện để disable nút theo trạng thái
+        //             dgvPhat.DataBindingComplete -= dgvPhat_DataBindingComplete;
+        //             dgvPhat.DataBindingComplete += dgvPhat_DataBindingComplete;
+        //             DisablePayButtons();
+        //         }
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         MessageBox.Show($"Không thể tải dữ liệu phiếu phạt\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //     }
+        // }
 
         private void dgvPhat_DataBindingComplete(object? sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -342,7 +345,7 @@ namespace LMS.Views.UserControls.QLPhat
 
                 MessageBox.Show("Đã hủy phiếu phạt.", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData();
+                LoadData(_currentTrangThai);
             }
             catch (Exception ex)
             {
@@ -377,7 +380,63 @@ namespace LMS.Views.UserControls.QLPhat
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var phieuPhats = context.PhieuPhats
+                        .Include(pp => pp.ChiTietPhieuPhats!)
+                            .ThenInclude(ct => ct.ChiTietPhieuMuon!)
+                                .ThenInclude(ctpm => ctpm.PhieuMuon!)
+                                    .ThenInclude(pm => pm.TheThanhVien!)
+                                        .ThenInclude(ttv => ttv.DocGia)
+                        .AsNoTracking()
+                        .ToList();
 
+                    var data = phieuPhats.Select(pp => new
+                    {
+                        IdPhieuPhat = pp.IdPhieuPhat,
+                        NgayLap = pp.NgayLap.ToString("dd/MM/yyyy"),
+                        DocGia = pp.ChiTietPhieuPhats?
+                                     .Select(x => x.ChiTietPhieuMuon?.PhieuMuon?.TheThanhVien?.DocGia?.TenDocGia)
+                                     .FirstOrDefault(n => !string.IsNullOrWhiteSpace(n)) ?? "Không rõ",
+                        TongTienPhat = pp.ChiTietPhieuPhats?.Sum(x => x.TienPhatTra) ?? 0m,
+                        TrangThai = pp.TrangThai.GetDisplayName()
+                    })
+                    .OrderByDescending(x => x.IdPhieuPhat)
+                    .ToList();
+
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    var stream = LMS.Utils.Helpers.ExportExcel.Export(data, "phieu_phat", Array.Empty<string>());
+                    stream.Position = 0;
+
+                    using (var sfd = new SaveFileDialog())
+                    {
+                        sfd.Filter = "Excel Workbook|*.xlsx";
+                        sfd.FileName = $"PhieuPhat_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                            {
+                                stream.CopyTo(fileStream);
+                            }
+                            MessageBox.Show("Xuất Excel thành công!", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Xuất Excel thất bại.\n{ex.Message}", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvPhat_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -439,7 +498,7 @@ namespace LMS.Views.UserControls.QLPhat
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Reload dữ liệu
-                    LoadData();
+                    LoadData(_currentTrangThai);
 
                     // Gọi trực tiếp để disable nút
                     DisablePayButtons();
@@ -466,16 +525,16 @@ namespace LMS.Views.UserControls.QLPhat
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
-            
+
             // Kiểm tra nếu không nhập gì
             if (string.IsNullOrWhiteSpace(keyword))
             {
-                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm", "Cảnh báo", 
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm", "Cảnh báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtBoxTimKiem.Focus(); // Focus vào textbox để người dùng nhập
                 return;
             }
-            
+
             try
             {
                 using (var context = new LibraryDbContext())
@@ -490,8 +549,8 @@ namespace LMS.Views.UserControls.QLPhat
                         .AsQueryable();
 
                     // Tìm kiếm theo tên độc giả
-                    query = query.Where(pp => 
-                        pp.ChiTietPhieuPhats.Any(ctpp => 
+                    query = query.Where(pp =>
+                        pp.ChiTietPhieuPhats.Any(ctpp =>
                             ctpp.ChiTietPhieuMuon.PhieuMuon.TheThanhVien.DocGia.TenDocGia
                                 .Contains(keyword)));
 
@@ -505,23 +564,35 @@ namespace LMS.Views.UserControls.QLPhat
                         TongTienPhat = pp.ChiTietPhieuPhats.Sum(ctpp => ctpp.TienPhatTra),
                         TrangThai = pp.TrangThai.GetDisplayName()
                     }).ToList();
-                    
+
                     if (data.Count == 0)
                     {
-                        MessageBox.Show("Không tìm thấy kết quả phù hợp", "Thông báo", 
+                        MessageBox.Show("Không tìm thấy kết quả phù hợp", "Thông báo",
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return; // Không cần set DataSource nếu không có kết quả
                     }
-                    
+
                     dgvPhat.DataSource = data;
                     DisablePayButtons();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi", 
+                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (_currentPage < _totalPages)
+            LoadPage(_currentPage + 1);
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (_currentPage > 1)
+            LoadPage(_currentPage - 1);
         }
     }
 }

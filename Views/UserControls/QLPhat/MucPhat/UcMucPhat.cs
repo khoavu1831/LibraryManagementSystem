@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace LMS.Views.UserControls.QLPhat
 {
@@ -181,7 +182,56 @@ namespace LMS.Views.UserControls.QLPhat
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new MucPhatRepository(context);
+                    var service = new MucPhatService(repo);
 
+                    var data = service.GetAllMucPhat()
+                        .Select(mp => new
+                        {
+                            IdMucPhat = mp.IdMucPhat,
+                            TenMucPhat = mp.TenMucPhat ?? "",
+                            SoTienPhat = mp.SoTienPhat,
+                            MoTa = mp.MoTa ?? "",
+                            LoaiPhat = mp.LoaiPhat.GetDisplayName()
+                        })
+                        .OrderBy(x => x.IdMucPhat)
+                        .ToList();
+
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    var stream = LMS.Utils.Helpers.ExportExcel.Export(data, "muc_phat", Array.Empty<string>());
+                    stream.Position = 0;
+
+                    using (var sfd = new SaveFileDialog())
+                    {
+                        sfd.Filter = "Excel Workbook|*.xlsx";
+                        sfd.FileName = $"MucPhat_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                            {
+                                stream.CopyTo(fileStream);
+                            }
+                            MessageBox.Show("Xuất Excel thành công!", "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Xuất Excel thất bại.\n{ex.Message}", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
