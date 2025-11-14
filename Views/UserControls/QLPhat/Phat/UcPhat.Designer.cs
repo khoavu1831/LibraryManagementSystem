@@ -39,9 +39,14 @@
             btnDSHuy = new Button();
             btnDSThu = new Button();
             dgvPhat = new DataGridView();
+            tableLayoutPanelButtons = new TableLayoutPanel();
+            btnTruoc = new Button();
+            btnSau = new Button();
+            labelTrang = new Label();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhat).BeginInit();
+            tableLayoutPanelButtons.SuspendLayout();
             SuspendLayout();
             // 
             // panelCRUD
@@ -213,10 +218,62 @@
             dgvPhat.TabIndex = 1;
             dgvPhat.CellContentClick += dgvPhat_CellContentClick;
             // 
+            // tableLayoutPanelButtons
+            // 
+            tableLayoutPanelButtons.ColumnCount = 3;
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.Controls.Add(btnTruoc, 0, 0);
+            tableLayoutPanelButtons.Controls.Add(btnSau, 2, 0);
+            tableLayoutPanelButtons.Controls.Add(labelTrang, 1, 0);
+            tableLayoutPanelButtons.Dock = DockStyle.Bottom;
+            tableLayoutPanelButtons.Location = new Point(0, 533);
+            tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
+            tableLayoutPanelButtons.RowCount = 1;
+            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanelButtons.Size = new Size(774, 30);
+            tableLayoutPanelButtons.TabIndex = 5;
+            // 
+            // btnTruoc
+            // 
+            btnTruoc.Dock = DockStyle.Fill;
+            btnTruoc.Location = new Point(3, 3);
+            btnTruoc.Name = "btnTruoc";
+            btnTruoc.Size = new Size(251, 24);
+            btnTruoc.TabIndex = 2;
+            btnTruoc.Text = "Trang trước";
+            btnTruoc.UseVisualStyleBackColor = true;
+            btnTruoc.Click += btnTruoc_Click;
+            // 
+            // btnSau
+            // 
+            btnSau.Dock = DockStyle.Fill;
+            btnSau.Location = new Point(517, 3);
+            btnSau.Name = "btnSau";
+            btnSau.Size = new Size(254, 24);
+            btnSau.TabIndex = 3;
+            btnSau.Text = "Trang sau";
+            btnSau.UseVisualStyleBackColor = true;
+            btnSau.Click += btnSau_Click;
+            // 
+            // labelTrang
+            // 
+            labelTrang.AutoSize = true;
+            labelTrang.BorderStyle = BorderStyle.FixedSingle;
+            labelTrang.Dock = DockStyle.Fill;
+            labelTrang.Location = new Point(260, 0);
+            labelTrang.Name = "labelTrang";
+            labelTrang.Size = new Size(251, 30);
+            labelTrang.TabIndex = 4;
+            labelTrang.Text = "Trang 1";
+            labelTrang.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // UcPhat
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(tableLayoutPanelButtons);
             Controls.Add(dgvPhat);
             Controls.Add(panelCRUD);
             Name = "UcPhat";
@@ -225,6 +282,8 @@
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhat).EndInit();
+            tableLayoutPanelButtons.ResumeLayout(false);
+            tableLayoutPanelButtons.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -241,5 +300,9 @@
         private TableLayoutPanel panelSearch;
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
+        private TableLayoutPanel tableLayoutPanelButtons;
+        private Button btnTruoc;
+        private Button btnSau;
+        private Label labelTrang;
     }
 }
