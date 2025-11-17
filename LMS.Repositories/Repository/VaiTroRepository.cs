@@ -45,5 +45,11 @@ namespace LMS.Repository
 
             return permissions;
         }
+
+        public List<VaiTro> search(string keyword) =>
+            _context.VaiTros
+                .AsNoTracking()
+                .Where(vt => (vt.TenVaiTro ?? "").ToLower().Contains(keyword.ToLower()))
+                .ToList();
     }
 }

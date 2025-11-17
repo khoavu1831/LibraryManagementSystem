@@ -33,5 +33,6 @@ namespace LMS.Services
         }
 
         public VaiTro? DeleteVaiTro(int id) => _vaiTroRepository.DeleteById(id);
+        public List<VaiTro> SearchVaiTro(string keyword) => _vaiTroRepository.search(keyword);
     }
 }
