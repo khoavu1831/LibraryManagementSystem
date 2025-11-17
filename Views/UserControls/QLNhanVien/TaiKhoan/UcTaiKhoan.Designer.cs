@@ -51,9 +51,8 @@
             panelCRUD.Controls.Add(btnSua);
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
-            panelCRUD.Margin = new Padding(3, 4, 3, 4);
             panelCRUD.Name = "panelCRUD";
-            panelCRUD.Size = new Size(885, 96);
+            panelCRUD.Size = new Size(774, 72);
             panelCRUD.TabIndex = 2;
             // 
             // panelSearch
@@ -66,12 +65,11 @@
             panelSearch.Controls.Add(txtBoxTimKiem, 1, 0);
             panelSearch.Controls.Add(btnLamMoi, 2, 0);
             panelSearch.Dock = DockStyle.Right;
-            panelSearch.Location = new Point(487, 0);
-            panelSearch.Margin = new Padding(3, 4, 3, 4);
+            panelSearch.Location = new Point(426, 0);
             panelSearch.Name = "panelSearch";
             panelSearch.RowCount = 1;
             panelSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            panelSearch.Size = new Size(398, 96);
+            panelSearch.Size = new Size(348, 72);
             panelSearch.TabIndex = 9;
             // 
             // btnTimKiem
@@ -80,22 +78,21 @@
             btnTimKiem.BackColor = Color.White;
             btnTimKiem.FlatAppearance.BorderColor = Color.Black;
             btnTimKiem.FlatStyle = FlatStyle.Flat;
-            btnTimKiem.Location = new Point(3, 32);
-            btnTimKiem.Margin = new Padding(3, 4, 3, 4);
+            btnTimKiem.Location = new Point(3, 24);
             btnTimKiem.Name = "btnTimKiem";
-            btnTimKiem.Size = new Size(96, 32);
+            btnTimKiem.Size = new Size(83, 24);
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
             txtBoxTimKiem.Anchor = AnchorStyles.None;
-            txtBoxTimKiem.Location = new Point(106, 34);
-            txtBoxTimKiem.Margin = new Padding(3, 4, 3, 4);
+            txtBoxTimKiem.Location = new Point(92, 24);
             txtBoxTimKiem.Name = "txtBoxTimKiem";
             txtBoxTimKiem.PlaceholderText = "Tìm kiếm...";
-            txtBoxTimKiem.Size = new Size(231, 27);
+            txtBoxTimKiem.Size = new Size(203, 23);
             txtBoxTimKiem.TabIndex = 9;
             // 
             // btnLamMoi
@@ -105,13 +102,14 @@
             btnLamMoi.FlatAppearance.BorderSize = 0;
             btnLamMoi.FlatStyle = FlatStyle.Flat;
             btnLamMoi.Image = Properties.Resources.iconRefesh;
-            btnLamMoi.Location = new Point(341, 0);
+            btnLamMoi.Location = new Point(298, 0);
             btnLamMoi.Margin = new Padding(0);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(57, 96);
+            btnLamMoi.Size = new Size(50, 72);
             btnLamMoi.TabIndex = 7;
             btnLamMoi.TextImageRelation = TextImageRelation.ImageAboveText;
             btnLamMoi.UseVisualStyleBackColor = false;
+            btnLamMoi.Click += btnLamMoi_Click;
             // 
             // btnChiTiet
             // 
@@ -120,10 +118,10 @@
             btnChiTiet.FlatAppearance.BorderSize = 0;
             btnChiTiet.FlatStyle = FlatStyle.Flat;
             btnChiTiet.Image = Properties.Resources.iconCT;
-            btnChiTiet.Location = new Point(176, 0);
+            btnChiTiet.Location = new Point(154, 0);
             btnChiTiet.Margin = new Padding(0);
             btnChiTiet.Name = "btnChiTiet";
-            btnChiTiet.Size = new Size(88, 96);
+            btnChiTiet.Size = new Size(77, 72);
             btnChiTiet.TabIndex = 3;
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -137,10 +135,10 @@
             btnXoa.FlatAppearance.BorderSize = 0;
             btnXoa.FlatStyle = FlatStyle.Flat;
             btnXoa.Image = Properties.Resources.iconxoa;
-            btnXoa.Location = new Point(88, 0);
+            btnXoa.Location = new Point(77, 0);
             btnXoa.Margin = new Padding(0);
             btnXoa.Name = "btnXoa";
-            btnXoa.Size = new Size(88, 96);
+            btnXoa.Size = new Size(77, 72);
             btnXoa.TabIndex = 2;
             btnXoa.Text = "Xóa";
             btnXoa.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -157,7 +155,7 @@
             btnSua.Location = new Point(0, 0);
             btnSua.Margin = new Padding(0);
             btnSua.Name = "btnSua";
-            btnSua.Size = new Size(88, 96);
+            btnSua.Size = new Size(77, 72);
             btnSua.TabIndex = 1;
             btnSua.Text = "Sửa";
             btnSua.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -168,20 +166,22 @@
             // 
             dgvTaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTaiKhoan.Dock = DockStyle.Fill;
-            dgvTaiKhoan.Location = new Point(0, 96);
+            dgvTaiKhoan.Location = new Point(0, 72);
+            dgvTaiKhoan.Margin = new Padding(3, 2, 3, 2);
             dgvTaiKhoan.Name = "dgvTaiKhoan";
             dgvTaiKhoan.RowHeadersWidth = 51;
-            dgvTaiKhoan.Size = new Size(885, 655);
+            dgvTaiKhoan.Size = new Size(774, 491);
             dgvTaiKhoan.TabIndex = 3;
             // 
             // UcTaiKhoan
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(dgvTaiKhoan);
             Controls.Add(panelCRUD);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UcTaiKhoan";
-            Size = new Size(885, 751);
+            Size = new Size(774, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();

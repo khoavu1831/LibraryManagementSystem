@@ -40,5 +40,6 @@ namespace LMS.Services
 
         // THÊM PHƯƠNG THỨC AUTHENTICATE MỚI (nếu muốn dùng Service)
         public TaiKhoan? Authenticate(string username, string password) => _taiKhoanRepository.Authenticate(username, password);
+        public List<TaiKhoan> SearchTaiKhoan(string keyword) => _taiKhoanRepository.search(keyword);
     }
 }

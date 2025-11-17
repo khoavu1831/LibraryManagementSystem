@@ -124,5 +124,38 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
             }
             LoadData();
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var keyword = txtBoxTimKiem.Text.Trim();
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new VaiTroRepository(context);
+                    var vaiTroService = new VaiTroService(repo);
+                    var searchResults = vaiTroService.SearchVaiTro(keyword);
+                    var data = searchResults.Select(vt => new
+                    {
+                        IdVaiTro = vt.IdVaiTro,
+                        TenVaiTro = vt.TenVaiTro
+                    }).ToList();
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy vai trò nào phù hợp.", "Kết quả tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    dgvVaiTro.DataSource = data;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

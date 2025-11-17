@@ -129,5 +129,6 @@ namespace LMS.Services
         }
 
         public Entities.NhanVien? DeleteNhanVien(int id) => _nhanVienRepository.Delete(id);
+        public List<Entities.NhanVien> SearchNhanVien(string keyword) => _nhanVienRepository.Search(keyword);
     }
 }

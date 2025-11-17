@@ -50,5 +50,11 @@ namespace LMS.Repository
         //        .SqlQueryRaw<int>(sql, vaiTroId)  // {0} thay bằng vaiTroId an toàn
         //        .ToList();
         //}
+
+        public List<TaiKhoan> search(string keyword) =>
+            _context.TaiKhoans
+                .Where(tk => (tk.TenTaiKhoan ?? "").ToLower().Contains(keyword.ToLower()) ||
+                             (tk.MatKhau ?? "").ToLower().Contains(keyword.ToLower()))
+                .ToList();
     }
 }
