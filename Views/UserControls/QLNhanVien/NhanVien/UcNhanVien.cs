@@ -1,6 +1,8 @@
 ﻿using LMS.Data;
 using LMS.Repository;
+using LMS.Entities;
 using LMS.Services;
+using LMS.Views.LMS.Utils.Helpers;
 using LMS.Views.UserControls.QLSach;
 using System;
 using System.Collections.Generic;
@@ -175,6 +177,47 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new NhanVienRepository(context);
+                    var nhanVienService = new NhanVienService(repo);
+
+                    var data = nhanVienService.getAllNhanVien(); // List<NhanVien>
+
+                    // Xuất Excel
+                    var stream = ExportExcel.Export(
+                        data,
+                        "NhanVien",
+                        new string[] { "PhieuMuons", "PhieuNhaps" }
+                    );
+
+                    stream.Position = 0;
+                    using (SaveFileDialog sfd = new SaveFileDialog())
+                    {
+                        sfd.Filter = "Excel Workbook|*.xlsx";
+                        sfd.FileName = "NhanVien.xlsx";
+
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                            {
+                                stream.CopyTo(fileStream);
+                            }
+                            MessageBox.Show("Xuất Excel thành công!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xuất Excel: " + ex.Message);
+            }
         }
     }
 }
