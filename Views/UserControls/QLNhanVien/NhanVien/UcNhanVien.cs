@@ -147,5 +147,34 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
                 }
             }
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var keyword = txtBoxTimKiem.Text.Trim().ToLower();
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new NhanVienRepository(context);
+                    var nvService = new NhanVienService(repo);
+
+                    var data = nvService.SearchNhanVien(keyword);
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy nhân viên nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    dgvNhanVien.DataSource = data;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }

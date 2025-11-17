@@ -1,5 +1,6 @@
 ﻿using LMS.Data;
 using LMS.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Repository
 {
@@ -53,5 +54,14 @@ namespace LMS.Repository
 
             return nhanVien;
         }
+
+        public List<NhanVien> Search(string keyword) =>
+            _context.NhanViens
+                .AsNoTracking()
+                .Where(nv => (nv.TenNhanVien ?? "").ToLower().Contains(keyword.ToLower()) ||
+                              (nv.DiaChi ?? "").ToLower().Contains(keyword.ToLower()) ||
+                              (nv.SDT ?? "").Contains(keyword) ||
+                              (nv.Email ?? "").ToLower().Contains(keyword.ToLower()))
+                .ToList();
     }
 }
