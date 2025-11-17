@@ -108,5 +108,39 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
             MessageBox.Show("Xóa tài khoản thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LoadData();
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var keyword = txtBoxTimKiem.Text.Trim();
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new TaiKhoanRepository(context);
+                    var taiKhoanService = new TaiKhoanService(repo);
+                    var taiKhoanList = taiKhoanService.SearchTaiKhoan(keyword);
+                    var data = taiKhoanList.Select(tk => new
+                    {
+                        IdTaiKhoan = tk.IdTaiKhoan,
+                        TenDangNhap = tk.TenTaiKhoan,
+                        MatKhau = tk.MatKhau,
+                    }).ToList();
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy tài khoản nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    dgvTaiKhoan.DataSource = data;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }
