@@ -25,7 +25,6 @@
         private void InitializeComponent()
         {
             panelNavMenu = new Panel();
-            btnTraSach = new Button();
             btnMuonTraSach = new Button();
             panelSubContent = new Panel();
             panelNavMenu.SuspendLayout();
@@ -34,26 +33,12 @@
             // panelNavMenu
             // 
             panelNavMenu.BackColor = Color.White;
-            panelNavMenu.Controls.Add(btnTraSach);
             panelNavMenu.Controls.Add(btnMuonTraSach);
             panelNavMenu.Dock = DockStyle.Top;
             panelNavMenu.Location = new Point(0, 0);
             panelNavMenu.Name = "panelNavMenu";
             panelNavMenu.Size = new Size(861, 67);
             panelNavMenu.TabIndex = 1;
-            // 
-            // btnTraSach
-            // 
-            btnTraSach.BackColor = Color.White;
-            btnTraSach.Dock = DockStyle.Left;
-            btnTraSach.FlatStyle = FlatStyle.Flat;
-            btnTraSach.Location = new Point(111, 0);
-            btnTraSach.Name = "btnTraSach";
-            btnTraSach.Size = new Size(111, 67);
-            btnTraSach.TabIndex = 1;
-            btnTraSach.Text = "NOTHING";
-            btnTraSach.UseVisualStyleBackColor = false;
-            btnTraSach.Click += btnTraSach_Click;
             // 
             // btnMuonTraSach
             // 
@@ -92,7 +77,6 @@
         #endregion
 
         private Panel panelNavMenu;
-        private Button btnTraSach;
         private Button btnMuonTraSach;
         private Panel panelSubContent;
     }
