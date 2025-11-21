@@ -21,6 +21,8 @@ namespace LMS.Views.UserControls.QLSach
         public FormThemTheLoai()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             var context = new LibraryDbContext();
             var repo = new TheLoaiRepository(context);
             _theLoaiService = new TheLoaiService(repo);

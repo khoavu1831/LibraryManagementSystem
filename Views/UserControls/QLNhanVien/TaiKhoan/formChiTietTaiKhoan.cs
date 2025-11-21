@@ -17,6 +17,8 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
         public FormChiTietTaiKhoan(string idTaiKhoan, string tenDangNhap, string matKhau)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             textBoxHVT.Text = tenDangNhap;
             textBoxMK.Text = matKhau;
             _idTaiKhoan = idTaiKhoan;

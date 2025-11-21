@@ -11,6 +11,7 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
         public FormSuaTheThanhVien(TheThanhVienService theThanhVienService, Entities.TheThanhVien theThanhVien)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             _theThanhVienService = theThanhVienService ?? throw new ArgumentNullException(nameof(theThanhVienService));
             _theThanhVien = theThanhVien ?? throw new ArgumentNullException(nameof(theThanhVien));

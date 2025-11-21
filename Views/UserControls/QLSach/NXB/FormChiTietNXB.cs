@@ -20,6 +20,8 @@ namespace LMS.Views.UserControls.QLSach
         public FormChiTietNXB(int idNXB, string tenNXB, string diaChi, string sdt)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             _idNXB = idNXB;
             textBoxIdNXB.Text = idNXB.ToString();
             textBoxTenNXB.Text = tenNXB;

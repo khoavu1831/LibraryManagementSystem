@@ -15,6 +15,8 @@ namespace LMS.Views.UserControls.QLSach
         public FormChiTietBSS()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
         }
     }
 }

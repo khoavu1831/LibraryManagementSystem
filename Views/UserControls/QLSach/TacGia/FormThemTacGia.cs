@@ -20,6 +20,8 @@ namespace LMS.Views.UserControls.QLSach
         public FormThemTacGia()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             var context = new LibraryDbContext();
             var repo = new TacGiaRepository(context);
             _tacGiaService = new TacGiaService(repo);

@@ -14,6 +14,8 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
         public FormThemVaiTro()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             SetupLayout();  // Chỉ setup kích thước/layout để hiển thị hết, không thay đổi màu
 
             var context = new LibraryDbContext();

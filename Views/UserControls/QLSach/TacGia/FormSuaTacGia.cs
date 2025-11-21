@@ -20,6 +20,7 @@ namespace LMS.Views.UserControls.QLSach
         public FormSuaTacGia(int idTacGia, string tenTacGia, DateTime ngaySinh, string noiSinh, string sdt)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             _idTacGia = idTacGia;
             textBoxTenTacGia.Text = tenTacGia;

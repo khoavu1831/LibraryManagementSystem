@@ -9,6 +9,7 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
         public FormThemKhachHang(DocGiaService docGiaService)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
             _docGiaService = docGiaService;
 
         }

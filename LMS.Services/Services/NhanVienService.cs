@@ -15,39 +15,39 @@ namespace LMS.Services
         public NhanVienService(NhanVienRepository nhanVienRepository) => _nhanVienRepository = nhanVienRepository;
         public List<Entities.NhanVien> getAllNhanVien() => _nhanVienRepository.GetAll();
         public Entities.NhanVien? GetNhanVienById(int id) => _nhanVienRepository.GetById(id);
-        public NhanVien AddNhanVien(NhanVien nhanVien)
-        {
-            // Validate tên nhân viên
-            if (string.IsNullOrEmpty(nhanVien.TenNhanVien))
-                throw new Exception("Tên nhân viên không được để trống.");
+            public NhanVien AddNhanVien(NhanVien nhanVien)
+            {
+                // Validate tên nhân viên
+                if (string.IsNullOrEmpty(nhanVien.TenNhanVien))
+                    throw new Exception("Tên nhân viên không được để trống.");
 
-            if (!Regex.IsMatch(nhanVien.TenNhanVien.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ\s]{1,50}$"))
-                throw new Exception("Tên nhân viên không hợp lệ. Không chứa số hoặc ký tự đặc biệt, tối đa 50 ký tự.");
+                if (!Regex.IsMatch(nhanVien.TenNhanVien.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ\s]{1,50}$"))
+                    throw new Exception("Tên nhân viên không hợp lệ. Không chứa số hoặc ký tự đặc biệt, tối đa 50 ký tự.");
 
-            // Validate Email
-            if (string.IsNullOrEmpty(nhanVien.Email))
-                throw new Exception("Email không được để trống.");
+                // Validate Email
+                if (string.IsNullOrEmpty(nhanVien.Email))
+                    throw new Exception("Email không được để trống.");
 
-            if (!Regex.IsMatch(nhanVien.Email.Trim(), @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
-                throw new Exception("Email không đúng định dạng.");
+                if (!Regex.IsMatch(nhanVien.Email.Trim(), @"^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"))
+                    throw new Exception("Email không đúng định dạng.");
 
-            // Validate địa chỉ
-            if (string.IsNullOrEmpty(nhanVien.DiaChi))
-                throw new Exception("Địa chỉ không được để trống.");
+                // Validate địa chỉ
+                if (string.IsNullOrEmpty(nhanVien.DiaChi))
+                    throw new Exception("Địa chỉ không được để trống.");
 
-            if (!Regex.IsMatch(nhanVien.DiaChi.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ0-9\s]{1,100}$"))
-                throw new Exception("Địa chỉ không hợp lệ, không chứa ký tự đặc biệt.");
+                if (!Regex.IsMatch(nhanVien.DiaChi.Trim(), @"^[A-Za-zÀ-Ỹà-ỹ0-9\s]{1,100}$"))
+                    throw new Exception("Địa chỉ không hợp lệ, không chứa ký tự đặc biệt.");
 
-            // Validate số điện thoại
-            if (string.IsNullOrEmpty(nhanVien.SDT))
-                throw new Exception("Số điện thoại không được để trống.");
+                // Validate số điện thoại
+                if (string.IsNullOrEmpty(nhanVien.SDT))
+                    throw new Exception("Số điện thoại không được để trống.");
 
-            if (!Regex.IsMatch(nhanVien.SDT.Trim(), @"^0\d{9}$"))
-                throw new Exception("Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0.");
+                if (!Regex.IsMatch(nhanVien.SDT.Trim(), @"^0\d{9}$"))
+                    throw new Exception("Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0.");
 
-            // Thêm nhân viên
-            return _nhanVienRepository.Add(nhanVien);
-        }
+                // Thêm nhân viên
+                return _nhanVienRepository.Add(nhanVien);
+            }
 
 
         public NhanVien AddNVTK(NhanVien nhanVien, TaiKhoan taiKhoan)
