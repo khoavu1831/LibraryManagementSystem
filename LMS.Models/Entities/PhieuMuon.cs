@@ -31,7 +31,8 @@ namespace LMS.Entities
             DangMuon,
             [Display(Name = "Đã trả")]
             DaTra,
-            // Bỏ trạng thái Qúa hạn, chỉ dùng 2 trạng thái trên để quản lý tổng quan phiếu mượn trả 
+            [Display(Name = "Đã huỷ")]
+            DaHuy,
         }
     }
 }

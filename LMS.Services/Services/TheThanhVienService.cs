@@ -95,5 +95,23 @@ namespace LMS.Views.LMS.Services.Services
 
             return _theThanhVienRepository.Delete(id);
         }
+
+        /// <summary>
+        /// Tìm kiếm thẻ thành viên theo từ khóa (tên, mã thẻ, SĐT)
+        /// Chỉ trả về thẻ đang hoạt động
+        /// </summary>
+        public List<TheThanhVien> TimKiemThanhVien(string keyword)
+        {
+            if (string.IsNullOrWhiteSpace(keyword) || keyword.Length < 2)
+                return new List<TheThanhVien>();
+
+            var result = _theThanhVienRepository.Search(keyword)
+                .Where(ttv => ttv.TrangThai == TheThanhVien.TrangThaiEnum.HoatDong)
+                .OrderBy(ttv => ttv.DocGia?.TenDocGia)
+                .Take(20)
+                .ToList();
+
+            return result;
+        }
     }
 }
