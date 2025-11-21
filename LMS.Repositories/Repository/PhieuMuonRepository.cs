@@ -16,6 +16,83 @@ namespace LMS.Repository
                     .ThenInclude(tv => tv.DocGia)
                 .ToList();
         }
+        
+        /// <summary>
+        /// Lấy tất cả phiếu mượn với Include đầy đủ (dùng cho Excel export)
+        /// </summary>
+        public List<PhieuMuon> GetAllWithIncludes()
+        {
+            return _context.PhieuMuons
+                .Include(pm => pm.NhanVien)
+                .Include(pm => pm.TheThanhVien!)
+                    .ThenInclude(tv => tv.DocGia)
+                .AsNoTracking()
+                .OrderByDescending(pm => pm.NgayMuon)
+                .ToList();
+        }
+        
+        /// <summary>
+        /// Đếm tổng số phiếu mượn
+        /// </summary>
+        public int GetCount() => _context.PhieuMuons.Count();
+        
+        /// <summary>
+        /// Đếm tổng số phiếu mượn theo filter
+        /// </summary>
+        public int GetCountByFilter(PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null)
+        {
+            var query = _context.PhieuMuons
+                .Include(pm => pm.NhanVien)
+                .Include(pm => pm.TheThanhVien!)
+                    .ThenInclude(tv => tv.DocGia)
+                .AsQueryable();
+
+            // Filter trạng thái
+            if (trangThai.HasValue)
+                query = query.Where(pm => pm.TrangThai == trangThai.Value);
+
+            // Filter keyword (tên độc giả HOẶC tên nhân viên)
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(pm =>
+                    pm.TheThanhVien!.DocGia!.TenDocGia.Contains(keyword) ||
+                    pm.NhanVien!.TenNhanVien.Contains(keyword));
+            }
+
+            return query.Count();
+        }
+        
+        /// <summary>
+        /// Lấy phiếu mượn có phân trang với filter
+        /// </summary>
+        public List<PhieuMuon> GetByPageWithFilter(int page, int pageSize, PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null)
+        {
+            var query = _context.PhieuMuons
+                .Include(pm => pm.NhanVien)
+                .Include(pm => pm.TheThanhVien!)
+                    .ThenInclude(tv => tv.DocGia)
+                .AsNoTracking()
+                .AsQueryable();
+
+            // Filter trạng thái
+            if (trangThai.HasValue)
+                query = query.Where(pm => pm.TrangThai == trangThai.Value);
+
+            // Filter keyword (tên độc giả HOẶC tên nhân viên)
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(pm =>
+                    pm.TheThanhVien!.DocGia!.TenDocGia.Contains(keyword) ||
+                    pm.NhanVien!.TenNhanVien.Contains(keyword));
+            }
+
+            return query
+                .OrderByDescending(pm => pm.NgayMuon)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+        
         public PhieuMuon? GetById(int id) => _context.PhieuMuons.Find(id);
 
         public PhieuMuon? GetChiTiet(int idPhieuMuon)

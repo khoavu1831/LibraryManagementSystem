@@ -44,6 +44,7 @@
             textBoxSDT = new TextBox();
             labelTrangThai = new Label();
             textBoxTrangThai = new TextBox();
+            dateTimePickerNgayMuon = new DateTimePicker();
             dateTimePickerNgayHenTra = new DateTimePicker();
             panel2 = new Panel();
             panel3 = new Panel();
@@ -54,7 +55,6 @@
             panelChiTiet = new Panel();
             dgvChiTiet = new DataGridView();
             btnQuayLai = new Button();
-            dateTimePickerNgayMuon = new DateTimePicker();
             panelTop.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -241,6 +241,15 @@
             textBoxTrangThai.Size = new Size(175, 23);
             textBoxTrangThai.TabIndex = 5;
             // 
+            // dateTimePickerNgayMuon
+            // 
+            dateTimePickerNgayMuon.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNgayMuon.Format = DateTimePickerFormat.Custom;
+            dateTimePickerNgayMuon.Location = new Point(104, 115);
+            dateTimePickerNgayMuon.Name = "dateTimePickerNgayMuon";
+            dateTimePickerNgayMuon.Size = new Size(175, 23);
+            dateTimePickerNgayMuon.TabIndex = 12;
+            // 
             // dateTimePickerNgayHenTra
             // 
             dateTimePickerNgayHenTra.CustomFormat = "dd/MM/yyyy";
@@ -343,15 +352,6 @@
             btnQuayLai.TabIndex = 20;
             btnQuayLai.Text = "Quay lại";
             btnQuayLai.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePickerNgayMuon
-            // 
-            dateTimePickerNgayMuon.CustomFormat = "dd/MM/yyyy";
-            dateTimePickerNgayMuon.Format = DateTimePickerFormat.Custom;
-            dateTimePickerNgayMuon.Location = new Point(104, 115);
-            dateTimePickerNgayMuon.Name = "dateTimePickerNgayMuon";
-            dateTimePickerNgayMuon.Size = new Size(175, 23);
-            dateTimePickerNgayMuon.TabIndex = 12;
             // 
             // FormChiTietPhieuMuon
             // 
