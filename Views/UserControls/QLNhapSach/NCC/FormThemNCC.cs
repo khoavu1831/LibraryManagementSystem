@@ -21,6 +21,8 @@ namespace LMS.Views.UserControls.QLNhapSach
         public FormThemNCC()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             var context = new LibraryDbContext();
             var nccRepository = new NCCRepository(context);
             _nccService = new NCCService(nccRepository);

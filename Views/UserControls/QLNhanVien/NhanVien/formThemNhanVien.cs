@@ -21,6 +21,8 @@ namespace LMS.Views.UserControls.QLNhanVien
         public FormThemNhanVien()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             var context = new LibraryDbContext();
 
             var nhanVienRepo = new NhanVienRepository(context);

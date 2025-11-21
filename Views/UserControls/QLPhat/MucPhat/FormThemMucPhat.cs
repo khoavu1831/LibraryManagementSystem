@@ -13,6 +13,8 @@ namespace LMS.Views.UserControls.QLPhat
         public FormThemMucPhat()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             var context = new LibraryDbContext();
             var mucPhatRepository = new MucPhatRepository(context);
             _mucPhatService = new MucPhatService(mucPhatRepository);

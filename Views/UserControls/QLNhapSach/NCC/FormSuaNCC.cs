@@ -21,6 +21,7 @@ namespace LMS.Views.UserControls.QLNhapSach
         public FormSuaNCC(int idNCC, string tenNCC ,string diaChi, string sdt)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             _idNCC = idNCC;
             textBoxTenNCC.Text = tenNCC;

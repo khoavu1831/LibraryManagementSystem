@@ -25,6 +25,7 @@ namespace LMS.Views.UserControls.QLNhapSach
         public FormThemPhieuNhap()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             var context = new LibraryDbContext();
 

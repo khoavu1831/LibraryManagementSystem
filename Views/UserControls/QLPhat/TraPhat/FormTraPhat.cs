@@ -15,6 +15,8 @@ namespace LMS.Views.UserControls.QLPhat.TraPhat
         public FormTraPhat()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
         }
 
         private void buttonThanhToan_Click(object sender, EventArgs e)

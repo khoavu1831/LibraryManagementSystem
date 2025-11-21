@@ -18,6 +18,8 @@ namespace LMS.Views.UserControls.QLPhat
         public FormChiTietMucPhat(int idMucPhat, string tenMucPhat, MucPhat.LoaiPhatEnum loaiPhat, string moTa, decimal soTien)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             _idMucPhat = idMucPhat;
 
             // Hiển thị enum có dấu trong ComboBox

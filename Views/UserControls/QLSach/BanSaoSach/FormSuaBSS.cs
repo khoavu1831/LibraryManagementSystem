@@ -15,6 +15,8 @@ namespace LMS.Views.UserControls.QLSach
         public FormSuaBSS()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
         }
     }
 }

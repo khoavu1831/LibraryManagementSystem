@@ -21,6 +21,7 @@ namespace LMS.Views.UserControls.QLSach
         public FormSuaNXB(int idNXB, string tenNXB ,string diaChi, string sdt)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             _idNXB = idNXB;
             textBoxTenNXB.Text = tenNXB;

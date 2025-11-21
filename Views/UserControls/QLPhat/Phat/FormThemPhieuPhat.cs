@@ -15,6 +15,8 @@ namespace LMS.Views.UserControls.QLPhat
         public FormThemPhieuPhat()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)

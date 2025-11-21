@@ -30,6 +30,7 @@ namespace LMS.Views.Forms
         public MainForm(List<string> userPermissions)
         {
             InitializeComponent();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             _userPermissions = userPermissions;
             if (CurrentUserContext.CurrentUser != null)
             {

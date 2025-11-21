@@ -18,6 +18,7 @@ namespace LMS.Views.UserControls.QLSach
         public FormChiTietSach(string idSach, string tenSach, string theLoai, string tacGia, string nxb, int namXuatBan, string moTa, int soTrang, int soLuongBanSao, decimal giaTien)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             textBoxIdSach.Text = idSach;
             textBoxTenSach.Text = tenSach;

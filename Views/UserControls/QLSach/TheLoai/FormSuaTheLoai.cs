@@ -21,6 +21,7 @@ namespace LMS.Views.UserControls.QLSach
         public FormSuaTheLoai(int idTheLoai, string tenTheLoai)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             _idTheLoai = idTheLoai;
             textBoxTenTheLoai.Text = tenTheLoai;

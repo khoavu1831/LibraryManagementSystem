@@ -9,6 +9,8 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
         public FormChiTietTheThanhVien(Entities.TheThanhVien theThanhVien)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             _theThanhVien = theThanhVien ?? throw new ArgumentNullException(nameof(theThanhVien));
 
             LoadData();

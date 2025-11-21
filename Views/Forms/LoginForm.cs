@@ -13,6 +13,7 @@ namespace LMS.Forms
         public LoginForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
         }
 
 

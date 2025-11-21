@@ -27,6 +27,8 @@ namespace LMS.Views.UserControls.QLMuonTraSach
         public FormTraSach(int idPhieuMuon)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             _idPhieuMuon = idPhieuMuon;
 
             var context = new LibraryDbContext();

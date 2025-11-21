@@ -21,6 +21,8 @@ namespace LMS.Views.UserControls.QLSach
         public FormThemNXB()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             var context = new LibraryDbContext();
             var nxbRepository = new NXBRepository(context);
             _nxbService = new NXBService(nxbRepository);

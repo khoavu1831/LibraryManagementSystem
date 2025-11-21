@@ -23,6 +23,8 @@ namespace LMS.Views.Views.UserControls.QuanLy
         public FormSuaThongTin()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             Load += FormSuaThongTin_Load;
         }
 

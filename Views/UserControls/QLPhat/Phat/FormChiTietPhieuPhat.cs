@@ -19,7 +19,10 @@ namespace LMS.Views.UserControls.QLPhat
 
         public FormChiTietPhieuPhat(int idPhieuPhat)
         {
-        InitializeComponent();_idPhieuPhat = idPhieuPhat;
+        InitializeComponent();
+        this.StartPosition = FormStartPosition.CenterParent;
+
+            _idPhieuPhat = idPhieuPhat;
 		this.Load += FormChiTietPhieuPhat_Load;
 	    }
 
