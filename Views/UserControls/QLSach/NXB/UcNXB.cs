@@ -10,6 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LMS.Views.LMS.Utils.Helpers;
+
 
 namespace LMS.Views.UserControls.QLSach
 {
@@ -161,6 +163,46 @@ namespace LMS.Views.UserControls.QLSach
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new NXBRepository(context);
+                    var nxbService = new NXBService(repo);
+
+                    var data = nxbService.GetAllNXB(); // List<NXB>
+
+                    // Xuất Excel
+                    var stream = ExportExcel.Export(
+                        data,
+                        "NhaXuatBan",
+                        new string[] { "Saches" }  // Updated navigation property names if applicable to NXB
+                    );
+
+                    stream.Position = 0;
+                    using (SaveFileDialog sfd = new SaveFileDialog())
+                    {
+                        sfd.Filter = "Excel Workbook|*.xlsx";
+                        sfd.FileName = $"NhaXuatBan_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                            {
+                                stream.CopyTo(fileStream);
+                            }
+                            MessageBox.Show("Xuất Excel thành công!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xuất Excel: " + ex.Message);
             }
         }
     }
