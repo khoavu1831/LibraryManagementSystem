@@ -437,5 +437,45 @@ namespace LMS.Services
             _pmRepository.Update(pm);
             _pmRepository.Save();
         }
+
+        /// <summary>
+        /// Hủy phiếu mượn - Đổi trạng thái thành DaHuy và trả sách về kho
+        /// </summary>
+        public void HuyPhieuMuon(int idPhieuMuon)
+        {
+            var pm = _pmRepository.GetChiTiet(idPhieuMuon);
+            
+            if (pm == null)
+                throw new Exception("Không tìm thấy phiếu mượn");
+
+            // Chỉ cho hủy phiếu đang mượn
+            if (pm.TrangThai == PhieuMuon.TrangThaiEnum.DaTra)
+                throw new Exception("Không thể hủy phiếu đã trả sách");
+            
+            if (pm.TrangThai == PhieuMuon.TrangThaiEnum.DaHuy)
+                throw new Exception("Phiếu mượn đã được hủy trước đó");
+
+            // Kiểm tra có sách đã trả chưa
+            var daTra = pm.ChiTietPhieuMuons?.Any(ct => ct.NgayTra != null) ?? false;
+            if (daTra)
+                throw new Exception("Không thể hủy phiếu đã có sách trả. Vui lòng liên hệ quản lý.");
+
+            // Đổi trạng thái thành DaHuy
+            pm.TrangThai = PhieuMuon.TrangThaiEnum.DaHuy;
+
+            // Trả sách về kho (đổi tình trạng sách về Tốt)
+            foreach (var chiTiet in pm.ChiTietPhieuMuons ?? new List<ChiTietPhieuMuon>())
+            {
+                var banSao = _bssRepository?.GetById(chiTiet.IdBanSaoSach);
+                if (banSao != null && banSao.TinhTrangSach == BanSaoSach.TinhTrangSachEnum.ChoMuon)
+                {
+                    banSao.TinhTrangSach = BanSaoSach.TinhTrangSachEnum.Tot;
+                    _bssRepository?.Update(banSao);
+                }
+            }
+
+            _pmRepository.Update(pm);
+            _pmRepository.Save();
+        }
     }
 }
