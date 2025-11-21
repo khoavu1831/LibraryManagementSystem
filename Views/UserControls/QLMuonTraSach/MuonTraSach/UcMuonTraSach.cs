@@ -19,6 +19,13 @@ namespace LMS.Views.UserControls.QLMuonTraSach
     public partial class UcMuonTraSach : UserControl
     {
         private bool _isColumnConfigured = false;
+        private int _pageSize = 15;
+        private int _currentPage = 1;
+        private int _totalRecords = 0;
+        private int _totalPages = 0;
+        private string? _currentTrangThai = null; // Lưu filter hiện tại
+        private string? _currentKeyword = null; // Lưu keyword tìm kiếm hiện tại
+        
         public UcMuonTraSach(List<string> permissions)
         {
             InitializeComponent();
@@ -32,8 +39,17 @@ namespace LMS.Views.UserControls.QLMuonTraSach
             btnListHuy.Enabled = canExport;
             LoadData();
         }
-        private void LoadData()
+        private void LoadData(string? trangThai = null)
         {
+            _currentTrangThai = trangThai; // Lưu filter
+            _currentKeyword = null; // Reset keyword khi đổi filter
+            LoadPage(1); // Load trang đầu tiên
+        }
+        
+        private void LoadPage(int page)
+        {
+            _currentPage = page;
+
             try
             {
                 using (var context = new LibraryDbContext())
@@ -41,10 +57,36 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                     var pmRepo = new PhieuMuonRepository(context);
                     var pmService = new PhieuMuonService(pmRepo);
 
-                    // Lấy tất cả phiếu (kể cả đã hủy)
-                    var pmList = pmService.GetAllPhieuMuon()
-                        .ToList();
+                    // Convert string sang enum
+                    PhieuMuon.TrangThaiEnum? trangThaiEnum = _currentTrangThai switch
+                    {
+                        "Đang mượn" => PhieuMuon.TrangThaiEnum.DangMuon,
+                        "Đã trả" => PhieuMuon.TrangThaiEnum.DaTra,
+                        "Đã huỷ" => PhieuMuon.TrangThaiEnum.DaHuy,
+                        _ => null
+                    };
 
+                    // Lấy total records có filter
+                    _totalRecords = pmService.GetTotalRecordsByFilter(trangThaiEnum, _currentKeyword);
+                    _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
+
+                    // Nếu không có dữ liệu
+                    if (_totalPages == 0)
+                    {
+                        _totalPages = 1;
+                        dgvPhieuMuonTra.DataSource = new List<object>();
+                        labelTrang.Text = "Trang 0/0";
+                        return;
+                    }
+
+                    // Đảm bảo currentPage không vượt quá totalPages
+                    if (_currentPage > _totalPages)
+                        _currentPage = _totalPages;
+
+                    // Lấy data có filter + paging
+                    var pmList = pmService.GetByPageWithFilter(_currentPage, _pageSize, trangThaiEnum, _currentKeyword);
+
+                    // Project thành anonymous type TRONG UC (không dùng DTO)
                     var pmDataView = pmList.Select(pm => new
                     {
                         IdPhieuMuon = pm.IdPhieuMuon,
@@ -57,9 +99,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                         TrangThai = pm.TrangThai.GetDisplayName()
                     }).ToList();
 
-                    dgvPhieuMuonTra.DataSource = pmDataView;
-
-                    // ===== Cấu hình các cột =====
+                    // Chỉ config columns lần đầu tiên
                     if (!_isColumnConfigured)
                     {
                         dgvPhieuMuonTra.Columns.Clear();
@@ -107,13 +147,17 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                             UseColumnTextForButtonValue = false
                         });
 
-
-                        // Cấu hình event
+                        // Cấu hình event 1 lần
                         dgvPhieuMuonTra.CellClick += dgvPhieuMuonTra_CellClick!;
                         dgvPhieuMuonTra.CellFormatting += dgvPhieuMuonTra_CellFormatting!;
 
                         _isColumnConfigured = true;
                     }
+
+                    dgvPhieuMuonTra.DataSource = pmDataView;
+
+                    // Cập nhật label trang
+                    labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
                 }
             }
             catch (Exception ex)
@@ -164,7 +208,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                     {
                         if (formTraSach.ShowDialog(this) == DialogResult.OK)
                         {
-                            LoadData();
+                            LoadPage(_currentPage); // Reload trang hiện tại
                         }
                     }
                 }
@@ -182,7 +226,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
             {
                 if (formThemPhieuMuonTra.ShowDialog(this) == DialogResult.OK)
                 {
-                    LoadData();
+                    LoadPage(_currentPage); // Reload trang hiện tại
                 }
             }
         }
@@ -194,7 +238,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                 // Kiểm tra đã chọn dòng chưa
                 if (dgvPhieuMuonTra.CurrentRow == null || dgvPhieuMuonTra.CurrentRow.Index < 0)
                 {
-                    MessageBox.Show("Vui lòng chọn phiếu mượn cần xem chi tiết!", 
+                    MessageBox.Show("Vui lòng chọn phiếu mượn cần xem chi tiết!",
                         "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -204,7 +248,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                 if (idValue == null) return;
 
                 int idPhieuMuon = Convert.ToInt32(idValue);
-                
+
                 // Mở form chi tiết
                 using (var formChiTiet = new FormChiTietPhieuMuon(idPhieuMuon))
                 {
@@ -213,13 +257,15 @@ namespace LMS.Views.UserControls.QLMuonTraSach
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Lỗi khi mở chi tiết: {ex.Message}", 
+                MessageBox.Show($"Lỗi khi mở chi tiết: {ex.Message}",
                     "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            _currentKeyword = null; // Clear keyword
+            txtBoxTimKiem.Clear(); // Clear textbox
             LoadData();
         }
 
@@ -228,36 +274,27 @@ namespace LMS.Views.UserControls.QLMuonTraSach
         /// </summary>
         private void btnListHuy_Click(object sender, EventArgs e)
         {
-            try
+            LoadData("Đã huỷ");
+        }
+        
+        /// <summary>
+        /// Nút Tìm kiếm - Tìm theo tên độc giả hoặc tên nhân viên
+        /// </summary>
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var keyword = txtBoxTimKiem.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(keyword))
             {
-                using (var context = new LibraryDbContext())
-                {
-                    var pmRepo = new PhieuMuonRepository(context);
-                    var pmService = new PhieuMuonService(pmRepo);
-
-                    // Lấy phiếu có TrangThai = DaHuy
-                    var pmListHuy = pmService.GetAllPhieuMuon()
-                        .Where(pm => pm.TrangThai == PhieuMuon.TrangThaiEnum.DaHuy)
-                        .ToList();
-
-                    var pmDataView = pmListHuy.Select(pm => new
-                    {
-                        IdPhieuMuon = pm.IdPhieuMuon,
-                        TenNhanVien = pm.NhanVien?.TenNhanVien ?? "N/A",
-                        TenThanhVien = pm.TheThanhVien?.DocGia?.TenDocGia ?? "N/A",
-                        NgayMuon = pm.NgayMuon.ToString("dd/MM/yyyy"),
-                        NgayHenTra = pm.NgayHenTra.ToString("dd/MM/yyyy"),
-                        TrangThai = pm.TrangThai.GetDisplayName()
-                    }).ToList();
-
-                    dgvPhieuMuonTra.DataSource = pmDataView;
-                }
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm", "Cảnh báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi tải danh sách phiếu hủy: {ex.Message}",
-                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            // Lưu keyword và gọi LoadPage → có phân trang!
+            _currentKeyword = keyword;
+            LoadPage(1); // Load trang đầu tiên với keyword
         }
 
         /// <summary>
@@ -315,7 +352,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                     MessageBox.Show("Hủy phiếu mượn thành công!",
                         "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    LoadData(); // Reload
+                    LoadPage(_currentPage); // Reload trang hiện tại
                 }
             }
             catch (Exception ex)
@@ -334,7 +371,8 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                     var pmRepo = new PhieuMuonRepository(context);
                     var pmService = new PhieuMuonService(pmRepo);
 
-                    var data = pmService.GetAllPhieuMuon()
+                    // Lấy tất cả phiếu mượn với Include đầy đủ
+                    var data = pmService.GetAllPhieuMuonWithIncludes()
                         .Select(pm => new
                         {
                             MaPhieuMuon = pm.IdPhieuMuon,
@@ -378,6 +416,32 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                 MessageBox.Show($"Xuất Excel thất bại.\n{ex.Message}", "Lỗi",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        
+        /// <summary>
+        /// Nút Trang trước
+        /// </summary>
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (_currentPage > 1)
+                LoadPage(_currentPage - 1);
+        }
+
+        /// <summary>
+        /// Nút Trang sau
+        /// </summary>
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (_currentPage < _totalPages)
+                LoadPage(_currentPage + 1);
+        }
+        
+        /// <summary>
+        /// Label trang (optional, không cần xử lý gì)
+        /// </summary>
+        private void labelTrang_Click(object sender, EventArgs e)
+        {
+            // Optional: có thể implement jump to page
         }
     }
 }

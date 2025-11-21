@@ -22,15 +22,12 @@ namespace LMS.Views.UserControls.QLPhat
 {
     public partial class UcPhat : UserControl
     {
-        //private readonly PhatService _phatService;
-        private List<dynamic> _allPhieuPhatData = new List<dynamic>();
-
-        // Thêm vào sau dòng: private List<dynamic> _allPhieuPhatData = new List<dynamic>();
-        private int _pageSize = 10;
+        private int _pageSize = 15;
         private int _currentPage = 1;
         private int _totalRecords = 0;
         private int _totalPages = 0;
         private string? _currentTrangThai = null; // Lưu filter hiện tại
+        private string? _currentKeyword = null; // Lưu keyword tìm kiếm hiện tại
 
         public UcPhat(List<string> permissions)
         {
@@ -55,12 +52,15 @@ namespace LMS.Views.UserControls.QLPhat
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            _currentKeyword = null; // Clear keyword
+            txtBoxTimKiem.Clear(); // Clear textbox
             LoadData();
         }
 
         private void LoadData(string? trangThai = null)
         {
             _currentTrangThai = trangThai; // Lưu filter
+            _currentKeyword = null; // Reset keyword khi đổi filter
             LoadPage(1); // Load trang đầu tiên
         }
 
@@ -72,23 +72,19 @@ namespace LMS.Views.UserControls.QLPhat
             {
                 using (var context = new LibraryDbContext())
                 {
-                    var query = context.PhieuPhats
-                        .Include(pp => pp.ChiTietPhieuPhats!)
-                            .ThenInclude(ct => ct.ChiTietPhieuMuon!)
-                                .ThenInclude(ctpm => ctpm.PhieuMuon!)
-                                    .ThenInclude(pm => pm.TheThanhVien!)
-                                        .ThenInclude(ttv => ttv.DocGia)
-                        .AsNoTracking()
-                        .AsQueryable();
+                    var repo = new PhieuPhatRepository(context);
+                    var ppService = new PhieuPhatService(repo);
 
-                    // Áp dụng filter nếu có
-                    if (_currentTrangThai == "Đã thu")
-                        query = query.Where(pp => pp.TrangThai == PhieuPhat.TrangThaiEnum.DaThu);
-                    else if (_currentTrangThai == "Đã huỷ")
-                        query = query.Where(pp => pp.TrangThai == PhieuPhat.TrangThaiEnum.DaHuy);
+                    // Convert string sang enum
+                    PhieuPhat.TrangThaiEnum? trangThaiEnum = _currentTrangThai switch
+                    {
+                        "Đã thu" => PhieuPhat.TrangThaiEnum.DaThu,
+                        "Đã huỷ" => PhieuPhat.TrangThaiEnum.DaHuy,
+                        _ => null
+                    };
 
-                    // Đếm tổng số records
-                    _totalRecords = query.Count();
+                    // Lấy total records có filter
+                    _totalRecords = ppService.GetTotalRecordsByFilter(trangThaiEnum, _currentKeyword);
                     _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
 
                     // Nếu không có dữ liệu
@@ -104,46 +100,44 @@ namespace LMS.Views.UserControls.QLPhat
                     if (_currentPage > _totalPages)
                         _currentPage = _totalPages;
 
-                    // Lấy dữ liệu theo trang
-                    var dataView = query
-                        .OrderByDescending(pp => pp.NgayLap)
-                        .Skip((_currentPage - 1) * _pageSize)
-                        .Take(_pageSize)
-                        .ToList()
-                        .Select(pp => new
-                        {
-                            IdPhieuPhat = pp.IdPhieuPhat,
-                            NgayLap = pp.NgayLap,
-                            DocGia = pp.ChiTietPhieuPhats?
-                                        .Select(x => x.ChiTietPhieuMuon?.PhieuMuon?.TheThanhVien?.DocGia?.TenDocGia)
-                                        .FirstOrDefault(n => !string.IsNullOrWhiteSpace(n)) ?? "Không rõ",
-                            TongTienPhat = pp.ChiTietPhieuPhats?.Sum(x => x.TienPhatTra) ?? 0m,
-                            TrangThai = pp.TrangThai.GetDisplayName()
-                        })
-                        .ToList();
+                    // Lấy data có filter + paging
+                    var ppList = ppService.GetByPageWithFilter(_currentPage, _pageSize, trangThaiEnum, _currentKeyword);
 
-                    dgvPhat.Columns.Clear();
-                    dgvPhat.AutoGenerateColumns = true;
-                    dgvPhat.DataSource = dataView;
-
-                    dgvPhat.Columns["IdPhieuPhat"].HeaderText = "Mã phiếu phạt";
-                    dgvPhat.Columns["NgayLap"].HeaderText = "Ngày lập";
-                    dgvPhat.Columns["DocGia"].HeaderText = "Độc giả";
-                    dgvPhat.Columns["TongTienPhat"].HeaderText = "Tổng tiền phạt";
-                    dgvPhat.Columns["TrangThai"].HeaderText = "Trạng thái";
-
-                    dgvPhat.Columns["NgayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
-                    dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Format = "N0";
-                    dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-                    dgvPhat.EnableHeadersVisualStyles = false;
-                    dgvPhat.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
-                    dgvPhat.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                    dgvPhat.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-
-                    // Thêm nút Thanh toán
-                    if (dgvPhat.Columns["ThanhToan"] == null)
+                    // Project thành anonymous type TRONG UC (không dùng DTO)
+                    var dataView = ppList.Select(pp => new
                     {
+                        IdPhieuPhat = pp.IdPhieuPhat,
+                        NgayLap = pp.NgayLap,
+                        DocGia = pp.ChiTietPhieuPhats?
+                                    .Select(x => x.ChiTietPhieuMuon?.PhieuMuon?.TheThanhVien?.DocGia?.TenDocGia)
+                                    .FirstOrDefault(n => !string.IsNullOrWhiteSpace(n)) ?? "Không rõ",
+                        TongTienPhat = pp.ChiTietPhieuPhats?.Sum(x => x.TienPhatTra) ?? 0m,
+                        TrangThai = pp.TrangThai.GetDisplayName()
+                    }).ToList();
+
+                    // Chỉ config columns lần đầu tiên
+                    if (dgvPhat.Columns.Count == 0 || dgvPhat.Columns["ThanhToan"] == null)
+                    {
+                        dgvPhat.Columns.Clear();
+                        dgvPhat.AutoGenerateColumns = true;
+                        dgvPhat.DataSource = dataView;
+
+                        dgvPhat.Columns["IdPhieuPhat"].HeaderText = "Mã phiếu phạt";
+                        dgvPhat.Columns["NgayLap"].HeaderText = "Ngày lập";
+                        dgvPhat.Columns["DocGia"].HeaderText = "Độc giả";
+                        dgvPhat.Columns["TongTienPhat"].HeaderText = "Tổng tiền phạt";
+                        dgvPhat.Columns["TrangThai"].HeaderText = "Trạng thái";
+
+                        dgvPhat.Columns["NgayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                        dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Format = "N0";
+                        dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                        dgvPhat.EnableHeadersVisualStyles = false;
+                        dgvPhat.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+                        dgvPhat.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                        dgvPhat.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
+                        // Thêm nút Thanh toán
                         var btnCol = new DataGridViewButtonColumn
                         {
                             Name = "ThanhToan",
@@ -153,14 +147,19 @@ namespace LMS.Views.UserControls.QLPhat
                             AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
                         };
                         dgvPhat.Columns.Add(btnCol);
+
+                        // Đăng ký event 1 lần
+                        dgvPhat.DataBindingComplete -= dgvPhat_DataBindingComplete;
+                        dgvPhat.DataBindingComplete += dgvPhat_DataBindingComplete;
+                    }
+                    else
+                    {
+                        // Chỉ update data, không config lại columns
+                        dgvPhat.DataSource = dataView;
                     }
 
                     // Cập nhật label trang
                     labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
-
-                    // Đăng ký sự kiện để disable nút theo trạng thái
-                    dgvPhat.DataBindingComplete -= dgvPhat_DataBindingComplete;
-                    dgvPhat.DataBindingComplete += dgvPhat_DataBindingComplete;
                     DisablePayButtons();
                 }
             }
@@ -299,6 +298,7 @@ namespace LMS.Views.UserControls.QLPhat
             var row = dgvPhat.SelectedRows[0];
             var idValue = row.Cells["IdPhieuPhat"].Value;
             var trangThai = row.Cells["TrangThai"].Value?.ToString() ?? "";
+            
             if (idValue == null)
             {
                 MessageBox.Show("Không xác định được phiếu phạt.", "Lỗi",
@@ -324,28 +324,14 @@ namespace LMS.Views.UserControls.QLPhat
                 using (var context = new LibraryDbContext())
                 {
                     var repo = new PhieuPhatRepository(context);
-                    var pp = repo.GetById(idPhieuPhat);
-                    if (pp == null)
-                    {
-                        MessageBox.Show("Không tìm thấy phiếu phạt.", "Lỗi",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                    if (pp.TrangThai != PhieuPhat.TrangThaiEnum.ChuaThu)
-                    {
-                        MessageBox.Show("Phiếu phạt không ở trạng thái Chưa thu.", "Thông báo",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-
-                    pp.TrangThai = PhieuPhat.TrangThaiEnum.DaHuy;
-                    repo.Update(pp); // lưu trạng thái Hủy
+                    var ppService = new PhieuPhatService(repo);
+                    
+                    ppService.HuyPhieuPhat(idPhieuPhat);
                 }
 
                 MessageBox.Show("Đã hủy phiếu phạt.", "Thông báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoadData(_currentTrangThai);
+                LoadPage(_currentPage); // Reload trang hiện tại để giữ vị trí
             }
             catch (Exception ex)
             {
@@ -384,14 +370,11 @@ namespace LMS.Views.UserControls.QLPhat
             {
                 using (var context = new LibraryDbContext())
                 {
-                    var phieuPhats = context.PhieuPhats
-                        .Include(pp => pp.ChiTietPhieuPhats!)
-                            .ThenInclude(ct => ct.ChiTietPhieuMuon!)
-                                .ThenInclude(ctpm => ctpm.PhieuMuon!)
-                                    .ThenInclude(pm => pm.TheThanhVien!)
-                                        .ThenInclude(ttv => ttv.DocGia)
-                        .AsNoTracking()
-                        .ToList();
+                    var repo = new PhieuPhatRepository(context);
+                    var ppService = new PhieuPhatService(repo);
+                    
+                    // Lấy tất cả phiếu phạt với Include đầy đủ
+                    var phieuPhats = ppService.GetAllPhieuPhat();
 
                     var data = phieuPhats.Select(pp => new
                     {
@@ -474,34 +457,16 @@ namespace LMS.Views.UserControls.QLPhat
                     using (var context = new LibraryDbContext())
                     {
                         var repo = new PhieuPhatRepository(context);
-                        var pp = repo.GetById(idPhieuPhat);
-                        if (pp == null)
-                        {
-                            MessageBox.Show("Không tìm thấy phiếu phạt.", "Lỗi",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
-
-                        if (pp.TrangThai != PhieuPhat.TrangThaiEnum.ChuaThu)
-                        {
-                            MessageBox.Show("Phiếu phạt không ở trạng thái Chưa thu.", "Thông báo",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return;
-                        }
-
-                        // Cập nhật trạng thái thành "Đã thu"
-                        pp.TrangThai = PhieuPhat.TrangThaiEnum.DaThu;
-                        repo.Update(pp);
+                        var ppService = new PhieuPhatService(repo);
+                        
+                        ppService.ThanhToanPhieuPhat(idPhieuPhat);
                     }
 
                     MessageBox.Show("Thanh toán thành công!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Reload dữ liệu
-                    LoadData(_currentTrangThai);
-
-                    // Gọi trực tiếp để disable nút
-                    DisablePayButtons();
+                    // Reload trang hiện tại để giữ vị trí
+                    LoadPage(_currentPage);
                 }
                 catch (Exception ex)
                 {
@@ -521,7 +486,6 @@ namespace LMS.Views.UserControls.QLPhat
             LoadData("Đã huỷ");
         }
 
-        // Thêm vào UcPhat.cs
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
@@ -535,52 +499,9 @@ namespace LMS.Views.UserControls.QLPhat
                 return;
             }
 
-            try
-            {
-                using (var context = new LibraryDbContext())
-                {
-                    var query = context.PhieuPhats
-                        .Include(pp => pp.ChiTietPhieuPhats)
-                        .ThenInclude(ctpp => ctpp.ChiTietPhieuMuon)
-                        .ThenInclude(ctpm => ctpm.PhieuMuon)
-                        .ThenInclude(pm => pm.TheThanhVien)
-                        .ThenInclude(ttv => ttv.DocGia)
-                        .AsNoTracking()
-                        .AsQueryable();
-
-                    // Tìm kiếm theo tên độc giả
-                    query = query.Where(pp =>
-                        pp.ChiTietPhieuPhats.Any(ctpp =>
-                            ctpp.ChiTietPhieuMuon.PhieuMuon.TheThanhVien.DocGia.TenDocGia
-                                .Contains(keyword)));
-
-                    var phieuPhats = query.ToList();
-
-                    var data = phieuPhats.Select(pp => new
-                    {
-                        IdPhieuPhat = pp.IdPhieuPhat,
-                        NgayLap = pp.NgayLap,
-                        DocGia = pp.ChiTietPhieuPhats.FirstOrDefault()?.ChiTietPhieuMuon?.PhieuMuon?.TheThanhVien?.DocGia?.TenDocGia ?? "",
-                        TongTienPhat = pp.ChiTietPhieuPhats.Sum(ctpp => ctpp.TienPhatTra),
-                        TrangThai = pp.TrangThai.GetDisplayName()
-                    }).ToList();
-
-                    if (data.Count == 0)
-                    {
-                        MessageBox.Show("Không tìm thấy kết quả phù hợp", "Thông báo",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return; // Không cần set DataSource nếu không có kết quả
-                    }
-
-                    dgvPhat.DataSource = data;
-                    DisablePayButtons();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            // Lưu keyword và gọi LoadPage → có phân trang!
+            _currentKeyword = keyword;
+            LoadPage(1); // Load trang đầu tiên với keyword
         }
 
         private void btnSau_Click(object sender, EventArgs e)

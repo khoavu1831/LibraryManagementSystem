@@ -21,6 +21,29 @@ namespace LMS.Services
             _bssRepository = bssRepository;
         }
         public List<PhieuMuon> GetAllPhieuMuon() => _pmRepository.GetAll();
+        
+        /// <summary>
+        /// Lấy tất cả phiếu mượn với Include đầy đủ (dùng cho Excel export)
+        /// </summary>
+        public List<PhieuMuon> GetAllPhieuMuonWithIncludes() => _pmRepository.GetAllWithIncludes();
+        
+        /// <summary>
+        /// Đếm tổng số phiếu mượn
+        /// </summary>
+        public int GetTotalRecords() => _pmRepository.GetCount();
+        
+        /// <summary>
+        /// Đếm tổng số phiếu mượn theo filter
+        /// </summary>
+        public int GetTotalRecordsByFilter(PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null) 
+            => _pmRepository.GetCountByFilter(trangThai, keyword);
+        
+        /// <summary>
+        /// Lấy phiếu mượn có phân trang với filter
+        /// </summary>
+        public List<PhieuMuon> GetByPageWithFilter(int page, int pageSize, PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null) 
+            => _pmRepository.GetByPageWithFilter(page, pageSize, trangThai, keyword);
+        
         public PhieuMuon? GetPhieuMuonChiTiet(int idPhieuMuon) => _pmRepository.GetChiTiet(idPhieuMuon);
         public PhieuMuon AddPhieuMuon(PhieuMuon pm, List<string> danhSachBanSao)
         {

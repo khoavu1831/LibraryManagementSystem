@@ -35,5 +35,20 @@ namespace LMS.Views.UserControls.QLMuonTraSach
         {
             LoadSubControl(new UcMuonTraSach(_permissions));
         }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelTrang_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
