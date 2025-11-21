@@ -41,7 +41,10 @@ namespace LMS.Views.Forms
                                .FirstOrDefault(n => n.IdTaiKhoan == CurrentUserContext.CurrentUser.IdTaiKhoan);
 
                     if (nv != null)
+                    { 
                         labelUsername.Text = nv.TenNhanVien;
+                    }
+
                     else
                         labelUsername.Text = CurrentUserContext.CurrentUser.TenTaiKhoan ;
                 }
@@ -120,10 +123,12 @@ namespace LMS.Views.Forms
                 var result = loginForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    Show();
+                    var newMainForm = new MainForm(_userPermissions);
+                    newMainForm.Show();
                 }
                 else
                 {
+                    
                     Close();
                 }
             }

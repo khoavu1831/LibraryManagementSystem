@@ -1,6 +1,6 @@
-﻿using LMS.Data;        // THÊM: Để dùng LibraryDbContext
-using LMS.Helpers;   // THÊM NẾU CÓ CurrentUserContext từ mã cũ
-using LMS.Repository;  // THÊM: Để dùng TaiKhoanRepository
+﻿using LMS.Data;       
+using LMS.Helpers;   
+using LMS.Repository;  
 
 namespace LMS.Forms
 {
@@ -14,6 +14,8 @@ namespace LMS.Forms
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterParent;
+            textBoxTenDangNhap.Text = "";
+            textBoxMatKhau.Text = "";
         }
 
 
@@ -37,7 +39,7 @@ namespace LMS.Forms
                 {
                     int roleId = user.IdVaiTro;
                     var vaiTroRepo = new VaiTroRepository(new LibraryDbContext());
-
+                    //CurrentUserContext.Clear();
                     // Lưu user và quyền hiện tại vào CurrentUserContext
                     CurrentUserContext.SetUser(user);
                     //CurrentUserContext.SetQuyenIds(await vaiTroRepo.GetPermissionIdsByRoleIdAsync(roleId));
