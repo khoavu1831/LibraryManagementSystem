@@ -19,6 +19,7 @@ namespace LMS.Views.UserControls.QLNhapSach
         public FormChiTietNCC(int idNCC, string tenNCC, string diaChi, string sdt)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             textBoxIdNCC.Text = idNCC.ToString();
             textBoxTenNCC.Text = tenNCC;

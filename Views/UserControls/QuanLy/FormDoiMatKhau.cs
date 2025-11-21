@@ -17,6 +17,8 @@ namespace LMS.Views.UserControls.QuanLy
         public FormDoiMatKhau()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             Load += FormDoiMatKhau_Load;
         }
 

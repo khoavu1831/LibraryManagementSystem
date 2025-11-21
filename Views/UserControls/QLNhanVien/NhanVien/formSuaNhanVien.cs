@@ -21,6 +21,8 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
         public FormSuaNhanVien(string idNhanVien, string tenNhanVien, string ngaySinh, string diaChi, string sdt, string email)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             _idNhanVien = int.Parse(idNhanVien);
             textBoxHVT.Text = tenNhanVien;
             textBoxNS.Text = ngaySinh;

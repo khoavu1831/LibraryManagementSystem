@@ -16,6 +16,7 @@ namespace LMS.Views.UserControls.QLSach
         public FormChiTietTacGia(int idTacGia, string tenTacGia, DateTime ngaySinh, string noiSinh, string sdt)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             _idTacGia = idTacGia;
             textBoxIdTacGia.Text = idTacGia.ToString();

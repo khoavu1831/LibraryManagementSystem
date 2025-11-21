@@ -25,6 +25,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
         public FormThemPhieuMuonTra()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
 
             var context = new LibraryDbContext();
 

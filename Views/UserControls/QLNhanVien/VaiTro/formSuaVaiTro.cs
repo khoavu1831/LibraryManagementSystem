@@ -19,6 +19,8 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
         public FormSuaVaiTro(int idVaiTro, string tenVaiTro)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
             textBoxHVT.Text = tenVaiTro;
             _idVaiTro = idVaiTro;
             SetupLayout();  // Thêm setup layout giống FormThemVaiTro để hiển thị hết

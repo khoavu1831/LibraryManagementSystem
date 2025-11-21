@@ -23,7 +23,9 @@ namespace LMS.Views.UserControls.QLPhat
         public FormSuaMucPhat(int idMucPhat, string tenMucPhat, decimal soTien, string moTa, MucPhat.LoaiPhatEnum loaiPhat)
         {
             InitializeComponent();
-            
+            this.StartPosition = FormStartPosition.CenterParent;
+
+
             var context = new LibraryDbContext();
             var mucPhatRepository = new MucPhatRepository(context);
             _mucPhatService = new MucPhatService(mucPhatRepository);

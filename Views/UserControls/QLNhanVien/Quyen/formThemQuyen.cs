@@ -15,6 +15,8 @@ namespace LMS.Views.UserControls.QLNhanVien.Quyen
         public FormThemQuyen()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
+
         }
     }
 }
