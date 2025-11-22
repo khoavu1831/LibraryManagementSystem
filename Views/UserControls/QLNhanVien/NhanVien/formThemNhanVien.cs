@@ -108,5 +108,10 @@ namespace LMS.Views.UserControls.QLNhanVien
             comboBoxVaiTro.DisplayMember = "TenVaiTro";
             comboBoxVaiTro.ValueMember = "IdVaiTro";
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
