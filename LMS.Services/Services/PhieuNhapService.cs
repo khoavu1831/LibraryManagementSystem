@@ -22,6 +22,28 @@ namespace LMS.Services
         }
         public List<PhieuNhap> GetAllPhieuNhap() => _pnRepository.GetAll();
         
+        /// <summary>
+        /// Lấy tất cả phiếu nhập với Include đầy đủ (dùng cho Excel export)
+        /// </summary>
+        public List<PhieuNhap> GetAllPhieuNhapWithIncludes() => _pnRepository.GetAllWithIncludes();
+        
+        /// <summary>
+        /// Đếm tổng số phiếu nhập
+        /// </summary>
+        public int GetTotalRecords() => _pnRepository.GetCount();
+        
+        /// <summary>
+        /// Đếm tổng số phiếu nhập theo filter
+        /// </summary>
+        public int GetTotalRecordsByFilter(PhieuNhap.TrangThaiEnum? trangThai = null, string? keyword = null) 
+            => _pnRepository.GetCountByFilter(trangThai, keyword);
+        
+        /// <summary>
+        /// Lấy phiếu nhập có phân trang với filter
+        /// </summary>
+        public List<PhieuNhap> GetByPageWithFilter(int page, int pageSize, PhieuNhap.TrangThaiEnum? trangThai = null, string? keyword = null) 
+            => _pnRepository.GetByPageWithFilter(page, pageSize, trangThai, keyword);
+        
         public List<PhieuNhap> TimKiemPhieuNhap(string keyword)
         {
             if (string.IsNullOrWhiteSpace(keyword))

@@ -48,5 +48,78 @@ namespace LMS.Repository
                 .OrderByDescending(pn => pn.NgayNhap)
                 .ToList();
         }
+        
+        /// <summary>
+        /// Đếm tổng số phiếu nhập
+        /// </summary>
+        public int GetCount() => _context.PhieuNhaps.Count();
+        
+        /// <summary>
+        /// Đếm tổng số phiếu nhập theo filter
+        /// </summary>
+        public int GetCountByFilter(PhieuNhap.TrangThaiEnum? trangThai = null, string? keyword = null)
+        {
+            var query = _context.PhieuNhaps
+                .Include(pn => pn.NCC)
+                .Include(pn => pn.NhanVien)
+                .AsQueryable();
+
+            // Filter trạng thái
+            if (trangThai.HasValue)
+                query = query.Where(pn => pn.TrangThai == trangThai.Value);
+
+            // Filter keyword (tên NCC HOẶC tên nhân viên)
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(pn =>
+                    (pn.NCC!.TenNCC != null && pn.NCC.TenNCC.Contains(keyword)) ||
+                    (pn.NhanVien!.TenNhanVien != null && pn.NhanVien.TenNhanVien.Contains(keyword)));
+            }
+
+            return query.Count();
+        }
+        
+        /// <summary>
+        /// Lấy phiếu nhập có phân trang với filter
+        /// </summary>
+        public List<PhieuNhap> GetByPageWithFilter(int page, int pageSize, PhieuNhap.TrangThaiEnum? trangThai = null, string? keyword = null)
+        {
+            var query = _context.PhieuNhaps
+                .Include(pn => pn.NCC)
+                .Include(pn => pn.NhanVien)
+                .AsNoTracking()
+                .AsQueryable();
+
+            // Filter trạng thái
+            if (trangThai.HasValue)
+                query = query.Where(pn => pn.TrangThai == trangThai.Value);
+
+            // Filter keyword (tên NCC HOẶC tên nhân viên)
+            if (!string.IsNullOrWhiteSpace(keyword))
+            {
+                query = query.Where(pn =>
+                    (pn.NCC!.TenNCC != null && pn.NCC.TenNCC.Contains(keyword)) ||
+                    (pn.NhanVien!.TenNhanVien != null && pn.NhanVien.TenNhanVien.Contains(keyword)));
+            }
+
+            return query
+                .OrderByDescending(pn => pn.NgayNhap)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+        
+        /// <summary>
+        /// Lấy tất cả phiếu nhập với Include đầy đủ (dùng cho Excel export)
+        /// </summary>
+        public List<PhieuNhap> GetAllWithIncludes()
+        {
+            return _context.PhieuNhaps
+                .Include(pn => pn.NCC)
+                .Include(pn => pn.NhanVien)
+                .AsNoTracking()
+                .OrderByDescending(pn => pn.NgayNhap)
+                .ToList();
+        }
     }
 }
