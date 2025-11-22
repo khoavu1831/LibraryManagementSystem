@@ -25,7 +25,8 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
 
             _idNhanVien = int.Parse(idNhanVien);
             textBoxHVT.Text = tenNhanVien;
-            textBoxNS.Text = ngaySinh;
+            DateTime ngaySinhDate = DateTime.ParseExact(ngaySinh, "dd/MM/yyyy", null);
+            dateTimePickerNV.Value = ngaySinhDate;
             textBoxDC.Text = diaChi;
             textBoxSDT.Text = sdt;
             textBoxEmail.Text = email;
@@ -47,21 +48,21 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
         private void btnSua_Click(object sender, EventArgs e)
         {
             var tenNhanVien = textBoxHVT.Text.Trim();
-            var ngaySinh = textBoxNS.Text.Trim();
+            DateTime ngaySinh = dateTimePickerNV.Value;
             var diaChi = textBoxDC.Text.Trim();
             var sdt = textBoxSDT.Text.Trim();
             var email = textBoxEmail.Text.Trim();
-
             try
             {
                 _nhanVienService.UpdateNhanVien(new Entities.NhanVien
                 {
                     IdNhanVien = _idNhanVien,
                     TenNhanVien = textBoxHVT.Text.Trim(),
-                    NgaySinh = DateTime.ParseExact(textBoxNS.Text.Trim(), "dd/MM/yyyy", null),
+                    NgaySinh = ngaySinh,
                     DiaChi = textBoxDC.Text.Trim(),
                     SDT = textBoxSDT.Text.Trim(),
-                    Email = textBoxEmail.Text.Trim()
+                    Email = textBoxEmail.Text.Trim(),
+
                 });
 
                 MessageBox.Show("Sửa thông tin nhân viên thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -74,5 +75,6 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
             }
 
         }
+
     }
 }
