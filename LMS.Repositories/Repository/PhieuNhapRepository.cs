@@ -36,5 +36,17 @@ namespace LMS.Repository
             _context.SaveChanges();
             return phieuNhap;
         }
+        
+        public List<PhieuNhap> Search(string keyword)
+        {
+            return _context.PhieuNhaps
+                .Include(pn => pn.NCC)
+                .Include(pn => pn.NhanVien)
+                .Where(pn =>
+                    (pn.NCC!.TenNCC != null && pn.NCC.TenNCC.Contains(keyword)) ||
+                    (pn.NhanVien!.TenNhanVien != null && pn.NhanVien.TenNhanVien.Contains(keyword)))
+                .OrderByDescending(pn => pn.NgayNhap)
+                .ToList();
+        }
     }
 }

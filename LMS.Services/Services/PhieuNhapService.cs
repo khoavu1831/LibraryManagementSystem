@@ -21,6 +21,28 @@ namespace LMS.Services
             _sachRepository = sachRepository;
         }
         public List<PhieuNhap> GetAllPhieuNhap() => _pnRepository.GetAll();
+        
+        public List<PhieuNhap> TimKiemPhieuNhap(string keyword)
+        {
+            if (string.IsNullOrWhiteSpace(keyword))
+                return _pnRepository.GetAll();
+            
+            return _pnRepository.Search(keyword);
+        }
+        
+        public void HuyPhieuNhap(int idPhieuNhap)
+        {
+            var phieuNhap = _pnRepository.GetById(idPhieuNhap);
+            if (phieuNhap == null)
+                throw new Exception("Không tìm thấy phiếu nhập!");
+            
+            if (phieuNhap.TrangThai == PhieuNhap.TrangThaiEnum.DaHuy)
+                throw new Exception("Phiếu nhập đã được hủy trước đó!");
+            
+            phieuNhap.TrangThai = PhieuNhap.TrangThaiEnum.DaHuy;
+            _pnRepository.Update(phieuNhap);
+        }
+        
         public void AddPhieuNhap(PhieuNhap phieuNhap, List<(int IdSach, int SoLuong, decimal GiaTien)> chiTiet)
         {
             _pnRepository?.Add(phieuNhap);

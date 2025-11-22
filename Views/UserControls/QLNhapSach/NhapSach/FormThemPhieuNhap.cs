@@ -22,6 +22,8 @@ namespace LMS.Views.UserControls.QLNhapSach
         private readonly SachService _sachService;
         private readonly NCCService _nccService;
         private readonly PhieuNhapService _phieuNhapService;
+        private int _idNhanVienHienTai;
+        
         public FormThemPhieuNhap()
         {
             InitializeComponent();
@@ -45,8 +47,45 @@ namespace LMS.Views.UserControls.QLNhapSach
             LoadLoaiPhieuNhap();
             LoadNCC();
             LoadSach();
+            LoadNhanVienHienTai();
+        }
+        
+        private void LoadNhanVienHienTai()
+        {
+            try
+            {
+                if (CurrentUserContext.CurrentUser == null)
+                {
+                    textBoxNhanVien.Text = "Chưa đăng nhập";
+                    _idNhanVienHienTai = 0;
+                    return;
+                }
 
-            textBoxNhanVien.Text = "Nhan vien hien tai ne/ Sau phai assign cho nay";
+                var idTaiKhoan = CurrentUserContext.CurrentUser.IdTaiKhoan;
+
+                // Tìm nhân viên từ tài khoản hiện tại
+                using (var context = new LibraryDbContext())
+                {
+                    var nhanVien = context.NhanViens
+                        .FirstOrDefault(nv => nv.IdTaiKhoan == idTaiKhoan);
+
+                    if (nhanVien != null)
+                    {
+                        _idNhanVienHienTai = nhanVien.IdNhanVien;
+                        textBoxNhanVien.Text = nhanVien.TenNhanVien ?? "N/A";
+                    }
+                    else
+                    {
+                        textBoxNhanVien.Text = "Không tìm thấy nhân viên";
+                        _idNhanVienHienTai = 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                textBoxNhanVien.Text = $"Lỗi: {ex.Message}";
+                _idNhanVienHienTai = 0;
+            }
         }
         private void LoadLoaiPhieuNhap()
         {
@@ -135,23 +174,30 @@ namespace LMS.Views.UserControls.QLNhapSach
                 if (row.IsNewRow) continue;
 
                 bool chon = Convert.ToBoolean(row.Cells["Chon"].Value ?? false);
-                if (!chon) continue;
-
-                string soLuongNhapString = row.Cells["SoLuongNhap"].Value.ToString() ?? "0";
-
-                if (!Regex.IsMatch(soLuongNhapString, @"^\d+$"))
+                
+                if (chon)
                 {
-                    MessageBox.Show($"Số lượng nhập không hợp lệ.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
+                    string soLuongNhapString = row.Cells["SoLuongNhap"].Value?.ToString() ?? "0";
+
+                    if (!Regex.IsMatch(soLuongNhapString, @"^\d+$"))
+                    {
+                        MessageBox.Show($"Số lượng nhập không hợp lệ.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    int soLuongNhap = Convert.ToInt32(soLuongNhapString);
+                    
+                    if (soLuongNhap <= 0)
+                    {
+                        MessageBox.Show("Vui lòng nhập số lượng lớn hơn 0 cho sách đã chọn.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    int idSach = Convert.ToInt32(row.Cells["IdSach"].Value);
+                    decimal giaTien = Convert.ToDecimal(row.Cells["GiaSach"].Value);
+
+                    selectedSachs.Add((idSach, soLuongNhap, giaTien));
                 }
-
-                int soLuongNhap = Convert.ToInt32(soLuongNhapString);
-                if (soLuongNhap <= 0) continue;
-
-                int idSach = Convert.ToInt32(row.Cells["IdSach"].Value);
-                decimal giaTien = Convert.ToDecimal(row.Cells["GiaSach"].Value);
-
-                selectedSachs.Add((idSach, soLuongNhap, giaTien));
             }
 
             if (selectedSachs.Count == 0)
@@ -172,7 +218,8 @@ namespace LMS.Views.UserControls.QLNhapSach
                 SoLuongSach = tongSL,
                 LoaiPhieuNhap = (PhieuNhap.LoaiPhieuNhapEnum)loaiPhieuNhap!,
                 TongTienNhap = tongTien,
-                IdNhanVien = 1 // Chữa cháy
+                IdNhanVien = _idNhanVienHienTai != 0 ? _idNhanVienHienTai : 1,
+                TrangThai = PhieuNhap.TrangThaiEnum.DangHoatDong
             };
 
             _phieuNhapService.AddPhieuNhap(phieuNhap, selectedSachs);
