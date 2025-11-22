@@ -7,7 +7,7 @@ namespace LMS.Repository
 {
     public class VaiTroRepository
     {
-        private readonly LibraryDbContext _context;
+        public readonly LibraryDbContext _context;
         public VaiTroRepository(LibraryDbContext context) => _context = context;
         public List<VaiTro> GetAll() => _context.VaiTros.ToList();
         public VaiTro? GetById(int id) => _context.VaiTros.Find(id);
@@ -52,5 +52,34 @@ namespace LMS.Repository
                 .AsNoTracking()
                 .Where(vt => (vt.TenVaiTro ?? "").ToLower().Contains(keyword.ToLower()))
                 .ToList();
+
+        public void AssignQuyenToVaiTro(int idVaiTro, List<int> quyenIds)
+        {
+            var vaiTro = GetById(idVaiTro);
+            if (vaiTro == null)
+            {
+                throw new KeyNotFoundException($"Không tìm thấy vai trò với Id = {idVaiTro}");
+            }
+
+            // Xóa quyền cũ (clear junction table vaitro_quyen)
+            if(vaiTro.Quyens != null)
+            {
+                vaiTro.Quyens.Clear();
+            }
+                
+
+            // Thêm quyền mới
+            foreach (var quyenId in quyenIds.Distinct()) // Distinct để tránh duplicate
+            {
+                var quyen = _context.Quyens.Find(quyenId);
+                if (quyen != null)
+                {
+                    vaiTro.Quyens.Add(quyen);
+                }
+            }
+
+            // Save changes (EF tự insert vào vaitro_quyen)
+            Update(vaiTro);
+        }
     }
 }

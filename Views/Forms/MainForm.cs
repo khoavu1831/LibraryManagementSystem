@@ -123,7 +123,7 @@ namespace LMS.Views.Forms
                 var result = loginForm.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    var newMainForm = new MainForm(_userPermissions);
+                    var newMainForm = new MainForm(loginForm.UserPermissions);
                     newMainForm.Show();
                 }
                 else
