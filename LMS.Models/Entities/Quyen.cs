@@ -15,6 +15,6 @@ namespace LMS.Entities
         public int IdQuyen { get; set; }
         public string? TenQuyen { get; set; }
         public string? MaQuyen { get; set; }
-        public ICollection<VaiTro>? VaiTros { get; set; }
+        public ICollection<VaiTro>? VaiTros { get; set; } = new List<VaiTro>();
     }
 }

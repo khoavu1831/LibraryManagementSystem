@@ -15,6 +15,6 @@ namespace LMS.Entities
         public int IdVaiTro { get; set; }
         public string? TenVaiTro { get; set; }
         public ICollection<TaiKhoan>? TaiKhoans { get; set; }
-        public ICollection<Quyen>? Quyens { get; set; }
+        public ICollection<Quyen>? Quyens { get; set; } = new List<Quyen>();
     }
 }
