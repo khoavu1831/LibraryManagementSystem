@@ -119,88 +119,92 @@
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 5;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.9999943F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.9999943F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.0000019F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.0000019F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20.0000019F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            tableLayoutPanel1.Size = new Size(331, 240);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.Size = new Size(331, 150);
             tableLayoutPanel1.TabIndex = 17;
             // 
             // textBoxEmail
             // 
+            textBoxEmail.BackColor = SystemColors.ControlLightLight;
             textBoxEmail.Dock = DockStyle.Fill;
-            textBoxEmail.Location = new Point(103, 192);
+            textBoxEmail.Location = new Point(103, 122);
             textBoxEmail.Margin = new Padding(3, 2, 3, 2);
             textBoxEmail.Multiline = true;
             textBoxEmail.Name = "textBoxEmail";
             textBoxEmail.ReadOnly = true;
-            textBoxEmail.Size = new Size(225, 46);
+            textBoxEmail.Size = new Size(225, 26);
             textBoxEmail.TabIndex = 19;
             // 
             // textBoxSDT
             // 
+            textBoxSDT.BackColor = SystemColors.ControlLightLight;
             textBoxSDT.Dock = DockStyle.Fill;
-            textBoxSDT.Location = new Point(103, 144);
+            textBoxSDT.Location = new Point(103, 92);
             textBoxSDT.Margin = new Padding(3, 2, 3, 2);
             textBoxSDT.Multiline = true;
             textBoxSDT.Name = "textBoxSDT";
             textBoxSDT.ReadOnly = true;
-            textBoxSDT.Size = new Size(225, 44);
+            textBoxSDT.Size = new Size(225, 26);
             textBoxSDT.TabIndex = 18;
             // 
             // textBoxDC
             // 
+            textBoxDC.BackColor = SystemColors.ControlLightLight;
             textBoxDC.Dock = DockStyle.Fill;
-            textBoxDC.Location = new Point(103, 96);
+            textBoxDC.Location = new Point(103, 62);
             textBoxDC.Margin = new Padding(3, 2, 3, 2);
             textBoxDC.Multiline = true;
             textBoxDC.Name = "textBoxDC";
             textBoxDC.ReadOnly = true;
-            textBoxDC.Size = new Size(225, 44);
+            textBoxDC.Size = new Size(225, 26);
             textBoxDC.TabIndex = 17;
             // 
             // textBoxNS
             // 
+            textBoxNS.BackColor = SystemColors.ControlLightLight;
             textBoxNS.Dock = DockStyle.Fill;
-            textBoxNS.Location = new Point(103, 49);
+            textBoxNS.Location = new Point(103, 32);
             textBoxNS.Margin = new Padding(3, 2, 3, 2);
             textBoxNS.Multiline = true;
             textBoxNS.Name = "textBoxNS";
             textBoxNS.ReadOnly = true;
-            textBoxNS.Size = new Size(225, 43);
+            textBoxNS.Size = new Size(225, 26);
             textBoxNS.TabIndex = 16;
             // 
             // label4
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(3, 47);
+            label4.Location = new Point(3, 30);
             label4.Name = "label4";
-            label4.Size = new Size(94, 47);
+            label4.Size = new Size(94, 30);
             label4.TabIndex = 7;
             label4.Text = "Năm sinh:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBoxHVT
             // 
+            textBoxHVT.BackColor = SystemColors.ControlLightLight;
             textBoxHVT.Dock = DockStyle.Fill;
             textBoxHVT.Location = new Point(103, 2);
             textBoxHVT.Margin = new Padding(3, 2, 3, 2);
             textBoxHVT.Multiline = true;
             textBoxHVT.Name = "textBoxHVT";
             textBoxHVT.ReadOnly = true;
-            textBoxHVT.Size = new Size(225, 43);
+            textBoxHVT.Size = new Size(225, 26);
             textBoxHVT.TabIndex = 2;
             // 
             // label8
             // 
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label8.AutoSize = true;
-            label8.Location = new Point(3, 190);
+            label8.Location = new Point(3, 120);
             label8.Name = "label8";
-            label8.Size = new Size(94, 50);
+            label8.Size = new Size(94, 30);
             label8.TabIndex = 13;
             label8.Text = "Email:";
             label8.TextAlign = ContentAlignment.MiddleLeft;
@@ -209,9 +213,9 @@
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(3, 94);
+            label7.Location = new Point(3, 60);
             label7.Name = "label7";
-            label7.Size = new Size(94, 48);
+            label7.Size = new Size(94, 30);
             label7.TabIndex = 9;
             label7.Text = "Địa chỉ:";
             label7.TextAlign = ContentAlignment.MiddleLeft;
@@ -220,9 +224,9 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(3, 142);
+            label6.Location = new Point(3, 90);
             label6.Name = "label6";
-            label6.Size = new Size(94, 48);
+            label6.Size = new Size(94, 30);
             label6.TabIndex = 11;
             label6.Text = "Số điện thoại:";
             label6.TextAlign = ContentAlignment.MiddleLeft;
@@ -233,7 +237,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(94, 47);
+            label2.Size = new Size(94, 30);
             label2.TabIndex = 1;
             label2.Text = "Họ và tên:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
