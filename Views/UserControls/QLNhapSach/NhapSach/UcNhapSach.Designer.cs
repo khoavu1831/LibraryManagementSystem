@@ -39,9 +39,14 @@
             btnXoa = new Button();
             btnThem = new Button();
             dgvPhieuNhap = new DataGridView();
+            tableLayoutPanelButtons = new TableLayoutPanel();
+            btnTruoc = new Button();
+            btnSau = new Button();
+            labelTrang = new Label();
             panelCRUD.SuspendLayout();
             panelSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).BeginInit();
+            tableLayoutPanelButtons.SuspendLayout();
             SuspendLayout();
             // 
             // panelCRUD
@@ -74,6 +79,7 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
+            btnExcel.Click += btnExcel_Click;
             // 
             // btnChiTiet
             // 
@@ -90,6 +96,7 @@
             btnChiTiet.Text = "Chi Tiết";
             btnChiTiet.TextImageRelation = TextImageRelation.ImageAboveText;
             btnChiTiet.UseVisualStyleBackColor = false;
+            btnChiTiet.Click += btnChiTiet_Click;
             // 
             // btnListHuy
             // 
@@ -137,6 +144,7 @@
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
@@ -201,17 +209,71 @@
             // 
             dgvPhieuNhap.AccessibleRole = AccessibleRole.None;
             dgvPhieuNhap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPhieuNhap.BackgroundColor = SystemColors.ButtonHighlight;
             dgvPhieuNhap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPhieuNhap.Dock = DockStyle.Fill;
             dgvPhieuNhap.Location = new Point(0, 72);
             dgvPhieuNhap.Name = "dgvPhieuNhap";
             dgvPhieuNhap.Size = new Size(774, 491);
             dgvPhieuNhap.TabIndex = 1;
+            dgvPhieuNhap.CellContentClick += dgvPhieuNhap_CellContentClick;
+            // 
+            // tableLayoutPanelButtons
+            // 
+            tableLayoutPanelButtons.ColumnCount = 3;
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanelButtons.Controls.Add(btnTruoc, 0, 0);
+            tableLayoutPanelButtons.Controls.Add(btnSau, 2, 0);
+            tableLayoutPanelButtons.Controls.Add(labelTrang, 1, 0);
+            tableLayoutPanelButtons.Dock = DockStyle.Bottom;
+            tableLayoutPanelButtons.Location = new Point(0, 533);
+            tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
+            tableLayoutPanelButtons.RowCount = 1;
+            tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanelButtons.Size = new Size(774, 30);
+            tableLayoutPanelButtons.TabIndex = 7;
+            // 
+            // btnTruoc
+            // 
+            btnTruoc.Dock = DockStyle.Fill;
+            btnTruoc.Location = new Point(3, 3);
+            btnTruoc.Name = "btnTruoc";
+            btnTruoc.Size = new Size(251, 24);
+            btnTruoc.TabIndex = 2;
+            btnTruoc.Text = "Trang trước";
+            btnTruoc.UseVisualStyleBackColor = true;
+            btnTruoc.Click += btnTruoc_Click;
+            // 
+            // btnSau
+            // 
+            btnSau.Dock = DockStyle.Fill;
+            btnSau.Location = new Point(517, 3);
+            btnSau.Name = "btnSau";
+            btnSau.Size = new Size(254, 24);
+            btnSau.TabIndex = 3;
+            btnSau.Text = "Trang sau";
+            btnSau.UseVisualStyleBackColor = true;
+            btnSau.Click += btnSau_Click;
+            // 
+            // labelTrang
+            // 
+            labelTrang.AutoSize = true;
+            labelTrang.BorderStyle = BorderStyle.FixedSingle;
+            labelTrang.Dock = DockStyle.Fill;
+            labelTrang.Location = new Point(260, 0);
+            labelTrang.Name = "labelTrang";
+            labelTrang.Size = new Size(251, 30);
+            labelTrang.TabIndex = 4;
+            labelTrang.Text = "Trang 1";
+            labelTrang.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // UcNhapSach
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(tableLayoutPanelButtons);
             Controls.Add(dgvPhieuNhap);
             Controls.Add(panelCRUD);
             Name = "UcNhapSach";
@@ -220,6 +282,8 @@
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPhieuNhap).EndInit();
+            tableLayoutPanelButtons.ResumeLayout(false);
+            tableLayoutPanelButtons.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -236,5 +300,9 @@
         private Button btnExcel;
         private Button btnChiTiet;
         private Button btnListHuy;
+        private TableLayoutPanel tableLayoutPanelButtons;
+        private Button btnTruoc;
+        private Button btnSau;
+        private Label labelTrang;
     }
 }

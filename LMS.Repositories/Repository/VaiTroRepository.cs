@@ -38,6 +38,7 @@ namespace LMS.Repository
         public async Task<List<string>> GetPermissionsByRoleIdAsync(int roleId)
         {
             var permissions = await _context.VaiTros
+                .Include(v => v.Quyens)
                 .Where(v => v.IdVaiTro == roleId)
                 .SelectMany(v => v.Quyens)
                 .Select(q => q.MaQuyen)
