@@ -1,4 +1,9 @@
-﻿using System;
+﻿using LMS.Data;
+using LMS.Repository;
+using LMS.Services;
+using LMS.Views.LMS.Utils.Helpers;
+using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LMS.Data;
-using LMS.Repository;
-using LMS.Services;
-using Microsoft.VisualBasic;
 
 namespace LMS.Views.UserControls.QLSach
 {
@@ -165,6 +166,48 @@ namespace LMS.Views.UserControls.QLSach
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new TacGiaRepository(context);
+                    var tgService = new TacGiaService(repo);
+
+                    var data = tgService.GetAllTacGia(); // List<TacGia>
+
+                    // Xuất Excel
+                    var stream = ExportExcel.Export(
+                        data,
+                        "TacGia",
+                        new string[] { "Sachs" }  // PHẢI LÀ Sachs
+                    );
+
+                    stream.Position = 0;
+
+                    using (SaveFileDialog sfd = new SaveFileDialog())
+                    {
+                        sfd.Filter = "Excel Workbook|*.xlsx";
+                        sfd.FileName = $"TacGia_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                            {
+                                stream.CopyTo(fileStream);
+                            }
+                            MessageBox.Show("Xuất Excel thành công!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xuất Excel: " + ex.Message);
             }
         }
     }

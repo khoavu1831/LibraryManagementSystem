@@ -183,6 +183,8 @@
             // 
             // dgvVaiTro
             // 
+            dgvVaiTro.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvVaiTro.BackgroundColor = SystemColors.ButtonHighlight;
             dgvVaiTro.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvVaiTro.Dock = DockStyle.Fill;
             dgvVaiTro.Location = new Point(0, 72);
