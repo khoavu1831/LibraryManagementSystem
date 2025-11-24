@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuaThongTin));
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             txtHoTen = new TextBox();
@@ -233,6 +234,7 @@
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormSuaThongTin";
             Text = "Sửa thông tin cá nhân";
             tableLayoutPanel1.ResumeLayout(false);

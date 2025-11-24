@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChiTietKhachHang));
             labelTitle = new Label();
             panel1 = new Panel();
+            dateTimePickerDob = new DateTimePicker();
             tableLayoutPanelButtons = new TableLayoutPanel();
             btnQuayLai = new Button();
             textBoxEmail = new TextBox();
@@ -41,7 +43,6 @@
             label3 = new Label();
             label1 = new Label();
             label2 = new Label();
-            dateTimePickerDob = new DateTimePicker();
             panel1.SuspendLayout();
             tableLayoutPanelButtons.SuspendLayout();
             SuspendLayout();
@@ -56,7 +57,7 @@
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(437, 94);
             labelTitle.TabIndex = 3;
-            labelTitle.Text = "CHI TIẾT KHÁCH HÀNG";
+            labelTitle.Text = "THÔNG TIN KHÁCH HÀNG";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -78,6 +79,14 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(437, 322);
             panel1.TabIndex = 4;
+            // 
+            // dateTimePickerDob
+            // 
+            dateTimePickerDob.Enabled = false;
+            dateTimePickerDob.Location = new Point(175, 116);
+            dateTimePickerDob.Name = "dateTimePickerDob";
+            dateTimePickerDob.Size = new Size(241, 23);
+            dateTimePickerDob.TabIndex = 22;
             // 
             // tableLayoutPanelButtons
             // 
@@ -108,6 +117,7 @@
             // 
             // textBoxEmail
             // 
+            textBoxEmail.BackColor = Color.White;
             textBoxEmail.Location = new Point(175, 194);
             textBoxEmail.Margin = new Padding(3, 2, 3, 2);
             textBoxEmail.Name = "textBoxEmail";
@@ -117,6 +127,7 @@
             // 
             // textBoxSoDienThoai
             // 
+            textBoxSoDienThoai.BackColor = Color.White;
             textBoxSoDienThoai.Location = new Point(175, 154);
             textBoxSoDienThoai.Margin = new Padding(3, 2, 3, 2);
             textBoxSoDienThoai.Name = "textBoxSoDienThoai";
@@ -126,6 +137,7 @@
             // 
             // textBoxDiaChi
             // 
+            textBoxDiaChi.BackColor = Color.White;
             textBoxDiaChi.Location = new Point(175, 74);
             textBoxDiaChi.Margin = new Padding(3, 2, 3, 2);
             textBoxDiaChi.Name = "textBoxDiaChi";
@@ -135,6 +147,7 @@
             // 
             // textBoxTenKhachHang
             // 
+            textBoxTenKhachHang.BackColor = Color.White;
             textBoxTenKhachHang.Location = new Point(175, 38);
             textBoxTenKhachHang.Margin = new Padding(3, 2, 3, 2);
             textBoxTenKhachHang.Name = "textBoxTenKhachHang";
@@ -197,13 +210,6 @@
             label2.Text = "Tên khách hàng:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // dateTimePickerDob
-            // 
-            dateTimePickerDob.Location = new Point(175, 116);
-            dateTimePickerDob.Name = "dateTimePickerDob";
-            dateTimePickerDob.Size = new Size(241, 23);
-            dateTimePickerDob.TabIndex = 22;
-            // 
             // FormChiTietKhachHang
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -211,6 +217,7 @@
             ClientSize = new Size(437, 416);
             Controls.Add(panel1);
             Controls.Add(labelTitle);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietKhachHang";
             Text = "FormChiTietKhachHang";

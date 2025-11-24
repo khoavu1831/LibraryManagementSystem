@@ -9,6 +9,8 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
         public FormThemKhachHang(DocGiaService docGiaService)
         {
             InitializeComponent();
+            dateTimePickerDob.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDob.CustomFormat = "dd/MM/yyyy";
             this.StartPosition = FormStartPosition.CenterParent;
             _docGiaService = docGiaService;
 

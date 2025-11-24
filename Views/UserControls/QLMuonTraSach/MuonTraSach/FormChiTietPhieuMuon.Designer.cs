@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChiTietPhieuMuon));
             panelTop = new Panel();
             labelTitle = new Label();
             panel1 = new Panel();
@@ -363,6 +364,7 @@
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormChiTietPhieuMuon";
             Text = "Chi tiết phiếu mượn";
             panelTop.ResumeLayout(false);

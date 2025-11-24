@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemMucPhat));
             label2 = new Label();
             textBoxTenMucPhat = new TextBox();
             label3 = new Label();
@@ -238,6 +239,7 @@
             ClientSize = new Size(456, 330);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemMucPhat";
             Text = "formThemPhieuPhat";
