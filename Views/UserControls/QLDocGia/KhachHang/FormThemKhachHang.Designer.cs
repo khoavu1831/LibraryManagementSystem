@@ -66,7 +66,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(34, 132);
             label2.Name = "label2";
-            label2.Size = new Size(94, 15);
+            label2.Size = new Size(93, 15);
             label2.TabIndex = 2;
             label2.Text = "Tên khách hàng:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -194,6 +194,8 @@
             // 
             // dateTimePickerDob
             // 
+            dateTimePickerDob.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerDob.Format = DateTimePickerFormat.Custom;
             dateTimePickerDob.Location = new Point(165, 213);
             dateTimePickerDob.Name = "dateTimePickerDob";
             dateTimePickerDob.Size = new Size(244, 23);

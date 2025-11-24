@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             panelLayout = new Panel();
             flowLayoutPanelRight = new FlowLayoutPanel();
             labelUsername = new Label();
@@ -147,6 +148,7 @@
             BackColor = Color.White;
             ClientSize = new Size(653, 417);
             Controls.Add(panelLayout);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "LoginForm";
             Text = "Login";
