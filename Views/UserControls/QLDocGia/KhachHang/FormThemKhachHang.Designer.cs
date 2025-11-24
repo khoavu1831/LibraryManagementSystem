@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemKhachHang));
             labelTitle = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -66,7 +67,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(34, 132);
             label2.Name = "label2";
-            label2.Size = new Size(93, 15);
+            label2.Size = new Size(94, 15);
             label2.TabIndex = 2;
             label2.Text = "Tên khách hàng:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -218,6 +219,7 @@
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(labelTitle);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemKhachHang";
             Text = "FormThemKhachHang";

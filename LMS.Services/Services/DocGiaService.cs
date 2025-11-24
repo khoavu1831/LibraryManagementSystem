@@ -20,8 +20,8 @@ namespace LMS.Services
         }
 
         public BindingList<DocGia> GetAllDocGia() => _docGiaRepository.GetAll();
-
-
+        public int getCount(string keyword = "") => _docGiaRepository.GetCount(keyword);
+        public BindingList<DocGia> GetByPage(int page, int pageSize, string keyword = "") => _docGiaRepository.GetByPage(page, pageSize, keyword);
         public DocGia? GetDocGiaById(int id)
         {
             if (id <= 0)

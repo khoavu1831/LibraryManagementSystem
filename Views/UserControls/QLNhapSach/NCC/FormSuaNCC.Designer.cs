@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuaNCC));
             btnSua = new Button();
             labelTitle = new Label();
             panelTop = new Panel();
@@ -208,6 +209,7 @@
             ClientSize = new Size(437, 290);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaNCC";
             Text = "Sửa NXB";
