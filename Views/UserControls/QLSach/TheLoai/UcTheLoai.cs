@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -25,6 +26,10 @@ namespace LMS.Views.UserControls.QLSach
             btnThem.Enabled = canAdd;
             btnSua.Enabled = canEdit;
             btnXoa.Enabled = canDelete;
+            dgvTheLoai.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvTheLoai.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvTheLoai.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvTheLoai.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             LoadData();
         }
         private void LoadData()
@@ -36,7 +41,14 @@ namespace LMS.Views.UserControls.QLSach
                     var repo = new TheLoaiRepository(context);
                     var theLoaiService = new TheLoaiService(repo);
                     var data = theLoaiService.GetAllTheLoai();
-                    dgvTheLoai.DataSource = data;
+                    var dataView = data.Select(tl => new
+                    {
+                        tl.IdTheLoai,
+                        tl.TenTheloai
+                    }).ToList();
+                    dgvTheLoai.DataSource = dataView;
+                    dgvTheLoai.Columns["IdTheLoai"].HeaderText = "Mã thể loại";
+                    dgvTheLoai.Columns["TenTheLoai"].HeaderText = "Tên thể loại";
                 }
             }
             catch (Exception ex)

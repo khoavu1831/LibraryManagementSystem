@@ -27,7 +27,10 @@ namespace LMS.Views.UserControls.QLSach
             btnSua.Enabled = canEdit;
             btnXoa.Enabled = canDelete;
             btnChiTiet.Enabled = canViewDetails;
-
+            dgvSach.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvSach.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvSach.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             LoadData();
         }
         private void LoadData()
@@ -38,20 +41,26 @@ namespace LMS.Views.UserControls.QLSach
                 {
                     var repo = new SachRepository(context);
                     var sachService = new SachService(repo);
-                    var sachList = sachService.GetAllSach();
-
-                    var sachDataView = sachList.Select(s => new
+                    var data = sachService.GetAllSach();
+                    var dataView = data.Select(s => new
                     {
-                        IdSach = s.IdSachFormat,
-                        TenSach = s.TenSach,
+                        s.IdSachFormat,
+                        s.TenSach,
                         NXB = s.NXB != null ? s.NXB.TenNXB : "Chua co",
                         TheLoai = s.TheLoais != null ? string.Join(", ", s.TheLoais.Select(tl => tl.TenTheloai)) : "Chua co",
                         TacGia = s.TacGias != null ? string.Join(", ", s.TacGias.Select(tg => tg.TenTacGia)) : "Chua co",
-                        NamXuatBan = s.NamXuatBan,
-                        SoLuongBanSao = s.SoLuongBanSao
+                        s.NamXuatBan,
+                        s.SoLuongBanSao
                     }).ToList();
 
-                    dgvSach.DataSource = sachDataView;
+                    dgvSach.DataSource = dataView;
+                    dgvSach.Columns["IdSachFormat"].HeaderText = "Mã sách";
+                    dgvSach.Columns["TenSach"].HeaderText = "Tên sách";
+                    dgvSach.Columns["NXB"].HeaderText = "Nhà xuất bản";
+                    dgvSach.Columns["TheLoai"].HeaderText = "Thể loại";
+                    dgvSach.Columns["TacGia"].HeaderText = "Tác giả";
+                    dgvSach.Columns["NamXuatBan"].HeaderText = "Năm xuất bản";
+                    dgvSach.Columns["SoLuongBanSao"].HeaderText = "Số lượng bản sao";
                 }
             }
             catch (Exception ex)
