@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDoiMatKhau));
             textmkm = new TextBox();
             textnhaplaimk = new TextBox();
             txtMatKhauCu = new TextBox();
@@ -228,6 +229,7 @@
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormDoiMatKhau";
             Text = "Đổi mật khẩu tài khoản cá nhân";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuaSach));
             label2 = new Label();
             textBoxTenSach = new TextBox();
             label3 = new Label();
@@ -335,6 +336,7 @@
             ClientSize = new Size(437, 538);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaSach";
             Text = "Sửa Sách";

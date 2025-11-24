@@ -1,5 +1,4 @@
 ﻿using LMS.Data;
-using LMS.Helpers;
 using LMS.Views.LMS.Services.Services;
 
 namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
@@ -7,20 +6,26 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
     public partial class UcTheThanhVien : UserControl
     {
         private readonly TheThanhVienService _theThanhVienService;
+        private int _pageSize = 15;
+
+        private int _currentPage = 1;
+        private int _totalRecords = 0;
+        private int _totalPages = 0;
+        private string _currentKeyword = "";
 
         public UcTheThanhVien(List<string> permissions)
         {
             InitializeComponent();
             dgvTheThanhVien.EnableHeadersVisualStyles = false; // Cho phép đổi màu
-            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
-            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.RoyalBlue;
+            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            dgvTheThanhVien.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 10, FontStyle.Bold);
             try
             {
                 var context = new LibraryDbContext();
                 var theThanhVienRepo = new Repository.TheThanhVienRepository(context);
                 _theThanhVienService = new TheThanhVienService(context, theThanhVienRepo);
-
+                _theThanhVienService.GetAllTheThanhVien();
                 LoadData();
             }
             catch (Exception ex)
@@ -37,7 +42,42 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
         }
 
 
+        private void LoadPage(int page, string keyword = "")
+        {
+            _currentPage = page;
+            _currentKeyword = keyword;
+            try
+            {
+                _totalRecords = _theThanhVienService.getCount(_currentKeyword);
+                _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
+                var data = _theThanhVienService.getByPage(_currentPage, _pageSize, _currentKeyword);
+                if (data.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy thẻ thành viên phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                dgvTheThanhVien.DataSource = data;
+                dgvTheThanhVien.AutoGenerateColumns = true;
+                dgvTheThanhVien.Columns["NgayCap"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvTheThanhVien.Columns["NgayHetHan"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvTheThanhVien.Columns["IdTheThanhVien"].HeaderText = "Mã thẻ thành viên";
+                dgvTheThanhVien.Columns["IdDocGia"].HeaderText = "Mã độc giả";
+                dgvTheThanhVien.Columns["NgayCap"].HeaderText = "Ngày cấp";
+                dgvTheThanhVien.Columns["NgayHetHan"].HeaderText = "Ngày hết hạn";
+                dgvTheThanhVien.Columns["TrangThai"].HeaderText = "Trạng thái";
 
+
+                if (dgvTheThanhVien.Columns["DocGia"] != null)
+                    dgvTheThanhVien.Columns["DocGia"].Visible = false;
+                if (dgvTheThanhVien.Columns["PhieuMuons"] != null)
+                    dgvTheThanhVien.Columns["PhieuMuons"].Visible = false;
+                labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lấy danh sách thẻ thành viên thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
         private void btnSua_Click(object sender, EventArgs e)
         {
             if (dgvTheThanhVien.SelectedRows.Count == 0)
@@ -78,31 +118,7 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
         }
         private void LoadData()
         {
-            var list = _theThanhVienService.GetAllTheThanhVien();
-
-            //var dataView = list.Select(ttv => new
-            //{
-            //    IdTheThanhVien = ttv.IdTheThanhVien,
-            //    IdDocGia = ttv.IdDocGia,
-            //    TrngThai = ttv.TrangThai.GetDisplayName(),
-            //}).ToList();
-
-            dgvTheThanhVien.DataSource = list;
-            dgvTheThanhVien.AutoGenerateColumns = true;
-            dgvTheThanhVien.Columns["NgayCap"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvTheThanhVien.Columns["NgayHetHan"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dgvTheThanhVien.Columns["IdTheThanhVien"].HeaderText = "Mã thẻ thành viên";
-            dgvTheThanhVien.Columns["IdDocGia"].HeaderText = "Mã độc giả";
-            dgvTheThanhVien.Columns["NgayCap"].HeaderText = "Ngày cấp";
-            dgvTheThanhVien.Columns["NgayHetHan"].HeaderText = "Ngày hết hạn";
-            dgvTheThanhVien.Columns["TrangThai"].HeaderText = "Trạng thái";
-
-
-            if (dgvTheThanhVien.Columns["DocGia"] != null)
-                dgvTheThanhVien.Columns["DocGia"].Visible = false;
-            if (dgvTheThanhVien.Columns["PhieuMuons"] != null)
-                dgvTheThanhVien.Columns["PhieuMuons"].Visible = false;
-            //dgvTheThanhVien.DataSource = dataView;
+            LoadPage(1);
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -135,35 +151,37 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
-            try
+            if (string.IsNullOrEmpty(keyword))
             {
-                var list = _theThanhVienService.GetAllTheThanhVien();
-                var filtered = list
-               .Where(t =>
-                   t.IdTheThanhVien.ToString().Equals(keyword)).Select(t => new
-                   {
-                       t.IdTheThanhVien,
-                       t.IdDocGia,
-                       NgayHetHan = t.NgayHetHan.ToString("dd/MM/yyyy"),
-                       TrangThai = t.TrangThai.GetDisplayName()
-                   })
-                .ToList();
-                if (filtered.Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy kết quả phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                dgvTheThanhVien.DataSource = filtered;
+                LoadPage(1);
+                return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LoadPage(1, keyword);
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            txtBoxTimKiem.Text = "";
+            _currentKeyword = "";
             LoadData();
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (_currentPage > 1)
+            {
+                LoadPage(_currentPage - 1, _currentKeyword);
+
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (_currentPage < _totalPages)
+            {
+                LoadPage(_currentPage + 1, _currentKeyword);
+
+            }
         }
     }
 }

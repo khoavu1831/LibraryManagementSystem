@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTraPhat));
             label2 = new Label();
             textBoxHoVaTen = new TextBox();
             label3 = new Label();
@@ -318,6 +319,7 @@
             ClientSize = new Size(456, 398);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormTraPhat";
             Text = "formThemPhieuPhat";

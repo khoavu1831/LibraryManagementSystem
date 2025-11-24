@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuaKhachHang));
             labelTitle = new Label();
             panel1 = new Panel();
             dateTimePickerDob = new DateTimePicker();
@@ -221,6 +222,7 @@
             ClientSize = new Size(437, 416);
             Controls.Add(panel1);
             Controls.Add(labelTitle);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaKhachHang";
             Text = "FormSuaKhachHang";

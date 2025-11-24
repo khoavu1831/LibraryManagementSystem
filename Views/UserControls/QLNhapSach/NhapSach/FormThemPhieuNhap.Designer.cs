@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemPhieuNhap));
             label2 = new Label();
             label5 = new Label();
             labelTitle = new Label();
@@ -264,6 +265,7 @@
             ClientSize = new Size(710, 488);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemPhieuNhap";
             Text = "Thêm phiếu nhập";

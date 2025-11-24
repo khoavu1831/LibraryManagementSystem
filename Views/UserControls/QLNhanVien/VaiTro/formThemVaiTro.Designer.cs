@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemVaiTro));
             label1 = new Label();
             panel2 = new Panel();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -60,7 +61,7 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(521, 125);
+            label1.Size = new Size(456, 94);
             label1.TabIndex = 3;
             label1.Text = "THÊM VAI TRÒ";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -71,9 +72,10 @@
             panel2.Controls.Add(tableLayoutPanel2);
             panel2.Controls.Add(tableLayoutPanel1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 125);
+            panel2.Location = new Point(0, 94);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(521, 424);
+            panel2.Size = new Size(456, 318);
             panel2.TabIndex = 23;
             // 
             // tableLayoutPanel3
@@ -93,23 +95,24 @@
             tableLayoutPanel3.Controls.Add(label5, 2, 0);
             tableLayoutPanel3.Controls.Add(label6, 3, 0);
             tableLayoutPanel3.Controls.Add(label7, 4, 0);
-            tableLayoutPanel3.Location = new Point(12, 134);
+            tableLayoutPanel3.Location = new Point(10, 100);
+            tableLayoutPanel3.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(497, 125);
+            tableLayoutPanel3.Size = new Size(435, 94);
             tableLayoutPanel3.TabIndex = 21;
-            //tableLayoutPanel3.Paint += tableLayoutPanel3_Paint;
             // 
             // checkBox4
             // 
             checkBox4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox4.AutoSize = true;
             checkBox4.CheckAlign = ContentAlignment.MiddleCenter;
-            checkBox4.Location = new Point(398, 65);
+            checkBox4.Location = new Point(350, 49);
+            checkBox4.Margin = new Padding(3, 2, 3, 2);
             checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(96, 57);
+            checkBox4.Size = new Size(82, 43);
             checkBox4.TabIndex = 12;
             checkBox4.TextAlign = ContentAlignment.MiddleCenter;
             checkBox4.UseVisualStyleBackColor = true;
@@ -118,9 +121,9 @@
             // 
             label3.AutoSize = true;
             label3.Dock = DockStyle.Fill;
-            label3.Location = new Point(3, 62);
+            label3.Location = new Point(3, 47);
             label3.Name = "label3";
-            label3.Size = new Size(148, 63);
+            label3.Size = new Size(129, 47);
             label3.TabIndex = 0;
             label3.Text = "Tên chức năng";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -130,9 +133,10 @@
             checkBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox1.AutoSize = true;
             checkBox1.CheckAlign = ContentAlignment.MiddleCenter;
-            checkBox1.Location = new Point(157, 65);
+            checkBox1.Location = new Point(138, 49);
+            checkBox1.Margin = new Padding(3, 2, 3, 2);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(75, 57);
+            checkBox1.Size = new Size(65, 43);
             checkBox1.TabIndex = 1;
             checkBox1.TextAlign = ContentAlignment.MiddleCenter;
             checkBox1.UseVisualStyleBackColor = true;
@@ -141,9 +145,9 @@
             // 
             label4.AutoSize = true;
             label4.Dock = DockStyle.Fill;
-            label4.Location = new Point(157, 0);
+            label4.Location = new Point(138, 0);
             label4.Name = "label4";
-            label4.Size = new Size(75, 62);
+            label4.Size = new Size(65, 47);
             label4.TabIndex = 5;
             label4.Text = "Thêm";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -153,9 +157,10 @@
             checkBox2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox2.AutoSize = true;
             checkBox2.CheckAlign = ContentAlignment.MiddleCenter;
-            checkBox2.Location = new Point(238, 65);
+            checkBox2.Location = new Point(209, 49);
+            checkBox2.Margin = new Padding(3, 2, 3, 2);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(55, 57);
+            checkBox2.Size = new Size(48, 43);
             checkBox2.TabIndex = 9;
             checkBox2.TextAlign = ContentAlignment.MiddleCenter;
             checkBox2.UseVisualStyleBackColor = true;
@@ -165,9 +170,10 @@
             checkBox5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             checkBox5.AutoSize = true;
             checkBox5.CheckAlign = ContentAlignment.MiddleCenter;
-            checkBox5.Location = new Point(299, 65);
+            checkBox5.Location = new Point(263, 49);
+            checkBox5.Margin = new Padding(3, 2, 3, 2);
             checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(93, 57);
+            checkBox5.Size = new Size(81, 43);
             checkBox5.TabIndex = 10;
             checkBox5.TextAlign = ContentAlignment.MiddleCenter;
             checkBox5.UseVisualStyleBackColor = true;
@@ -176,9 +182,9 @@
             // 
             label5.AutoSize = true;
             label5.Dock = DockStyle.Fill;
-            label5.Location = new Point(238, 0);
+            label5.Location = new Point(209, 0);
             label5.Name = "label5";
-            label5.Size = new Size(55, 62);
+            label5.Size = new Size(48, 47);
             label5.TabIndex = 13;
             label5.Text = "Sửa";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -187,9 +193,9 @@
             // 
             label6.AutoSize = true;
             label6.Dock = DockStyle.Fill;
-            label6.Location = new Point(299, 0);
+            label6.Location = new Point(263, 0);
             label6.Name = "label6";
-            label6.Size = new Size(93, 62);
+            label6.Size = new Size(81, 47);
             label6.TabIndex = 14;
             label6.Text = "Xóa";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -198,9 +204,9 @@
             // 
             label7.AutoSize = true;
             label7.Dock = DockStyle.Fill;
-            label7.Location = new Point(398, 0);
+            label7.Location = new Point(350, 0);
             label7.Name = "label7";
-            label7.Size = new Size(96, 62);
+            label7.Size = new Size(82, 47);
             label7.TabIndex = 15;
             label7.Text = "Chi tiết";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -212,20 +218,22 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(btnThem, 0, 0);
             tableLayoutPanel2.Controls.Add(btnHuy, 1, 0);
-            tableLayoutPanel2.Location = new Point(90, 348);
+            tableLayoutPanel2.Location = new Point(79, 261);
+            tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(371, 54);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
+            tableLayoutPanel2.Size = new Size(325, 40);
             tableLayoutPanel2.TabIndex = 20;
             // 
             // btnThem
             // 
             btnThem.Dock = DockStyle.Top;
-            btnThem.Location = new Point(3, 3);
+            btnThem.Location = new Point(3, 2);
+            btnThem.Margin = new Padding(3, 2, 3, 2);
             btnThem.Name = "btnThem";
-            btnThem.Size = new Size(179, 46);
+            btnThem.Size = new Size(156, 34);
             btnThem.TabIndex = 15;
             btnThem.Text = "Thêm";
             btnThem.UseVisualStyleBackColor = true;
@@ -234,9 +242,10 @@
             // btnHuy
             // 
             btnHuy.Dock = DockStyle.Top;
-            btnHuy.Location = new Point(188, 3);
+            btnHuy.Location = new Point(165, 2);
+            btnHuy.Margin = new Padding(3, 2, 3, 2);
             btnHuy.Name = "btnHuy";
-            btnHuy.Size = new Size(180, 46);
+            btnHuy.Size = new Size(157, 34);
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
@@ -249,26 +258,28 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 69.7479F));
             tableLayoutPanel1.Controls.Add(textBoxHVT, 1, 0);
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
-            tableLayoutPanel1.Location = new Point(72, 67);
+            tableLayoutPanel1.Location = new Point(63, 50);
+            tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(377, 42);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanel1.Size = new Size(331, 32);
             tableLayoutPanel1.TabIndex = 17;
             // 
             // textBoxHVT
             // 
             textBoxHVT.Dock = DockStyle.Fill;
-            textBoxHVT.Location = new Point(117, 3);
+            textBoxHVT.Location = new Point(103, 2);
+            textBoxHVT.Margin = new Padding(3, 2, 3, 2);
             textBoxHVT.Multiline = true;
             textBoxHVT.Name = "textBoxHVT";
-            textBoxHVT.Size = new Size(257, 36);
+            textBoxHVT.Size = new Size(225, 28);
             textBoxHVT.TabIndex = 2;
             // 
             // label2
@@ -277,18 +288,20 @@
             label2.AutoSize = true;
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(108, 42);
+            label2.Size = new Size(94, 32);
             label2.TabIndex = 1;
             label2.Text = "Tên vai trò:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // FormThemVaiTro
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(521, 549);
+            ClientSize = new Size(456, 412);
             Controls.Add(panel2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemVaiTro";
             Text = "formThemVaiTro";
             panel2.ResumeLayout(false);

@@ -12,6 +12,30 @@ namespace LMS.Repository
         {
             return new BindingList<DocGia>(_context.DocGias.ToList());
         }
+        public int GetCount(string keyword = "")
+        {
+            var query = _context.DocGias
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                query = query.Where(d => d.TenDocGia.ToLower().Contains(keyword.ToLower()) || d.SDT.Contains(keyword) || d.Email.ToLower().Contains(keyword.ToLower()));
+            }
+            return query.Count();
+        }
+        public BindingList<DocGia> GetByPage(int page, int pageSize, string keyword = "")
+        {
+            var query = _context.DocGias.OrderBy(d => d.IdDocGia).AsQueryable();
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                query = query.Where(d => d.TenDocGia.ToLower().Contains(keyword.ToLower()) || d.SDT.Contains(keyword) || d.Email.ToLower().Contains(keyword.ToLower()));
+            }
+            var list = query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+            return new BindingList<DocGia>(list);
+        }
         public DocGia? GetById(int id) => _context.DocGias.Find(id);
         public DocGia Add(DocGia docGia)
         {
