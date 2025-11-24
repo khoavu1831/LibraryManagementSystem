@@ -164,6 +164,8 @@
             // 
             // dgvTaiKhoan
             // 
+            dgvTaiKhoan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTaiKhoan.BackgroundColor = SystemColors.ButtonHighlight;
             dgvTaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTaiKhoan.Dock = DockStyle.Fill;
             dgvTaiKhoan.Location = new Point(0, 72);
