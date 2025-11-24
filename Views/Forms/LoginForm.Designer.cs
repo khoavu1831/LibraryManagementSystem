@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             panelLayout = new Panel();
+            label1 = new Label();
             flowLayoutPanelRight = new FlowLayoutPanel();
             labelUsername = new Label();
             textBoxTenDangNhap = new TextBox();
@@ -45,6 +46,7 @@
             // 
             // panelLayout
             // 
+            panelLayout.Controls.Add(label1);
             panelLayout.Controls.Add(flowLayoutPanelRight);
             panelLayout.Controls.Add(pictureBoxImage);
             panelLayout.Dock = DockStyle.Fill;
@@ -52,6 +54,17 @@
             panelLayout.Name = "panelLayout";
             panelLayout.Size = new Size(760, 480);
             panelLayout.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(75, 68);
+            label1.Name = "label1";
+            label1.Size = new Size(370, 32);
+            label1.TabIndex = 2;
+            label1.Text = "HỆ THỐNG QUẢN LÝ THƯ VIỆN";
+            label1.Click += label1_Click;
             // 
             // flowLayoutPanelRight
             // 
@@ -151,10 +164,10 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            MinimizeBox = false;
             Name = "LoginForm";
-            Text = "Login";
+            Text = "Đăng nhập";
             panelLayout.ResumeLayout(false);
+            panelLayout.PerformLayout();
             flowLayoutPanelRight.ResumeLayout(false);
             flowLayoutPanelRight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).EndInit();
@@ -172,5 +185,6 @@
         private TextBox textBoxTenDangNhap;
         private CheckBox checkBoxAnHien;
         private Button buttonDangNhap;
+        private Label label1;
     }
 }

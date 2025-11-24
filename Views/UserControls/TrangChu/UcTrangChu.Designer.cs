@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             pictureBoxImage = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).BeginInit();
             SuspendLayout();
             // 
@@ -43,21 +44,34 @@
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(222, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(493, 45);
+            label1.TabIndex = 3;
+            label1.Text = "HỆ THỐNG QUẢN LÝ THƯ VIỆN";
+            // 
             // UcTrangChu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(label1);
             Controls.Add(pictureBoxImage);
             Name = "UcTrangChu";
             Size = new Size(961, 613);
             ((System.ComponentModel.ISupportInitialize)pictureBoxImage).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private PictureBox pictureBoxImage;
         private Label labelTitle;
+        private Label label1;
     }
 }
