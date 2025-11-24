@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemPhieuMuonTra));
             label2 = new Label();
             label5 = new Label();
             labelTitle = new Label();
@@ -62,7 +63,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(3, 29);
             label2.Name = "label2";
-            label2.Size = new Size(89, 27);
+            label2.Size = new Size(90, 27);
             label2.TabIndex = 1;
             label2.Text = "Thành viên:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -71,7 +72,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(373, 56);
+            label5.Location = new Point(374, 56);
             label5.Name = "label5";
             label5.Padding = new Padding(20, 0, 0, 0);
             label5.Size = new Size(98, 28);
@@ -125,14 +126,14 @@
             tableLayoutPanelContent.RowStyles.Add(new RowStyle());
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelContent.RowStyles.Add(new RowStyle(SizeType.Absolute, 28F));
-            tableLayoutPanelContent.Size = new Size(770, 534);
+            tableLayoutPanelContent.Size = new Size(771, 534);
             tableLayoutPanelContent.TabIndex = 17;
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label7.AutoSize = true;
-            label7.Location = new Point(373, 0);
+            label7.Location = new Point(374, 0);
             label7.Name = "label7";
             label7.Size = new Size(98, 29);
             label7.TabIndex = 46;
@@ -145,7 +146,7 @@
             label4.AutoSize = true;
             label4.Location = new Point(3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(89, 29);
+            label4.Size = new Size(90, 29);
             label4.TabIndex = 43;
             label4.Text = "Tìm thành viên:";
             label4.TextAlign = ContentAlignment.MiddleLeft;
@@ -167,7 +168,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(3, 84);
             label3.Name = "label3";
-            label3.Size = new Size(89, 20);
+            label3.Size = new Size(90, 20);
             label3.TabIndex = 40;
             label3.Text = "Sách mượn:";
             // 
@@ -177,7 +178,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 56);
             label1.Name = "label1";
-            label1.Size = new Size(89, 28);
+            label1.Size = new Size(90, 28);
             label1.TabIndex = 20;
             label1.Text = "Ngày lập:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -186,7 +187,7 @@
             // 
             dateTimePickerNgayLap.Enabled = false;
             dateTimePickerNgayLap.Format = DateTimePickerFormat.Short;
-            dateTimePickerNgayLap.Location = new Point(98, 59);
+            dateTimePickerNgayLap.Location = new Point(99, 59);
             dateTimePickerNgayLap.Name = "dateTimePickerNgayLap";
             dateTimePickerNgayLap.Size = new Size(269, 23);
             dateTimePickerNgayLap.TabIndex = 34;
@@ -194,7 +195,7 @@
             // dateTimePickerNgayHenTra
             // 
             dateTimePickerNgayHenTra.Format = DateTimePickerFormat.Short;
-            dateTimePickerNgayHenTra.Location = new Point(477, 59);
+            dateTimePickerNgayHenTra.Location = new Point(478, 59);
             dateTimePickerNgayHenTra.Name = "dateTimePickerNgayHenTra";
             dateTimePickerNgayHenTra.Size = new Size(290, 23);
             dateTimePickerNgayHenTra.TabIndex = 42;
@@ -203,7 +204,7 @@
             // 
             comboBoxThanhVien.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxThanhVien.FormattingEnabled = true;
-            comboBoxThanhVien.Location = new Point(98, 32);
+            comboBoxThanhVien.Location = new Point(99, 32);
             comboBoxThanhVien.Name = "comboBoxThanhVien";
             comboBoxThanhVien.Size = new Size(269, 23);
             comboBoxThanhVien.TabIndex = 30;
@@ -212,7 +213,7 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(373, 29);
+            label6.Location = new Point(374, 29);
             label6.Name = "label6";
             label6.Size = new Size(98, 27);
             label6.TabIndex = 38;
@@ -222,7 +223,7 @@
             // textBoxNhanVien
             // 
             textBoxNhanVien.Enabled = false;
-            textBoxNhanVien.Location = new Point(477, 32);
+            textBoxNhanVien.Location = new Point(478, 32);
             textBoxNhanVien.Name = "textBoxNhanVien";
             textBoxNhanVien.ReadOnly = true;
             textBoxNhanVien.Size = new Size(290, 23);
@@ -230,14 +231,14 @@
             // 
             // textBoxTimThanhVien
             // 
-            textBoxTimThanhVien.Location = new Point(98, 3);
+            textBoxTimThanhVien.Location = new Point(99, 3);
             textBoxTimThanhVien.Name = "textBoxTimThanhVien";
             textBoxTimThanhVien.Size = new Size(269, 23);
             textBoxTimThanhVien.TabIndex = 44;
             // 
             // textBoxSDTThanhVien
             // 
-            textBoxSDTThanhVien.Location = new Point(477, 3);
+            textBoxSDTThanhVien.Location = new Point(478, 3);
             textBoxSDTThanhVien.Name = "textBoxSDTThanhVien";
             textBoxSDTThanhVien.ReadOnly = true;
             textBoxSDTThanhVien.Size = new Size(290, 23);
@@ -311,6 +312,7 @@
             ClientSize = new Size(808, 716);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemPhieuMuonTra";
             Text = "Thêm phiếu mượn";

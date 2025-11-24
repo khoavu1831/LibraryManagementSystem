@@ -11,14 +11,37 @@ namespace LMS.Repository
         public List<BanSaoSach> GetAll() => _context.BanSaoSachs.Include(bss => bss.Sach).ToList();
         public BanSaoSach? GetById(string id) => _context.BanSaoSachs.Find(id);
         public int GetCountBySach(int idSach) => _context.BanSaoSachs.Count(b => b.IdSach == idSach);
-        public int GetCount() => _context.BanSaoSachs.Count();
-        public List<BanSaoSach> GetByPage(int page, int pageSize)
+        public int GetCount(string keyword = "")
         {
-            return _context.BanSaoSachs
+            var query = _context.BanSaoSachs
+                .Include(bss => bss.Sach)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                query = query.Where(bss => bss.Sach!.TenSach.ToLower().Contains(keyword.ToLower()));
+            }
+
+            return query.Count();
+        }
+        public List<BanSaoSach> GetByPage(int page, int pageSize, string keyword = "")
+        {
+            // L?y t?t c? BanSaoSach
+            var query = _context.BanSaoSachs
                 .Include(bss => bss.Sach)
                 .OrderBy(bss => bss.IdBanSaoSach)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(keyword))
+            {
+                query = query.Where(bss =>
+            bss.Sach!.TenSach.ToLower().Contains(keyword.ToLower()));
+            }
+
+            // Phân trang
+            return query
+                .Skip((page - 1) * pageSize) // b? các b?n ghi tr??c trang hi?n t?i
+                .Take(pageSize)              // l?y ?úng s? b?n ghi m?i trang
                 .ToList();
         }
         public BanSaoSach Add(BanSaoSach banSaoSach)
@@ -32,7 +55,7 @@ namespace LMS.Repository
             _context.BanSaoSachs.AddRange(banSaoSachList);
             _context.SaveChanges();
             return banSaoSachList;
-        } 
+        }
         public BanSaoSach Update(BanSaoSach banSaoSach)
         {
             _context.BanSaoSachs.Update(banSaoSach);

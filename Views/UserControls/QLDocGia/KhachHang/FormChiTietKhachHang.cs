@@ -5,6 +5,9 @@
         public FormChiTietKhachHang(int idDocGia, string tenDocGia, string diaChi, DateTime ngaySinh, string sdt, string email)
         {
             InitializeComponent();
+            dateTimePickerDob.Format = DateTimePickerFormat.Custom;
+            dateTimePickerDob.CustomFormat = "dd/MM/yyyy";
+
             this.StartPosition = FormStartPosition.CenterParent;
             // Gán dữ liệu vào các TextBox/DateTimePicker
             textBoxTenKhachHang.Text = tenDocGia;

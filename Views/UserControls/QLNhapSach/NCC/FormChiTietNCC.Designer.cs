@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChiTietNCC));
             labelTitle = new Label();
             panelTop = new Panel();
             panelContent = new Panel();
@@ -224,6 +225,7 @@
             ClientSize = new Size(437, 301);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietNCC";
             Text = "Chi tiết NXB";

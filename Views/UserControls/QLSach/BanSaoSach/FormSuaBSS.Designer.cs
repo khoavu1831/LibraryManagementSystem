@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuaBSS));
             btnSua = new Button();
             labelTitle = new Label();
             panelTop = new Panel();
@@ -183,6 +184,7 @@
             ClientSize = new Size(437, 255);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaBSS";
             Text = "Sửa Bản sao sách";

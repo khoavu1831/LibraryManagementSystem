@@ -29,6 +29,7 @@ namespace LMS.Views.UserControls.QLSach
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemTheLoai));
             btnThem = new Button();
             labelTitle = new Label();
             panelTop = new Panel();
@@ -162,6 +163,7 @@ namespace LMS.Views.UserControls.QLSach
             ClientSize = new Size(437, 229);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemTheLoai";
             Text = "Thêm Thể loại";

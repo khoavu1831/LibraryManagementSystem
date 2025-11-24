@@ -9,6 +9,10 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
         public FormChiTietTheThanhVien(Entities.TheThanhVien theThanhVien)
         {
             InitializeComponent();
+            dateTimePickerNgayCap.Format = DateTimePickerFormat.Custom;
+            dateTimePickerNgayCap.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNgayHetHan.Format = DateTimePickerFormat.Custom;
+            dateTimePickerNgayHetHan.CustomFormat = "dd/MM/yyyy";
             this.StartPosition = FormStartPosition.CenterParent;
 
             _theThanhVien = theThanhVien ?? throw new ArgumentNullException(nameof(theThanhVien));

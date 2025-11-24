@@ -30,6 +30,12 @@ namespace LMS.Views.LMS.Services.Services
             return list;
         }
 
+        public List<TheThanhVien> getByPage(int page, int pageSize, string keyword = "")
+        {
+            return _theThanhVienRepository.GetByPage(page, pageSize, keyword);
+        }
+
+        public int getCount(string keyword = "") => _theThanhVienRepository.getCount(keyword);
         // Lấy thẻ thành viên theo ID
         public TheThanhVien? GetTheThanhVienById(int id)
         {

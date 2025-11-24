@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChiTietTraPhat));
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -307,6 +308,7 @@
             ClientSize = new Size(456, 417);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietTraPhat";
             Text = "formThemPhieuPhat";

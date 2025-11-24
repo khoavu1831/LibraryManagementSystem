@@ -7,7 +7,11 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
     {
         private readonly LibraryDbContext _context;
         private readonly DocGiaService _docGiaService;
-
+        private int _pageSize = 15;
+        private int _currentPage = 1;
+        private int _totalRecords = 0;
+        private int _totalPages = 0;
+        private string _currentKeyword = "";
         public UcKhachHang(List<string> permissions)
         {
             InitializeComponent();
@@ -47,31 +51,39 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
 
         }
 
+        private void LoadPage(int page, string keyword = "")
+        {
+            _currentPage = page;
+            _currentKeyword = keyword;
+            try
+            {
+                _totalRecords = _docGiaService.getCount(_currentKeyword);
+                _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
+                var data = _docGiaService.GetByPage(_currentPage, _pageSize, _currentKeyword);
+                if (data.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy độc giả phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                dgvKhachHang.DataSource = data;
+                if (dgvKhachHang.Columns["TheThanhViens"] != null)
+                    dgvKhachHang.Columns["TheThanhViens"].Visible = false;
+                dgvKhachHang.Columns["IdDocGia"].HeaderText = "Mã độc giả";
+                dgvKhachHang.Columns["TenDocGia"].HeaderText = "Tên độc giả";
+                dgvKhachHang.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                dgvKhachHang.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+                dgvKhachHang.Columns["SDT"].HeaderText = "Số điện thoại";
+                dgvKhachHang.AutoGenerateColumns = true;
+                labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lấy danh sách độc giả thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
         private void LoadData()
         {
-            var docGiaList = _docGiaService.GetAllDocGia();
-            //dgvKhachHang.DataSource = docGiaList.Select(dg => new
-            //{
-            //    IdDocGia = dg.IdDocGia,
-            //    TenDocGia = dg.TenDocGia,
-            //    DiaChi = dg.DiaChi,
-            //    NgaySinh = dg.NgaySinh.ToString("dd/MM/yyyy"),
-            //    SDT = dg.SDT,
-            //    Email = dg.Email
-            //}).ToList();
-            dgvKhachHang.DataSource = docGiaList;
-
-
-
-
-            if (dgvKhachHang.Columns["TheThanhViens"] != null)
-                dgvKhachHang.Columns["TheThanhViens"].Visible = false;
-            dgvKhachHang.Columns["IdDocGia"].HeaderText = "Mã độc giả";
-            dgvKhachHang.Columns["TenDocGia"].HeaderText = "Tên độc giả";
-            dgvKhachHang.Columns["DiaChi"].HeaderText = "Địa chỉ";
-            dgvKhachHang.Columns["NgaySinh"].HeaderText = "Ngày sinh";
-            dgvKhachHang.Columns["SDT"].HeaderText = "Số điện thoại";
-            dgvKhachHang.AutoGenerateColumns = true;
+            LoadPage(1);
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -139,38 +151,10 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
             var keyword = txtBoxTimKiem.Text.Trim();
             if (string.IsNullOrEmpty(keyword))
             {
-                LoadData();
+                LoadPage(1);
                 return;
             }
-
-            try
-            {
-                var data = _docGiaService.GetAllDocGia()
-                    .Where(d => d.TenDocGia.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
-                                d.Email.Contains(keyword, StringComparison.OrdinalIgnoreCase) ||
-                                d.SDT.Contains(keyword))
-                    .Select(d => new
-                    {
-                        IdDocGia = d.IdDocGia,
-                        TenDocGia = d.TenDocGia,
-                        DiaChi = d.DiaChi,
-                        NgaySinh = d.NgaySinh.ToString("dd/MM/yyyy"),
-                        SDT = d.SDT,
-                        Email = d.Email
-                    })
-                    .ToList();
-
-                if (data.Count == 0)
-                {
-                    MessageBox.Show("Không tìm thấy kết quả phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                dgvKhachHang.DataSource = data;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Tìm kiếm thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LoadPage(1, keyword);
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)
@@ -195,6 +179,8 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
+            txtBoxTimKiem.Text = "";
+            _currentKeyword = "";
             LoadData();
         }
 
@@ -216,6 +202,24 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
                     }
                     MessageBox.Show("Xuất Excel thành công!");
                 }
+            }
+        }
+
+        private void btnTruoc_Click(object sender, EventArgs e)
+        {
+            if (_currentPage > 1)
+            {
+                LoadPage(_currentPage - 1, _currentKeyword);
+
+            }
+        }
+
+        private void btnSau_Click(object sender, EventArgs e)
+        {
+            if (_currentPage < _totalPages)
+            {
+                LoadPage(_currentPage + 1, _currentKeyword);
+
             }
         }
     }
