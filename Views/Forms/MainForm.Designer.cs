@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panelNav = new Panel();
             panelLogout = new Panel();
             btnLogout = new Button();
@@ -300,8 +301,9 @@
             ClientSize = new Size(929, 592);
             Controls.Add(panelContent);
             Controls.Add(panelNav);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MainForm";
-            Text = "MainForm";
+            Text = "Phần mềm quản lý thư viện ";
             panelNav.ResumeLayout(false);
             panelLogout.ResumeLayout(false);
             panelMenu.ResumeLayout(false);
