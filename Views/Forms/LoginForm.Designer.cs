@@ -50,7 +50,7 @@
             panelLayout.Dock = DockStyle.Fill;
             panelLayout.Location = new Point(0, 0);
             panelLayout.Name = "panelLayout";
-            panelLayout.Size = new Size(653, 417);
+            panelLayout.Size = new Size(760, 480);
             panelLayout.TabIndex = 0;
             // 
             // flowLayoutPanelRight
@@ -63,9 +63,9 @@
             flowLayoutPanelRight.Controls.Add(buttonDangNhap);
             flowLayoutPanelRight.Dock = DockStyle.Fill;
             flowLayoutPanelRight.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanelRight.Location = new Point(428, 0);
+            flowLayoutPanelRight.Location = new Point(500, 0);
             flowLayoutPanelRight.Name = "flowLayoutPanelRight";
-            flowLayoutPanelRight.Size = new Size(225, 417);
+            flowLayoutPanelRight.Size = new Size(260, 480);
             flowLayoutPanelRight.TabIndex = 1;
             // 
             // labelUsername
@@ -136,7 +136,7 @@
             pictureBoxImage.Image = Views.Properties.Resources.thuvien;
             pictureBoxImage.Location = new Point(0, 0);
             pictureBoxImage.Name = "pictureBoxImage";
-            pictureBoxImage.Size = new Size(428, 417);
+            pictureBoxImage.Size = new Size(500, 480);
             pictureBoxImage.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBoxImage.TabIndex = 0;
             pictureBoxImage.TabStop = false;
@@ -146,10 +146,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(653, 417);
+            ClientSize = new Size(760, 480);
             Controls.Add(panelLayout);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
+            MinimizeBox = false;
             Name = "LoginForm";
             Text = "Login";
             panelLayout.ResumeLayout(false);

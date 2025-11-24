@@ -204,6 +204,7 @@
             // 
             dgvNXB.AccessibleRole = AccessibleRole.None;
             dgvNXB.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvNXB.BackgroundColor = SystemColors.ButtonHighlight;
             dgvNXB.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvNXB.Dock = DockStyle.Fill;
             dgvNXB.Location = new Point(0, 72);
