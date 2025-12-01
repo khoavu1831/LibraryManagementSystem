@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panelNav = new Panel();
             panelLogout = new Panel();
             btnLogout = new Button();
@@ -61,16 +62,16 @@
             panelNav.Dock = DockStyle.Left;
             panelNav.Location = new Point(0, 0);
             panelNav.Name = "panelNav";
-            panelNav.Size = new Size(184, 592);
+            panelNav.Size = new Size(220, 720);
             panelNav.TabIndex = 0;
             // 
             // panelLogout
             // 
             panelLogout.Controls.Add(btnLogout);
             panelLogout.Dock = DockStyle.Bottom;
-            panelLogout.Location = new Point(0, 540);
+            panelLogout.Location = new Point(0, 668);
             panelLogout.Name = "panelLogout";
-            panelLogout.Size = new Size(182, 50);
+            panelLogout.Size = new Size(218, 52);
             panelLogout.TabIndex = 2;
             // 
             // btnLogout
@@ -82,7 +83,7 @@
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
             btnLogout.Location = new Point(0, 0);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new Size(182, 50);
+            btnLogout.Size = new Size(218, 52);
             btnLogout.TabIndex = 0;
             btnLogout.Text = "Đăng xuất";
             btnLogout.UseVisualStyleBackColor = false;
@@ -101,7 +102,7 @@
             panelMenu.Dock = DockStyle.Fill;
             panelMenu.Location = new Point(0, 74);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(182, 516);
+            panelMenu.Size = new Size(218, 594);
             panelMenu.TabIndex = 1;
             // 
             // btnQLThongKe
@@ -115,7 +116,7 @@
             btnQLThongKe.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLThongKe.Location = new Point(0, 352);
             btnQLThongKe.Name = "btnQLThongKe";
-            btnQLThongKe.Size = new Size(182, 50);
+            btnQLThongKe.Size = new Size(218, 50);
             btnQLThongKe.TabIndex = 7;
             btnQLThongKe.Text = "   Thống Kê";
             btnQLThongKe.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -133,7 +134,7 @@
             buttonQLNhanVien.ImageAlign = ContentAlignment.MiddleLeft;
             buttonQLNhanVien.Location = new Point(0, 302);
             buttonQLNhanVien.Name = "buttonQLNhanVien";
-            buttonQLNhanVien.Size = new Size(182, 50);
+            buttonQLNhanVien.Size = new Size(218, 50);
             buttonQLNhanVien.TabIndex = 6;
             buttonQLNhanVien.Text = "   Nhân Viên";
             buttonQLNhanVien.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -151,7 +152,7 @@
             btnNhapSach.ImageAlign = ContentAlignment.MiddleLeft;
             btnNhapSach.Location = new Point(0, 252);
             btnNhapSach.Name = "btnNhapSach";
-            btnNhapSach.Size = new Size(182, 50);
+            btnNhapSach.Size = new Size(218, 50);
             btnNhapSach.TabIndex = 5;
             btnNhapSach.Text = "   Nhập Sách";
             btnNhapSach.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -170,7 +171,7 @@
             btnPhat.Location = new Point(0, 200);
             btnPhat.Margin = new Padding(3, 2, 3, 2);
             btnPhat.Name = "btnPhat";
-            btnPhat.Size = new Size(182, 52);
+            btnPhat.Size = new Size(218, 52);
             btnPhat.TabIndex = 4;
             btnPhat.Text = "   Phạt - Trả Phạt";
             btnPhat.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -188,7 +189,7 @@
             buttonQLMuonTraSach.ImageAlign = ContentAlignment.MiddleLeft;
             buttonQLMuonTraSach.Location = new Point(0, 150);
             buttonQLMuonTraSach.Name = "buttonQLMuonTraSach";
-            buttonQLMuonTraSach.Size = new Size(182, 50);
+            buttonQLMuonTraSach.Size = new Size(218, 50);
             buttonQLMuonTraSach.TabIndex = 3;
             buttonQLMuonTraSach.Text = "   Mượn - Trả Sách";
             buttonQLMuonTraSach.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -206,7 +207,7 @@
             btnDocGia.ImageAlign = ContentAlignment.MiddleLeft;
             btnDocGia.Location = new Point(0, 100);
             btnDocGia.Name = "btnDocGia";
-            btnDocGia.Size = new Size(182, 50);
+            btnDocGia.Size = new Size(218, 50);
             btnDocGia.TabIndex = 2;
             btnDocGia.Text = "   Thành viên";
             btnDocGia.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -224,7 +225,7 @@
             btnQLSach.ImageAlign = ContentAlignment.MiddleLeft;
             btnQLSach.Location = new Point(0, 50);
             btnQLSach.Name = "btnQLSach";
-            btnQLSach.Size = new Size(182, 50);
+            btnQLSach.Size = new Size(218, 50);
             btnQLSach.TabIndex = 1;
             btnQLSach.Text = "   Sách";
             btnQLSach.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -242,7 +243,7 @@
             btnTrangChu.ImageAlign = ContentAlignment.MiddleLeft;
             btnTrangChu.Location = new Point(0, 0);
             btnTrangChu.Name = "btnTrangChu";
-            btnTrangChu.Size = new Size(182, 50);
+            btnTrangChu.Size = new Size(218, 50);
             btnTrangChu.TabIndex = 0;
             btnTrangChu.Text = "   Trang Chủ";
             btnTrangChu.TextAlign = ContentAlignment.MiddleLeft;
@@ -257,7 +258,7 @@
             panelUser.Dock = DockStyle.Top;
             panelUser.Location = new Point(0, 0);
             panelUser.Name = "panelUser";
-            panelUser.Size = new Size(182, 74);
+            panelUser.Size = new Size(218, 74);
             panelUser.TabIndex = 0;
             // 
             // labelUsername
@@ -267,7 +268,7 @@
             labelUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelUsername.Location = new Point(50, 0);
             labelUsername.Name = "labelUsername";
-            labelUsername.Size = new Size(132, 74);
+            labelUsername.Size = new Size(168, 74);
             labelUsername.TabIndex = 1;
             labelUsername.Text = "Ronaldo Messi Siuu";
             labelUsername.TextAlign = ContentAlignment.MiddleCenter;
@@ -288,20 +289,24 @@
             // panelContent
             // 
             panelContent.Dock = DockStyle.Fill;
-            panelContent.Location = new Point(184, 0);
+            panelContent.Location = new Point(220, 0);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(745, 592);
+            panelContent.Size = new Size(1060, 720);
             panelContent.TabIndex = 1;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(929, 592);
+            ClientSize = new Size(1280, 720);
             Controls.Add(panelContent);
             Controls.Add(panelNav);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "MainForm";
-            Text = "MainForm";
+            Text = "Phần mềm quản lý thư viện ";
             panelNav.ResumeLayout(false);
             panelLogout.ResumeLayout(false);
             panelMenu.ResumeLayout(false);

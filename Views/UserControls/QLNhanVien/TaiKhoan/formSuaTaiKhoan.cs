@@ -18,9 +18,11 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
     public partial class FormSuaTaiKhoan : Form
     {
         private string _idTaiKhoan;
+        private readonly VaiTroService _vaiTroService;
         public FormSuaTaiKhoan(string idTaiKhoan, string tenDangNhap, string matKhau)
         {
             InitializeComponent();
+    
             this.StartPosition = FormStartPosition.CenterParent;
 
             textBoxHVT.Text = tenDangNhap;
@@ -33,12 +35,22 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
                 var TaiKhoan = taiKhoanService.GetTaiKhoanById(int.Parse(_idTaiKhoan));
 
                 var repo = new Repository.VaiTroRepository(context);
-                var vaiTroService = new Services.VaiTroService(repo);
-                var vaiTroId = vaiTroService.GetVaiTroById(TaiKhoan.IdVaiTro);
-
-                textBoxVT.Text = vaiTroId.TenVaiTro;
+                _vaiTroService = new Services.VaiTroService(repo);
+                var vaiTroId = _vaiTroService.GetVaiTroById(TaiKhoan.IdVaiTro);
+                LoadVaiTro();
+                comboBoxVT.SelectedValue = TaiKhoan.IdVaiTro;
             }
         }
+
+        public void LoadVaiTro()
+        {
+            var listVaiTro = _vaiTroService.GetAllVaiTro();
+
+            comboBoxVT.DataSource = listVaiTro;
+            comboBoxVT.DisplayMember = "TenVaiTro";
+            comboBoxVT.ValueMember = "IdVaiTro";
+        }
+
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
@@ -58,6 +70,7 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
                 {
                     taiKhoan.TenTaiKhoan = tenDangNhap;
                     taiKhoan.MatKhau = matKhau;
+                    taiKhoan.IdVaiTro = (int)comboBoxVT.SelectedValue;
                     try
                     {
                         taiKhoanService.UpdateTaiKhoan(taiKhoan);

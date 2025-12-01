@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSuaTheThanhVien));
             labelTitle = new Label();
             panel1 = new Panel();
             tableLayoutPanelButtons = new TableLayoutPanel();
@@ -122,6 +123,7 @@
             // 
             // dateTimePickerNgayCap
             // 
+            dateTimePickerNgayCap.CalendarMonthBackground = Color.White;
             dateTimePickerNgayCap.Location = new Point(162, 116);
             dateTimePickerNgayCap.Margin = new Padding(3, 2, 3, 2);
             dateTimePickerNgayCap.Name = "dateTimePickerNgayCap";
@@ -147,6 +149,7 @@
             // 
             // textBoxIDKhachHang
             // 
+            textBoxIDKhachHang.BackColor = Color.White;
             textBoxIDKhachHang.Location = new Point(162, 74);
             textBoxIDKhachHang.Margin = new Padding(3, 2, 3, 2);
             textBoxIDKhachHang.Name = "textBoxIDKhachHang";
@@ -156,6 +159,7 @@
             // 
             // textBoxIDTheThanhVien
             // 
+            textBoxIDTheThanhVien.BackColor = Color.White;
             textBoxIDTheThanhVien.Location = new Point(162, 38);
             textBoxIDTheThanhVien.Margin = new Padding(3, 2, 3, 2);
             textBoxIDTheThanhVien.Name = "textBoxIDTheThanhVien";
@@ -225,6 +229,7 @@
             ClientSize = new Size(437, 416);
             Controls.Add(panel1);
             Controls.Add(labelTitle);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaTheThanhVien";
             Text = "FormSuaTheThanhVien";

@@ -32,6 +32,22 @@ namespace LMS.Services
             return _vaiTroRepository.Update(vaiTro);
         }
 
+        public void AssignQuyenToVaiTro(int idVaiTro, List<int> quyenIds)
+        {
+            if (idVaiTro <= 0)
+                throw new ArgumentException("Id vai trò không hợp lệ.");
+            if (quyenIds == null || !quyenIds.Any())
+                throw new ArgumentException("Danh sách quyền không được rỗng.");
+
+            // Kiểm tra tất cả quyenIds có tồn tại không (tùy chọn)
+            var allQuyenIds = _vaiTroRepository._context.Quyens.Select(q => q.IdQuyen).ToList();
+            var invalidIds = quyenIds.Where(id => !allQuyenIds.Contains(id)).ToList();
+            if (invalidIds.Any())
+                throw new ArgumentException($"Các quyền không tồn tại: {string.Join(", ", invalidIds)}");
+
+            _vaiTroRepository.AssignQuyenToVaiTro(idVaiTro, quyenIds);
+        }
+
         public VaiTro? DeleteVaiTro(int id) => _vaiTroRepository.DeleteById(id);
         public List<VaiTro> SearchVaiTro(string keyword) => _vaiTroRepository.search(keyword);
     }

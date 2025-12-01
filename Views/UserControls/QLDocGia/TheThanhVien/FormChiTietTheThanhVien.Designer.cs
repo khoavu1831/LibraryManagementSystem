@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChiTietTheThanhVien));
             labelTitle = new Label();
             panel1 = new Panel();
             btnQuayLai = new Button();
@@ -54,7 +55,7 @@
             labelTitle.Name = "labelTitle";
             labelTitle.Size = new Size(437, 94);
             labelTitle.TabIndex = 5;
-            labelTitle.Text = "CHI TIẾT THẺ THÀNH VIÊN";
+            labelTitle.Text = "THÔNG TIN THẺ THÀNH VIÊN";
             labelTitle.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
@@ -90,6 +91,8 @@
             // 
             // dateTimePickerNgayCap
             // 
+            dateTimePickerNgayCap.CalendarMonthBackground = Color.White;
+            dateTimePickerNgayCap.CustomFormat = "dd/MM/yyyy";
             dateTimePickerNgayCap.Enabled = false;
             dateTimePickerNgayCap.Location = new Point(162, 116);
             dateTimePickerNgayCap.Margin = new Padding(3, 2, 3, 2);
@@ -99,6 +102,8 @@
             // 
             // dateTimePickerNgayHetHan
             // 
+            dateTimePickerNgayHetHan.CalendarMonthBackground = Color.White;
+            dateTimePickerNgayHetHan.CustomFormat = "dd/MM/yyyy";
             dateTimePickerNgayHetHan.Enabled = false;
             dateTimePickerNgayHetHan.Location = new Point(162, 160);
             dateTimePickerNgayHetHan.Margin = new Padding(3, 2, 3, 2);
@@ -108,6 +113,7 @@
             // 
             // comboBoxTrangThai
             // 
+            comboBoxTrangThai.BackColor = Color.White;
             comboBoxTrangThai.Enabled = false;
             comboBoxTrangThai.FormattingEnabled = true;
             comboBoxTrangThai.Location = new Point(162, 200);
@@ -118,6 +124,7 @@
             // 
             // textBoxIDKhachHang
             // 
+            textBoxIDKhachHang.BackColor = Color.White;
             textBoxIDKhachHang.Location = new Point(162, 74);
             textBoxIDKhachHang.Margin = new Padding(3, 2, 3, 2);
             textBoxIDKhachHang.Name = "textBoxIDKhachHang";
@@ -127,6 +134,7 @@
             // 
             // textBoxIDTheThanhVien
             // 
+            textBoxIDTheThanhVien.BackColor = Color.White;
             textBoxIDTheThanhVien.Location = new Point(162, 38);
             textBoxIDTheThanhVien.Margin = new Padding(3, 2, 3, 2);
             textBoxIDTheThanhVien.Name = "textBoxIDTheThanhVien";
@@ -196,6 +204,7 @@
             ClientSize = new Size(437, 416);
             Controls.Add(panel1);
             Controls.Add(labelTitle);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietTheThanhVien";
             Text = "FormChiTietTheThanhVien";

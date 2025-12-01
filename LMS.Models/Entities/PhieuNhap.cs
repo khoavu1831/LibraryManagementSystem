@@ -21,6 +21,7 @@ namespace LMS.Entities
         [Precision(12, 2)]
         public decimal TongTienNhap { get; set; }
         public LoaiPhieuNhapEnum LoaiPhieuNhap { get; set; }
+        public TrangThaiEnum TrangThai { get; set; }
 
         [ForeignKey("IdNCC")]
         public NCC? NCC { get; set; }
@@ -33,6 +34,14 @@ namespace LMS.Entities
             Mua,
             [Display(Name = "Tặng")]
             Tang
+        }
+
+        public enum TrangThaiEnum
+        {
+            [Display(Name = "Đang hoạt động")]
+            DangHoatDong,
+            [Display(Name = "Đã hủy")]
+            DaHuy
         }
     }
 }

@@ -185,6 +185,7 @@
             // 
             dgvTheLoai.AccessibleRole = AccessibleRole.None;
             dgvTheLoai.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvTheLoai.BackgroundColor = SystemColors.ButtonHighlight;
             dgvTheLoai.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTheLoai.Dock = DockStyle.Fill;
             dgvTheLoai.Location = new Point(0, 72);

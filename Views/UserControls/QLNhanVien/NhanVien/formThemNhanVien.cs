@@ -18,6 +18,7 @@ namespace LMS.Views.UserControls.QLNhanVien
     {
         private readonly NhanVienService _nhanVienService;
         private readonly TaiKhoanService _taiKhoanService;
+        private readonly VaiTroService _vaiTroService;
         public FormThemNhanVien()
         {
             InitializeComponent();
@@ -29,6 +30,9 @@ namespace LMS.Views.UserControls.QLNhanVien
             _nhanVienService = new NhanVienService(nhanVienRepo);
             var taiKhoanRepo = new TaiKhoanRepository(context);
             _taiKhoanService = new TaiKhoanService(taiKhoanRepo);
+            var vaiTroRepo = new VaiTroRepository(context);
+            _vaiTroService = new VaiTroService(vaiTroRepo);
+            loadVaiTro();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -80,11 +84,12 @@ namespace LMS.Views.UserControls.QLNhanVien
             string diaChi = textBoxDC.Text;
             string sdt = textBoxSDT.Text;
             string email = textBoxEmail.Text;
+            int idVaiTro = (int)comboBoxVaiTro.SelectedValue;
             //_taiKhoanService.AddTaiKhoan(new Entities.TaiKhoan { IdVaiTro = 2,TenTaiKhoan = taiKhoan, MatKhau = matKhau });
             //_nhanVienService.AddNhanVien(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email});
             try
             {
-                _nhanVienService.AddNVTK(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email, NgaySinh = ngaySinh }, new Entities.TaiKhoan { IdVaiTro = 2, TenTaiKhoan = taiKhoan, MatKhau = matKhau });
+                _nhanVienService.AddNVTK(new Entities.NhanVien { TenNhanVien = tenNhanVien, DiaChi = diaChi, SDT = sdt, Email = email, NgaySinh = ngaySinh }, new Entities.TaiKhoan { IdVaiTro = idVaiTro, TenTaiKhoan = taiKhoan, MatKhau = matKhau });
                 MessageBox.Show("Thêm nhân viên thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
                 Close();
@@ -94,6 +99,19 @@ namespace LMS.Views.UserControls.QLNhanVien
                 MessageBox.Show($"{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        public void loadVaiTro()
+        {
+            var vaiTros = _vaiTroService.GetAllVaiTro();
+            comboBoxVaiTro.DataSource = vaiTros;
+            comboBoxVaiTro.DisplayMember = "TenVaiTro";
+            comboBoxVaiTro.ValueMember = "IdVaiTro";
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

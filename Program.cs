@@ -22,6 +22,7 @@ namespace LMS
                 {
                     // Nhận quyền từ LoginForm
                     var userPermissions = loginForm.UserPermissions;
+
                     Application.Run(new MainForm(userPermissions));
                 }
                 else

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTraSach));
             labelTitle = new Label();
             panelTop = new Panel();
             panelContent = new Panel();
@@ -220,6 +221,7 @@
             ClientSize = new Size(679, 587);
             Controls.Add(panelContent);
             Controls.Add(panelTop);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormTraSach";
             Text = "Trả sách";

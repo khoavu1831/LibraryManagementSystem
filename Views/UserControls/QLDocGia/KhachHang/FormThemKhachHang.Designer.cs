@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemKhachHang));
             labelTitle = new Label();
             label2 = new Label();
             label1 = new Label();
@@ -194,6 +195,8 @@
             // 
             // dateTimePickerDob
             // 
+            dateTimePickerDob.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerDob.Format = DateTimePickerFormat.Custom;
             dateTimePickerDob.Location = new Point(165, 213);
             dateTimePickerDob.Name = "dateTimePickerDob";
             dateTimePickerDob.Size = new Size(244, 23);
@@ -216,6 +219,7 @@
             Controls.Add(label1);
             Controls.Add(label2);
             Controls.Add(labelTitle);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemKhachHang";
             Text = "FormThemKhachHang";
