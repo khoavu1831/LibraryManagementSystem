@@ -1,15 +1,11 @@
 ﻿using LMS.Data;
-using LMS.Entities;
 using LMS.Repository;
 using LMS.Services;
-using LMS.Views.UserControls.QLSach;
+using LMS.Views.LMS.Utils.Helpers;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LMS.Views.UserControls.QLSach
@@ -73,9 +69,41 @@ namespace LMS.Views.UserControls.QLSach
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            using (var formSuaSach = new FormSuaSach())
+            if (dgvSach.SelectedRows.Count == 0)
             {
-                formSuaSach.ShowDialog(this);
+                MessageBox.Show("Vui lòng chọn 1 sách để sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvSach.SelectedRows[0];
+            var idSachFormat = selectedRow.Cells["IdSach"].Value?.ToString();
+            if (string.IsNullOrWhiteSpace(idSachFormat))
+            {
+                MessageBox.Show("Không xác định được sách cần sửa", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int idSach = Convert.ToInt32(idSachFormat.Substring(1));
+
+            using (var context = new LibraryDbContext())
+            {
+                var repo = new SachRepository(context);
+                var sachService = new SachService(repo);
+
+                var sach = sachService.GetSachById(idSach);
+                if (sach == null)
+                {
+                    MessageBox.Show("Không tìm thấy sách trong hệ thống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                using (var formSuaSach = new FormSuaSach(idSach))
+                {
+                    if (formSuaSach.ShowDialog(this) == DialogResult.OK)
+                    {
+                        LoadData();
+                    }
+                }
             }
         }
 
@@ -124,12 +152,11 @@ namespace LMS.Views.UserControls.QLSach
                     var sachService = new SachService(repo);
                     var sach = sachService.GetAllSach();
                     var chonSach = sach.Where(s => s.SoLuongBanSao == 0).ToList();
-                    MessageBox.Show(string.Join(", ", chonSach.Select(s => s.TenSach)));                 
+                    MessageBox.Show(string.Join(", ", chonSach.Select(s => s.TenSach)));
                 }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
-                
                 throw;
             }
         }
@@ -137,6 +164,93 @@ namespace LMS.Views.UserControls.QLSach
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new SachRepository(context);
+                    var sachService = new SachService(repo);
+
+                    var data = sachService.GetListExport();
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    var stream = ExportExcel.Export(data, "sach", Array.Empty<string>());
+                    stream.Position = 0;
+
+                    using (var sfd = new SaveFileDialog())
+                    {
+                        sfd.Filter = "Excel Workbook|*.xlsx";
+                        sfd.FileName = $"Sach_{DateTime.Now:yyyyMMddHHmmss}.xlsx";
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                            {
+                                stream.CopyTo(fileStream);
+                            }
+                            MessageBox.Show("Xuất Excel thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Xuất Excel thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnNhapExcel_Click(object sender, EventArgs e)
+        {
+            using (var ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Excel Workbook|*.xlsx";
+                ofd.Title = "Chọn file Excel chứa danh sách sách";
+
+                if (ofd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    var filePath = ofd.FileName;
+                    var data = ImportExcel.ReadSachFromFile(filePath);
+
+                    if (data.Count == 0)
+                    {
+                        MessageBox.Show("File không có dữ liệu hoặc không đọc được.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    using (var context = new LibraryDbContext())
+                    {
+                        var repo = new SachRepository(context);
+                        var sachService = new SachService(repo);
+
+                        var errors = sachService.ImportFromExcel(data);
+                        var successCount = data.Count - errors.Count;
+
+                        var message = $"Import hoàn tất.\nThành công: {successCount}\nLỗi: {errors.Count}";
+                        if (errors.Count > 0)
+                        {
+                            message += "\n\nChi tiết lỗi:\n" + string.Join("\n", errors);
+                        }
+
+                        MessageBox.Show(message, "Kết quả import", MessageBoxButtons.OK, errors.Count > 0 ? MessageBoxIcon.Warning : MessageBoxIcon.Information);
+                    }
+
+                    LoadData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Nhập Excel thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

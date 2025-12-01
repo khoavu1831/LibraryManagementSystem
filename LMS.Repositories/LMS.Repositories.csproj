@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LMS.Data\LMS.Data.csproj" />
+    <ProjectReference Include="..\LMS.Models\LMS.Models.csproj" />
   </ItemGroup>
 
 </Project>

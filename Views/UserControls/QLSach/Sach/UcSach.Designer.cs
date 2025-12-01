@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelCRUD = new Panel();
+            btnNhapExcel = new Button();
             panelSearch = new TableLayoutPanel();
             btnTimKiem = new Button();
             txtBoxTimKiem = new TextBox();
@@ -47,6 +48,7 @@
             // panelCRUD
             // 
             panelCRUD.BackColor = Color.White;
+            panelCRUD.Controls.Add(btnNhapExcel);
             panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnExcel);
             panelCRUD.Controls.Add(btnChiTiet);
@@ -56,8 +58,25 @@
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
             panelCRUD.Name = "panelCRUD";
-            panelCRUD.Size = new Size(774, 72);
+            panelCRUD.Size = new Size(907, 72);
             panelCRUD.TabIndex = 0;
+            // 
+            // btnNhapExcel
+            // 
+            btnNhapExcel.BackColor = Color.White;
+            btnNhapExcel.Dock = DockStyle.Left;
+            btnNhapExcel.FlatAppearance.BorderSize = 0;
+            btnNhapExcel.FlatStyle = FlatStyle.Flat;
+            btnNhapExcel.Image = Properties.Resources.iconExc;
+            btnNhapExcel.Location = new Point(385, 0);
+            btnNhapExcel.Margin = new Padding(0);
+            btnNhapExcel.Name = "btnNhapExcel";
+            btnNhapExcel.Size = new Size(77, 72);
+            btnNhapExcel.TabIndex = 10;
+            btnNhapExcel.Text = "Nhập Excel";
+            btnNhapExcel.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnNhapExcel.UseVisualStyleBackColor = false;
+            btnNhapExcel.Click += btnNhapExcel_Click;
             // 
             // panelSearch
             // 
@@ -69,7 +88,7 @@
             panelSearch.Controls.Add(txtBoxTimKiem, 1, 0);
             panelSearch.Controls.Add(btnLamMoi, 2, 0);
             panelSearch.Dock = DockStyle.Right;
-            panelSearch.Location = new Point(426, 0);
+            panelSearch.Location = new Point(559, 0);
             panelSearch.Name = "panelSearch";
             panelSearch.RowCount = 1;
             panelSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -129,6 +148,7 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
+            btnExcel.Click += btnExcel_Click;
             // 
             // btnChiTiet
             // 
@@ -207,7 +227,7 @@
             dgvSach.Dock = DockStyle.Fill;
             dgvSach.Location = new Point(0, 72);
             dgvSach.Name = "dgvSach";
-            dgvSach.Size = new Size(774, 491);
+            dgvSach.Size = new Size(907, 491);
             dgvSach.TabIndex = 1;
             // 
             // UcSach
@@ -217,7 +237,7 @@
             Controls.Add(dgvSach);
             Controls.Add(panelCRUD);
             Name = "UcSach";
-            Size = new Size(774, 563);
+            Size = new Size(907, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
@@ -238,5 +258,6 @@
         private Button btnTimKiem;
         private TextBox txtBoxTimKiem;
         private Button btnThem;
+        private Button btnNhapExcel;
     }
 }
