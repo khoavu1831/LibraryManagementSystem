@@ -69,7 +69,7 @@
             // 
             panelLogout.Controls.Add(btnLogout);
             panelLogout.Dock = DockStyle.Bottom;
-            panelLogout.Location = new Point(0, 668);
+            panelLogout.Location = new Point(0, 666);
             panelLogout.Name = "panelLogout";
             panelLogout.Size = new Size(218, 52);
             panelLogout.TabIndex = 2;
@@ -102,7 +102,7 @@
             panelMenu.Dock = DockStyle.Fill;
             panelMenu.Location = new Point(0, 74);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(218, 594);
+            panelMenu.Size = new Size(218, 644);
             panelMenu.TabIndex = 1;
             // 
             // btnQLThongKe
@@ -136,7 +136,7 @@
             buttonQLNhanVien.Name = "buttonQLNhanVien";
             buttonQLNhanVien.Size = new Size(218, 50);
             buttonQLNhanVien.TabIndex = 6;
-            buttonQLNhanVien.Text = "   Nhân Viên";
+            buttonQLNhanVien.Text = "Người dùng";
             buttonQLNhanVien.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonQLNhanVien.UseVisualStyleBackColor = false;
             buttonQLNhanVien.Click += buttonQLNhanVien_Click;
