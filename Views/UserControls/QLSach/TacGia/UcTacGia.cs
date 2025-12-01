@@ -29,6 +29,11 @@ namespace LMS.Views.UserControls.QLSach
             btnXoa.Visible = canDelete;
             btnChiTiet.Visible = canViewDetails;
 
+            dgvTacGia.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvTacGia.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvTacGia.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvTacGia.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
 
@@ -39,9 +44,24 @@ namespace LMS.Views.UserControls.QLSach
                 using (var context = new LibraryDbContext())
                 {
                     var repo = new TacGiaRepository(context);
-                    var _tacGiaService = new TacGiaService(repo);
-                    var data = _tacGiaService.GetAllTacGia();
-                    dgvTacGia.DataSource = data;
+                    var tacGiaService = new TacGiaService(repo);
+                    var data = tacGiaService.GetAllTacGia();
+                    var dataView = data.Select(tg => new
+                    {
+                        tg.IdTacGia,
+                        tg.TenTacGia,
+                        tg.NgaySinh,
+                        tg.NoiSinh,
+                        tg.SDT
+                    }).ToList();
+
+                    dgvTacGia.DataSource = dataView;
+
+                    dgvTacGia.Columns["IdTacGia"].HeaderText = "Mã tác giả";
+                    dgvTacGia.Columns["TenTacGia"].HeaderText = "Tên tác giả";
+                    dgvTacGia.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+                    dgvTacGia.Columns["NoiSinh"].HeaderText = "Nơi sinh";
+                    dgvTacGia.Columns["SDT"].HeaderText = "Số điện thoại";
                 }
             }
             catch (Exception ex)
@@ -156,11 +176,30 @@ namespace LMS.Views.UserControls.QLSach
                     var tacGiaService = new TacGiaService(repo);
 
                     var data = tacGiaService.SearchTacGia(keyword);
-                    if (data.Count == 0)
+
+                    var dataView = data.Select(tg => new
+                    {
+                        tg.IdTacGia,
+                        tg.TenTacGia,
+                        tg.NgaySinh,
+                        tg.NoiSinh,
+                        tg.SDT
+                    }).ToList();
+
+                    if (dataView.Count == 0)
                     {
                         MessageBox.Show("Không tìm thấy tác giả nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
                     }
-                    dgvTacGia.DataSource = data;
+
+                    dgvTacGia.DataSource = dataView;
+
+                    dgvTacGia.Columns["IdTacGia"].HeaderText = "Mã tác giả";
+                    dgvTacGia.Columns["TenTacGia"].HeaderText = "Tên tác giả";
+                    dgvTacGia.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+                    dgvTacGia.Columns["NoiSinh"].HeaderText = "Nơi sinh";
+                    dgvTacGia.Columns["SDT"].HeaderText = "Số điện thoại";
                 }
             }
             catch (Exception ex)
@@ -168,6 +207,7 @@ namespace LMS.Views.UserControls.QLSach
                 MessageBox.Show($"Lỗi\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnExcel_Click(object sender, EventArgs e)
         {

@@ -35,13 +35,14 @@ namespace LMS.Repository
             if (!string.IsNullOrEmpty(keyword))
             {
                 query = query.Where(bss =>
-            bss.Sach!.TenSach.ToLower().Contains(keyword.ToLower()));
+            bss.Sach!.TenSach!.ToLower().Contains(keyword.ToLower()) ||
+            bss.TinhTrangSach.ToString().ToLower().Contains(keyword.ToLower()));
             }
 
-            // Phân trang
+            // Phï¿½n trang
             return query
-                .Skip((page - 1) * pageSize) // b? các b?n ghi tr??c trang hi?n t?i
-                .Take(pageSize)              // l?y ?úng s? b?n ghi m?i trang
+                .Skip((page - 1) * pageSize) // b? cï¿½c b?n ghi tr??c trang hi?n t?i
+                .Take(pageSize)              // l?y ?ï¿½ng s? b?n ghi m?i trang
                 .ToList();
         }
         public BanSaoSach Add(BanSaoSach banSaoSach)
