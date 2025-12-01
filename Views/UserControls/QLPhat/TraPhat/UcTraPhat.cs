@@ -16,6 +16,8 @@ namespace LMS.Views.UserControls.QLPhat
         {
             InitializeComponent();
             //thêm sau nếu có phân quyền
+            var btnChiTiet1 = permissions.Contains("TRAPHAT_VIEW");
+            btnChiTiet.Visible = btnChiTiet1;
         }
 
         private void btnChiTiet_Click(object sender, EventArgs e)

@@ -21,9 +21,9 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
             var canEdit = permissions.Contains("TAIKHOAN_EDIT");
             var canDelete = permissions.Contains("TAIKHOAN_DELETE");
             var canViewDetails = permissions.Contains("TAIKHOAN_VIEW");
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
 
             LoadData();
         }

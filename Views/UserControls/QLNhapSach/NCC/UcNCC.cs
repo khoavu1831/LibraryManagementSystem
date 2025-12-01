@@ -1,6 +1,7 @@
 ﻿using LMS.Data;
 using LMS.Repository;
 using LMS.Services;
+using LMS.Views.LMS.Utils.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,10 @@ namespace LMS.Views.UserControls.QLNhapSach
             var canEdit = permissions.Contains("NHACUNGCAP_EDIT");
             var canDelete = permissions.Contains("NHACUNGCAP_DELETE");
             var canViewDetails = permissions.Contains("NHACUNGCAP_VIEW");
-            var canExport = permissions.Contains("NHACUNGCAP_EXPORT");
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
-            btnExcel.Enabled = canExport;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
             LoadData();
         }
         private void LoadData()
@@ -161,6 +160,45 @@ namespace LMS.Views.UserControls.QLNhapSach
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new NCCRepository(context);
+                    var nccService = new NCCService(repo);
+                    var data = nccService.GetAllNCC(); // List<NCC>
+
+                    // Xuất Excel, loại trừ các navigation properties nếu có (tương tự NhanVien)
+                    // Giả sử NCC có navigation properties như "PhieuNhap" hoặc tương tự, điều chỉnh nếu cần
+                    var stream = ExportExcel.Export(
+                        data,
+                        "NCC",
+                        new string[] { "PhieuNhaps" } // Thêm tên navigation properties cần loại trừ nếu có
+                    );
+                    stream.Position = 0;
+                    using (SaveFileDialog sfd = new SaveFileDialog())
+                    {
+                        sfd.Filter = "Excel Workbook|*.xlsx";
+                        sfd.FileName = "NhaCungCap.xlsx";
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                            {
+                                stream.CopyTo(fileStream);
+                            }
+                            MessageBox.Show("Xuất Excel thành công!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Xuất Excel thất bại.\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

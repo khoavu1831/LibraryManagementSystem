@@ -23,10 +23,10 @@ namespace LMS.Views.UserControls.QLSach
             var canEdit = permissions.Contains("SACH_EDIT");
             var canDelete = permissions.Contains("SACH_DELETE");
             var canViewDetails = permissions.Contains("SACH_VIEW");
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
 
             LoadData();
         }
