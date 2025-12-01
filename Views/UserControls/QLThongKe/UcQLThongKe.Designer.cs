@@ -48,8 +48,9 @@
             panelNavMenu.Controls.Add(btnThanhVien);
             panelNavMenu.Dock = DockStyle.Top;
             panelNavMenu.Location = new Point(0, 0);
+            panelNavMenu.Margin = new Padding(3, 2, 3, 2);
             panelNavMenu.Name = "panelNavMenu";
-            panelNavMenu.Size = new Size(984, 89);
+            panelNavMenu.Size = new Size(1060, 67);
             panelNavMenu.TabIndex = 1;
             // 
             // btnChung
@@ -58,11 +59,10 @@
             btnChung.Dock = DockStyle.Left;
             btnChung.FlatStyle = FlatStyle.Flat;
             btnChung.Location = new Point(508, 0);
-            btnChung.Margin = new Padding(3, 4, 3, 4);
             btnChung.Name = "btnChung";
-            btnChung.Size = new Size(127, 89);
+            btnChung.Size = new Size(111, 67);
             btnChung.TabIndex = 5;
-            btnChung.Text = "Chung";
+            btnChung.Text = "Sách hot";
             btnChung.UseVisualStyleBackColor = false;
             btnChung.Click += btnChung_Click;
             // 
@@ -71,10 +71,9 @@
             btnSachMuon.BackColor = Color.White;
             btnSachMuon.Dock = DockStyle.Left;
             btnSachMuon.FlatStyle = FlatStyle.Flat;
-            btnSachMuon.Location = new Point(381, 0);
-            btnSachMuon.Margin = new Padding(3, 4, 3, 4);
+            btnSachMuon.Location = new Point(397, 0);
             btnSachMuon.Name = "btnSachMuon";
-            btnSachMuon.Size = new Size(127, 89);
+            btnSachMuon.Size = new Size(111, 67);
             btnSachMuon.TabIndex = 4;
             btnSachMuon.Text = "Sách mượn";
             btnSachMuon.UseVisualStyleBackColor = false;
@@ -85,12 +84,11 @@
             btnSachNhap.BackColor = Color.White;
             btnSachNhap.Dock = DockStyle.Left;
             btnSachNhap.FlatStyle = FlatStyle.Flat;
-            btnSachNhap.Location = new Point(254, 0);
-            btnSachNhap.Margin = new Padding(3, 4, 3, 4);
+            btnSachNhap.Location = new Point(273, 0);
             btnSachNhap.Name = "btnSachNhap";
-            btnSachNhap.Size = new Size(127, 89);
+            btnSachNhap.Size = new Size(124, 67);
             btnSachNhap.TabIndex = 3;
-            btnSachNhap.Text = "Sách nhập";
+            btnSachNhap.Text = "Thống kê phí phạt";
             btnSachNhap.UseVisualStyleBackColor = false;
             btnSachNhap.Click += btnSachNhap_Click;
             // 
@@ -99,12 +97,11 @@
             btnPhieuPhat.BackColor = Color.White;
             btnPhieuPhat.Dock = DockStyle.Left;
             btnPhieuPhat.FlatStyle = FlatStyle.Flat;
-            btnPhieuPhat.Location = new Point(127, 0);
-            btnPhieuPhat.Margin = new Padding(3, 4, 3, 4);
+            btnPhieuPhat.Location = new Point(111, 0);
             btnPhieuPhat.Name = "btnPhieuPhat";
-            btnPhieuPhat.Size = new Size(127, 89);
+            btnPhieuPhat.Size = new Size(162, 67);
             btnPhieuPhat.TabIndex = 2;
-            btnPhieuPhat.Text = "Phiếu phạt";
+            btnPhieuPhat.Text = "Thống kê mượn - trả sách";
             btnPhieuPhat.UseVisualStyleBackColor = false;
             btnPhieuPhat.Click += btnPhieuPhat_Click;
             // 
@@ -114,31 +111,30 @@
             btnThanhVien.Dock = DockStyle.Left;
             btnThanhVien.FlatStyle = FlatStyle.Flat;
             btnThanhVien.Location = new Point(0, 0);
-            btnThanhVien.Margin = new Padding(3, 4, 3, 4);
             btnThanhVien.Name = "btnThanhVien";
-            btnThanhVien.Size = new Size(127, 89);
+            btnThanhVien.Size = new Size(111, 67);
             btnThanhVien.TabIndex = 1;
-            btnThanhVien.Text = "Thành viên";
+            btnThanhVien.Text = "Thống kê sách";
             btnThanhVien.UseVisualStyleBackColor = false;
             btnThanhVien.Click += btnThanhVien_Click;
             // 
             // panelSubContent
             // 
             panelSubContent.Dock = DockStyle.Fill;
-            panelSubContent.Location = new Point(0, 89);
-            panelSubContent.Margin = new Padding(3, 4, 3, 4);
+            panelSubContent.Location = new Point(0, 67);
             panelSubContent.Name = "panelSubContent";
-            panelSubContent.Size = new Size(984, 723);
+            panelSubContent.Size = new Size(1060, 653);
             panelSubContent.TabIndex = 3;
             // 
             // UcQLThongKe
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelSubContent);
             Controls.Add(panelNavMenu);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UcQLThongKe";
-            Size = new Size(984, 812);
+            Size = new Size(1060, 720);
             panelNavMenu.ResumeLayout(false);
             ResumeLayout(false);
         }
