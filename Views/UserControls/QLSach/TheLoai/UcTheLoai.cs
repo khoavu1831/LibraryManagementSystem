@@ -1,6 +1,7 @@
 ﻿using LMS.Data;
 using LMS.Repository;
 using LMS.Services;
+using LMS.Views.LMS.Utils.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace LMS.Views.UserControls.QLSach
             var canAdd = permissions.Contains("THELOAI_ADD");
             var canEdit = permissions.Contains("THELOAI_EDIT");
             var canDelete = permissions.Contains("THELOAI_DELETE");
-            
+
             btnThem.Enabled = canAdd;
             btnSua.Enabled = canEdit;
             btnXoa.Enabled = canDelete;
@@ -133,6 +134,44 @@ namespace LMS.Views.UserControls.QLSach
             catch (Exception ex)
             {
                 MessageBox.Show($"Lỗi\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new TheLoaiRepository(context);
+                    var theLoaiService = new TheLoaiService(repo);
+                    var data = theLoaiService.GetAllTheLoai(); // List<TheLoai>
+
+                    // Xuất Excel, loại trừ các navigation properties nếu có (ví dụ: "Sachs" nếu liên kết với sách)
+                    var stream = ExportExcel.Export(
+                        data,
+                        "TheLoai",
+                        new string[] { "Sachs" } // Thêm tên navigation properties cần loại trừ nếu có
+                    );
+                    stream.Position = 0;
+                    using (SaveFileDialog sfd = new SaveFileDialog())
+                    {
+                        sfd.Filter = "Excel Workbook|*.xlsx";
+                        sfd.FileName = "TheLoai.xlsx";
+                        if (sfd.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
+                            {
+                                stream.CopyTo(fileStream);
+                            }
+                            MessageBox.Show("Xuất Excel thành công!");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Xuất Excel thất bại.\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
