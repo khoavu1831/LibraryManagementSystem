@@ -30,7 +30,6 @@
         {
             panelNavMenu = new Panel();
             btnMucPhat = new Button();
-            btnTraPhat = new Button();
             btnPhat = new Button();
             panelSubContent = new Panel();
             panelNavMenu.SuspendLayout();
@@ -40,7 +39,6 @@
             // 
             panelNavMenu.BackColor = Color.White;
             panelNavMenu.Controls.Add(btnMucPhat);
-            panelNavMenu.Controls.Add(btnTraPhat);
             panelNavMenu.Controls.Add(btnPhat);
             panelNavMenu.Dock = DockStyle.Top;
             panelNavMenu.Location = new Point(0, 0);
@@ -53,28 +51,13 @@
             btnMucPhat.BackColor = Color.White;
             btnMucPhat.Dock = DockStyle.Left;
             btnMucPhat.FlatStyle = FlatStyle.Flat;
-            btnMucPhat.Location = new Point(222, 0);
+            btnMucPhat.Location = new Point(111, 0);
             btnMucPhat.Name = "btnMucPhat";
             btnMucPhat.Size = new Size(111, 67);
             btnMucPhat.TabIndex = 2;
             btnMucPhat.Text = "Mức Phạt";
             btnMucPhat.UseVisualStyleBackColor = false;
             btnMucPhat.Click += btnMucPhat_Click;
-            // 
-            // btnTraPhat
-            // 
-            btnTraPhat.BackColor = Color.White;
-            btnTraPhat.Dock = DockStyle.Left;
-            btnTraPhat.Enabled = false;
-            btnTraPhat.FlatStyle = FlatStyle.Flat;
-            btnTraPhat.Location = new Point(111, 0);
-            btnTraPhat.Name = "btnTraPhat";
-            btnTraPhat.Size = new Size(111, 67);
-            btnTraPhat.TabIndex = 1;
-            btnTraPhat.Text = "Trả Phạt";
-            btnTraPhat.UseVisualStyleBackColor = false;
-            btnTraPhat.Visible = false;
-            btnTraPhat.Click += btnTraPhat_Click;
             // 
             // btnPhat
             // 
@@ -114,7 +97,6 @@
 
         private Panel panelNavMenu;
         private Button btnMucPhat;
-        private Button btnTraPhat;
         private Button btnPhat;
         private Panel panelSubContent;
     }

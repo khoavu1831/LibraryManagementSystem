@@ -36,9 +36,9 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
             var canEdit = permissions.Contains("THETHANHVIEN_EDIT");
             var canDelete = permissions.Contains("THETHANHVIEN_DELETE");
             var canViewDetails = permissions.Contains("THETHANHVIEN_VIEW");
-            btnSua.Enabled = canEdit;
-            btnChiTiet.Enabled = canViewDetails;
-            btnXoa.Enabled = canDelete;
+            btnSua.Visible = canEdit;
+            btnChiTiet.Visible = canViewDetails;
+            btnXoa.Visible = canDelete;
         }
 
 

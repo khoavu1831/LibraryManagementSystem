@@ -28,11 +28,11 @@ namespace LMS.Views.UserControls.QLPhat
             var canDelete = permissions.Contains("MUC_PHAT_DELETE");
             var canViewDetails = permissions.Contains("MUC_PHAT_VIEW");
             var canExport = permissions.Contains("MUC_PHAT_EXPORT");
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
-            btnExcel.Enabled = canExport;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
+            btnExcel.Visible = canExport;
             LoadData();
         }
 

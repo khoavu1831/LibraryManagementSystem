@@ -26,11 +26,11 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
             var canDelete = permissions.Contains("NHANVIEN_DELETE");
             var canViewDetails = permissions.Contains("NHANVIEN_VIEW");
             var canExport = permissions.Contains("NHANVIEN_EXPORT");
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
-            btnExcel.Enabled = canExport;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
+            btnExcel.Visible = canExport;
             LoadData();
         }
 

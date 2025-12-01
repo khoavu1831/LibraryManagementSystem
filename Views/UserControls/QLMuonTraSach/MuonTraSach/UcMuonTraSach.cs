@@ -33,10 +33,10 @@ namespace LMS.Views.UserControls.QLMuonTraSach
             var canDelete = permissions.Contains("MUONTRA_CANCEL");
             var canViewDetails = permissions.Contains("MUONTRA_VIEW");
             var canExport = permissions.Contains("MUONTRA_EXPORT");
-            btnThem.Enabled = canAdd;
-            btnHuy.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
-            btnListHuy.Enabled = canExport;
+            btnThem.Visible = canAdd;
+            btnHuy.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
+            btnListHuy.Visible = canExport;
             LoadData();
         }
         private void LoadData(string? trangThai = null)

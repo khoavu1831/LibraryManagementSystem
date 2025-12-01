@@ -128,6 +128,7 @@
             btnExcel.Text = "Xuất Excel";
             btnExcel.TextImageRelation = TextImageRelation.ImageAboveText;
             btnExcel.UseVisualStyleBackColor = false;
+            btnExcel.Click += btnExcel_Click;
             // 
             // btnXoa
             // 

@@ -19,8 +19,8 @@ namespace LMS.Views.UserControls.QLSach
             InitializeComponent();
             var canEdit = permissions.Contains("SACH_BANSAO_EDIT");
             var canDelete = permissions.Contains("SACH_BANSAO_DELETE");
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
             LoadData();
         }
 

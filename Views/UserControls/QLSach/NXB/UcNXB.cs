@@ -26,10 +26,10 @@ namespace LMS.Views.UserControls.QLSach
             var canDelete = permissions.Contains("NHAXUATBAN_DELETE");
             var canViewDetails = permissions.Contains("NHAXUATBAN_VIEW");
 
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnSua.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnSua.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
             LoadData();
         }
         private void LoadData()

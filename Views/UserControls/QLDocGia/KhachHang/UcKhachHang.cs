@@ -43,11 +43,11 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
             var canDelete = permissions.Contains("KHACHHANG_DELETE");
             var canViewDetails = permissions.Contains("KHACHHANG_VIEW");
             var canExport = permissions.Contains("KHACHHANG_EXPORT");
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
-            btnExcel.Enabled = canExport;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
+            btnExcel.Visible = canExport;
 
         }
 

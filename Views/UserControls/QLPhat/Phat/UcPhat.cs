@@ -37,10 +37,10 @@ namespace LMS.Views.UserControls.QLPhat
             var canViewDetails = permissions.Contains("PHAT_VIEW");
             var canExportExcel = permissions.Contains("PHAT_EXPORT");
 
-            btnDSThu.Enabled = canCollected;
-            btnHuy.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
-            btnExcel.Enabled = canExportExcel;
+            btnDSThu.Visible = canCollected;
+            btnHuy.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
+            btnExcel.Visible = canExportExcel;
             LoadData();
             // Event handlers cho các nút lọc
             btnDSThu.Click += btnDSThu_Click;

@@ -36,11 +36,11 @@ namespace LMS.Views.UserControls.QLNhapSach
             var canDelete = permissions.Contains("NHAPSACH_CANCEL");
             var canViewDetails = permissions.Contains("NHAPSACH_VIEW");
             var canExport = permissions.Contains("NHAPSACH_EXPORT");
-            btnThem.Enabled = canAdd;
-            btnChiTiet.Enabled = canViewDetails;
-            btnXoa.Enabled = canDelete;
-            btnLamMoi.Enabled = true;
-            btnExcel.Enabled = canExport;
+            btnThem.Visible = canAdd;
+            btnChiTiet.Visible = canViewDetails;
+            btnXoa.Visible = canDelete;
+            btnLamMoi.Visible = true;
+            btnExcel.Visible = canExport;
             LoadData();
         }
 
