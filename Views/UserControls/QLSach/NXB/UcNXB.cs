@@ -30,6 +30,12 @@ namespace LMS.Views.UserControls.QLSach
             btnSua.Visible = canEdit;
             btnSua.Visible = canDelete;
             btnChiTiet.Visible = canViewDetails;
+
+            dgvNXB.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvNXB.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvNXB.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvNXB.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
         private void LoadData()
@@ -41,7 +47,20 @@ namespace LMS.Views.UserControls.QLSach
                     var repo = new NXBRepository(context);
                     var nxbService = new NXBService(repo);
                     var data = nxbService.GetAllNXB();
-                    dgvNXB.DataSource = data;
+                    var dataView = data.Select(nxb => new
+                    {
+                        nxb.IdNXB,
+                        nxb.TenNXB,
+                        nxb.DiaChi,
+                        nxb.SDT
+                    }).ToList();
+
+                    dgvNXB.DataSource = dataView;
+
+                    dgvNXB.Columns["IdNXB"].HeaderText = "Mã NXB";
+                    dgvNXB.Columns["TenNXB"].HeaderText = "Tên NXB";
+                    dgvNXB.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                    dgvNXB.Columns["SDT"].HeaderText = "Số điện thoại";
                 }
             }
             catch (Exception ex)
@@ -153,11 +172,28 @@ namespace LMS.Views.UserControls.QLSach
                     var nxbService = new NXBService(repo);
 
                     var data = nxbService.SearchNXB(keyword);
-                    if (data.Count == 0)
+
+                    var dataView = data.Select(nxb => new
+                    {
+                        nxb.IdNXB,
+                        nxb.TenNXB,
+                        nxb.DiaChi,
+                        nxb.SDT
+                    }).ToList();
+
+                    if (dataView.Count == 0)
                     {
                         MessageBox.Show("Không tìm thấy nhà xuất bản nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
                     }
-                    dgvNXB.DataSource = data;
+
+                    dgvNXB.DataSource = dataView;
+
+                    dgvNXB.Columns["IdNXB"].HeaderText = "Mã NXB";
+                    dgvNXB.Columns["TenNXB"].HeaderText = "Tên NXB";
+                    dgvNXB.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                    dgvNXB.Columns["SDT"].HeaderText = "Số điện thoại";
                 }
             }
             catch (Exception ex)
@@ -165,6 +201,7 @@ namespace LMS.Views.UserControls.QLSach
                 MessageBox.Show($"Lỗi\n[{ex.Message}]", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void btnExcel_Click(object sender, EventArgs e)
         {
             try

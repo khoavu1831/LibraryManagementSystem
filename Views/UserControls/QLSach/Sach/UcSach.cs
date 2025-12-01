@@ -24,6 +24,11 @@ namespace LMS.Views.UserControls.QLSach
             btnXoa.Visible = canDelete;
             btnChiTiet.Visible = canViewDetails;
 
+            dgvSach.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvSach.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvSach.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
         private void LoadData()
@@ -34,9 +39,9 @@ namespace LMS.Views.UserControls.QLSach
                 {
                     var repo = new SachRepository(context);
                     var sachService = new SachService(repo);
-                    var sachList = sachService.GetAllSach();
+                    var data = sachService.GetAllSach();
 
-                    var sachDataView = sachList.Select(s => new
+                    var dataView = data.Select(s => new
                     {
                         IdSach = s.IdSachFormat,
                         TenSach = s.TenSach,
@@ -46,8 +51,16 @@ namespace LMS.Views.UserControls.QLSach
                         NamXuatBan = s.NamXuatBan,
                         SoLuongBanSao = s.SoLuongBanSao
                     }).ToList();
+                    
+                    dgvSach.DataSource = dataView;
 
-                    dgvSach.DataSource = sachDataView;
+                    dgvSach.Columns["IdSach"].HeaderText = "Mã sách";
+                    dgvSach.Columns["TenSach"].HeaderText = "Tên sách";
+                    dgvSach.Columns["NXB"].HeaderText = "Nhà xuất bản";
+                    dgvSach.Columns["TheLoai"].HeaderText = "Thể loại";
+                    dgvSach.Columns["TacGia"].HeaderText = "Tác giả";
+                    dgvSach.Columns["NamXuatBan"].HeaderText = "Năm xuất bản";
+                    dgvSach.Columns["SoLuongBanSao"].HeaderText = "Số lượng bản sao";
                 }
             }
             catch (Exception ex)
