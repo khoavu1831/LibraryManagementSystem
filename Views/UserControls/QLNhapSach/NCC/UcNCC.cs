@@ -23,10 +23,10 @@ namespace LMS.Views.UserControls.QLNhapSach
             var canEdit = permissions.Contains("NHACUNGCAP_EDIT");
             var canDelete = permissions.Contains("NHACUNGCAP_DELETE");
             var canViewDetails = permissions.Contains("NHACUNGCAP_VIEW");
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
             LoadData();
         }
         private void LoadData()

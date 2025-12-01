@@ -24,10 +24,10 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
             var canEdit = permissions.Contains("VAITRO_EDIT");
             var canDelete = permissions.Contains("VAITRO_DELETE");
             var canViewDetails = permissions.Contains("VAITRO_VIEW");
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
-            btnChiTiet.Enabled = canViewDetails;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
+            btnChiTiet.Visible = canViewDetails;
 
             LoadData();
         }

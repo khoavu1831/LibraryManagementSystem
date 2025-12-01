@@ -148,14 +148,14 @@ namespace LMS.Views.Forms
 
                 "ThanhVien" => _userPermissions.Any(p =>
                     p.StartsWith("KHACHHANG_") ||
-                    p.StartsWith("THE_THANHVIEN_") ||
                     p.StartsWith("THETHANHVIEN_")),
 
                 "MuonTraSach" => _userPermissions.Any(p => p.StartsWith("MUONTRA_")),
 
                 "Phat" => _userPermissions.Any(p =>
                     p.StartsWith("PHAT_") ||
-                    p.StartsWith("MUC_PHAT_")),
+                    p.StartsWith("MUC_PHAT_")||
+                    p.StartsWith("TRAPHAT_")),
 
                 "NhapSach" => _userPermissions.Any(p =>
                     p.StartsWith("NHAPSACH_") ||
@@ -216,6 +216,7 @@ namespace LMS.Views.Forms
             {
                 LoadUserControl(_ucQLPhat);
                 HighlightButton((Button)sender);
+
             }
         }
 

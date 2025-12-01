@@ -51,7 +51,7 @@
             btnMuonTraSach.TabIndex = 0;
             btnMuonTraSach.Text = "Mượn Trả Sách";
             btnMuonTraSach.UseVisualStyleBackColor = false;
-            btnMuonTraSach.Click += btnMuonSach_Click;
+            //btnMuonTraSach.Click += btnMuonTraSach_Click;
             // 
             // panelSubContent
             // 

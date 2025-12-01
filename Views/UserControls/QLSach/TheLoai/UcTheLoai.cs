@@ -23,9 +23,9 @@ namespace LMS.Views.UserControls.QLSach
             var canEdit = permissions.Contains("THELOAI_EDIT");
             var canDelete = permissions.Contains("THELOAI_DELETE");
 
-            btnThem.Enabled = canAdd;
-            btnSua.Enabled = canEdit;
-            btnXoa.Enabled = canDelete;
+            btnThem.Visible = canAdd;
+            btnSua.Visible = canEdit;
+            btnXoa.Visible = canDelete;
             LoadData();
         }
         private void LoadData()
