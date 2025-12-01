@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panelCRUD = new Panel();
+            buttonNhapExcel = new Button();
             btnExcel = new Button();
             btnChiTiet = new Button();
             btnListHuy = new Button();
@@ -52,6 +53,7 @@
             // panelCRUD
             // 
             panelCRUD.BackColor = Color.White;
+            panelCRUD.Controls.Add(buttonNhapExcel);
             panelCRUD.Controls.Add(btnExcel);
             panelCRUD.Controls.Add(btnChiTiet);
             panelCRUD.Controls.Add(btnListHuy);
@@ -61,8 +63,25 @@
             panelCRUD.Dock = DockStyle.Top;
             panelCRUD.Location = new Point(0, 0);
             panelCRUD.Name = "panelCRUD";
-            panelCRUD.Size = new Size(774, 72);
+            panelCRUD.Size = new Size(972, 72);
             panelCRUD.TabIndex = 0;
+            // 
+            // buttonNhapExcel
+            // 
+            buttonNhapExcel.BackColor = Color.White;
+            buttonNhapExcel.Dock = DockStyle.Left;
+            buttonNhapExcel.FlatAppearance.BorderSize = 0;
+            buttonNhapExcel.FlatStyle = FlatStyle.Flat;
+            buttonNhapExcel.Image = Properties.Resources.iconExc;
+            buttonNhapExcel.Location = new Point(385, 0);
+            buttonNhapExcel.Margin = new Padding(0);
+            buttonNhapExcel.Name = "buttonNhapExcel";
+            buttonNhapExcel.Size = new Size(77, 72);
+            buttonNhapExcel.TabIndex = 14;
+            buttonNhapExcel.Text = "Nhập Excel";
+            buttonNhapExcel.TextImageRelation = TextImageRelation.ImageAboveText;
+            buttonNhapExcel.UseVisualStyleBackColor = false;
+            buttonNhapExcel.Click += buttonNhapExcel_Click;
             // 
             // btnExcel
             // 
@@ -125,7 +144,7 @@
             panelSearch.Controls.Add(txtBoxTimKiem, 1, 0);
             panelSearch.Controls.Add(btnLamMoi, 2, 0);
             panelSearch.Dock = DockStyle.Right;
-            panelSearch.Location = new Point(426, 0);
+            panelSearch.Location = new Point(624, 0);
             panelSearch.Name = "panelSearch";
             panelSearch.RowCount = 1;
             panelSearch.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -214,7 +233,7 @@
             dgvPhieuNhap.Dock = DockStyle.Fill;
             dgvPhieuNhap.Location = new Point(0, 72);
             dgvPhieuNhap.Name = "dgvPhieuNhap";
-            dgvPhieuNhap.Size = new Size(774, 491);
+            dgvPhieuNhap.Size = new Size(972, 491);
             dgvPhieuNhap.TabIndex = 1;
             dgvPhieuNhap.CellContentClick += dgvPhieuNhap_CellContentClick;
             // 
@@ -232,7 +251,7 @@
             tableLayoutPanelButtons.Name = "tableLayoutPanelButtons";
             tableLayoutPanelButtons.RowCount = 1;
             tableLayoutPanelButtons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelButtons.Size = new Size(774, 30);
+            tableLayoutPanelButtons.Size = new Size(972, 30);
             tableLayoutPanelButtons.TabIndex = 7;
             // 
             // btnTruoc
@@ -240,7 +259,7 @@
             btnTruoc.Dock = DockStyle.Fill;
             btnTruoc.Location = new Point(3, 3);
             btnTruoc.Name = "btnTruoc";
-            btnTruoc.Size = new Size(251, 24);
+            btnTruoc.Size = new Size(317, 24);
             btnTruoc.TabIndex = 2;
             btnTruoc.Text = "Trang trước";
             btnTruoc.UseVisualStyleBackColor = true;
@@ -249,9 +268,9 @@
             // btnSau
             // 
             btnSau.Dock = DockStyle.Fill;
-            btnSau.Location = new Point(517, 3);
+            btnSau.Location = new Point(649, 3);
             btnSau.Name = "btnSau";
-            btnSau.Size = new Size(254, 24);
+            btnSau.Size = new Size(320, 24);
             btnSau.TabIndex = 3;
             btnSau.Text = "Trang sau";
             btnSau.UseVisualStyleBackColor = true;
@@ -262,9 +281,9 @@
             labelTrang.AutoSize = true;
             labelTrang.BorderStyle = BorderStyle.FixedSingle;
             labelTrang.Dock = DockStyle.Fill;
-            labelTrang.Location = new Point(260, 0);
+            labelTrang.Location = new Point(326, 0);
             labelTrang.Name = "labelTrang";
-            labelTrang.Size = new Size(251, 30);
+            labelTrang.Size = new Size(317, 30);
             labelTrang.TabIndex = 4;
             labelTrang.Text = "Trang 1";
             labelTrang.TextAlign = ContentAlignment.MiddleCenter;
@@ -277,7 +296,7 @@
             Controls.Add(dgvPhieuNhap);
             Controls.Add(panelCRUD);
             Name = "UcNhapSach";
-            Size = new Size(774, 563);
+            Size = new Size(972, 563);
             panelCRUD.ResumeLayout(false);
             panelSearch.ResumeLayout(false);
             panelSearch.PerformLayout();
@@ -304,5 +323,6 @@
         private Button btnTruoc;
         private Button btnSau;
         private Label labelTrang;
+        private Button buttonNhapExcel;
     }
 }
