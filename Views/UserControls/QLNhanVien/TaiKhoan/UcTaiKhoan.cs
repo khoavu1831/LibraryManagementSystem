@@ -25,6 +25,11 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
             btnXoa.Visible = canDelete;
             btnChiTiet.Visible = canViewDetails;
 
+            dgvTaiKhoan.EnableHeadersVisualStyles = false;
+            dgvTaiKhoan.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvTaiKhoan.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvTaiKhoan.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
 
@@ -43,6 +48,10 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
 
                 }).ToList();
                 dgvTaiKhoan.DataSource = taiKhoanDataView;
+
+                dgvTaiKhoan.Columns["IdTaiKhoan"].HeaderText = "Mã tài khoản";
+                dgvTaiKhoan.Columns["TenDangNhap"].HeaderText = "Tên đăng nhập";
+                dgvTaiKhoan.Columns["MatKhau"].HeaderText = "Mật khẩu";
             }
         }
         private void btnSua_Click(object sender, EventArgs e)
@@ -112,6 +121,12 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             try
             {
                 using (var context = new LibraryDbContext())
@@ -119,17 +134,26 @@ namespace LMS.Views.UserControls.QLNhanVien.TaiKhoan
                     var repo = new TaiKhoanRepository(context);
                     var taiKhoanService = new TaiKhoanService(repo);
                     var taiKhoanList = taiKhoanService.SearchTaiKhoan(keyword);
-                    var data = taiKhoanList.Select(tk => new
+                    var taiKhoanDataView = taiKhoanList.Select(tk => new
                     {
                         IdTaiKhoan = tk.IdTaiKhoan,
                         TenDangNhap = tk.TenTaiKhoan,
                         MatKhau = tk.MatKhau,
+
                     }).ToList();
-                    if (data.Count == 0)
+
+                    if (taiKhoanDataView.Count == 0)
                     {
-                        MessageBox.Show("Không tìm thấy tài khoản nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Không tìm thấy nhân viên nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
                     }
-                    dgvTaiKhoan.DataSource = data;
+
+                    dgvTaiKhoan.DataSource = taiKhoanDataView;
+
+                    dgvTaiKhoan.Columns["IdTaiKhoan"].HeaderText = "Mã tài khoản";
+                    dgvTaiKhoan.Columns["TenDangNhap"].HeaderText = "Tên đăng nhập";
+                    dgvTaiKhoan.Columns["MatKhau"].HeaderText = "Mật khẩu";
                 }
             }
             catch (Exception ex)

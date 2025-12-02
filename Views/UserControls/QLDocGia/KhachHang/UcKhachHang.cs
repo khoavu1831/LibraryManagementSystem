@@ -60,11 +60,16 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
                 _totalRecords = _docGiaService.getCount(_currentKeyword);
                 _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
                 var data = _docGiaService.GetByPage(_currentPage, _pageSize, _currentKeyword);
+
                 if (data.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy độc giả phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadPage(1);
+                    return;
                 }
+
                 dgvKhachHang.DataSource = data;
+
                 if (dgvKhachHang.Columns["TheThanhViens"] != null)
                     dgvKhachHang.Columns["TheThanhViens"].Visible = false;
                 dgvKhachHang.Columns["IdDocGia"].HeaderText = "Mã độc giả";
@@ -149,6 +154,12 @@ namespace LMS.Views.UserControls.QLDocGia.KhachHang
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(keyword))
             {
                 LoadPage(1);

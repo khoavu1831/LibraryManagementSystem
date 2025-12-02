@@ -164,6 +164,12 @@ namespace LMS.Views.UserControls.QLSach
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             try
             {
                 using (var context = new LibraryDbContext())
