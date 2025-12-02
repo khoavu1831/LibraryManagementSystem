@@ -228,7 +228,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietNCC";
-            Text = "Chi tiết NXB";
+            Text = "Chi tiết NCC";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

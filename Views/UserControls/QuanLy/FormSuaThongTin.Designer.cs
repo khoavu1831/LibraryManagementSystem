@@ -236,7 +236,7 @@
             Controls.Add(label1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormSuaThongTin";
-            Text = "Sửa thông tin cá nhân";
+            Text = "Sửa Thông Tin Cá Nhân";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

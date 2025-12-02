@@ -226,7 +226,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietBSS";
-            Text = "Chi tiết Bản sao sách";
+            Text = "Chi Tiết Bản Sao Sách";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

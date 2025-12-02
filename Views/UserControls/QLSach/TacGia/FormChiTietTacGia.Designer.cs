@@ -252,7 +252,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietTacGia";
-            Text = "Chi tiết Tác giả";
+            Text = "Chi Tiết Tác Giả";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

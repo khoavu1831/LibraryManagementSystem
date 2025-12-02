@@ -235,7 +235,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemTacGia";
-            Text = "Thêm Tác giả";
+            Text = "Thêm Tác Giả";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

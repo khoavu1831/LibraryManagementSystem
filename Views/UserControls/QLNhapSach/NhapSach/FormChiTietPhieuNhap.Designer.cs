@@ -279,7 +279,7 @@
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormChiTietPhieuNhap";
-            Text = "Form1";
+            Text = "Chi Tiết Phiếu Nhập";
             panel1.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

@@ -224,7 +224,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormTraSach";
-            Text = "Trả sách";
+            Text = "Trả Sách";
             Load += FormTraSach_Load;
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);

@@ -232,7 +232,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormDoiMatKhau";
-            Text = "Đổi mật khẩu tài khoản cá nhân";
+            Text = "Đổi Mật Khẩu Tài Khoản Cá Nhân";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();

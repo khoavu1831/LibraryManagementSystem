@@ -187,7 +187,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaBSS";
-            Text = "Sửa Bản sao sách";
+            Text = "Sửa Bản Sao Sách";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();
