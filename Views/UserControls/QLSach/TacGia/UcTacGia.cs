@@ -50,7 +50,7 @@ namespace LMS.Views.UserControls.QLSach
                     {
                         tg.IdTacGia,
                         tg.TenTacGia,
-                        tg.NgaySinh,
+                        NgaySinh = tg.NgaySinh, // để format ở DataGridView
                         tg.NoiSinh,
                         tg.SDT
                     }).ToList();
@@ -60,6 +60,7 @@ namespace LMS.Views.UserControls.QLSach
                     dgvTacGia.Columns["IdTacGia"].HeaderText = "Mã tác giả";
                     dgvTacGia.Columns["TenTacGia"].HeaderText = "Tên tác giả";
                     dgvTacGia.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+                    dgvTacGia.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
                     dgvTacGia.Columns["NoiSinh"].HeaderText = "Nơi sinh";
                     dgvTacGia.Columns["SDT"].HeaderText = "Số điện thoại";
                 }
@@ -187,7 +188,7 @@ namespace LMS.Views.UserControls.QLSach
                     {
                         tg.IdTacGia,
                         tg.TenTacGia,
-                        tg.NgaySinh,
+                        NgaySinh = tg.NgaySinh,
                         tg.NoiSinh,
                         tg.SDT
                     }).ToList();
@@ -204,6 +205,7 @@ namespace LMS.Views.UserControls.QLSach
                     dgvTacGia.Columns["IdTacGia"].HeaderText = "Mã tác giả";
                     dgvTacGia.Columns["TenTacGia"].HeaderText = "Tên tác giả";
                     dgvTacGia.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+                    dgvTacGia.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
                     dgvTacGia.Columns["NoiSinh"].HeaderText = "Nơi sinh";
                     dgvTacGia.Columns["SDT"].HeaderText = "Số điện thoại";
                 }

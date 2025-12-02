@@ -219,11 +219,12 @@
             // 
             // dateTimePickerNgaySinh
             // 
+            dateTimePickerNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNgaySinh.Format = DateTimePickerFormat.Custom;
             dateTimePickerNgaySinh.Location = new Point(111, 31);
             dateTimePickerNgaySinh.Name = "dateTimePickerNgaySinh";
             dateTimePickerNgaySinh.Size = new Size(244, 23);
             dateTimePickerNgaySinh.TabIndex = 2;
-            dateTimePickerNgaySinh.Value = new DateTime(2025, 10, 5, 0, 0, 0, 0);
             // 
             // FormThemTacGia
             // 

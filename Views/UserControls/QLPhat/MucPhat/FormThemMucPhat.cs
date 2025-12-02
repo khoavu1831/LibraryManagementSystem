@@ -59,7 +59,9 @@ namespace LMS.Views.UserControls.QLPhat
                 TenMucPhat = textBoxTenMucPhat.Text.Trim(),  // Cứ lấy, để Service validate
                 SoTienPhat = soTienPhat,
                 MoTa = textBoxMoTa.Text.Trim(),
-                LoaiPhat = (MucPhat.LoaiPhatEnum)comboBoxLoaiPhat.SelectedValue
+                LoaiPhat = comboBoxLoaiPhat.SelectedValue is MucPhat.LoaiPhatEnum loai
+                    ? loai
+                    : throw new Exception("Vui lòng chọn loại phạt hợp lệ.")
             };
 
             try

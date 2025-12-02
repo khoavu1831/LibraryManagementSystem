@@ -1,4 +1,5 @@
 ﻿using LMS.Data;
+using LMS.Entities;
 using LMS.Repository;
 using LMS.Services;
 using LMS.Views.LMS.Utils.Helpers;
@@ -100,13 +101,30 @@ namespace LMS.Views.UserControls.QLSach
 
             using (var context = new LibraryDbContext())
             {
-                var repo = new SachRepository(context);
-                var sachService = new SachService(repo);
+                var sachRepo = new SachRepository(context);
+                var sachService = new SachService(sachRepo);
 
                 var sach = sachService.GetSachById(idSach);
                 if (sach == null)
                 {
                     MessageBox.Show("Không tìm thấy sách trong hệ thống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Điều kiện cho phép sửa:
+                // 1) Chưa có bản sao nào
+                // 2) Hoặc có bản sao nhưng tất cả đều đang ở tình trạng Tốt (không bản sao nào đang cho mượn)
+                var bssRepo = new BanSaoSachRepository(context);
+                var banSaoList = bssRepo.GetAll().Where(bss => bss.IdSach == idSach).ToList();
+
+                if (banSaoList.Count > 0 &&
+                    banSaoList.Any(bss => bss.TinhTrangSach != BanSaoSach.TinhTrangSachEnum.Tot))
+                {
+                    MessageBox.Show(
+                        "Không thể sửa sách này vì đã có bản sao đang được mượn hoặc không ở tình trạng tốt.",
+                        "Không cho phép sửa",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -157,20 +175,55 @@ namespace LMS.Views.UserControls.QLSach
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if (dgvSach.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn 1 sách để xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvSach.SelectedRows[0];
+            var idSachFormat = selectedRow.Cells["IdSach"].Value?.ToString();
+            if (string.IsNullOrWhiteSpace(idSachFormat))
+            {
+                MessageBox.Show("Không xác định được sách cần xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int idSach = Convert.ToInt32(idSachFormat.Substring(1));
+            int soLuongBanSao = Convert.ToInt32(selectedRow.Cells["SoLuongBanSao"].Value);
+
+            // Chỉ cho phép xóa khi không có bản sao nào
+            if (soLuongBanSao > 0)
+            {
+                MessageBox.Show("Không thể xóa sách vì đã có bản sao. Vui lòng xóa hết bản sao sách trước.", "Không thể xóa", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var confirm = MessageBox.Show("Bạn có chắc chắn muốn xóa sách này không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes)
+            {
+                return;
+            }
+
             try
             {
                 using (var context = new LibraryDbContext())
                 {
                     var repo = new SachRepository(context);
-                    var sachService = new SachService(repo);
-                    var sach = sachService.GetAllSach();
-                    var chonSach = sach.Where(s => s.SoLuongBanSao == 0).ToList();
-                    MessageBox.Show(string.Join(", ", chonSach.Select(s => s.TenSach)));
+                    var deleted = repo.DeleteById(idSach);
+                    if (deleted == null)
+                    {
+                        MessageBox.Show("Không tìm thấy sách để xóa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
+
+                MessageBox.Show("Xóa sách thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadData();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show($"Xóa sách thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
