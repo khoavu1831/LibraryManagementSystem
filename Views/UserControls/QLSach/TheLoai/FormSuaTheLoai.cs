@@ -32,19 +32,16 @@ namespace LMS.Views.UserControls.QLSach
 
             try
             {
-                using (var context = new LibraryDbContext())
+                var repo = new TheLoaiRepository();
+                var theLoaiService = new TheLoaiService(repo);
+
+                var theLoai = new TheLoai
                 {
-                    var repo = new TheLoaiRepository(context);
-                    var theLoaiService = new TheLoaiService(repo);
+                    IdTheLoai = _idTheLoai,
+                    TenTheloai = tenTheLoai
+                };
 
-                    var theLoai = new TheLoai
-                    {
-                        IdTheLoai = _idTheLoai,
-                        TenTheloai = tenTheLoai
-                    };
-
-                    theLoaiService.Save(theLoai);
-                }
+                theLoaiService.Save(theLoai);
 
                 MessageBox.Show("Sửa thể loại thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

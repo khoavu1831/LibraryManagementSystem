@@ -23,8 +23,7 @@ namespace LMS.Views.UserControls.QLSach
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterParent;
 
-            var context = new LibraryDbContext();
-            var repo = new TheLoaiRepository(context);
+            var repo = new TheLoaiRepository();
             _theLoaiService = new TheLoaiService(repo);
         }
         private void btnThem_Click(object sender, EventArgs e)
