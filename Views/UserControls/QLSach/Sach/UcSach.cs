@@ -1,4 +1,5 @@
-﻿using LMS.Data;
+﻿using DocumentFormat.OpenXml.Office2013.PowerPoint.Roaming;
+using LMS.Data;
 using LMS.Entities;
 using LMS.Repository;
 using LMS.Services;
@@ -230,6 +231,68 @@ namespace LMS.Views.UserControls.QLSach
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            var keyword = txtBoxTimKiem.Text.Trim().ToLower();
+
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
+
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var repo = new SachRepository(context);
+                    var sachService = new SachService(repo);
+                    var data = sachService.GetAllSach();
+
+                    var filtered = data.Where(s =>
+                        (s.TenSach ?? "").ToLower().Contains(keyword) ||
+                        (s.NXB != null && (s.NXB.TenNXB ?? "").ToLower().Contains(keyword)) ||
+                        (s.TheLoais != null && s.TheLoais.Any(tl => (tl.TenTheloai ?? "").ToLower().Contains(keyword))) ||
+                        (s.TacGias != null && s.TacGias.Any(tg => (tg.TenTacGia ?? "").ToLower().Contains(keyword))) ||
+                        s.NamXuatBan.ToString().Contains(keyword) ||
+                        s.SoLuongBanSao.ToString().Contains(keyword)
+                    ).ToList();
+
+                    if (filtered.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy sách phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    var dataView = filtered.Select(s => new
+                    {
+                        IdSach = s.IdSachFormat,
+                        TenSach = s.TenSach,
+                        NXB = s.NXB != null ? s.NXB.TenNXB : "Chua co",
+                        TheLoai = s.TheLoais != null ? string.Join(", ", s.TheLoais.Select(tl => tl.TenTheloai)) : "Chua co",
+                        TacGia = s.TacGias != null ? string.Join(", ", s.TacGias.Select(tg => tg.TenTacGia)) : "Chua co",
+                        NamXuatBan = s.NamXuatBan,
+                        SoLuongBanSao = s.SoLuongBanSao
+                    }).ToList();
+
+                    dgvSach.DataSource = dataView;
+
+                    dgvSach.Columns["IdSach"].HeaderText = "Mã sách";
+                    dgvSach.Columns["TenSach"].HeaderText = "Tên sách";
+                    dgvSach.Columns["NXB"].HeaderText = "Nhà xuất bản";
+                    dgvSach.Columns["TheLoai"].HeaderText = "Thể loại";
+                    dgvSach.Columns["TacGia"].HeaderText = "Tác giả";
+                    dgvSach.Columns["NamXuatBan"].HeaderText = "Năm xuất bản";
+                    dgvSach.Columns["SoLuongBanSao"].HeaderText = "Số lượng bản sao";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi tìm kiếm sách.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnExcel_Click(object sender, EventArgs e)

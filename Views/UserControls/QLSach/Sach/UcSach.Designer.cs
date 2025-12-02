@@ -107,6 +107,7 @@
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
