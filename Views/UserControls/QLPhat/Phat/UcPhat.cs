@@ -82,23 +82,25 @@ namespace LMS.Views.UserControls.QLPhat
 
                     // Lấy total records có filter
                     _totalRecords = ppService.GetTotalRecordsByFilter(trangThaiEnum, _currentKeyword);
-                    _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
 
-                    // Nếu không có dữ liệu
-                    if (_totalPages == 0)
+                    if (_totalRecords == 0)
                     {
                         _totalPages = 1;
-                        dgvPhat.DataSource = new List<object>();
-                        labelTrang.Text = "Trang 0/0";
-                        return;
+                        _currentPage = 1;
+                    }
+                    else
+                    {
+                        _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
+
+                        // Đảm bảo currentPage không vượt quá totalPages
+                        if (_currentPage > _totalPages)
+                            _currentPage = _totalPages;
                     }
 
-                    // Đảm bảo currentPage không vượt quá totalPages
-                    if (_currentPage > _totalPages)
-                        _currentPage = _totalPages;
-
-                    // Lấy data có filter + paging
-                    var ppList = ppService.GetByPageWithFilter(_currentPage, _pageSize, trangThaiEnum, _currentKeyword);
+                    // Lấy data có filter + paging (có thể rỗng)
+                    var ppList = _totalRecords == 0
+                        ? new List<PhieuPhat>()
+                        : ppService.GetByPageWithFilter(_currentPage, _pageSize, trangThaiEnum, _currentKeyword);
 
                     // Project thành anonymous type TRONG UC (không dùng DTO)
                     var dataView = ppList.Select(pp => new
@@ -116,14 +118,38 @@ namespace LMS.Views.UserControls.QLPhat
                     if (dgvPhat.Columns.Count == 0 || dgvPhat.Columns["ThanhToan"] == null)
                     {
                         dgvPhat.Columns.Clear();
-                        dgvPhat.AutoGenerateColumns = true;
-                        dgvPhat.DataSource = dataView;
+                        dgvPhat.AutoGenerateColumns = false;
 
-                        dgvPhat.Columns["IdPhieuPhat"].HeaderText = "Mã phiếu phạt";
-                        dgvPhat.Columns["NgayLap"].HeaderText = "Ngày lập";
-                        dgvPhat.Columns["DocGia"].HeaderText = "Độc giả";
-                        dgvPhat.Columns["TongTienPhat"].HeaderText = "Tổng tiền phạt";
-                        dgvPhat.Columns["TrangThai"].HeaderText = "Trạng thái";
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "IdPhieuPhat",
+                            DataPropertyName = "IdPhieuPhat",
+                            HeaderText = "Mã phiếu phạt"
+                        });
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "NgayLap",
+                            DataPropertyName = "NgayLap",
+                            HeaderText = "Ngày lập"
+                        });
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "DocGia",
+                            DataPropertyName = "DocGia",
+                            HeaderText = "Độc giả"
+                        });
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "TongTienPhat",
+                            DataPropertyName = "TongTienPhat",
+                            HeaderText = "Tổng tiền phạt"
+                        });
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "TrangThai",
+                            DataPropertyName = "TrangThai",
+                            HeaderText = "Trạng thái"
+                        });
 
                         dgvPhat.Columns["NgayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
                         dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Format = "N0";
@@ -149,14 +175,14 @@ namespace LMS.Views.UserControls.QLPhat
                         dgvPhat.DataBindingComplete -= dgvPhat_DataBindingComplete;
                         dgvPhat.DataBindingComplete += dgvPhat_DataBindingComplete;
                     }
-                    else
-                    {
-                        // Chỉ update data, không config lại columns
-                        dgvPhat.DataSource = dataView;
-                    }
+
+                    // Cập nhật datasource (kể cả khi rỗng) nhưng giữ cấu trúc cột
+                    dgvPhat.DataSource = dataView;
 
                     // Cập nhật label trang
-                    labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
+                    labelTrang.Text = _totalRecords == 0
+                        ? "Trang 0/0"
+                        : $"Trang {_currentPage}/{_totalPages}";
                     DisablePayButtons();
                 }
             }

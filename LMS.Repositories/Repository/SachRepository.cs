@@ -29,12 +29,83 @@ namespace LMS.Repository
         }
         public Sach Add(Sach sach)
         {
+            // Đảm bảo dùng các entity đã được track bởi cùng DbContext,
+            // tránh lỗi "cannot be tracked because another instance with the same key value is already being tracked"
+            if (sach.TheLoais != null && sach.TheLoais.Any())
+            {
+                var theLoaiIds = sach.TheLoais
+                    .Select(t => t.IdTheLoai)
+                    .Distinct()
+                    .ToList();
+
+                sach.TheLoais = _context.TheLoais
+                    .Where(t => theLoaiIds.Contains(t.IdTheLoai))
+                    .ToList();
+            }
+
+            if (sach.TacGias != null && sach.TacGias.Any())
+            {
+                var tacGiaIds = sach.TacGias
+                    .Select(t => t.IdTacGia)
+                    .Distinct()
+                    .ToList();
+
+                sach.TacGias = _context.TacGias
+                    .Where(t => tacGiaIds.Contains(t.IdTacGia))
+                    .ToList();
+            }
+
+            if (sach.NXB != null)
+            {
+                var nxb = _context.NXBs.FirstOrDefault(x => x.IdNXB == sach.NXB.IdNXB);
+                if (nxb != null)
+                {
+                    sach.NXB = nxb;
+                    sach.IdNXB = nxb.IdNXB;
+                }
+            }
+
             _context.Sachs.Add(sach);
             _context.SaveChanges();
             return sach;
         }
         public Sach Update(Sach sach)
         {
+            // Chuẩn hóa lại navigation properties để tránh lỗi tracking trùng entity
+            if (sach.TheLoais != null && sach.TheLoais.Any())
+            {
+                var theLoaiIds = sach.TheLoais
+                    .Select(t => t.IdTheLoai)
+                    .Distinct()
+                    .ToList();
+
+                sach.TheLoais = _context.TheLoais
+                    .Where(t => theLoaiIds.Contains(t.IdTheLoai))
+                    .ToList();
+            }
+
+            if (sach.TacGias != null && sach.TacGias.Any())
+            {
+                var tacGiaIds = sach.TacGias
+                    .Select(t => t.IdTacGia)
+                    .Distinct()
+                    .ToList();
+
+                sach.TacGias = _context.TacGias
+                    .Where(t => tacGiaIds.Contains(t.IdTacGia))
+                    .ToList();
+            }
+
+            if (sach.NXB != null)
+            {
+                var nxb = _context.NXBs.FirstOrDefault(x => x.IdNXB == sach.NXB.IdNXB);
+                if (nxb != null)
+                {
+                    sach.NXB = nxb;
+                    sach.IdNXB = nxb.IdNXB;
+                }
+            }
+
             _context.Sachs.Update(sach);
             _context.SaveChanges();
             return sach;

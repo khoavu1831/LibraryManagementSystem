@@ -18,9 +18,9 @@ namespace LMS.Views.UserControls.QLSach
         {
             InitializeComponent();
             var canEdit = permissions.Contains("SACH_BANSAO_EDIT");
-            var canDelete = permissions.Contains("SACH_BANSAO_DELETE");
             btnSua.Visible = canEdit;
-            btnXoa.Visible = canDelete;
+            // Ẩn chức năng xóa bản sao sách theo yêu cầu
+            btnXoa.Visible = false;
 
             dgvBanSaoSach.EnableHeadersVisualStyles = false; // Cho phép đổi màu
             dgvBanSaoSach.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
@@ -75,9 +75,28 @@ namespace LMS.Views.UserControls.QLSach
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            using (var formSuaBSS = new FormSuaBSS())
+            if (dgvBanSaoSach.SelectedRows.Count == 0)
             {
-                formSuaBSS.ShowDialog(this);
+                MessageBox.Show("Vui lòng chọn một bản sao sách để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvBanSaoSach.SelectedRows[0];
+            var idBanSaoSach = selectedRow.Cells["IdBanSaoSach"].Value?.ToString();
+            var tenSach = selectedRow.Cells["TenSach"].Value?.ToString() ?? "";
+
+            if (string.IsNullOrWhiteSpace(idBanSaoSach))
+            {
+                MessageBox.Show("Không xác định được bản sao sách cần sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (var formSuaBSS = new FormSuaBSS(idBanSaoSach, tenSach))
+            {
+                if (formSuaBSS.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadPage(_currentPage, _currentKeyword);
+                }
             }
         }
 

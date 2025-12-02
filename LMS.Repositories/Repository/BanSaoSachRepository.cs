@@ -34,9 +34,22 @@ namespace LMS.Repository
 
             if (!string.IsNullOrEmpty(keyword))
             {
+                var keywordLower = keyword.ToLower();
+
+                // Map keyword text to possible enum values (hỗ trợ cả có dấu và không dấu)
+                var matchedStatuses = new List<BanSaoSach.TinhTrangSachEnum>();
+                if ("tốt".Contains(keywordLower) || "tot".Contains(keywordLower))
+                    matchedStatuses.Add(BanSaoSach.TinhTrangSachEnum.Tot);
+                if ("hỏng".Contains(keywordLower) || "hong".Contains(keywordLower) || "hu hong".Contains(keywordLower))
+                    matchedStatuses.Add(BanSaoSach.TinhTrangSachEnum.Hong);
+                if ("mất".Contains(keywordLower) || "mat".Contains(keywordLower))
+                    matchedStatuses.Add(BanSaoSach.TinhTrangSachEnum.Mat);
+                if ("cho mượn".Contains(keywordLower) || "cho muon".Contains(keywordLower))
+                    matchedStatuses.Add(BanSaoSach.TinhTrangSachEnum.ChoMuon);
+
                 query = query.Where(bss =>
-            bss.Sach!.TenSach!.ToLower().Contains(keyword.ToLower()) ||
-            bss.TinhTrangSach.ToString().ToLower().Contains(keyword.ToLower()));
+                    bss.Sach!.TenSach!.ToLower().Contains(keywordLower) ||
+                    (matchedStatuses.Count > 0 && matchedStatuses.Contains(bss.TinhTrangSach)));
             }
 
             // Ph�n trang

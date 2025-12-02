@@ -29,7 +29,8 @@ namespace LMS.Views.UserControls.QLSach
             textBoxMoTa.Text = moTa;
             numericUpDownSoTrang.Value = soTrang;
             numericUpDownSoLuongBanSao.Value = soLuongBanSao;
-            textBoxGiaSach.Text = giaTien.ToString();
+            // Hiển thị giá tiền có định dạng phân cách hàng nghìn, giống màn sửa sách
+            textBoxGiaSach.Text = giaTien.ToString("N0");
         }
 
         private void btnDong_Click(object sender, EventArgs e)

@@ -52,7 +52,7 @@
             panelCRUD.Controls.Add(panelSearch);
             panelCRUD.Controls.Add(btnExcel);
             panelCRUD.Controls.Add(btnChiTiet);
-            panelCRUD.Controls.Add(btnXoa);
+            panelCRUD.Controls.Add(btnXoa); // Nút vẫn tồn tại nhưng sẽ được ẩn trong code
             panelCRUD.Controls.Add(btnSua);
             panelCRUD.Controls.Add(btnThem);
             panelCRUD.Dock = DockStyle.Top;
@@ -107,6 +107,7 @@
             btnTimKiem.TabIndex = 8;
             btnTimKiem.Text = "Tìm Kiếm";
             btnTimKiem.UseVisualStyleBackColor = false;
+            btnTimKiem.Click += btnTimKiem_Click;
             // 
             // txtBoxTimKiem
             // 
