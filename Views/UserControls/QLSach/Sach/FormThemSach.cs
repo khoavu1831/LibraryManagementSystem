@@ -28,7 +28,7 @@ namespace LMS.Views.UserControls.QLSach
             var context = new LibraryDbContext();
 
             var nxbRepo = new NXBRepository(context);
-            var theLoaiRepo = new TheLoaiRepository(context);
+            var theLoaiRepo = new TheLoaiRepository();
             var tacGiaRepo = new TacGiaRepository(context);
             var sachRepo = new SachRepository(context);
 

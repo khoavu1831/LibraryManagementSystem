@@ -1,52 +1,169 @@
-using LMS.Data;
 using LMS.Entities;
-using Microsoft.EntityFrameworkCore;
+using MySql.Data.MySqlClient;
 
 namespace LMS.Repository
 {
     public class TheLoaiRepository
     {
-        private readonly LibraryDbContext _context;
-        public TheLoaiRepository(LibraryDbContext context) => _context = context;
-        public List<TheLoai> GetAll() => _context.TheLoais.ToList();
-        public TheLoai? GetById(int id) => _context.TheLoais.Find(id);
+        private readonly string _connectionString = @"server=localhost;port=3306;user=root;password=;database=library";
 
-        // AsNoTracking(): Tối ưu hiệu suất khi chỉ đọc dữ liệu, không cần theo dõi thay đổi
-        public TheLoai? GetByName(string name) => 
-            _context.TheLoais
-                .AsNoTracking()
-                .FirstOrDefault(tl => tl.TenTheloai == name);
+        public List<TheLoai> GetAll()
+        {
+            var list = new List<TheLoai>();
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT IdTheLoai, TenTheloai FROM TheLoai";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new TheLoai
+                            {
+                                IdTheLoai = reader.GetInt32("IdTheLoai"),
+                                TenTheloai = reader.IsDBNull(reader.GetOrdinal("TenTheloai")) 
+                                    ? null 
+                                    : reader.GetString("TenTheloai")
+                            });
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
+        public TheLoai? GetById(int id)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT IdTheLoai, TenTheloai FROM TheLoai WHERE IdTheLoai = @id";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new TheLoai
+                            {
+                                IdTheLoai = reader.GetInt32("IdTheLoai"),
+                                TenTheloai = reader.IsDBNull(reader.GetOrdinal("TenTheloai")) 
+                                    ? null 
+                                    : reader.GetString("TenTheloai")
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        public TheLoai? GetByName(string name)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT IdTheLoai, TenTheloai FROM TheLoai WHERE TenTheloai = @name";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@name", name);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return new TheLoai
+                            {
+                                IdTheLoai = reader.GetInt32("IdTheLoai"),
+                                TenTheloai = reader.IsDBNull(reader.GetOrdinal("TenTheloai")) 
+                                    ? null 
+                                    : reader.GetString("TenTheloai")
+                            };
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
         public TheLoai Add(TheLoai theLoai)
         {
-            _context.TheLoais.Add(theLoai);
-            _context.SaveChanges();
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "INSERT INTO TheLoai (TenTheloai) VALUES (@tenTheloai); SELECT LAST_INSERT_ID();";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@tenTheloai", theLoai.TenTheloai ?? (object)DBNull.Value);
+                    var newId = Convert.ToInt32(command.ExecuteScalar());
+                    theLoai.IdTheLoai = newId;
+                }
+            }
             return theLoai;
         }
+
         public TheLoai Update(TheLoai theLoai)
         {
-            // Tránh lỗi theo dõi nhiều thực thể cùng một Id:
-            var existingEntity = _context.TheLoais.Local.FirstOrDefault(e => e.IdTheLoai == theLoai.IdTheLoai);
-            if (existingEntity != null)
+            using (var connection = new MySqlConnection(_connectionString))
             {
-                _context.Entry(existingEntity).State = EntityState.Detached;
+                connection.Open();
+                var query = "UPDATE TheLoai SET TenTheloai = @tenTheloai WHERE IdTheLoai = @id";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@tenTheloai", theLoai.TenTheloai ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@id", theLoai.IdTheLoai);
+                    command.ExecuteNonQuery();
+                }
             }
-
-            _context.TheLoais.Update(theLoai);
-            _context.SaveChanges();
             return theLoai;
         }
+
         public TheLoai? DeleteById(int id)
         {
             var theLoai = GetById(id);
             if (theLoai == null) return null;
-            _context.TheLoais.Remove(theLoai);
-            _context.SaveChanges();
+
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "DELETE FROM TheLoai WHERE IdTheLoai = @id";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", id);
+                    command.ExecuteNonQuery();
+                }
+            }
             return theLoai;
         }
-        public List<TheLoai> Search(string keyword) =>
-            _context.TheLoais
-                .AsNoTracking()
-                .Where(tl => (tl.TenTheloai ?? "").ToLower().Contains(keyword.ToLower()))
-                .ToList();
+
+        public List<TheLoai> Search(string keyword)
+        {
+            var list = new List<TheLoai>();
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                connection.Open();
+                var query = "SELECT IdTheLoai, TenTheloai FROM TheLoai WHERE LOWER(TenTheloai) LIKE @keyword";
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@keyword", $"%{keyword.ToLower()}%");
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            list.Add(new TheLoai
+                            {
+                                IdTheLoai = reader.GetInt32("IdTheLoai"),
+                                TenTheloai = reader.IsDBNull(reader.GetOrdinal("TenTheloai")) 
+                                    ? null 
+                                    : reader.GetString("TenTheloai")
+                            });
+                        }
+                    }
+                }
+            }
+            return list;
+        }
     }
 }
