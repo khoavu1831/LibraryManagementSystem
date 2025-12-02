@@ -166,7 +166,7 @@ namespace LMS.Views.UserControls.QLSach
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemTheLoai";
-            Text = "Thêm Thể loại";
+            Text = "Thêm Thể Loại";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

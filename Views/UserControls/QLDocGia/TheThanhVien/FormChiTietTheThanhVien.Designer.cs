@@ -148,7 +148,7 @@
             label5.AutoSize = true;
             label5.Location = new Point(31, 200);
             label5.Name = "label5";
-            label5.Size = new Size(63, 15);
+            label5.Size = new Size(62, 15);
             label5.TabIndex = 27;
             label5.Text = "Trạng thái:";
             label5.TextAlign = ContentAlignment.MiddleLeft;
@@ -207,7 +207,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormChiTietTheThanhVien";
-            Text = "FormChiTietTheThanhVien";
+            Text = "Chi Tiết Thẻ Thành Viên";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

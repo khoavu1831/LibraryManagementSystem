@@ -302,7 +302,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaVaiTro";
-            Text = "formSuaVaiTro";
+            Text = "Sửa Vai Trò";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);

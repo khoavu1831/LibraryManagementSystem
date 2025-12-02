@@ -208,7 +208,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaTaiKhoan";
-            Text = "formSuaTaiKhoan";
+            Text = "Sửa Tài Khoản";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
