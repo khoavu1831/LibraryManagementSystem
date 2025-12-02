@@ -243,7 +243,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaMucPhat";
-            Text = "formThemPhieuPhat";
+            Text = "Sửa Mức Phạt";
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
