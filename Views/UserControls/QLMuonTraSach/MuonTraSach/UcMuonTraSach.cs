@@ -25,7 +25,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
         private int _totalPages = 0;
         private string? _currentTrangThai = null; // Lưu filter hiện tại
         private string? _currentKeyword = null; // Lưu keyword tìm kiếm hiện tại
-        
+
         public UcMuonTraSach(List<string> permissions)
         {
             InitializeComponent();
@@ -37,6 +37,12 @@ namespace LMS.Views.UserControls.QLMuonTraSach
             btnHuy.Visible = canDelete;
             btnChiTiet.Visible = canViewDetails;
             btnListHuy.Visible = canExport;
+
+            dgvPhieuMuonTra.EnableHeadersVisualStyles = false;
+            dgvPhieuMuonTra.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvPhieuMuonTra.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvPhieuMuonTra.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
         private void LoadData(string? trangThai = null)
@@ -45,7 +51,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
             _currentKeyword = null; // Reset keyword khi đổi filter
             LoadPage(1); // Load trang đầu tiên
         }
-        
+
         private void LoadPage(int page)
         {
             _currentPage = page;
@@ -76,6 +82,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                         _totalPages = 1;
                         dgvPhieuMuonTra.DataSource = new List<object>();
                         labelTrang.Text = "Trang 0/0";
+                        // Không hiển thị thông báo ở đây vì sẽ hiển thị trong btnTimKiem_Click
                         return;
                     }
 
@@ -276,7 +283,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
         {
             LoadData("Đã huỷ");
         }
-        
+
         /// <summary>
         /// Nút Tìm kiếm - Tìm theo tên độc giả hoặc tên nhân viên
         /// </summary>
@@ -292,9 +299,44 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                 return;
             }
 
-            // Lưu keyword và gọi LoadPage → có phân trang!
-            _currentKeyword = keyword;
-            LoadPage(1); // Load trang đầu tiên với keyword
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var pmRepo = new PhieuMuonRepository(context);
+                    var pmService = new PhieuMuonService(pmRepo);
+
+                    // Convert string sang enum
+                    PhieuMuon.TrangThaiEnum? trangThaiEnum = _currentTrangThai switch
+                    {
+                        "Đang mượn" => PhieuMuon.TrangThaiEnum.DangMuon,
+                        "Đã trả" => PhieuMuon.TrangThaiEnum.DaTra,
+                        "Đã huỷ" => PhieuMuon.TrangThaiEnum.DaHuy,
+                        _ => null
+                    };
+
+                    // Kiểm tra số lượng kết quả TRƯỚC KHI load trang
+                    int totalResults = pmService.GetTotalRecordsByFilter(trangThaiEnum, keyword);
+
+                    if (totalResults == 0)
+                    {
+                        // Không có kết quả - chỉ hiển thị thông báo, không thay đổi dữ liệu hiện tại
+                        MessageBox.Show("Không tìm thấy phiếu mượn nào với từ khóa này.", "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    // Có kết quả - lưu keyword và load trang
+                    _currentKeyword = keyword;
+                    LoadPage(1); // Load trang đầu tiên với keyword
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi xảy ra, chỉ hiển thị thông báo lỗi, không thay đổi dữ liệu
+                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -417,7 +459,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         /// <summary>
         /// Nút Trang trước
         /// </summary>
@@ -435,7 +477,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
             if (_currentPage < _totalPages)
                 LoadPage(_currentPage + 1);
         }
-        
+
         /// <summary>
         /// Label trang (optional, không cần xử lý gì)
         /// </summary>
