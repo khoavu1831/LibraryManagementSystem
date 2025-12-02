@@ -27,6 +27,12 @@ namespace LMS.Views.UserControls.QLNhapSach
             btnSua.Visible = canEdit;
             btnXoa.Visible = canDelete;
             btnChiTiet.Visible = canViewDetails;
+
+            dgvNCC.EnableHeadersVisualStyles = false;
+            dgvNCC.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvNCC.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvNCC.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
         private void LoadData()
@@ -38,7 +44,20 @@ namespace LMS.Views.UserControls.QLNhapSach
                     var repo = new NCCRepository(context);
                     var nccService = new NCCService(repo);
                     var data = nccService.GetAllNCC();
-                    dgvNCC.DataSource = data;
+                    var dataView = data.Select(ncc => new
+                    {
+                        ncc.IdNCC,
+                        ncc.TenNCC,
+                        ncc.DiaChi,
+                        ncc.SDT
+                    }).ToList();
+
+                    dgvNCC.DataSource = dataView;
+
+                    dgvNCC.Columns["IdNCC"].HeaderText = "Mã nhà cung cấp";
+                    dgvNCC.Columns["TenNCC"].HeaderText = "Tên NCC";
+                    dgvNCC.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                    dgvNCC.Columns["SDT"].HeaderText = "Số điện thoại";
                 }
             }
             catch (Exception ex)
@@ -142,6 +161,12 @@ namespace LMS.Views.UserControls.QLNhapSach
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             try
             {
                 using (var context = new LibraryDbContext())
@@ -150,11 +175,28 @@ namespace LMS.Views.UserControls.QLNhapSach
                     var nccService = new NCCService(repo);
 
                     var data = nccService.SearchNCC(keyword);
-                    if (data.Count == 0)
+
+                    var dataView = data.Select(ncc => new
+                    {
+                        ncc.IdNCC,
+                        ncc.TenNCC,
+                        ncc.DiaChi,
+                        ncc.SDT
+                    }).ToList();
+
+                    if (dataView.Count == 0)
                     {
                         MessageBox.Show("Không tìm thấy nhà cung cấp nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
                     }
-                    dgvNCC.DataSource = data;
+
+                    dgvNCC.DataSource = dataView;
+
+                    dgvNCC.Columns["IdNCC"].HeaderText = "Mã nhà cung cấp";
+                    dgvNCC.Columns["TenNCC"].HeaderText = "Tên NCC";
+                    dgvNCC.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                    dgvNCC.Columns["SDT"].HeaderText = "Số điện thoại";
                 }
             }
             catch (Exception ex)

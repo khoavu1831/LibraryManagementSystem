@@ -45,9 +45,6 @@ namespace LMS.Views.UserControls.QLPhat
             // Event handlers cho các nút lọc
             btnDSThu.Click += btnDSThu_Click;
             btnDSHuy.Click += btnDSHuy_Click;
-
-            // Event handler cho tìm kiếm
-            btnTimKiem.Click += btnTimKiem_Click;
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -499,9 +496,39 @@ namespace LMS.Views.UserControls.QLPhat
                 return;
             }
 
-            // Lưu keyword và gọi LoadPage → có phân trang!
-            _currentKeyword = keyword;
-            LoadPage(1); // Load trang đầu tiên với keyword
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var ppRepo = new PhieuPhatRepository(context);
+                    var ppService = new PhieuPhatService(ppRepo);
+
+                    PhieuPhat.TrangThaiEnum? trangThaiEnum = _currentTrangThai switch
+                    {
+                        "Chưa thu" => PhieuPhat.TrangThaiEnum.ChuaThu,
+                        "Đã thu" => PhieuPhat.TrangThaiEnum.DaThu,
+                        "Đã huỷ" => PhieuPhat.TrangThaiEnum.DaHuy,
+                        _ => null
+                    };
+
+                    int totalResults = ppService.GetTotalRecordsByFilter(trangThaiEnum, keyword);
+                    if (totalResults == 0)
+                    {
+                        // Không có kết quả - chỉ hiển thị thông báo, không thay đổi dữ liệu hiện tại
+                        MessageBox.Show("Không tìm thấy phiếu phạt nào với từ khóa này.", "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    _currentKeyword = keyword; // Lưu keyword
+                    LoadPage(1); // Load trang đầu tiên với keyword
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi xảy ra, chỉ hiển thị thông báo lỗi, không thay đổi dữ liệu
+                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSau_Click(object sender, EventArgs e)

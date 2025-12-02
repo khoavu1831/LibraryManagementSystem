@@ -29,6 +29,11 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
             btnXoa.Visible = canDelete;
             btnChiTiet.Visible = canViewDetails;
 
+            dgvVaiTro.EnableHeadersVisualStyles = false;
+            dgvVaiTro.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvVaiTro.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvVaiTro.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
 
@@ -45,6 +50,9 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
                     TenVaiTro = vt.TenVaiTro
                 }).ToList();
                 dgvVaiTro.DataSource = vaiTroDataView;
+
+                dgvVaiTro.Columns["IdVaiTro"].HeaderText = "Mã vai trò";
+                dgvVaiTro.Columns["TenVaiTro"].HeaderText = "Tên vai trò";
             }
 
         }
@@ -128,6 +136,12 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             try
             {
                 using (var context = new LibraryDbContext())
@@ -135,16 +149,23 @@ namespace LMS.Views.UserControls.QLNhanVien.VaiTro
                     var repo = new VaiTroRepository(context);
                     var vaiTroService = new VaiTroService(repo);
                     var searchResults = vaiTroService.SearchVaiTro(keyword);
-                    var data = searchResults.Select(vt => new
+                    var vaiTroDataView = searchResults.Select(vt => new
                     {
                         IdVaiTro = vt.IdVaiTro,
                         TenVaiTro = vt.TenVaiTro
                     }).ToList();
-                    if (data.Count == 0)
+
+                    if (vaiTroDataView.Count == 0)
                     {
-                        MessageBox.Show("Không tìm thấy vai trò nào phù hợp.", "Kết quả tìm kiếm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Không tìm thấy nhân viên nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
                     }
-                    dgvVaiTro.DataSource = data;
+                    
+                    dgvVaiTro.DataSource = vaiTroDataView;
+
+                    dgvVaiTro.Columns["IdVaiTro"].HeaderText = "Mã vai trò";
+                    dgvVaiTro.Columns["TenVaiTro"].HeaderText = "Tên vai trò";
                 }
             }
             catch (Exception ex)

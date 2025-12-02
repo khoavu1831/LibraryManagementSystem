@@ -42,6 +42,12 @@ namespace LMS.Views.UserControls.QLNhapSach
             btnXoa.Visible = canDelete;
             btnLamMoi.Visible = true;
             btnExcel.Visible = canExport;
+
+            dgvPhieuNhap.EnableHeadersVisualStyles = false;
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
 
@@ -290,8 +296,38 @@ namespace LMS.Views.UserControls.QLNhapSach
                 return;
             }
 
-            _currentKeyword = keyword; // Lưu keyword
-            LoadPage(1); // Load trang đầu tiên với keyword
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var pnRepo = new PhieuNhapRepository(context);
+                    var pnService = new PhieuNhapService(pnRepo);
+
+                    PhieuNhap.TrangThaiEnum? trangThaiEnum = _currentTrangThai switch
+                    {
+                        "Đang hoạt động" => PhieuNhap.TrangThaiEnum.DangHoatDong,
+                        "Đã huỷ" => PhieuNhap.TrangThaiEnum.DaHuy,
+                        _ => null
+                    };
+
+                    int totalResults = pnService.GetTotalRecordsByFilter(trangThaiEnum, keyword);
+                    if (totalResults == 0)
+                    {
+                        // Không có kết quả - chỉ hiển thị thông báo, không thay đổi dữ liệu hiện tại
+                        MessageBox.Show("Không tìm thấy phiếu nhập nào với từ khóa này.", "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    _currentKeyword = keyword; // Lưu keyword
+                    LoadPage(1); // Load trang đầu tiên với keyword
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi xảy ra, chỉ hiển thị thông báo lỗi, không thay đổi dữ liệu
+                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnExcel_Click(object sender, EventArgs e)

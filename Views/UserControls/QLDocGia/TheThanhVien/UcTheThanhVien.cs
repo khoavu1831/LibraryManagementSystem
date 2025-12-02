@@ -53,8 +53,11 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
                 var data = _theThanhVienService.getByPage(_currentPage, _pageSize, _currentKeyword);
                 if (data.Count == 0)
                 {
-                    MessageBox.Show("Không tìm thấy thẻ thành viên phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Không tìm thấy độc giả phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadPage(1);
+                    return;
                 }
+                
                 dgvTheThanhVien.DataSource = data;
                 dgvTheThanhVien.AutoGenerateColumns = true;
                 dgvTheThanhVien.Columns["NgayCap"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -151,6 +154,12 @@ namespace LMS.Views.UserControls.QLDocGia.TheThanhVien
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(keyword))
             {
                 LoadPage(1);
