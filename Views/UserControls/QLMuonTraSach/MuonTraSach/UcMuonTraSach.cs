@@ -74,24 +74,25 @@ namespace LMS.Views.UserControls.QLMuonTraSach
 
                     // Lấy total records có filter
                     _totalRecords = pmService.GetTotalRecordsByFilter(trangThaiEnum, _currentKeyword);
-                    _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
 
-                    // Nếu không có dữ liệu
-                    if (_totalPages == 0)
+                    if (_totalRecords == 0)
                     {
                         _totalPages = 1;
-                        dgvPhieuMuonTra.DataSource = new List<object>();
-                        labelTrang.Text = "Trang 0/0";
-                        // Không hiển thị thông báo ở đây vì sẽ hiển thị trong btnTimKiem_Click
-                        return;
+                        _currentPage = 1;
+                    }
+                    else
+                    {
+                        _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
+
+                        // Đảm bảo currentPage không vượt quá totalPages
+                        if (_currentPage > _totalPages)
+                            _currentPage = _totalPages;
                     }
 
-                    // Đảm bảo currentPage không vượt quá totalPages
-                    if (_currentPage > _totalPages)
-                        _currentPage = _totalPages;
-
-                    // Lấy data có filter + paging
-                    var pmList = pmService.GetByPageWithFilter(_currentPage, _pageSize, trangThaiEnum, _currentKeyword);
+                    // Lấy data có filter + paging (có thể rỗng)
+                    var pmList = _totalRecords == 0
+                        ? new List<PhieuMuon>()
+                        : pmService.GetByPageWithFilter(_currentPage, _pageSize, trangThaiEnum, _currentKeyword);
 
                     // Project thành anonymous type TRONG UC (không dùng DTO)
                     var pmDataView = pmList.Select(pm => new
@@ -109,6 +110,7 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                     // Chỉ config columns lần đầu tiên
                     if (!_isColumnConfigured)
                     {
+                        dgvPhieuMuonTra.AutoGenerateColumns = false;
                         dgvPhieuMuonTra.Columns.Clear();
                         dgvPhieuMuonTra.Columns.Add(new DataGridViewTextBoxColumn()
                         {
@@ -164,7 +166,9 @@ namespace LMS.Views.UserControls.QLMuonTraSach
                     dgvPhieuMuonTra.DataSource = pmDataView;
 
                     // Cập nhật label trang
-                    labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
+                    labelTrang.Text = _totalRecords == 0
+                        ? "Trang 0/0"
+                        : $"Trang {_currentPage}/{_totalPages}";
                 }
             }
             catch (Exception ex)
