@@ -314,7 +314,7 @@ namespace LMS.Views.UserControls.QLNhapSach
                     if (totalResults == 0)
                     {
                         // Không có kết quả - chỉ hiển thị thông báo, không thay đổi dữ liệu hiện tại
-                        MessageBox.Show("Không tìm thấy phiếu mượn nào với từ khóa này.", "Thông báo",
+                        MessageBox.Show("Không tìm thấy phiếu nhập nào với từ khóa này.", "Thông báo",
                                         MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
