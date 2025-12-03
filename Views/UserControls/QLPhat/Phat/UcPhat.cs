@@ -45,9 +45,6 @@ namespace LMS.Views.UserControls.QLPhat
             // Event handlers cho các nút lọc
             btnDSThu.Click += btnDSThu_Click;
             btnDSHuy.Click += btnDSHuy_Click;
-
-            // Event handler cho tìm kiếm
-            btnTimKiem.Click += btnTimKiem_Click;
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -85,23 +82,25 @@ namespace LMS.Views.UserControls.QLPhat
 
                     // Lấy total records có filter
                     _totalRecords = ppService.GetTotalRecordsByFilter(trangThaiEnum, _currentKeyword);
-                    _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
 
-                    // Nếu không có dữ liệu
-                    if (_totalPages == 0)
+                    if (_totalRecords == 0)
                     {
                         _totalPages = 1;
-                        dgvPhat.DataSource = new List<object>();
-                        labelTrang.Text = "Trang 0/0";
-                        return;
+                        _currentPage = 1;
+                    }
+                    else
+                    {
+                        _totalPages = (int)Math.Ceiling(_totalRecords / (double)_pageSize);
+
+                        // Đảm bảo currentPage không vượt quá totalPages
+                        if (_currentPage > _totalPages)
+                            _currentPage = _totalPages;
                     }
 
-                    // Đảm bảo currentPage không vượt quá totalPages
-                    if (_currentPage > _totalPages)
-                        _currentPage = _totalPages;
-
-                    // Lấy data có filter + paging
-                    var ppList = ppService.GetByPageWithFilter(_currentPage, _pageSize, trangThaiEnum, _currentKeyword);
+                    // Lấy data có filter + paging (có thể rỗng)
+                    var ppList = _totalRecords == 0
+                        ? new List<PhieuPhat>()
+                        : ppService.GetByPageWithFilter(_currentPage, _pageSize, trangThaiEnum, _currentKeyword);
 
                     // Project thành anonymous type TRONG UC (không dùng DTO)
                     var dataView = ppList.Select(pp => new
@@ -119,14 +118,38 @@ namespace LMS.Views.UserControls.QLPhat
                     if (dgvPhat.Columns.Count == 0 || dgvPhat.Columns["ThanhToan"] == null)
                     {
                         dgvPhat.Columns.Clear();
-                        dgvPhat.AutoGenerateColumns = true;
-                        dgvPhat.DataSource = dataView;
+                        dgvPhat.AutoGenerateColumns = false;
 
-                        dgvPhat.Columns["IdPhieuPhat"].HeaderText = "Mã phiếu phạt";
-                        dgvPhat.Columns["NgayLap"].HeaderText = "Ngày lập";
-                        dgvPhat.Columns["DocGia"].HeaderText = "Độc giả";
-                        dgvPhat.Columns["TongTienPhat"].HeaderText = "Tổng tiền phạt";
-                        dgvPhat.Columns["TrangThai"].HeaderText = "Trạng thái";
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "IdPhieuPhat",
+                            DataPropertyName = "IdPhieuPhat",
+                            HeaderText = "Mã phiếu phạt"
+                        });
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "NgayLap",
+                            DataPropertyName = "NgayLap",
+                            HeaderText = "Ngày lập"
+                        });
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "DocGia",
+                            DataPropertyName = "DocGia",
+                            HeaderText = "Độc giả"
+                        });
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "TongTienPhat",
+                            DataPropertyName = "TongTienPhat",
+                            HeaderText = "Tổng tiền phạt"
+                        });
+                        dgvPhat.Columns.Add(new DataGridViewTextBoxColumn
+                        {
+                            Name = "TrangThai",
+                            DataPropertyName = "TrangThai",
+                            HeaderText = "Trạng thái"
+                        });
 
                         dgvPhat.Columns["NgayLap"].DefaultCellStyle.Format = "dd/MM/yyyy";
                         dgvPhat.Columns["TongTienPhat"].DefaultCellStyle.Format = "N0";
@@ -152,14 +175,14 @@ namespace LMS.Views.UserControls.QLPhat
                         dgvPhat.DataBindingComplete -= dgvPhat_DataBindingComplete;
                         dgvPhat.DataBindingComplete += dgvPhat_DataBindingComplete;
                     }
-                    else
-                    {
-                        // Chỉ update data, không config lại columns
-                        dgvPhat.DataSource = dataView;
-                    }
+
+                    // Cập nhật datasource (kể cả khi rỗng) nhưng giữ cấu trúc cột
+                    dgvPhat.DataSource = dataView;
 
                     // Cập nhật label trang
-                    labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
+                    labelTrang.Text = _totalRecords == 0
+                        ? "Trang 0/0"
+                        : $"Trang {_currentPage}/{_totalPages}";
                     DisablePayButtons();
                 }
             }
@@ -499,9 +522,39 @@ namespace LMS.Views.UserControls.QLPhat
                 return;
             }
 
-            // Lưu keyword và gọi LoadPage → có phân trang!
-            _currentKeyword = keyword;
-            LoadPage(1); // Load trang đầu tiên với keyword
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var ppRepo = new PhieuPhatRepository(context);
+                    var ppService = new PhieuPhatService(ppRepo);
+
+                    PhieuPhat.TrangThaiEnum? trangThaiEnum = _currentTrangThai switch
+                    {
+                        "Chưa thu" => PhieuPhat.TrangThaiEnum.ChuaThu,
+                        "Đã thu" => PhieuPhat.TrangThaiEnum.DaThu,
+                        "Đã huỷ" => PhieuPhat.TrangThaiEnum.DaHuy,
+                        _ => null
+                    };
+
+                    int totalResults = ppService.GetTotalRecordsByFilter(trangThaiEnum, keyword);
+                    if (totalResults == 0)
+                    {
+                        // Không có kết quả - chỉ hiển thị thông báo, không thay đổi dữ liệu hiện tại
+                        MessageBox.Show("Không tìm thấy phiếu phạt nào với từ khóa này.", "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    _currentKeyword = keyword; // Lưu keyword
+                    LoadPage(1); // Load trang đầu tiên với keyword
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi xảy ra, chỉ hiển thị thông báo lỗi, không thay đổi dữ liệu
+                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnSau_Click(object sender, EventArgs e)

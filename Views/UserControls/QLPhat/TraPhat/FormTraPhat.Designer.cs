@@ -322,7 +322,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormTraPhat";
-            Text = "formThemPhieuPhat";
+            Text = "Trả Phiếu Phạt";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);

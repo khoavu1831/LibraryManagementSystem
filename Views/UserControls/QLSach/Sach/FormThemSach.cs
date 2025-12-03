@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Text;
 using LMS.Data;
 using LMS.Entities;
 using LMS.Repository;
 using LMS.Services;
+using System.Globalization;
 
 namespace LMS.Views.UserControls.QLSach
 {
@@ -28,7 +21,7 @@ namespace LMS.Views.UserControls.QLSach
             var context = new LibraryDbContext();
 
             var nxbRepo = new NXBRepository(context);
-            var theLoaiRepo = new TheLoaiRepository(context);
+            var theLoaiRepo = new TheLoaiRepository();
             var tacGiaRepo = new TacGiaRepository(context);
             var sachRepo = new SachRepository(context);
 
@@ -62,23 +55,88 @@ namespace LMS.Views.UserControls.QLSach
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            // Lấy các tên đã chọn trong danh sách theloai + tacgia
-            var selectedNameTheLoais = checkedListBoxTheLoai.CheckedItems.Cast<string>().ToList();
+            // Validate dữ liệu đầu vào
+            var errors = new StringBuilder();
+
+            var tenSach = textBoxTenSach.Text.Trim();
+            if (string.IsNullOrWhiteSpace(tenSach))
+            {
+                errors.AppendLine("- Tên sách không được để trống.");
+            }
+
             var selectedNameTacGias = checkedListBoxTacGia.CheckedItems.Cast<string>().ToList();
+            if (!selectedNameTacGias.Any())
+            {
+                errors.AppendLine("- Vui lòng chọn ít nhất 1 tác giả.");
+            }
+
+            var selectedNameTheLoais = checkedListBoxTheLoai.CheckedItems.Cast<string>().ToList();
+            if (!selectedNameTheLoais.Any())
+            {
+                errors.AppendLine("- Vui lòng chọn ít nhất 1 thể loại.");
+            }
+
+            if (comboBoxNXB.SelectedItem == null)
+            {
+                errors.AppendLine("- Vui lòng chọn nhà xuất bản.");
+            }
+
+            var namXuatBan = (int)numericUpDownNamXB.Value;
+            if (namXuatBan <= 0)
+            {
+                errors.AppendLine("- Năm xuất bản phải lớn hơn 0.");
+            }
+            else if (namXuatBan > DateTime.Now.Year)
+            {
+                errors.AppendLine("- Năm xuất bản không được lớn hơn năm hiện tại.");
+            }
+
+            var soTrang = (int)numericUpDownSoTrang.Value;
+            if (soTrang <= 0)
+            {
+                errors.AppendLine("- Số trang phải lớn hơn 0.");
+            }
+
+            var moTa = textBoxMoTa.Text.Trim();
+            if (string.IsNullOrWhiteSpace(moTa))
+            {
+                errors.AppendLine("- Mô tả không được để trống.");
+            }
+
+            decimal giaTien;
+            var giaTienText = textBoxGiaSach.Text.Trim();
+            if (string.IsNullOrWhiteSpace(giaTienText))
+            {
+                errors.AppendLine("- Giá sách không được để trống.");
+                giaTien = 0;
+            }
+            else if (!decimal.TryParse(giaTienText, NumberStyles.Number, CultureInfo.InvariantCulture, out giaTien))
+            {
+                errors.AppendLine("- Giá sách không hợp lệ. Vui lòng nhập số.");
+            }
+            else if (giaTien < 0)
+            {
+                errors.AppendLine("- Giá sách không được nhỏ hơn 0.");
+            }
+
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString(), "Dữ liệu không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Lấy các tên đã chọn trong danh sách theloai + tacgia
+            var selectedNameTheLoaisFinal = checkedListBoxTheLoai.CheckedItems.Cast<string>().ToList();
+            var selectedNameTacGiasFinal = checkedListBoxTacGia.CheckedItems.Cast<string>().ToList();
 
             // Gán dữ liệu cho các thuộc tính của Sách
-            var tenSach = textBoxTenSach.Text.Trim();
             var theLoais = _theLoaiService.GetAllTheLoai()
-                            .Where(tl => selectedNameTheLoais.Contains(tl.TenTheloai ?? ""))
+                            .Where(tl => selectedNameTheLoaisFinal.Contains(tl.TenTheloai ?? ""))
                             .ToList();
             var tacGias = _tacGiaService.GetAllTacGia()
-                            .Where(tg => selectedNameTacGias.Contains(tg.TenTacGia ?? ""))
+                            .Where(tg => selectedNameTacGiasFinal.Contains(tg.TenTacGia ?? ""))
                             .ToList();
             var nxb = (NXB)comboBoxNXB.SelectedItem!;
-            var namXuatBan = (int)numericUpDownNamXB.Value;
-            var soTrang = (int)numericUpDownSoTrang.Value;
-            var moTa = textBoxMoTa.Text.Trim();
-            var giaTien = Convert.ToDecimal(textBoxGiaSach.Text);
 
             try
             {

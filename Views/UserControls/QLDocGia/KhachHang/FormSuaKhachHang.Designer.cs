@@ -210,7 +210,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(44, 38);
             label2.Name = "label2";
-            label2.Size = new Size(94, 15);
+            label2.Size = new Size(93, 15);
             label2.TabIndex = 8;
             label2.Text = "Tên khách hàng:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
@@ -225,7 +225,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaKhachHang";
-            Text = "FormSuaKhachHang";
+            Text = "Sửa Khách Hàng";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanelButtons.ResumeLayout(false);

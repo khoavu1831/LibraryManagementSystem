@@ -165,7 +165,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormSuaTheLoai";
-            Text = "Sửa Thể loại";
+            Text = "Sửa Thể Loại";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

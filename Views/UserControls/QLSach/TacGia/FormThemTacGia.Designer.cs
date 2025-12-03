@@ -219,11 +219,12 @@
             // 
             // dateTimePickerNgaySinh
             // 
+            dateTimePickerNgaySinh.CustomFormat = "dd/MM/yyyy";
+            dateTimePickerNgaySinh.Format = DateTimePickerFormat.Custom;
             dateTimePickerNgaySinh.Location = new Point(111, 31);
             dateTimePickerNgaySinh.Name = "dateTimePickerNgaySinh";
             dateTimePickerNgaySinh.Size = new Size(244, 23);
             dateTimePickerNgaySinh.TabIndex = 2;
-            dateTimePickerNgaySinh.Value = new DateTime(2025, 10, 5, 0, 0, 0, 0);
             // 
             // FormThemTacGia
             // 
@@ -235,7 +236,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemTacGia";
-            Text = "Thêm Tác giả";
+            Text = "Thêm Tác Giả";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

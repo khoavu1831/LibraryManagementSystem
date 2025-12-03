@@ -268,7 +268,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemPhieuNhap";
-            Text = "Thêm phiếu nhập";
+            Text = "Thêm Phiếu Nhập";
             Load += FormThemPhieuNhap_Load;
             tableLayoutPanelContent.ResumeLayout(false);
             tableLayoutPanelContent.PerformLayout();

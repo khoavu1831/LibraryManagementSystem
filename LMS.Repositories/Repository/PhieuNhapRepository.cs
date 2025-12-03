@@ -117,6 +117,8 @@ namespace LMS.Repository
             return _context.PhieuNhaps
                 .Include(pn => pn.NCC)
                 .Include(pn => pn.NhanVien)
+                .Include(pn => pn.ChiTietPhieuNhaps!)
+                    .ThenInclude(ct => ct.Sach)
                 .AsNoTracking()
                 .OrderByDescending(pn => pn.NgayNhap)
                 .ToList();

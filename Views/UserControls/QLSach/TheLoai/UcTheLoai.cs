@@ -26,19 +26,31 @@ namespace LMS.Views.UserControls.QLSach
             btnThem.Visible = canAdd;
             btnSua.Visible = canEdit;
             btnXoa.Visible = canDelete;
+
+            dgvTheLoai.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvTheLoai.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvTheLoai.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvTheLoai.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
         private void LoadData()
         {
             try
             {
-                using (var context = new LibraryDbContext())
+                var repo = new TheLoaiRepository();
+                var theLoaiService = new TheLoaiService(repo);
+                var data = theLoaiService.GetAllTheLoai();
+                var dataView = data.Select(tl => new
                 {
-                    var repo = new TheLoaiRepository(context);
-                    var theLoaiService = new TheLoaiService(repo);
-                    var data = theLoaiService.GetAllTheLoai();
-                    dgvTheLoai.DataSource = data;
-                }
+                    tl.IdTheLoai,
+                    tl.TenTheloai
+                }).ToList();
+
+                dgvTheLoai.DataSource = dataView;
+
+                dgvTheLoai.Columns["IdTheLoai"].HeaderText = "Mã thể loại";
+                dgvTheLoai.Columns["TenTheLoai"].HeaderText = "Tên thể loại";
             }
             catch (Exception ex)
             {
@@ -91,12 +103,9 @@ namespace LMS.Views.UserControls.QLSach
                 int idTheLoai = Convert.ToInt32(selectedRow.Cells["IdTheLoai"].Value);
                 try
                 {
-                    using (var context = new LibraryDbContext())
-                    {
-                        var repo = new TheLoaiRepository(context);
-                        var theLoaiService = new TheLoaiService(repo);
-                        theLoaiService.DeleteTheLoai(idTheLoai);
-                    }
+                    var repo = new TheLoaiRepository();
+                    var theLoaiService = new TheLoaiService(repo);
+                    theLoaiService.DeleteTheLoai(idTheLoai);
 
                     MessageBox.Show("Xóa thể loại thành công", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadData();
@@ -116,20 +125,36 @@ namespace LMS.Views.UserControls.QLSach
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim().ToLower();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             try
             {
-                using (var context = new LibraryDbContext())
-                {
-                    var repo = new TheLoaiRepository(context);
-                    var theLoaiService = new TheLoaiService(repo);
+                var repo = new TheLoaiRepository();
+                var theLoaiService = new TheLoaiService(repo);
 
-                    var data = theLoaiService.Search(keyword);
-                    if (data.Count == 0)
-                    {
-                        MessageBox.Show("Không tìm thấy thể loại nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    dgvTheLoai.DataSource = data;
+                var data = theLoaiService.Search(keyword);
+
+                var dataView = data.Select(tl => new
+                {
+                    tl.IdTheLoai,
+                    tl.TenTheloai
+                }).ToList();
+
+                if (dataView.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy thể loại nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData();
+                    return;
                 }
+
+                dgvTheLoai.DataSource = dataView;
+
+                dgvTheLoai.Columns["IdTheLoai"].HeaderText = "Mã thể loại";
+                dgvTheLoai.Columns["TenTheLoai"].HeaderText = "Tên thể loại";
             }
             catch (Exception ex)
             {
@@ -137,35 +162,33 @@ namespace LMS.Views.UserControls.QLSach
             }
         }
 
+
         private void btnExcel_Click(object sender, EventArgs e)
         {
             try
             {
-                using (var context = new LibraryDbContext())
-                {
-                    var repo = new TheLoaiRepository(context);
-                    var theLoaiService = new TheLoaiService(repo);
-                    var data = theLoaiService.GetAllTheLoai(); // List<TheLoai>
+                var repo = new TheLoaiRepository();
+                var theLoaiService = new TheLoaiService(repo);
+                var data = theLoaiService.GetAllTheLoai(); // List<TheLoai>
 
-                    // Xuất Excel, loại trừ các navigation properties nếu có (ví dụ: "Sachs" nếu liên kết với sách)
-                    var stream = ExportExcel.Export(
-                        data,
-                        "TheLoai",
-                        new string[] { "Sachs" } // Thêm tên navigation properties cần loại trừ nếu có
-                    );
-                    stream.Position = 0;
-                    using (SaveFileDialog sfd = new SaveFileDialog())
+                // Xuất Excel, loại trừ các navigation properties nếu có (ví dụ: "Sachs" nếu liên kết với sách)
+                var stream = ExportExcel.Export(
+                    data,
+                    "TheLoai",
+                    new string[] { "Sachs" } // Thêm tên navigation properties cần loại trừ nếu có
+                );
+                stream.Position = 0;
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "Excel Workbook|*.xlsx";
+                    sfd.FileName = "TheLoai.xlsx";
+                    if (sfd.ShowDialog() == DialogResult.OK)
                     {
-                        sfd.Filter = "Excel Workbook|*.xlsx";
-                        sfd.FileName = "TheLoai.xlsx";
-                        if (sfd.ShowDialog() == DialogResult.OK)
+                        using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
                         {
-                            using (var fileStream = new FileStream(sfd.FileName, FileMode.Create, FileAccess.Write))
-                            {
-                                stream.CopyTo(fileStream);
-                            }
-                            MessageBox.Show("Xuất Excel thành công!");
+                            stream.CopyTo(fileStream);
                         }
+                        MessageBox.Show("Xuất Excel thành công!");
                     }
                 }
             }

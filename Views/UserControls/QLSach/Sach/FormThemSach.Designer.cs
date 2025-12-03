@@ -337,7 +337,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemSach";
-            Text = "Thêm sách";
+            Text = "Thêm Sách";
             Load += formThemSach_Load;
             tableLayoutPanelContent.ResumeLayout(false);
             tableLayoutPanelContent.PerformLayout();

@@ -366,7 +366,7 @@
             Controls.Add(panelTop);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormChiTietPhieuMuon";
-            Text = "Chi tiết phiếu mượn";
+            Text = "Chi Tiết Phiếu Mượn";
             panelTop.ResumeLayout(false);
             panel1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);

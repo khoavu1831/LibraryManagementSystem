@@ -1,6 +1,7 @@
 ﻿using LMS.Data;
 using LMS.Entities;
 using LMS.Helpers;
+using LMS.Models.Dtos;
 using LMS.Repository;
 using LMS.Services;
 using LMS.Views.LMS.Utils.Helpers;
@@ -41,6 +42,12 @@ namespace LMS.Views.UserControls.QLNhapSach
             btnXoa.Visible = canDelete;
             btnLamMoi.Visible = true;
             btnExcel.Visible = canExport;
+
+            dgvPhieuNhap.EnableHeadersVisualStyles = false;
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvPhieuNhap.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
 
@@ -50,7 +57,7 @@ namespace LMS.Views.UserControls.QLNhapSach
             _currentKeyword = null; // Reset keyword khi đổi filter
             LoadPage(1); // Load trang đầu tiên
         }
-        
+
         private void LoadPage(int page)
         {
             _currentPage = page;
@@ -289,8 +296,38 @@ namespace LMS.Views.UserControls.QLNhapSach
                 return;
             }
 
-            _currentKeyword = keyword; // Lưu keyword
-            LoadPage(1); // Load trang đầu tiên với keyword
+            try
+            {
+                using (var context = new LibraryDbContext())
+                {
+                    var pnRepo = new PhieuNhapRepository(context);
+                    var pnService = new PhieuNhapService(pnRepo);
+
+                    PhieuNhap.TrangThaiEnum? trangThaiEnum = _currentTrangThai switch
+                    {
+                        "Đang hoạt động" => PhieuNhap.TrangThaiEnum.DangHoatDong,
+                        "Đã huỷ" => PhieuNhap.TrangThaiEnum.DaHuy,
+                        _ => null
+                    };
+
+                    int totalResults = pnService.GetTotalRecordsByFilter(trangThaiEnum, keyword);
+                    if (totalResults == 0)
+                    {
+                        // Không có kết quả - chỉ hiển thị thông báo, không thay đổi dữ liệu hiện tại
+                        MessageBox.Show("Không tìm thấy phiếu nhập nào với từ khóa này.", "Thông báo",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    _currentKeyword = keyword; // Lưu keyword
+                    LoadPage(1); // Load trang đầu tiên với keyword
+                }
+            }
+            catch (Exception ex)
+            {
+                // Nếu có lỗi xảy ra, chỉ hiển thị thông báo lỗi, không thay đổi dữ liệu
+                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -301,7 +338,7 @@ namespace LMS.Views.UserControls.QLNhapSach
                 {
                     var repo = new PhieuNhapRepository(context);
                     var pnService = new PhieuNhapService(repo);
-                    
+
                     // Lấy tất cả phiếu nhập với Include đầy đủ
                     var pnList = pnService.GetAllPhieuNhapWithIncludes();
 
@@ -314,7 +351,19 @@ namespace LMS.Views.UserControls.QLNhapSach
                         SoLuongSach = pn.SoLuongSach,
                         TongTien = pn.TongTienNhap.ToString("N0") + " VNĐ",
                         LoaiPhieuNhap = pn.LoaiPhieuNhap.GetDisplayName(),
-                        TrangThai = pn.TrangThai.GetDisplayName()
+                        TrangThai = pn.TrangThai.GetDisplayName(),
+                        MaSach = pn.ChiTietPhieuNhaps != null
+                            ? string.Join(", ",
+                                pn.ChiTietPhieuNhaps
+                                    .Where(ct => ct.Sach != null)
+                                    .Select(ct => ct.Sach!.IdSachFormat))
+                            : string.Empty,
+                        TenSach = pn.ChiTietPhieuNhaps != null
+                            ? string.Join(", ",
+                                pn.ChiTietPhieuNhaps
+                                    .Where(ct => ct.Sach != null)
+                                    .Select(ct => ct.Sach!.TenSach))
+                            : string.Empty
                     }).ToList();
 
                     if (pnDataView.Count == 0)
@@ -368,6 +417,65 @@ namespace LMS.Views.UserControls.QLNhapSach
         {
             if (_currentPage < _totalPages)
                 LoadPage(_currentPage + 1);
+        }
+
+        private void buttonNhapExcel_Click(object sender, EventArgs e)
+        {
+            if (dgvPhieuNhap.CurrentRow == null || dgvPhieuNhap.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Vui lòng chọn một phiếu nhập để nhập chi tiết từ Excel.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var idPhieuNhap = Convert.ToInt32(dgvPhieuNhap.CurrentRow.Cells["IdPhieuNhap"].Value);
+
+            using (var ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Excel Files|*.xlsx";
+                ofd.Title = "Chọn file Excel chi tiết nhập sách";
+
+                if (ofd.ShowDialog() != DialogResult.OK)
+                    return;
+
+                try
+                {
+                    var filePath = ofd.FileName;
+                    var rows = ImportExcel.ReadNhapSachFromFile(filePath);
+
+                    if (rows.Count == 0)
+                    {
+                        MessageBox.Show("File không có dữ liệu hoặc không đọc được.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+
+                    using (var context = new LibraryDbContext())
+                    {
+                        var pnRepo = new PhieuNhapRepository(context);
+                        var ctpnRepo = new ChiTietPhieuNhapRepository(context);
+                        var bssRepo = new BanSaoSachRepository(context);
+                        var sachRepo = new SachRepository(context);
+
+                        var pnService = new PhieuNhapService(pnRepo, ctpnRepo, bssRepo, sachRepo);
+
+                        var errors = pnService.ImportChiTietFromExcel(idPhieuNhap, rows);
+                        var successCount = rows.Count - errors.Count;
+
+                        var message = $"Import chi tiết phiếu nhập hoàn tất.\nTổng dòng: {rows.Count}\nThành công: {successCount}\nLỗi: {errors.Count}";
+                        if (errors.Count > 0)
+                        {
+                            message += "\n\nChi tiết lỗi:\n" + string.Join("\n", errors);
+                        }
+
+                        MessageBox.Show(message, "Kết quả import", MessageBoxButtons.OK, errors.Count > 0 ? MessageBoxIcon.Warning : MessageBoxIcon.Information);
+                    }
+
+                    LoadPage(_currentPage);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Nhập Excel thất bại.\n{ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

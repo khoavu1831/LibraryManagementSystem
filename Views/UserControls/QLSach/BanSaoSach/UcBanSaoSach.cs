@@ -18,9 +18,15 @@ namespace LMS.Views.UserControls.QLSach
         {
             InitializeComponent();
             var canEdit = permissions.Contains("SACH_BANSAO_EDIT");
-            var canDelete = permissions.Contains("SACH_BANSAO_DELETE");
             btnSua.Visible = canEdit;
-            btnXoa.Visible = canDelete;
+            // Ẩn chức năng xóa bản sao sách theo yêu cầu
+            btnXoa.Visible = false;
+
+            dgvBanSaoSach.EnableHeadersVisualStyles = false; // Cho phép đổi màu
+            dgvBanSaoSach.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvBanSaoSach.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvBanSaoSach.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            
             LoadData();
         }
 
@@ -54,16 +60,43 @@ namespace LMS.Views.UserControls.QLSach
                 if (bssDataView.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy bản sao sách phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadPage(1);
+                    return;
                 }
                 dgvBanSaoSach.DataSource = bssDataView;
+
                 labelTrang.Text = $"Trang {_currentPage}/{_totalPages}";
+
+                dgvBanSaoSach.Columns["IdBanSaoSach"].HeaderText = "Mã bản sao sách";
+                dgvBanSaoSach.Columns["IdSach"].HeaderText = "Mã sách";
+                dgvBanSaoSach.Columns["TenSach"].HeaderText = "Tên sách";
+                dgvBanSaoSach.Columns["TrangThai"].HeaderText = "Trạng thái";
             }
         }
         private void btnSua_Click(object sender, EventArgs e)
         {
-            using (var formSuaBSS = new FormSuaBSS())
+            if (dgvBanSaoSach.SelectedRows.Count == 0)
             {
-                formSuaBSS.ShowDialog(this);
+                MessageBox.Show("Vui lòng chọn một bản sao sách để sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var selectedRow = dgvBanSaoSach.SelectedRows[0];
+            var idBanSaoSach = selectedRow.Cells["IdBanSaoSach"].Value?.ToString();
+            var tenSach = selectedRow.Cells["TenSach"].Value?.ToString() ?? "";
+
+            if (string.IsNullOrWhiteSpace(idBanSaoSach))
+            {
+                MessageBox.Show("Không xác định được bản sao sách cần sửa.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (var formSuaBSS = new FormSuaBSS(idBanSaoSach, tenSach))
+            {
+                if (formSuaBSS.ShowDialog(this) == DialogResult.OK)
+                {
+                    LoadPage(_currentPage, _currentKeyword);
+                }
             }
         }
 
@@ -86,11 +119,18 @@ namespace LMS.Views.UserControls.QLSach
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             if (string.IsNullOrEmpty(keyword))
             {
                 LoadPage(1);
                 return;
             }
+
             _currentPage = 1; // reset về trang 1 khi tìm kiếm
             LoadPage(_currentPage, keyword);
         }

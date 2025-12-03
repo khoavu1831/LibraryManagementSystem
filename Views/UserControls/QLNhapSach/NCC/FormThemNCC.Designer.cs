@@ -212,7 +212,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormThemNCC";
-            Text = "Thêm NXB";
+            Text = "Thêm NCC";
             panelTop.ResumeLayout(false);
             panelContent.ResumeLayout(false);
             panelContent.PerformLayout();

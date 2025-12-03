@@ -202,6 +202,7 @@
             textBoxGiaSach.Location = new Point(111, 324);
             textBoxGiaSach.Margin = new Padding(3, 2, 3, 2);
             textBoxGiaSach.Name = "textBoxGiaSach";
+            textBoxGiaSach.ReadOnly = true;
             textBoxGiaSach.Size = new Size(244, 23);
             textBoxGiaSach.TabIndex = 28;
             // 

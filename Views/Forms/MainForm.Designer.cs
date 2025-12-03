@@ -304,9 +304,8 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            MinimizeBox = false;
             Name = "MainForm";
-            Text = "Phần mềm quản lý thư viện ";
+            Text = "Hệ thống quản lý thư viện ";
             panelNav.ResumeLayout(false);
             panelLogout.ResumeLayout(false);
             panelMenu.ResumeLayout(false);

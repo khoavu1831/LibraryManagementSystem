@@ -31,6 +31,12 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
             btnXoa.Visible = canDelete;
             btnChiTiet.Visible = canViewDetails;
             btnExcel.Visible = canExport;
+
+            dgvNhanVien.EnableHeadersVisualStyles = false;
+            dgvNhanVien.ColumnHeadersDefaultCellStyle.BackColor = Color.RoyalBlue;
+            dgvNhanVien.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgvNhanVien.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+
             LoadData();
         }
 
@@ -51,6 +57,13 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
                     Email = nv.Email
                 }).ToList();
                 dgvNhanVien.DataSource = nhanVienDataView;
+
+                dgvNhanVien.Columns["IdNhanVien"].HeaderText = "Mã nhân viên";
+                dgvNhanVien.Columns["TenNhanVien"].HeaderText = "Tên nhân viên";
+                dgvNhanVien.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+                dgvNhanVien.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                dgvNhanVien.Columns["SDT"].HeaderText = "SĐT";
+                dgvNhanVien.Columns["Email"].HeaderText = "Email";
             }
         }
         private void btnThem_Click(object sender, EventArgs e)
@@ -153,6 +166,12 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             var keyword = txtBoxTimKiem.Text.Trim().ToLower();
+            if (string.IsNullOrWhiteSpace(keyword))
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxTimKiem.Focus();
+                return;
+            }
             try
             {
                 using (var context = new LibraryDbContext())
@@ -161,11 +180,32 @@ namespace LMS.Views.UserControls.QLNhanVien.NhanVien
                     var nvService = new NhanVienService(repo);
 
                     var data = nvService.SearchNhanVien(keyword);
-                    if (data.Count == 0)
+                    
+                    var dataView = data.Select(nv => new
+                    {
+                        IdNhanVien = nv.IdNhanVien,
+                        TenNhanVien = nv.TenNhanVien,
+                        NgaySinh = nv.NgaySinh.ToString("dd/MM/yyyy"),
+                        DiaChi = nv.DiaChi,
+                        SDT = nv.SDT,
+                        Email = nv.Email
+                    }).ToList();
+
+                    if (dataView.Count == 0)
                     {
                         MessageBox.Show("Không tìm thấy nhân viên nào.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadData();
+                        return;
                     }
-                    dgvNhanVien.DataSource = data;
+
+                    dgvNhanVien.DataSource = dataView;
+
+                    dgvNhanVien.Columns["IdNhanVien"].HeaderText = "Mã nhân viên";
+                    dgvNhanVien.Columns["TenNhanVien"].HeaderText = "Tên nhân viên";
+                    dgvNhanVien.Columns["NgaySinh"].HeaderText = "Ngày sinh";
+                    dgvNhanVien.Columns["DiaChi"].HeaderText = "Địa chỉ";
+                    dgvNhanVien.Columns["SDT"].HeaderText = "SĐT";
+                    dgvNhanVien.Columns["Email"].HeaderText = "Email";
                 }
             }
             catch (Exception ex)
