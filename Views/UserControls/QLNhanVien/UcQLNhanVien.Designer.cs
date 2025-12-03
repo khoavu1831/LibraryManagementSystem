@@ -83,7 +83,7 @@
             btnNhanVien.Name = "btnNhanVien";
             btnNhanVien.Size = new Size(111, 67);
             btnNhanVien.TabIndex = 0;
-            btnNhanVien.Text = "Nhân viên";
+            btnNhanVien.Text = "Người dùng";
             btnNhanVien.UseVisualStyleBackColor = false;
             btnNhanVien.Click += btnNhanVien_Click;
             // 

@@ -136,7 +136,7 @@
             buttonQLNhanVien.Name = "buttonQLNhanVien";
             buttonQLNhanVien.Size = new Size(218, 50);
             buttonQLNhanVien.TabIndex = 6;
-            buttonQLNhanVien.Text = "   Nhân Viên";
+            buttonQLNhanVien.Text = "Người dùng";
             buttonQLNhanVien.TextImageRelation = TextImageRelation.ImageBeforeText;
             buttonQLNhanVien.UseVisualStyleBackColor = false;
             buttonQLNhanVien.Click += buttonQLNhanVien_Click;

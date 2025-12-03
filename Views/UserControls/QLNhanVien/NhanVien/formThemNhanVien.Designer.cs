@@ -168,7 +168,7 @@
             label1.Name = "label1";
             label1.Size = new Size(456, 94);
             label1.TabIndex = 0;
-            label1.Text = "THÊM NHÂN VIÊN";
+            label1.Text = "THÊM NGƯỜI DÙNG";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
             // 

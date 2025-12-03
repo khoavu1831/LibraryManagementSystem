@@ -59,7 +59,7 @@
             label1.Name = "label1";
             label1.Size = new Size(456, 94);
             label1.TabIndex = 2;
-            label1.Text = "THÔNG TIN NHÂN VIÊN";
+            label1.Text = "THÔNG TIN NGƯỜI DÙNG";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel2
