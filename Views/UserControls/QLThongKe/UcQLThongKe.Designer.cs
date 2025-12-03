@@ -30,7 +30,6 @@
         {
             panelNavMenu = new Panel();
             btnChung = new Button();
-            btnSachMuon = new Button();
             btnSachNhap = new Button();
             btnPhieuPhat = new Button();
             btnThanhVien = new Button();
@@ -42,7 +41,6 @@
             // 
             panelNavMenu.BackColor = Color.White;
             panelNavMenu.Controls.Add(btnChung);
-            panelNavMenu.Controls.Add(btnSachMuon);
             panelNavMenu.Controls.Add(btnSachNhap);
             panelNavMenu.Controls.Add(btnPhieuPhat);
             panelNavMenu.Controls.Add(btnThanhVien);
@@ -58,26 +56,13 @@
             btnChung.BackColor = Color.White;
             btnChung.Dock = DockStyle.Left;
             btnChung.FlatStyle = FlatStyle.Flat;
-            btnChung.Location = new Point(508, 0);
+            btnChung.Location = new Point(397, 0);
             btnChung.Name = "btnChung";
             btnChung.Size = new Size(111, 67);
             btnChung.TabIndex = 5;
             btnChung.Text = "Sách hot";
             btnChung.UseVisualStyleBackColor = false;
             btnChung.Click += btnChung_Click;
-            // 
-            // btnSachMuon
-            // 
-            btnSachMuon.BackColor = Color.White;
-            btnSachMuon.Dock = DockStyle.Left;
-            btnSachMuon.FlatStyle = FlatStyle.Flat;
-            btnSachMuon.Location = new Point(397, 0);
-            btnSachMuon.Name = "btnSachMuon";
-            btnSachMuon.Size = new Size(111, 67);
-            btnSachMuon.TabIndex = 4;
-            btnSachMuon.Text = "Sách mượn";
-            btnSachMuon.UseVisualStyleBackColor = false;
-            btnSachMuon.Click += btnSachMuon_Click;
             // 
             // btnSachNhap
             // 
@@ -143,7 +128,6 @@
 
         private Panel panelNavMenu;
         private Button btnChung;
-        private Button btnSachMuon;
         private Button btnSachNhap;
         private Button btnPhieuPhat;
         private Button btnThanhVien;
