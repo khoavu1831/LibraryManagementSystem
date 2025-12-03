@@ -4,6 +4,7 @@ using LMS.Views.UserControls.QLThongKe.SachMuon;
 using LMS.Views.UserControls.QLThongKe.SachNhap;
 using LMS.Views.UserControls.QLThongKe.ThanhVien;
 using LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra;
+using LMS.Views.Views.UserControls.QLThongKe.ThongKePhiPhat;
 using LMS.Views.Views.UserControls.QLThongKe.ThongKeSach;
 
 
@@ -41,6 +42,7 @@ namespace LMS.Views.UserControls.QLThongKe
         private void btnSachNhap_Click(object sender, EventArgs e)
         {
             //LoadSubControl(new UcSachNhap());
+            LoadSubControl(new ThongKePhiPhat());
         }
 
         private void btnSachMuon_Click(object sender, EventArgs e)

@@ -57,6 +57,10 @@
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             panel3 = new Panel();
             dataGridView1 = new DataGridView();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
             panel1.SuspendLayout();
             panelFilter.SuspendLayout();
             panelNam.SuspendLayout();
@@ -106,13 +110,14 @@
             panelFilter.Controls.Add(panelQuy);
             panelFilter.Controls.Add(panelThang);
             panelFilter.Controls.Add(panelNgay);
-            panelFilter.Location = new Point(0, 54);  // SỬA: Từ 51 -> 54 để tránh overlap với panel1
+            panelFilter.Location = new Point(0, 54);
             panelFilter.Name = "panelFilter";
             panelFilter.Size = new Size(1060, 94);
             panelFilter.TabIndex = 1;
             // 
             // panelNam
             // 
+            panelNam.Controls.Add(button1);
             panelNam.Controls.Add(numericUpDown4);
             panelNam.Controls.Add(label8);
             panelNam.Location = new Point(0, 3);
@@ -139,13 +144,14 @@
             // 
             // panelQuy
             // 
+            panelQuy.Controls.Add(button2);
             panelQuy.Controls.Add(numericUpDown3);
             panelQuy.Controls.Add(label7);
             panelQuy.Controls.Add(label6);
             panelQuy.Controls.Add(comboBox2);
-            panelQuy.Location = new Point(0, 0);
+            panelQuy.Location = new Point(3, 0);
             panelQuy.Name = "panelQuy";
-            panelQuy.Size = new Size(1060, 92);
+            panelQuy.Size = new Size(1057, 92);
             panelQuy.TabIndex = 2;
             panelQuy.Visible = false;
             // 
@@ -184,6 +190,7 @@
             // 
             // panelThang
             // 
+            panelThang.Controls.Add(button3);
             panelThang.Controls.Add(label5);
             panelThang.Controls.Add(numericUpDown2);
             panelThang.Controls.Add(label4);
@@ -228,6 +235,7 @@
             // 
             // panelNgay
             // 
+            panelNgay.Controls.Add(button4);
             panelNgay.Controls.Add(dp_To);
             panelNgay.Controls.Add(label2);
             panelNgay.Controls.Add(dp_From);
@@ -273,9 +281,9 @@
             // panel2
             // 
             panel2.Controls.Add(chart1);
-            panel2.Location = new Point(0, 145);  // SỬA: Từ 142 -> 145 để tránh overlap với panelFilter (54+94=148)
+            panel2.Location = new Point(0, 145);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1060, 330);  // SỬA: Giảm từ 338 -> 330 để tổng height vừa khít
+            panel2.Size = new Size(1060, 330);
             panel2.TabIndex = 2;
             // 
             // chart1
@@ -290,26 +298,62 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             chart1.Series.Add(series1);
-            chart1.Size = new Size(1057, 330);  // SỬA: Đồng bộ với panel2 height
+            chart1.Size = new Size(1057, 330);
             chart1.TabIndex = 0;
             chart1.Text = "chart1";
             // 
             // panel3
             // 
             panel3.Controls.Add(dataGridView1);
-            panel3.Location = new Point(0, 480);  // SỬA: Từ 486 -> 480 (145+330=475, cộng gap nhỏ)
+            panel3.Location = new Point(0, 480);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1057, 173);  // SỬA: Tăng từ 234 -> 173? Wait, tính lại: tổng 480+173=653, vừa khít
+            panel3.Size = new Size(1057, 173);
             panel3.TabIndex = 3;
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;  // THÊM: Để DGV fill panel và hỗ trợ scroll khi resize
-            dataGridView1.Size = new Size(1054, 170);  // SỬA: Đồng bộ với panel3, nhưng sẽ auto-adjust nhờ anchor
+            dataGridView1.Size = new Size(1054, 170);
             dataGridView1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(242, 27);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 4;
+            button1.Text = "Thống kê";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(418, 37);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 5;
+            button2.Text = "Thống kê";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(350, 34);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 11;
+            button3.Text = "Thống kê";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(650, 32);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 8;
+            button4.Text = "Thống kê";
+            button4.UseVisualStyleBackColor = true;
             // 
             // ThongKeMuonTra
             // 
@@ -372,5 +416,9 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Panel panel3;
         private DataGridView dataGridView1;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }

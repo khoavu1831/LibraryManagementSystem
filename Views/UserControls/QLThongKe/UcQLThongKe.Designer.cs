@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             panelNavMenu = new Panel();
-            btnChung = new Button();
             btnSachNhap = new Button();
             btnPhieuPhat = new Button();
             btnThanhVien = new Button();
@@ -40,7 +39,6 @@
             // panelNavMenu
             // 
             panelNavMenu.BackColor = Color.White;
-            panelNavMenu.Controls.Add(btnChung);
             panelNavMenu.Controls.Add(btnSachNhap);
             panelNavMenu.Controls.Add(btnPhieuPhat);
             panelNavMenu.Controls.Add(btnThanhVien);
@@ -50,19 +48,6 @@
             panelNavMenu.Name = "panelNavMenu";
             panelNavMenu.Size = new Size(1060, 67);
             panelNavMenu.TabIndex = 1;
-            // 
-            // btnChung
-            // 
-            btnChung.BackColor = Color.White;
-            btnChung.Dock = DockStyle.Left;
-            btnChung.FlatStyle = FlatStyle.Flat;
-            btnChung.Location = new Point(397, 0);
-            btnChung.Name = "btnChung";
-            btnChung.Size = new Size(111, 67);
-            btnChung.TabIndex = 5;
-            btnChung.Text = "Sách hot";
-            btnChung.UseVisualStyleBackColor = false;
-            btnChung.Click += btnChung_Click;
             // 
             // btnSachNhap
             // 
@@ -127,7 +112,6 @@
         #endregion
 
         private Panel panelNavMenu;
-        private Button btnChung;
         private Button btnSachNhap;
         private Button btnPhieuPhat;
         private Button btnThanhVien;
