@@ -77,18 +77,19 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeSach
         {
             using (LibraryDbContext db = new LibraryDbContext())
             {
+                DateTime ngayFrom = dp_From.Value.Date;
+                DateTime ngayTo = dp_To.Value.Date.AddDays(1).AddTicks(-1);
+
                 DataTable dt = new DataTable();
                 dt.Columns.Add("TenSach");
                 dt.Columns.Add("TheLoai");
                 dt.Columns.Add("SoLuong");
                 dt.Columns.Add("Ngay");
 
-                // luôn load kèm thể loại
                 var sachList = db.Sachs
                                  .Include(s => s.TheLoais)
                                  .ToList();
-
-                // ===== TỔNG SỐ SÁCH =====
+                // 1. TỔNG SỐ SÁCH
                 if (loai == "Tổng số sách")
                 {
                     foreach (var s in sachList)
@@ -100,44 +101,44 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeSach
                         dt.Rows.Add(s.TenSach, theLoaiName, s.SoLuongBanSao, DateTime.Now);
                     }
                 }
-
-                // ===== SÁCH ĐANG MƯỢN =====
+                // 2. SÁCH ĐANG MƯỢN
                 else if (loai == "Sách đang mượn")
                 {
                     var data = (
-                         from ct in db.ChiTietPhieuMuons
-                         join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
-                         join bss in db.BanSaoSachs on ct.IdBanSaoSach equals bss.IdBanSaoSach
-                         join s in db.Sachs.Include(s => s.TheLoais) on bss.IdSach equals s.IdSach
-                         where pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon
-                         select new { Sach = s, Ngay = pm.NgayMuon }
-                            ).ToList();
+                        from ct in db.ChiTietPhieuMuons
+                        join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
+                        join bss in db.BanSaoSachs on ct.IdBanSaoSach equals bss.IdBanSaoSach
+                        join s in db.Sachs.Include(s => s.TheLoais) on bss.IdSach equals s.IdSach
+                        where pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon
+                              && pm.NgayMuon >= ngayFrom
+                              && pm.NgayMuon <= ngayTo
+                        select new { Sach = s, Ngay = pm.NgayMuon }
+                    ).ToList();
+
                     foreach (var item in data)
                     {
                         string theLoai = item.Sach.TheLoais != null && item.Sach.TheLoais.Any()
-                            ? string.Join(", ", item.Sach.TheLoais.Select(t => t.TenTheloai))
-                            : "";
+                           ? string.Join(", ", item.Sach.TheLoais.Select(t => t.TenTheloai))
+                           : "";
 
                         dt.Rows.Add(item.Sach.TenSach, theLoai, 1, item.Ngay);
                     }
                 }
-
-                // ===== SÁCH MẤT / HƯ =====
+                // 3. SÁCH MẤT HOẶC HƯ HỎNG
                 else if (loai == "Sách mất hoặc hư hỏng")
                 {
                     var data = (
-                         from ct in db.ChiTietPhieuMuons
-                         join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
-                         join bss in db.BanSaoSachs on ct.IdBanSaoSach equals bss.IdBanSaoSach
-                         join s in db.Sachs.Include(s => s.TheLoais) on bss.IdSach equals s.IdSach
-                         where ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
-                         || ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong
-                         select new
-                         {
-                          Sach = s,
-                         Ngay = pm.NgayMuon
-                         }
+                        from ct in db.ChiTietPhieuMuons
+                        join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
+                        join bss in db.BanSaoSachs on ct.IdBanSaoSach equals bss.IdBanSaoSach
+                        join s in db.Sachs.Include(s => s.TheLoais) on bss.IdSach equals s.IdSach
+                        where (ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
+                            || ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong)
+                            && pm.NgayMuon >= ngayFrom
+                            && pm.NgayMuon <= ngayTo
+                        select new { Sach = s, Ngay = pm.NgayMuon }
                     ).ToList();
+
                     foreach (var item in data)
                     {
                         string theLoai = item.Sach.TheLoais != null && item.Sach.TheLoais.Any()
@@ -147,23 +148,22 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeSach
                         dt.Rows.Add(item.Sach.TenSach, theLoai, 1, item.Ngay);
                     }
                 }
-
-                // ===== SÁCH CHƯA MƯỢN =====
+                // 4. SÁCH CHƯA MƯỢN
                 else if (loai == "Sách chưa mượn")
                 {
                     var sachDaMuonIds =
                         db.BanSaoSachs
-                        .Where(bss => db.ChiTietPhieuMuons
-                       .Any(ct => ct.IdBanSaoSach == bss.IdBanSaoSach))
-                        .Select(bss => bss.IdSach)
-                        .Distinct()
-                        .ToList();
+                          .Where(bss => db.ChiTietPhieuMuons
+                             .Any(ct => ct.IdBanSaoSach == bss.IdBanSaoSach))
+                          .Select(bss => bss.IdSach)
+                          .Distinct()
+                          .ToList();
 
-                    // Lấy sách chưa mượn
                     var data = db.Sachs
                         .Include(s => s.TheLoais)
                         .Where(s => !sachDaMuonIds.Contains(s.IdSach))
                         .ToList();
+
                     foreach (var s in data)
                     {
                         string theLoai = s.TheLoais != null && s.TheLoais.Any()
