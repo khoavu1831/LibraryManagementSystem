@@ -96,7 +96,7 @@
             btnThongKe.TabIndex = 4;
             btnThongKe.Text = "Thống kê";
             btnThongKe.UseVisualStyleBackColor = true;
-            btnThongKe.Click += btnThongKe_Click_1;
+            btnThongKe.Click += btnThongKe_Click;
             // 
             // dp_To
             // 
