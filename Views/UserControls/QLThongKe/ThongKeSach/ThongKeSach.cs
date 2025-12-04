@@ -1,9 +1,13 @@
-﻿using System;
+﻿using LMS.Data;
+using LMS.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -68,68 +72,152 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeSach
         }
 
         // THÊM: Hàm tính tổng cho một loại cụ thể (giữ nguyên để dgv)
+
         private DataTable TaoBangThongKe(string loai)
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Tên sách");
-            dt.Columns.Add("Thể loại");
-            dt.Columns.Add("Số lượng", typeof(int));
-            dt.Columns.Add("Ngày", typeof(DateTime)); // Cột ngày để filter
-            Random rand = new Random();
-            int soLuongHang = 500; // THÊM: Tăng lên 500 hàng để dgv có nhiều dữ liệu hơn nữa, test scroll tốt hơn
-            DateTime startDate = DateTime.Now.AddMonths(-6); // Fake data trong 6 tháng qua
-            for (int i = 0; i < soLuongHang; i++)
+            using (LibraryDbContext db = new LibraryDbContext())
             {
-                // Random tên sách và thể loại từ list
-                string tenSach = tenSachList[rand.Next(tenSachList.Length)] + $" ({i + 1})"; // Đa dạng + số thứ tự
-                string theLoai = theLoaiList[rand.Next(theLoaiList.Length)];
-                int soLuong = 0;
+                DateTime ngayFrom = dp_From.Value.Date;
+                DateTime ngayTo = dp_To.Value.Date.AddDays(1).AddTicks(-1);
+
+                DataTable dt = new DataTable();
+                dt.Columns.Add("TenSach");
+                dt.Columns.Add("TheLoai");
+                dt.Columns.Add("SoLuong");
+                dt.Columns.Add("Ngay");
+
+                var sachList = db.Sachs
+                                 .Include(s => s.TheLoais)
+                                 .ToList();
+                // 1. TỔNG SỐ SÁCH
                 if (loai == "Tổng số sách")
                 {
-                    soLuong = rand.Next(10, 100); // Nhiều sách
+                    foreach (var s in sachList)
+                    {
+                        string theLoaiName = (s.TheLoais != null && s.TheLoais.Any())
+                                            ? string.Join(", ", s.TheLoais.Select(t => t.TenTheloai))
+                                            : "";
+
+                        dt.Rows.Add(s.TenSach, theLoaiName, s.SoLuongBanSao, DateTime.Now);
+                    }
                 }
+                // 2. SÁCH ĐANG MƯỢN
                 else if (loai == "Sách đang mượn")
                 {
-                    soLuong = rand.Next(0, 50); // Ít hơn
+                    var data = (
+                        from ct in db.ChiTietPhieuMuons
+                        join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
+                        join bss in db.BanSaoSachs on ct.IdBanSaoSach equals bss.IdBanSaoSach
+                        join s in db.Sachs.Include(s => s.TheLoais) on bss.IdSach equals s.IdSach
+                        where pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon
+                              && pm.NgayMuon >= ngayFrom
+                              && pm.NgayMuon <= ngayTo
+                        select new { Sach = s, Ngay = pm.NgayMuon }
+                    ).ToList();
+
+                    foreach (var item in data)
+                    {
+                        string theLoai = item.Sach.TheLoais != null && item.Sach.TheLoais.Any()
+                           ? string.Join(", ", item.Sach.TheLoais.Select(t => t.TenTheloai))
+                           : "";
+
+                        dt.Rows.Add(item.Sach.TenSach, theLoai, 1, item.Ngay);
+                    }
                 }
+                // 3. SÁCH MẤT HOẶC HƯ HỎNG
                 else if (loai == "Sách mất hoặc hư hỏng")
                 {
-                    soLuong = rand.Next(0, 5); // Rất ít
+                    var data = (
+                        from ct in db.ChiTietPhieuMuons
+                        join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
+                        join bss in db.BanSaoSachs on ct.IdBanSaoSach equals bss.IdBanSaoSach
+                        join s in db.Sachs.Include(s => s.TheLoais) on bss.IdSach equals s.IdSach
+                        where (ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
+                            || ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong)
+                            && pm.NgayMuon >= ngayFrom
+                            && pm.NgayMuon <= ngayTo
+                        select new { Sach = s, Ngay = pm.NgayMuon }
+                    ).ToList();
+
+                    foreach (var item in data)
+                    {
+                        string theLoai = item.Sach.TheLoais != null && item.Sach.TheLoais.Any()
+                            ? string.Join(", ", item.Sach.TheLoais.Select(t => t.TenTheloai))
+                            : "";
+
+                        dt.Rows.Add(item.Sach.TenSach, theLoai, 1, item.Ngay);
+                    }
                 }
+                // 4. SÁCH CHƯA MƯỢN
                 else if (loai == "Sách chưa mượn")
                 {
-                    soLuong = rand.Next(0, 30); // Trung bình
+                    var sachDaMuonIds =
+                        db.BanSaoSachs
+                          .Where(bss => db.ChiTietPhieuMuons
+                             .Any(ct => ct.IdBanSaoSach == bss.IdBanSaoSach))
+                          .Select(bss => bss.IdSach)
+                          .Distinct()
+                          .ToList();
+
+                    var data = db.Sachs
+                        .Include(s => s.TheLoais)
+                        .Where(s => !sachDaMuonIds.Contains(s.IdSach))
+                        .ToList();
+
+                    foreach (var s in data)
+                    {
+                        string theLoai = s.TheLoais != null && s.TheLoais.Any()
+                            ? string.Join(", ", s.TheLoais.Select(t => t.TenTheloai))
+                            : "";
+
+                        dt.Rows.Add(s.TenSach, theLoai, s.SoLuongBanSao, DateTime.Now);
+                    }
                 }
-                // Random ngày trong 6 tháng qua
-                int daysOffset = rand.Next(0, 180); // 6 tháng ~180 ngày
-                DateTime ngay = startDate.AddDays(daysOffset);
-                dt.Rows.Add(tenSach, theLoai, soLuong, ngay);
+
+                return dt;
             }
-            // Filter theo ngày (dp_From to dp_To)
-            DataView dv = new DataView(dt);
-            dv.RowFilter = $"Ngày >= '{dp_From.Value:yyyy-MM-dd}' AND Ngày <= '{dp_To.Value:yyyy-MM-dd}'";
-            DataTable dtFiltered = dv.ToTable();
-            return dtFiltered; // Trả về data đã filter
         }
 
         // THÊM: Hàm tính tổng số lượng cho tất cả 4 loại (cho chart)
         private Dictionary<string, int> TinhTongTatCaLoai()
         {
-            Dictionary<string, int> tongs = new Dictionary<string, int>();
-            string[] cacLoai = { "Tổng số sách", "Sách đang mượn", "Sách mất hoặc hư hỏng", "Sách chưa mượn" };
-            string[] tenCot = { "Tổng số lượng sách hiện có", "Số lượng sách mượn", "Số lượng sách mất hoặc hư hỏng", "Số lượng sách chưa mượn" };
-            Random rand = new Random(); // Để seed giống nhau, nhưng thực tế có thể dùng data chung
-            for (int i = 0; i < cacLoai.Length; i++)
+            using (var db = new LibraryDbContext())
             {
-                DataTable dtLoai = TaoBangThongKe(cacLoai[i]); // Generate data riêng cho từng loại
-                int tong = 0;
-                foreach (DataRow row in dtLoai.Rows)
-                {
-                    tong += (int)row["Số lượng"];
-                }
-                tongs[tenCot[i]] = tong;
+                Dictionary<string, int> result = new Dictionary<string, int>();
+
+                // 1. Tổng số sách (tổng tất cả bản sao)
+                int tongSach = db.Sachs.Sum(s => s.SoLuongBanSao);
+                result["Tổng số lượng sách hiện có"] = tongSach;
+
+                // 2. Sách đang mượn
+                int sachDangMuon =
+                    (from ct in db.ChiTietPhieuMuons
+                     join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
+                     where pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon
+                           && ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra
+                     select ct.IdChiTietPhieuMuon)
+                    .Count();
+
+                result["Số lượng sách đang mượn"] = sachDangMuon;
+
+                // 3. Sách mất hoặc hư hỏng
+                int sachMatHuHong =
+                    (from ct in db.ChiTietPhieuMuons
+                     where ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
+                        || ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong
+                     select ct.IdChiTietPhieuMuon)
+                    .Count();
+
+                result["Số lượng sách mất hoặc hư hỏng"] = sachMatHuHong;
+
+                // 4. Sách chưa mượn = tổng bản sao – bản sao đang mượn
+                int chuaMuon = tongSach - sachDangMuon;
+                if (chuaMuon < 0) chuaMuon = 0;
+
+                result["Số lượng sách chưa mượn"] = chuaMuon;
+
+                return result;
             }
-            return tongs;
         }
 
         private void btnThongKe_Click(object sender, EventArgs e)
@@ -176,6 +264,11 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeSach
             chartThongKe.Legends[0].Enabled = true; // Bật Legend
             chartThongKe.Legends[0].Docking = Docking.Bottom; // Đặt legend dưới chart
             // Optional: Nếu muốn Pie, thay ChartType = SeriesChartType.Pie và X = "" (tự động label từ series name)
+        }
+
+        private void btnThongKe_Click_1(object sender, EventArgs e)
+        {
+            btnThongKe_Click(sender, e);
         }
     }
 }

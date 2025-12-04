@@ -90,12 +90,13 @@
             // 
             // btnThongKe
             // 
-            btnThongKe.Location = new Point(774, 15);
+            btnThongKe.Location = new Point(774, 12);
             btnThongKe.Name = "btnThongKe";
             btnThongKe.Size = new Size(75, 23);
             btnThongKe.TabIndex = 4;
             btnThongKe.Text = "Thống kê";
             btnThongKe.UseVisualStyleBackColor = true;
+            btnThongKe.Click += btnThongKe_Click_1;
             // 
             // dp_To
             // 
