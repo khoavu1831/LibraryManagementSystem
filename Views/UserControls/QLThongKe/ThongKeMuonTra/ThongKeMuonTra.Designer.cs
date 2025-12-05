@@ -1,4 +1,6 @@
-﻿namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
+﻿using System.Windows.Forms;
+
+namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
 {
     partial class ThongKeMuonTra
     {
@@ -36,22 +38,24 @@
             label1 = new Label();
             panelFilter = new Panel();
             panelNam = new Panel();
-            numericUpDown4 = new NumericUpDown();
+            dpFromNam = new DateTimePicker();
+            dpToNam = new DateTimePicker();
+            labelToNam = new Label();
             label8 = new Label();
             panelQuy = new Panel();
-            numericUpDown3 = new NumericUpDown();
+            dpToQuy = new DateTimePicker();
             label7 = new Label();
             label6 = new Label();
-            comboBox2 = new ComboBox();
+            dpFromQuy = new DateTimePicker();
             panelThang = new Panel();
             label5 = new Label();
-            numericUpDown2 = new NumericUpDown();
+            dpFromThang = new DateTimePicker();
             label4 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            dpToThang = new DateTimePicker();
             panelNgay = new Panel();
-            dp_To = new DateTimePicker();
+            dpToNgay = new DateTimePicker();
             label2 = new Label();
-            dp_From = new DateTimePicker();
+            dpFromNgay = new DateTimePicker();
             label3 = new Label();
             panel2 = new Panel();
             chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -64,12 +68,12 @@
             panel1.SuspendLayout();
             panelFilter.SuspendLayout();
             panelNam.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)dpFromNam).BeginInit();
             panelQuy.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)dpToQuy).BeginInit();
             panelThang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)dpFromThang).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)dpToThang).BeginInit();
             panelNgay.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
@@ -118,49 +122,72 @@
             // panelNam
             // 
             panelNam.Controls.Add(button1);
-            panelNam.Controls.Add(numericUpDown4);
+            panelNam.Controls.Add(dpFromNam);
+            panelNam.Controls.Add(dpToNam);
             panelNam.Controls.Add(label8);
+            panelNam.Controls.Add(labelToNam);
             panelNam.Location = new Point(0, 3);
             panelNam.Name = "panelNam";
             panelNam.Size = new Size(1060, 89);
             panelNam.TabIndex = 3;
             panelNam.Visible = false;
-            // 
-            // numericUpDown4
-            // 
-            numericUpDown4.Location = new Point(77, 27);
-            numericUpDown4.Name = "numericUpDown4";
-            numericUpDown4.Size = new Size(120, 23);
-            numericUpDown4.TabIndex = 3;
-            // 
-            // label8
-            // 
+            // Label "Từ năm"
             label8.AutoSize = true;
-            label8.Location = new Point(25, 35);
-            label8.Name = "label8";
-            label8.Size = new Size(36, 15);
-            label8.TabIndex = 2;
-            label8.Text = "Năm:";
+            label8.Location = new Point(20, 30);
+            label8.Name = "lblFromNam";
+            label8.Size = new Size(50, 15);
+            label8.Text = "Từ năm:";
+
+            // DateTimePicker từ năm
+            dpFromNam.Format = DateTimePickerFormat.Custom;
+            dpFromNam.CustomFormat = "yyyy";
+            dpFromNam.ShowUpDown = true; // chỉ chọn năm
+            dpFromNam.Location = new Point(80, 25);
+            dpFromNam.Name = "dpFromNam";
+            dpFromNam.Size = new Size(80, 23);
+            dpFromNam.MaxDate = DateTime.Today;
+
+
+            // Label "Đến năm"
+            labelToNam.AutoSize = true;
+            labelToNam.Location = new Point(200, 30);
+            labelToNam.Name = "lblToNam";
+            labelToNam.Size = new Size(60, 15);
+            labelToNam.Text = "Đến năm:";
+            
+
+            // DateTimePicker đến năm
+            dpToNam.Format = DateTimePickerFormat.Custom;
+            dpToNam.CustomFormat = "yyyy";
+            dpToNam.ShowUpDown = true; // chỉ chọn năm
+            dpToNam.Location = new Point(270, 25);
+            dpToNam.Name = "dpToNam";
+            dpToNam.Size = new Size(80, 23);
+            dpToNam.MaxDate = DateTime.Today;
+
             // 
             // panelQuy
             // 
             panelQuy.Controls.Add(button2);
-            panelQuy.Controls.Add(numericUpDown3);
+            panelQuy.Controls.Add(dpToQuy);
             panelQuy.Controls.Add(label7);
             panelQuy.Controls.Add(label6);
-            panelQuy.Controls.Add(comboBox2);
+            panelQuy.Controls.Add(dpFromQuy);
             panelQuy.Location = new Point(3, 0);
             panelQuy.Name = "panelQuy";
             panelQuy.Size = new Size(1057, 92);
             panelQuy.TabIndex = 2;
             panelQuy.Visible = false;
             // 
-            // numericUpDown3
+            // dpToQuy
             // 
-            numericUpDown3.Location = new Point(262, 35);
-            numericUpDown3.Name = "numericUpDown3";
-            numericUpDown3.Size = new Size(120, 23);
-            numericUpDown3.TabIndex = 4;
+            dpToQuy.Location = new Point(278, 35);
+            dpToQuy.Name = "dpToQuy";
+            dpToQuy.Size = new Size(120, 23);
+            dpToQuy.TabIndex = 4;
+            dpToQuy.Format = DateTimePickerFormat.Custom;
+            dpToQuy.CustomFormat = "MM/yyyy";
+            dpToQuy.ShowUpDown = true;
             // 
             // label7
             // 
@@ -169,7 +196,7 @@
             label7.Name = "label7";
             label7.Size = new Size(36, 15);
             label7.TabIndex = 3;
-            label7.Text = "Năm:";
+            label7.Text = "Đến quý:";
             // 
             // label6
             // 
@@ -178,23 +205,25 @@
             label6.Name = "label6";
             label6.Size = new Size(32, 15);
             label6.TabIndex = 2;
-            label6.Text = "Quý:";
+            label6.Text = "Từ quý:";
             // 
-            // comboBox2
+            // dpFromQuy
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(70, 35);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
-            comboBox2.TabIndex = 0;
+            dpFromQuy.Location = new Point(75, 35);
+            dpFromQuy.Name = "dpFromQuy";
+            dpFromQuy.Size = new Size(121, 23);
+            dpFromQuy.TabIndex = 0;
+            dpFromQuy.Format = DateTimePickerFormat.Custom;
+            dpFromQuy.CustomFormat = "MM/yyyy";
+            dpFromQuy.ShowUpDown = true;
             // 
             // panelThang
             // 
             panelThang.Controls.Add(button3);
             panelThang.Controls.Add(label5);
-            panelThang.Controls.Add(numericUpDown2);
+            panelThang.Controls.Add(dpFromThang);
             panelThang.Controls.Add(label4);
-            panelThang.Controls.Add(numericUpDown1);
+            panelThang.Controls.Add(dpToThang);
             panelThang.Location = new Point(0, 3);
             panelThang.Name = "panelThang";
             panelThang.Size = new Size(1060, 89);
@@ -208,14 +237,18 @@
             label5.Name = "label5";
             label5.Size = new Size(36, 15);
             label5.TabIndex = 10;
-            label5.Text = "Năm:";
+            label5.Text = "Đến tháng:";
             // 
-            // numericUpDown2
+            // dpFromThang
             // 
-            numericUpDown2.Location = new Point(238, 32);
-            numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(69, 23);
-            numericUpDown2.TabIndex = 9;
+            dpFromThang.Location = new Point(82, 40);
+            dpFromThang.Name = "dpFromThang";
+            dpFromThang.Size = new Size(73, 23);
+            dpFromThang.TabIndex = 9;
+            dpFromThang.Format = DateTimePickerFormat.Custom;
+            dpFromThang.CustomFormat = "MM/yyyy";
+            dpFromThang.MaxDate = DateTime.Today;
+            dpFromThang.ShowUpDown = true;
             // 
             // label4
             // 
@@ -224,21 +257,25 @@
             label4.Name = "label4";
             label4.Size = new Size(44, 15);
             label4.TabIndex = 8;
-            label4.Text = "Tháng:";
+            label4.Text = "Từ tháng:";
             // 
-            // numericUpDown1
+            // dpToThang
             // 
-            numericUpDown1.Location = new Point(72, 32);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(69, 23);
-            numericUpDown1.TabIndex = 0;
+            dpToThang.Location = new Point(260, 40);
+            dpToThang.Name = "dpToThang";
+            dpToThang.Size = new Size(73, 23);
+            dpToThang.TabIndex = 0;
+            dpToThang.Format = DateTimePickerFormat.Custom;
+            dpToThang.CustomFormat = "MM/yyyy";
+            dpToThang.MaxDate = DateTime.Today;
+            dpToThang.ShowUpDown = true;
             // 
             // panelNgay
             // 
             panelNgay.Controls.Add(button4);
-            panelNgay.Controls.Add(dp_To);
+            panelNgay.Controls.Add(dpToNgay);
             panelNgay.Controls.Add(label2);
-            panelNgay.Controls.Add(dp_From);
+            panelNgay.Controls.Add(dpFromNgay);
             panelNgay.Controls.Add(label3);
             panelNgay.Location = new Point(0, 3);
             panelNgay.Name = "panelNgay";
@@ -246,12 +283,12 @@
             panelNgay.TabIndex = 0;
             panelNgay.Visible = false;
             // 
-            // dp_To
+            // dpToNgay
             // 
-            dp_To.Location = new Point(397, 32);
-            dp_To.Name = "dp_To";
-            dp_To.Size = new Size(200, 23);
-            dp_To.TabIndex = 7;
+            dpToNgay.Location = new Point(397, 32);
+            dpToNgay.Name = "dpToNgay";
+            dpToNgay.Size = new Size(200, 23);
+            dpToNgay.TabIndex = 7;
             // 
             // label2
             // 
@@ -262,12 +299,12 @@
             label2.TabIndex = 6;
             label2.Text = "Đến ngày";
             // 
-            // dp_From
+            // dpFromNgay
             // 
-            dp_From.Location = new Point(97, 30);
-            dp_From.Name = "dp_From";
-            dp_From.Size = new Size(200, 23);
-            dp_From.TabIndex = 5;
+            dpFromNgay.Location = new Point(97, 30);
+            dpFromNgay.Name = "dpFromNgay";
+            dpFromNgay.Size = new Size(200, 23);
+            dpFromNgay.TabIndex = 5;
             // 
             // label3
             // 
@@ -321,7 +358,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(242, 27);
+            button1.Location = new Point(418, 27);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 4;
@@ -339,7 +376,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(350, 34);
+            button3.Location = new Point(418, 40);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 11;
@@ -371,14 +408,14 @@
             panelFilter.ResumeLayout(false);
             panelNam.ResumeLayout(false);
             panelNam.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
+            //((System.ComponentModel.ISupportInitialize)dpFromNam).EndInit();
             panelQuy.ResumeLayout(false);
             panelQuy.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            //((System.ComponentModel.ISupportInitialize)dpToQuy).EndInit();
             panelThang.ResumeLayout(false);
             panelThang.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            //((System.ComponentModel.ISupportInitialize)dpFromThang).EndInit();
+            //((System.ComponentModel.ISupportInitialize)dpToThang).EndInit();
             panelNgay.ResumeLayout(false);
             panelNgay.PerformLayout();
             panel2.ResumeLayout(false);
@@ -397,21 +434,23 @@
         private Panel panelNgay;
         private Panel panelThang;
         private Label label5;
-        private NumericUpDown numericUpDown2;
+        private DateTimePicker dpFromThang;
         private Label label4;
-        private NumericUpDown numericUpDown1;
-        private DateTimePicker dp_To;
+        private DateTimePicker dpToThang;
+        private DateTimePicker dpToNgay;
         private Label label2;
-        private DateTimePicker dp_From;
+        private DateTimePicker dpFromNgay;
         private Label label3;
         private Panel panelQuy;
-        private NumericUpDown numericUpDown3;
+        private DateTimePicker dpToQuy;
         private Label label7;
         private Label label6;
-        private ComboBox comboBox2;
+        private DateTimePicker dpFromQuy;
         private Panel panelNam;
-        private NumericUpDown numericUpDown4;
+        private DateTimePicker dpFromNam;
+        private DateTimePicker dpToNam;
         private Label label8;
+        private Label labelToNam;
         private Panel panel2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private Panel panel3;

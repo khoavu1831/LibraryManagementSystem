@@ -1,17 +1,16 @@
-﻿using LMS.Forms;
+﻿using LMS.Data;
+using LMS.Forms;
+using LMS.Helpers;
 using LMS.Views.UserControls.QLDocGia;
 using LMS.Views.UserControls.QLMuonTraSach;
 using LMS.Views.UserControls.QLNhanVien;
-using LMS.Views.UserControls.QLPhat;
-using LMS.Views.UserControls.QLThongKe;
-using LMS.Views.UserControls.QLSach;
-using LMS.Views.UserControls.TrangChu;
 using LMS.Views.UserControls.QLNhapSach;
+using LMS.Views.UserControls.QLPhat;
+using LMS.Views.UserControls.QLSach;
+using LMS.Views.UserControls.QLThongKe;
 using LMS.Views.UserControls.QuanLy;
-using LMS.Helpers;
-using LMS.Data;
+using LMS.Views.UserControls.TrangChu;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace LMS.Views.Forms
 {
@@ -129,10 +128,14 @@ namespace LMS.Views.Forms
 
             // Module Thống kê: Luôn hiển thị hoặc check nếu có THONGKE_*
             // Permissions: THONGKE_*
-            if (HasPermissionInModule("ThongKe") || _userPermissions.Any(p => p.StartsWith("THONGKE_")))
-            {
-                btnQLThongKe.Visible = true;
-            }
+            //comment tam 
+            //if (HasPermissionInModule("ThongKe") || _userPermissions.Any(p => p.StartsWith("THONGKE_")))
+            //{
+            //    btnQLThongKe.Visible = true;
+            //}
+
+            btnQLThongKe.Visible = true;
+
         }
 
         private bool HasPermissionInModule(string module)
@@ -154,7 +157,7 @@ namespace LMS.Views.Forms
 
                 "Phat" => _userPermissions.Any(p =>
                     p.StartsWith("PHAT_") ||
-                    p.StartsWith("MUC_PHAT_")||
+                    p.StartsWith("MUC_PHAT_") ||
                     p.StartsWith("TRAPHAT_")),
 
                 "NhapSach" => _userPermissions.Any(p =>
