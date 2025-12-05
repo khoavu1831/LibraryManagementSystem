@@ -1,7 +1,5 @@
-﻿using LMS.Data;
-using LMS.Entities;
+﻿using LMS.Entities;
 using LMS.Repository;
-using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Services
 {
@@ -20,30 +18,31 @@ namespace LMS.Services
             _ctpmRepository = ctpmRepository;
             _bssRepository = bssRepository;
         }
+        public List<PhieuMuon> GetAllForRevenue() => _pmRepository.GetAllForRevenue();
         public List<PhieuMuon> GetAllPhieuMuon() => _pmRepository.GetAll();
-        
+
         /// <summary>
         /// Lấy tất cả phiếu mượn với Include đầy đủ (dùng cho Excel export)
         /// </summary>
         public List<PhieuMuon> GetAllPhieuMuonWithIncludes() => _pmRepository.GetAllWithIncludes();
-        
+
         /// <summary>
         /// Đếm tổng số phiếu mượn
         /// </summary>
         public int GetTotalRecords() => _pmRepository.GetCount();
-        
+
         /// <summary>
         /// Đếm tổng số phiếu mượn theo filter
         /// </summary>
-        public int GetTotalRecordsByFilter(PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null) 
+        public int GetTotalRecordsByFilter(PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null)
             => _pmRepository.GetCountByFilter(trangThai, keyword);
-        
+
         /// <summary>
         /// Lấy phiếu mượn có phân trang với filter
         /// </summary>
-        public List<PhieuMuon> GetByPageWithFilter(int page, int pageSize, PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null) 
+        public List<PhieuMuon> GetByPageWithFilter(int page, int pageSize, PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null)
             => _pmRepository.GetByPageWithFilter(page, pageSize, trangThai, keyword);
-        
+
         public PhieuMuon? GetPhieuMuonChiTiet(int idPhieuMuon) => _pmRepository.GetChiTiet(idPhieuMuon);
         public PhieuMuon AddPhieuMuon(PhieuMuon pm, List<string> danhSachBanSao)
         {
@@ -281,7 +280,7 @@ namespace LMS.Services
             _pmRepository.Update(pm);
             _pmRepository.Save();
         }
-        
+
         public void TraSach(int idChiTietPhieuMuon, string tinhTrangTra)
         {
             var ctp = _pmRepository.GetChiTietById(idChiTietPhieuMuon);
@@ -312,7 +311,7 @@ namespace LMS.Services
             _pmRepository.UpdateChiTiet(ctp);
             _pmRepository.UpdateBanSao(bss);
 
-                    // ===== TỰ ĐỘNG XỬ LÝ PHẠT TRỄ HẠN =====
+            // ===== TỰ ĐỘNG XỬ LÝ PHẠT TRỄ HẠN =====
             var ngayTra = (ctp.NgayTra ?? DateTime.Now).Date;       // vừa gán phía trên
             var henTra = pm.NgayHenTra.Date;
             int soNgayTre = (ngayTra > henTra) ? (ngayTra - henTra).Days : 0;
@@ -450,7 +449,7 @@ namespace LMS.Services
                 _pmRepository.AddChiTietPhieuPhat(ctppFixed);
             }
 
-// -            _pmRepository.Update(pp);
+            // -            _pmRepository.Update(pp);
             _pmRepository.Save();
 
             // Kiểm tra nếu đã trả hết
@@ -467,14 +466,14 @@ namespace LMS.Services
         public void HuyPhieuMuon(int idPhieuMuon)
         {
             var pm = _pmRepository.GetChiTiet(idPhieuMuon);
-            
+
             if (pm == null)
                 throw new Exception("Không tìm thấy phiếu mượn");
 
             // Chỉ cho hủy phiếu đang mượn
             if (pm.TrangThai == PhieuMuon.TrangThaiEnum.DaTra)
                 throw new Exception("Không thể hủy phiếu đã trả sách");
-            
+
             if (pm.TrangThai == PhieuMuon.TrangThaiEnum.DaHuy)
                 throw new Exception("Phiếu mượn đã được hủy trước đó");
 

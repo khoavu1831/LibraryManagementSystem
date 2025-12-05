@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using LMS.Data;
 using LMS.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Repository
 {
@@ -16,7 +16,16 @@ namespace LMS.Repository
                     .ThenInclude(tv => tv.DocGia)
                 .ToList();
         }
-        
+        public List<PhieuMuon> GetAllForRevenue()
+        {
+            return _context.PhieuMuons
+                //.Include(pn => pn.NhanVien)
+                //.Include(pn => pn.TheThanhVien!)
+                //.ThenInclude(tv => tv.DocGia)
+                .Include(pn => pn.ChiTietPhieuMuons)
+                .ToList();
+        }
+
         /// <summary>
         /// Lấy tất cả phiếu mượn với Include đầy đủ (dùng cho Excel export)
         /// </summary>
@@ -30,12 +39,12 @@ namespace LMS.Repository
                 .OrderByDescending(pm => pm.NgayMuon)
                 .ToList();
         }
-        
+
         /// <summary>
         /// Đếm tổng số phiếu mượn
         /// </summary>
         public int GetCount() => _context.PhieuMuons.Count();
-        
+
         /// <summary>
         /// Đếm tổng số phiếu mượn theo filter
         /// </summary>
@@ -61,7 +70,7 @@ namespace LMS.Repository
 
             return query.Count();
         }
-        
+
         /// <summary>
         /// Lấy phiếu mượn có phân trang với filter
         /// </summary>
@@ -92,7 +101,7 @@ namespace LMS.Repository
                 .Take(pageSize)
                 .ToList();
         }
-        
+
         public PhieuMuon? GetById(int id) => _context.PhieuMuons.Find(id);
 
         public PhieuMuon? GetChiTiet(int idPhieuMuon)
@@ -147,7 +156,7 @@ namespace LMS.Repository
         {
             _context.BanSaoSachs.Update(bss);
         }
-        
+
         public PhieuPhat? GetOpenPhieuPhatByPhieuMuon(int idPhieuMuon)
         {
             return _context.PhieuPhats
