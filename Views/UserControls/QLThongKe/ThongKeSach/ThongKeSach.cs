@@ -1,52 +1,37 @@
-﻿using LMS.Data;
-using LMS.Entities;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting; // Nếu chưa có, cho chart advanced
+﻿    using LMS.Data;
+    using LMS.Entities;
+    using LMS.Services;
+    using Microsoft.EntityFrameworkCore;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Reflection;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using System.Windows.Forms.DataVisualization.Charting; 
 
-namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeSach
-{
+    namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeSach
+    {
     public partial class ThongKeSach : UserControl
     {
-        // List dữ liệu giả để đa dạng hóa
-        private readonly string[] tenSachList = { "Lập trình C# Nâng cao", "Toán học Ứng dụng", "Vật lý Đại cương", "Lịch sử Việt Nam", "Kinh tế Học", "Machine Learning", "Web Development", "Thiết kế UI/UX", "An ninh Mạng", "Dữ liệu Lớn" };
-        private readonly string[] theLoaiList = { "Giáo trình", "Khoa học", "Kỹ thuật", "Văn học", "Kinh tế", "Công nghệ", "Lịch sử", "Tâm lý" };
-
+        private readonly ThongKeSachService _service;
         public ThongKeSach()
         {
             InitializeComponent();
-            dgvThongKe.ScrollBars = ScrollBars.Both; // bật scrollbar
+            _service = new ThongKeSachService();
+
+            dgvThongKe.ScrollBars = ScrollBars.Both;
             dgvThongKe.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            dgvThongKe.RowTemplate.Height = 25; // Fixed row height để scroll mượt hơn
-            dgvThongKe.AllowUserToResizeRows = false; // Tắt resize rows để giữ height consistent
+            dgvThongKe.RowTemplate.Height = 25;
+            dgvThongKe.AllowUserToResizeRows = false;
 
-            // SỬA: Set Dock.None + Anchor cơ bản, nhưng KHÔNG set Width/Height ở đây (di chuyển sang Load)
-            dgvThongKe.Dock = DockStyle.None;
-            dgvThongKe.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-
-            // THÊM: Event để update size khi panel5 resize
-            if (panel5 != null) panel5.Resize += Panel5_Resize;
+            dgvThongKe.Dock = DockStyle.Fill;
         }
 
-        // THÊM: Handler cho resize panel5
-        private void Panel5_Resize(object sender, EventArgs e)
-        {
-            if (panel5 != null)
-            {
-                dgvThongKe.Width = panel5.Width - 20; // Margin ngang
-                dgvThongKe.Height = panel5.Height - 20; // Margin dọc
-                dgvThongKe.Refresh(); // Force update scroll
-            }
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -71,204 +56,85 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeSach
             btnThongKe_Click(null, null);
         }
 
-        // THÊM: Hàm tính tổng cho một loại cụ thể (giữ nguyên để dgv)
-
-        private DataTable TaoBangThongKe(string loai)
-        {
-            using (LibraryDbContext db = new LibraryDbContext())
-            {
-                DateTime ngayFrom = dp_From.Value.Date;
-                DateTime ngayTo = dp_To.Value.Date.AddDays(1).AddTicks(-1);
-
-                DataTable dt = new DataTable();
-                dt.Columns.Add("TenSach");
-                dt.Columns.Add("TheLoai");
-                dt.Columns.Add("SoLuong");
-                dt.Columns.Add("Ngay");
-
-                var sachList = db.Sachs
-                                 .Include(s => s.TheLoais)
-                                 .ToList();
-                // 1. TỔNG SỐ SÁCH
-                if (loai == "Tổng số sách")
-                {
-                    foreach (var s in sachList)
-                    {
-                        string theLoaiName = (s.TheLoais != null && s.TheLoais.Any())
-                                            ? string.Join(", ", s.TheLoais.Select(t => t.TenTheloai))
-                                            : "";
-
-                        dt.Rows.Add(s.TenSach, theLoaiName, s.SoLuongBanSao, DateTime.Now);
-                    }
-                }
-                // 2. SÁCH ĐANG MƯỢN
-                else if (loai == "Sách đang mượn")
-                {
-                    var data = (
-                        from ct in db.ChiTietPhieuMuons
-                        join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
-                        join bss in db.BanSaoSachs on ct.IdBanSaoSach equals bss.IdBanSaoSach
-                        join s in db.Sachs.Include(s => s.TheLoais) on bss.IdSach equals s.IdSach
-                        where pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon
-                              && pm.NgayMuon >= ngayFrom
-                              && pm.NgayMuon <= ngayTo
-                        select new { Sach = s, Ngay = pm.NgayMuon }
-                    ).ToList();
-
-                    foreach (var item in data)
-                    {
-                        string theLoai = item.Sach.TheLoais != null && item.Sach.TheLoais.Any()
-                           ? string.Join(", ", item.Sach.TheLoais.Select(t => t.TenTheloai))
-                           : "";
-
-                        dt.Rows.Add(item.Sach.TenSach, theLoai, 1, item.Ngay);
-                    }
-                }
-                // 3. SÁCH MẤT HOẶC HƯ HỎNG
-                else if (loai == "Sách mất hoặc hư hỏng")
-                {
-                    var data = (
-                        from ct in db.ChiTietPhieuMuons
-                        join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
-                        join bss in db.BanSaoSachs on ct.IdBanSaoSach equals bss.IdBanSaoSach
-                        join s in db.Sachs.Include(s => s.TheLoais) on bss.IdSach equals s.IdSach
-                        where (ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
-                            || ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong)
-                            && pm.NgayMuon >= ngayFrom
-                            && pm.NgayMuon <= ngayTo
-                        select new { Sach = s, Ngay = pm.NgayMuon }
-                    ).ToList();
-
-                    foreach (var item in data)
-                    {
-                        string theLoai = item.Sach.TheLoais != null && item.Sach.TheLoais.Any()
-                            ? string.Join(", ", item.Sach.TheLoais.Select(t => t.TenTheloai))
-                            : "";
-
-                        dt.Rows.Add(item.Sach.TenSach, theLoai, 1, item.Ngay);
-                    }
-                }
-                // 4. SÁCH CHƯA MƯỢN
-                else if (loai == "Sách chưa mượn")
-                {
-                    var sachDaMuonIds =
-                        db.BanSaoSachs
-                          .Where(bss => db.ChiTietPhieuMuons
-                             .Any(ct => ct.IdBanSaoSach == bss.IdBanSaoSach))
-                          .Select(bss => bss.IdSach)
-                          .Distinct()
-                          .ToList();
-
-                    var data = db.Sachs
-                        .Include(s => s.TheLoais)
-                        .Where(s => !sachDaMuonIds.Contains(s.IdSach))
-                        .ToList();
-
-                    foreach (var s in data)
-                    {
-                        string theLoai = s.TheLoais != null && s.TheLoais.Any()
-                            ? string.Join(", ", s.TheLoais.Select(t => t.TenTheloai))
-                            : "";
-
-                        dt.Rows.Add(s.TenSach, theLoai, s.SoLuongBanSao, DateTime.Now);
-                    }
-                }
-
-                return dt;
-            }
-        }
-
-        // THÊM: Hàm tính tổng số lượng cho tất cả 4 loại (cho chart)
-        private Dictionary<string, int> TinhTongTatCaLoai()
-        {
-            using (var db = new LibraryDbContext())
-            {
-                Dictionary<string, int> result = new Dictionary<string, int>();
-
-                // 1. Tổng số sách (tổng tất cả bản sao)
-                int tongSach = db.Sachs.Sum(s => s.SoLuongBanSao);
-                result["Tổng số lượng sách hiện có"] = tongSach;
-
-                // 2. Sách đang mượn
-                int sachDangMuon =
-                    (from ct in db.ChiTietPhieuMuons
-                     join pm in db.PhieuMuons on ct.IdPhieuMuon equals pm.IdPhieuMuon
-                     where pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon
-                           && ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra
-                     select ct.IdChiTietPhieuMuon)
-                    .Count();
-
-                result["Số lượng sách đang mượn"] = sachDangMuon;
-
-                // 3. Sách mất hoặc hư hỏng
-                int sachMatHuHong =
-                    (from ct in db.ChiTietPhieuMuons
-                     where ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
-                        || ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong
-                     select ct.IdChiTietPhieuMuon)
-                    .Count();
-
-                result["Số lượng sách mất hoặc hư hỏng"] = sachMatHuHong;
-
-                // 4. Sách chưa mượn = tổng bản sao – bản sao đang mượn
-                int chuaMuon = tongSach - sachDangMuon;
-                if (chuaMuon < 0) chuaMuon = 0;
-
-                result["Số lượng sách chưa mượn"] = chuaMuon;
-
-                return result;
-            }
-        }
 
         private void btnThongKe_Click(object sender, EventArgs e)
         {
             string loai = cbThongKe.SelectedItem.ToString();
-            DataTable dt = TaoBangThongKe(loai); // dgv vẫn show detail của loại được chọn
-            dgvThongKe.DataSource = dt;
-            // Auto resize cột FULL chiều rộng
-            dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            // SỬA: Thêm Suspend/Resume để tránh flicker khi load data lớn
-            dgvThongKe.SuspendLayout();
-            dgvThongKe.Refresh();
-            dgvThongKe.FirstDisplayedScrollingRowIndex = 0; // Scroll về đầu để test dễ
-            dgvThongKe.ResumeLayout();
-            // THÊM: Force visible để trigger scroll nếu cần
-            dgvThongKe.Visible = false;
-            dgvThongKe.Visible = true;
 
-            // THÊM: Chart với 4 cột (tổng cho từng loại)
+            // LẤY DỮ LIỆU
+            DataTable dt = _service.TaoBangThongKe(loai, dp_From.Value, dp_To.Value);
+            dgvThongKe.DataSource = dt;
+            dgvThongKe.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // VẼ CHART (luôn vẽ 4 cột)
             chartThongKe.Series.Clear();
             chartThongKe.Titles.Clear();
-            // Title động (giữ nguyên, nhưng giờ chart luôn 4 loại)
-            string title = $"Thống kê sách từ {dp_From.Value:dd/MM} đến {dp_To.Value:dd/MM}";
-            chartThongKe.Titles.Add(title).Font = new Font("Arial", 12, FontStyle.Bold);
-            // Tính tổng cho tất cả 4 loại
-            var tongs = TinhTongTatCaLoai();
-            // Tạo 4 series, mỗi cái một cột
-            string[] mauSac = { "Blue", "Green", "Red", "Orange" }; // Màu fixed cho từng loại
-            int index = 0;
-            foreach (var kvp in tongs)
-            {
-                var series = chartThongKe.Series.Add(kvp.Key); // Tên series = Tên loại
-                series.ChartType = SeriesChartType.Column;
-                series.Points.AddXY("Số lượng", kvp.Value); // X chung = "Số lượng", Y = Tổng
-                // Màu fixed
-                series.Color = Color.FromName(mauSac[index % mauSac.Length]);
-                index++;
-                // Tooltip
-                series.ToolTip = $"{kvp.Key}: {kvp.Value} sách";
-            }
-            // Cấu hình Chart chung (đơn giản hóa vì chỉ 1 X category)
-            chartThongKe.ChartAreas[0].AxisX.Title = "";
-            chartThongKe.ChartAreas[0].AxisY.Title = "Số lượng sách";
-            chartThongKe.Legends[0].Enabled = true; // Bật Legend
-            chartThongKe.Legends[0].Docking = Docking.Bottom; // Đặt legend dưới chart
-            // Optional: Nếu muốn Pie, thay ChartType = SeriesChartType.Pie và X = "" (tự động label từ series name)
-        }
 
-        private void btnThongKe_Click_1(object sender, EventArgs e)
-        {
-            btnThongKe_Click(sender, e);
+            chartThongKe.Titles.Add(
+                $"Thống kê từ {dp_From.Value:dd/MM} đến {dp_To.Value:dd/MM}"
+            ).Font = new Font("Arial", 12, FontStyle.Bold);
+
+            var totals = _service.TinhTongTatCaLoai();
+
+            foreach (var item in totals)
+            {
+                var s = chartThongKe.Series.Add(item.Key);
+                s.ChartType = SeriesChartType.Column;
+                s.Points.AddXY("Số lượng", item.Value);
+            }
+
+            // Map combobox → tên series
+            Dictionary<string, string> map = new Dictionary<string, string>()
+{
+    { "Tổng số sách", "Tổng số lượng sách hiện có" },
+    { "Sách đang mượn", "Số lượng sách đang mượn" },
+    { "Sách mất hoặc hư hỏng", "Số lượng sách mất hoặc hư hỏng" },
+    { "Sách chưa mượn", "Số lượng sách chưa mượn" }
+};
+
+            string seriesName = map[loai];
+
+            Color highlight = Color.CornflowerBlue;
+            Color gray = Color.LightGray;
+
+            //  Trường hợp đặc biệt: TỔNG SỐ SÁCH → luôn 4 màu
+            if (loai == "Tổng số sách")
+            {
+                Color[] fullColors =
+                {
+        Color.RoyalBlue,
+        Color.SeaGreen,
+        Color.Goldenrod,
+        Color.IndianRed
+    };
+
+                int i = 0;
+                foreach (var s in chartThongKe.Series)
+                    s.Color = fullColors[i++];
+
+                return; 
+            }
+
+            //  Các loại còn lại: check dữ liệu
+            bool loaiCoDuLieu = dt.Rows.Count > 0;
+
+            //  Nếu KHÔNG có dữ liệu → xám hết
+            if (!loaiCoDuLieu)
+            {
+                foreach (var s in chartThongKe.Series)
+                    s.Color = gray;
+
+                return;
+            }
+
+            //  Nếu CÓ dữ liệu → highlight đúng 1 cột
+            foreach (var s in chartThongKe.Series)
+            {
+                if (s.Name == seriesName)
+                    s.Color = highlight;
+                else
+                    s.Color = gray;
+            }
+        }
         }
     }
-}
