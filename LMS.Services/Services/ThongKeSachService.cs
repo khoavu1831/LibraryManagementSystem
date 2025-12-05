@@ -39,7 +39,7 @@ public class ThongKeSachService
         }
         else if (loai == "Sách đang mượn")
         {
-            var list = _repo.GetSachDangMuon(from, to);
+            List<(Sach sach, DateTime ngay)> list = _repo.GetSachDangMuon(from, to);
 
             foreach (var item in list)
             {
@@ -47,7 +47,7 @@ public class ThongKeSachService
                     item.sach.TenSach,
                     GetLoaiStr(item.sach),
                     1,
-                    item.ngay.ToShortDateString()
+                    item.ngay.ToShortDateString() ?? ""
                 );
             }
         }
@@ -61,10 +61,12 @@ public class ThongKeSachService
                     item.sach.TenSach,
                     GetLoaiStr(item.sach),
                     1,
-                    item.ngay.ToShortDateString()
+                    item.ngay?.ToShortDateString() ?? "Không có ngày"
                 );
             }
         }
+
+
         else if (loai == "Sách chưa mượn")
         {
             var list = _repo.GetSachChuaMuon();

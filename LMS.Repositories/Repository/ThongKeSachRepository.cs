@@ -33,17 +33,19 @@ public class ThongKeSachRepository
                 on ct.IdBanSaoSach equals bss.IdBanSaoSach
             join s in sachQuery
                 on bss.IdSach equals s.IdSach
-            where pm.TrangThai == PhieuMuon.TrangThaiEnum.DangMuon
-                  && pm.NgayMuon >= ngayFrom
-                  && pm.NgayMuon <= ngayTo
-            select new { s, pm.NgayMuon }
+            where
+                ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra  // đang mượn
+                && pm.NgayMuon >= ngayFrom
+                && pm.NgayMuon <= ngayTo
+            select new { sach = s, ngay = pm.NgayMuon }
         )
         .AsEnumerable()
-        .Select(x => (x.s, x.NgayMuon))
+        .Select(x => (x.sach, x.ngay))
         .ToList();
     }
+
     // 3) SÁCH MẤT / HƯ HỎNG
-    public List<(Sach sach, DateTime ngay)> GetSachMatHuHong(DateTime ngayFrom, DateTime ngayTo)
+    public List<(Sach sach, DateTime? ngay)> GetSachMatHuHong(DateTime ngayFrom, DateTime ngayTo)
     {
         var sachQuery = _db.Sachs.Include(s => s.TheLoais);
 
@@ -55,16 +57,19 @@ public class ThongKeSachRepository
                 on ct.IdBanSaoSach equals bss.IdBanSaoSach
             join s in sachQuery
                 on bss.IdSach equals s.IdSach
-            where (ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
+            where
+                (ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
                 || ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong)
-                && pm.NgayMuon >= ngayFrom
-                && pm.NgayMuon <= ngayTo
-            select new { s, pm.NgayMuon }
+                && ct.NgayTra >= ngayFrom
+                && ct.NgayTra <= ngayTo
+            select new { sach = s, ngay = ct.NgayTra }
         )
         .AsEnumerable()
-        .Select(x => (x.s, x.NgayMuon))
+        .Select(x => (x.sach, x.ngay))
         .ToList();
     }
+
+
     // 4) SÁCH CHƯA MƯỢN
     public List<Sach> GetSachChuaMuon()
     {
