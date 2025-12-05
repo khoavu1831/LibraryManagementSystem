@@ -129,12 +129,12 @@ namespace LMS.Views.Forms
             // Module Thống kê: Luôn hiển thị hoặc check nếu có THONGKE_*
             // Permissions: THONGKE_*
             //comment tam 
-            //if (HasPermissionInModule("ThongKe") || _userPermissions.Any(p => p.StartsWith("THONGKE_")))
-            //{
-            //    btnQLThongKe.Visible = true;
-            //}
+            if (HasPermissionInModule("ThongKe") || _userPermissions.Any(p => p.StartsWith("THONGKE_")))
+            {
+                btnQLThongKe.Visible = true;
+            }
 
-            btnQLThongKe.Visible = true;
+            //btnQLThongKe.Visible = true;
 
         }
 
