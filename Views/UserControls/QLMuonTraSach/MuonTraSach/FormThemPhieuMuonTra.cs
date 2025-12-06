@@ -329,5 +329,10 @@ namespace LMS.Views.UserControls.QLMuonTraSach
         {
             Close();
         }
+
+        private void dateTimePickerNgayLap_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
