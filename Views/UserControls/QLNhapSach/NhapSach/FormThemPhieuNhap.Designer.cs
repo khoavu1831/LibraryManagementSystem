@@ -140,12 +140,15 @@
             // 
             // dateTimePickerNgayNhap
             // 
+            dateTimePickerNgayNhap.CustomFormat = "dd/MM/yyyy";
             dateTimePickerNgayNhap.Enabled = false;
+            dateTimePickerNgayNhap.Format = DateTimePickerFormat.Custom;
             dateTimePickerNgayNhap.Location = new Point(104, 32);
             dateTimePickerNgayNhap.Name = "dateTimePickerNgayNhap";
             dateTimePickerNgayNhap.Size = new Size(218, 23);
             dateTimePickerNgayNhap.TabIndex = 34;
             dateTimePickerNgayNhap.Value = new DateTime(2025, 10, 7, 0, 0, 0, 0);
+            dateTimePickerNgayNhap.ValueChanged += dateTimePickerNgayNhap_ValueChanged;
             // 
             // comboBoxNCC
             // 
@@ -257,6 +260,7 @@
             btnHuy.TabIndex = 18;
             btnHuy.Text = "Hủy";
             btnHuy.UseVisualStyleBackColor = true;
+            btnHuy.Click += btnHuy_Click;
             // 
             // FormThemPhieuNhap
             // 

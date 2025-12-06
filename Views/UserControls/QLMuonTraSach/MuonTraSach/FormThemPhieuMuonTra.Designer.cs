@@ -191,6 +191,7 @@
             dateTimePickerNgayLap.Name = "dateTimePickerNgayLap";
             dateTimePickerNgayLap.Size = new Size(269, 23);
             dateTimePickerNgayLap.TabIndex = 34;
+            dateTimePickerNgayLap.ValueChanged += dateTimePickerNgayLap_ValueChanged;
             // 
             // dateTimePickerNgayHenTra
             // 

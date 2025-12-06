@@ -23,7 +23,7 @@ namespace LMS.Views.UserControls.QLNhapSach
         private readonly NCCService _nccService;
         private readonly PhieuNhapService _phieuNhapService;
         private int _idNhanVienHienTai;
-        
+
         public FormThemPhieuNhap()
         {
             InitializeComponent();
@@ -40,6 +40,8 @@ namespace LMS.Views.UserControls.QLNhapSach
             _sachService = new SachService(sachRepo);
             _nccService = new NCCService(nccRepo);
             _phieuNhapService = new PhieuNhapService(pnRepo, ctpnRepo, bssRepo, sachRepo);
+
+
         }
 
         private void FormThemPhieuNhap_Load(object sender, EventArgs e)
@@ -48,8 +50,10 @@ namespace LMS.Views.UserControls.QLNhapSach
             LoadNCC();
             LoadSach();
             LoadNhanVienHienTai();
+
+            dateTimePickerNgayNhap.Value = DateTime.Now;
         }
-        
+
         private void LoadNhanVienHienTai()
         {
             try
@@ -93,7 +97,7 @@ namespace LMS.Views.UserControls.QLNhapSach
                 .Cast<PhieuNhap.LoaiPhieuNhapEnum>()
                 .Select(e => new { Value = e, Display = e.GetDisplayName() })
                 .ToList();
-            
+
             comboBoxLoaiPN.DataSource = loaiPhieuNhapList;
             comboBoxLoaiPN.DisplayMember = "Display";
             comboBoxLoaiPN.ValueMember = "Value";
@@ -163,7 +167,7 @@ namespace LMS.Views.UserControls.QLNhapSach
                 return;
             }
             var loaiPhieuNhap = comboBoxLoaiPN.SelectedValue;
-            
+
             var ncc = _nccService.GetAllNCC().FirstOrDefault(n => n.TenNCC == comboBoxNCC.SelectedItem!.ToString());
             var ngayNhap = DateTime.Now;
 
@@ -174,7 +178,7 @@ namespace LMS.Views.UserControls.QLNhapSach
                 if (row.IsNewRow) continue;
 
                 bool chon = Convert.ToBoolean(row.Cells["Chon"].Value ?? false);
-                
+
                 if (chon)
                 {
                     string soLuongNhapString = row.Cells["SoLuongNhap"].Value?.ToString() ?? "0";
@@ -186,7 +190,7 @@ namespace LMS.Views.UserControls.QLNhapSach
                     }
 
                     int soLuongNhap = Convert.ToInt32(soLuongNhapString);
-                    
+
                     if (soLuongNhap <= 0)
                     {
                         MessageBox.Show("Vui lòng nhập số lượng lớn hơn 0 cho sách đã chọn.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -226,6 +230,16 @@ namespace LMS.Views.UserControls.QLNhapSach
 
             MessageBox.Show("Thêm sách thành công.", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private void dateTimePickerNgayNhap_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
             Close();
         }
     }
