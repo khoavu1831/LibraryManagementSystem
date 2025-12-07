@@ -30,6 +30,10 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
             dpToQuy.ValueChanged += (s, e) => LoadFakeData();
             dpFromNam.ValueChanged += (s, e) => LoadFakeData();
             dpToNam.ValueChanged += (s, e) => LoadFakeData();
+            button1.Click += (s, e) => LoadFakeData();
+            button2.Click += (s, e) => LoadFakeData();
+            button3.Click += (s, e) => LoadFakeData();
+            button4.Click += (s, e) => LoadFakeData();
 
             // BẬT AutoScroll cho UserControl để có thể scroll toàn bộ nếu cần (nhưng ưu tiên scroll DGV)
             this.AutoScroll = true;
@@ -38,6 +42,9 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
             // Anchor DGV để fill đầy panel3 (hỗ trợ resize)
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             // Load data lần đầu
+            panelNgay.Visible = true;
+            dpFromNgay.Value = DateTime.Today.AddDays(-7); // mặc định từ 7 ngày trước
+            dpToNgay.Value = DateTime.Today;
             LoadFakeData();
         }
 
@@ -76,6 +83,7 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
         {
             DataTable dt = new DataTable();
             string loaiThongKe = cbLoaiThongKe.SelectedItem?.ToString() ?? "Theo ngày";
+
 
             switch (loaiThongKe)
             {

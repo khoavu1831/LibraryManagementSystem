@@ -184,7 +184,7 @@ namespace LMS.Views.LMS.Services.Services
 
             // 5. Lấy chi tiết phiếu mượn quá hạn trong khoảng
             var phieuMuonTra = _phieuMuonService.GetAllForRevenue()
-                                 .Where(pm => pm.NgayHenTra.Date >= start.Date && pm.NgayHenTra.Date <= end.Date)
+                                 .Where(pm => pm.NgayHenTra.Date >= start.Date && pm.NgayHenTra.Date <= end.Date && pm.NgayHenTra <= DateTime.Now)
                                  .ToList();
 
             var chiTietQuaHan = phieuMuonTra
@@ -236,7 +236,8 @@ namespace LMS.Views.LMS.Services.Services
             var allChiTietTra = allChiTiet.Where(ct => ct.NgayTra.HasValue && ct.NgayTra.Value.Date >= startDate && ct.NgayTra.Value.Date <= endDate).ToList();
             var chiTietQuaHan = allChiTiet.Where(ct => (!ct.NgayTra.HasValue || ct.NgayTra.Value.Date > ct.PhieuMuon.NgayHenTra.Date)
                                                       && ct.PhieuMuon.NgayHenTra.Date >= startDate
-                                                      && ct.PhieuMuon.NgayHenTra.Date <= endDate).ToList();
+                                                      && ct.PhieuMuon.NgayHenTra.Date <= endDate
+                                                      && ct.PhieuMuon.NgayHenTra.Date <= DateTime.Now).ToList();
 
             // Duyệt theo từng năm
             for (int year = namTu; year <= namDen; year++)
@@ -292,7 +293,9 @@ namespace LMS.Views.LMS.Services.Services
                 // Chi tiết quá hạn trong năm
                 var chiTietQuaHan = allChiTiet
                     .Where(ct => (!ct.NgayTra.HasValue || ct.NgayTra.Value.Date > ct.PhieuMuon.NgayHenTra.Date)
-                                 && ct.PhieuMuon.NgayHenTra.Year == year)
+                                 && ct.PhieuMuon.NgayHenTra.Year == year
+                                 && ct.PhieuMuon.NgayHenTra.Date <= DateTime.Now
+                                 )
                     .ToList();
 
                 // Thống kê số sách mượn trong năm
