@@ -128,9 +128,9 @@ namespace LMS.Views.Views.UserControls.QuanLy
                 txtSoDienThoai.Focus();
                 return;
             }
-            if (!Regex.IsMatch(soDienThoai, @"^(0|\+84)(\d){8,10}$"))
+            if (!Regex.IsMatch(soDienThoai,@"^0\d{9}$"))
             {
-                MessageBox.Show("Số điện thoại không đúng định dạng Việt Nam (0xxxxxxxxx hoặc +84xxxxxxxxx)!", "Cảnh báo",
+                MessageBox.Show("Số điện thoại phải gồm đúng 10 chữ số và bắt đầu bằng số 0!", "Cảnh báo",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoDienThoai.Focus();
                 return;
