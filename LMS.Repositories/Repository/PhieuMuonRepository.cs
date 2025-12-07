@@ -11,6 +11,7 @@ namespace LMS.Repository
         public List<PhieuMuon> GetAll()
         {
             return _context.PhieuMuons
+                 .AsNoTracking()
                 .Include(pn => pn.NhanVien)
                 .Include(pn => pn.TheThanhVien!)
                     .ThenInclude(tv => tv.DocGia)
@@ -19,6 +20,7 @@ namespace LMS.Repository
         public List<PhieuMuon> GetAllForRevenue()
         {
             return _context.PhieuMuons
+                .AsNoTracking()
                 //.Include(pn => pn.NhanVien)
                 //.Include(pn => pn.TheThanhVien!)
                 //.ThenInclude(tv => tv.DocGia)

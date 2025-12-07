@@ -1,5 +1,6 @@
 using LMS.Data;
 using LMS.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace LMS.Repository
 {
@@ -7,7 +8,9 @@ namespace LMS.Repository
     {
         private readonly LibraryDbContext _context;
         public ChiTietPhieuMuonRepository(LibraryDbContext context) => _context = context;
-        public List<ChiTietPhieuMuon> GetAll() => _context.ChiTietPhieuMuons.ToList();
+        public List<ChiTietPhieuMuon> GetAll() => _context.ChiTietPhieuMuons
+                .AsNoTracking()
+                .ToList();
         public ChiTietPhieuMuon? GetById(int id) => _context.ChiTietPhieuMuons.Find(id);
         public ChiTietPhieuMuon Add(ChiTietPhieuMuon ctpm)
         {
