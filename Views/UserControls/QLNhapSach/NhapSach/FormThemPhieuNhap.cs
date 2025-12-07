@@ -52,6 +52,8 @@ namespace LMS.Views.UserControls.QLNhapSach
             LoadNhanVienHienTai();
 
             dateTimePickerNgayNhap.Value = DateTime.Now;
+            label2.Visible = false;
+            comboBoxLoaiPN.Visible = false;
         }
 
         private void LoadNhanVienHienTai()
@@ -166,7 +168,7 @@ namespace LMS.Views.UserControls.QLNhapSach
                 MessageBox.Show("Vui lòng chọn Nhà cung cấp.");
                 return;
             }
-            var loaiPhieuNhap = comboBoxLoaiPN.SelectedValue;
+            var loaiPhieuNhap = PhieuNhap.LoaiPhieuNhapEnum.Mua;
 
             var ncc = _nccService.GetAllNCC().FirstOrDefault(n => n.TenNCC == comboBoxNCC.SelectedItem!.ToString());
             var ngayNhap = DateTime.Now;
@@ -220,7 +222,7 @@ namespace LMS.Views.UserControls.QLNhapSach
                 IdNCC = ncc!.IdNCC,
                 NgayNhap = ngayNhap,
                 SoLuongSach = tongSL,
-                LoaiPhieuNhap = (PhieuNhap.LoaiPhieuNhapEnum)loaiPhieuNhap!,
+                LoaiPhieuNhap = loaiPhieuNhap,
                 TongTienNhap = tongTien,
                 IdNhanVien = _idNhanVienHienTai != 0 ? _idNhanVienHienTai : 1,
                 TrangThai = PhieuNhap.TrangThaiEnum.DangHoatDong
@@ -241,6 +243,11 @@ namespace LMS.Views.UserControls.QLNhapSach
         private void btnHuy_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void textBoxNhanVien_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

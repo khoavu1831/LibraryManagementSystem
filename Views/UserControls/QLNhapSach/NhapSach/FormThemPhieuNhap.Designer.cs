@@ -57,18 +57,19 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(3, 0);
+            label2.Location = new Point(327, 29);
             label2.Name = "label2";
-            label2.Size = new Size(95, 29);
+            label2.Size = new Size(104, 29);
             label2.TabIndex = 1;
             label2.Text = "Loại phiếu nhập:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
+            label2.Visible = false;
             // 
             // label5
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(328, 0);
+            label5.Location = new Point(327, 0);
             label5.Name = "label5";
             label5.Padding = new Padding(20, 0, 0, 0);
             label5.Size = new Size(104, 29);
@@ -99,14 +100,14 @@
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanelContent.Controls.Add(label3, 0, 2);
             tableLayoutPanelContent.Controls.Add(label5, 2, 0);
-            tableLayoutPanelContent.Controls.Add(comboBoxLoaiPN, 1, 0);
+            tableLayoutPanelContent.Controls.Add(label2, 2, 1);
+            tableLayoutPanelContent.Controls.Add(comboBoxLoaiPN, 3, 1);
             tableLayoutPanelContent.Controls.Add(dateTimePickerNgayNhap, 1, 1);
             tableLayoutPanelContent.Controls.Add(comboBoxNCC, 3, 0);
-            tableLayoutPanelContent.Controls.Add(label6, 2, 1);
-            tableLayoutPanelContent.Controls.Add(textBoxNhanVien, 3, 1);
             tableLayoutPanelContent.Controls.Add(dgvChonSach, 1, 2);
             tableLayoutPanelContent.Controls.Add(label1, 0, 1);
-            tableLayoutPanelContent.Controls.Add(label2, 0, 0);
+            tableLayoutPanelContent.Controls.Add(label6, 0, 0);
+            tableLayoutPanelContent.Controls.Add(textBoxNhanVien, 1, 0);
             tableLayoutPanelContent.Location = new Point(26, 24);
             tableLayoutPanelContent.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelContent.Name = "tableLayoutPanelContent";
@@ -125,7 +126,7 @@
             label3.AutoSize = true;
             label3.Location = new Point(3, 58);
             label3.Name = "label3";
-            label3.Size = new Size(95, 15);
+            label3.Size = new Size(94, 15);
             label3.TabIndex = 40;
             label3.Text = "Sách nhập:";
             // 
@@ -133,17 +134,18 @@
             // 
             comboBoxLoaiPN.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxLoaiPN.FormattingEnabled = true;
-            comboBoxLoaiPN.Location = new Point(104, 3);
+            comboBoxLoaiPN.Location = new Point(437, 32);
             comboBoxLoaiPN.Name = "comboBoxLoaiPN";
             comboBoxLoaiPN.Size = new Size(218, 23);
             comboBoxLoaiPN.TabIndex = 30;
+            comboBoxLoaiPN.Visible = false;
             // 
             // dateTimePickerNgayNhap
             // 
             dateTimePickerNgayNhap.CustomFormat = "dd/MM/yyyy";
             dateTimePickerNgayNhap.Enabled = false;
             dateTimePickerNgayNhap.Format = DateTimePickerFormat.Custom;
-            dateTimePickerNgayNhap.Location = new Point(104, 32);
+            dateTimePickerNgayNhap.Location = new Point(103, 32);
             dateTimePickerNgayNhap.Name = "dateTimePickerNgayNhap";
             dateTimePickerNgayNhap.Size = new Size(218, 23);
             dateTimePickerNgayNhap.TabIndex = 34;
@@ -154,7 +156,7 @@
             // 
             comboBoxNCC.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxNCC.FormattingEnabled = true;
-            comboBoxNCC.Location = new Point(438, 3);
+            comboBoxNCC.Location = new Point(437, 3);
             comboBoxNCC.Name = "comboBoxNCC";
             comboBoxNCC.Size = new Size(218, 23);
             comboBoxNCC.TabIndex = 35;
@@ -163,9 +165,9 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(328, 29);
+            label6.Location = new Point(3, 0);
             label6.Name = "label6";
-            label6.Size = new Size(104, 29);
+            label6.Size = new Size(94, 29);
             label6.TabIndex = 38;
             label6.Text = "Nhân viên nhập:";
             label6.TextAlign = ContentAlignment.MiddleRight;
@@ -173,11 +175,12 @@
             // textBoxNhanVien
             // 
             textBoxNhanVien.Enabled = false;
-            textBoxNhanVien.Location = new Point(438, 32);
+            textBoxNhanVien.Location = new Point(103, 3);
             textBoxNhanVien.Name = "textBoxNhanVien";
             textBoxNhanVien.ReadOnly = true;
             textBoxNhanVien.Size = new Size(218, 23);
             textBoxNhanVien.TabIndex = 39;
+            textBoxNhanVien.TextChanged += textBoxNhanVien_TextChanged;
             // 
             // dgvChonSach
             // 
@@ -196,7 +199,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 29);
             label1.Name = "label1";
-            label1.Size = new Size(95, 29);
+            label1.Size = new Size(94, 29);
             label1.TabIndex = 20;
             label1.Text = "Ngày nhập:";
             label1.TextAlign = ContentAlignment.MiddleLeft;

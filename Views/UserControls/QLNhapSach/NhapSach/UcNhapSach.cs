@@ -169,7 +169,8 @@ namespace LMS.Views.UserControls.QLNhapSach
                             Name = "LoaiPhieuNhap",
                             DataPropertyName = "LoaiPhieuNhap",
                             HeaderText = "Loại Phiếu",
-                            ReadOnly = true
+                            ReadOnly = true,
+                            Visible = false
                         });
 
                         dgvPhieuNhap.Columns.Add(new DataGridViewTextBoxColumn
@@ -350,7 +351,6 @@ namespace LMS.Views.UserControls.QLNhapSach
                         NgayNhap = pn.NgayNhap.ToString("dd/MM/yyyy"),
                         SoLuongSach = pn.SoLuongSach,
                         TongTien = pn.TongTienNhap.ToString("N0") + " VNĐ",
-                        LoaiPhieuNhap = pn.LoaiPhieuNhap.GetDisplayName(),
                         TrangThai = pn.TrangThai.GetDisplayName(),
                         MaSach = pn.ChiTietPhieuNhaps != null
                             ? string.Join(", ",
