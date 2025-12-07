@@ -16,7 +16,7 @@ namespace LMS.Views.UserControls.QLThongKe
         public UcQLThongKe()
         {
             InitializeComponent();
-            LoadSubControl(new UcChung());
+            LoadSubControl(new ThongKeSach());
         }
 
         private void LoadSubControl(UserControl uc)
