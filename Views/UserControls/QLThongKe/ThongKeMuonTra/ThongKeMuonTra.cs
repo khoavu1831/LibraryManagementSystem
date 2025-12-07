@@ -256,14 +256,9 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
                 string rawValue = dt.Rows[i][0].ToString();
                 string label;
 
-                //if (DateTime.TryParse(rawValue, out DateTime dtValue))
-                //{
-                //    label = dtValue.ToString("dd/MM/yyyy"); // Format thành ngày/tháng/năm
-                //}
-                //else
-                //{
-                label = rawValue; // Giữ nguyên nếu không convert được
-                //}
+
+                label = rawValue;
+
                 var pMuon = seriesMuon.Points.AddXY(i + 1, Convert.ToInt32(dt.Rows[i][1]));
                 seriesMuon.Points[pMuon].AxisLabel = label;
 
@@ -281,6 +276,7 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
             // Tùy chỉnh Chart
             chart1.ChartAreas[0].AxisX.Title = "Thời gian";
             chart1.ChartAreas[0].AxisY.Title = "Số lượng sách";
+            chart1.ChartAreas[0].RecalculateAxesScale(); // cập nhật trục Y tự động
             chart1.Titles.Clear();
             chart1.Titles.Add(loaiThongKe + " Mượn/Trả Sách");
         }
