@@ -11,7 +11,7 @@ namespace LMS.Services
             => _phieuPhatRepository = phieuPhatRepository;
 
         /// <summary>
-        /// Lấy tất cả phiếu phạt với Include đầy đủ (dùng cho Excel export)
+        /// Lấy tất cả phiếu phạt với Include đầy đủ ( export)
         /// </summary>
         public List<PhieuPhat> GetAllPhieuPhat() 
             => _phieuPhatRepository.GetAllWithIncludes();
