@@ -188,6 +188,7 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
             dpToQuy.Format = DateTimePickerFormat.Custom;
             dpToQuy.CustomFormat = "MM/yyyy";
             dpToQuy.ShowUpDown = true;
+            dpToQuy.MaxDate = DateTime.Today;
             // 
             // label7
             // 
@@ -216,6 +217,7 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
             dpFromQuy.Format = DateTimePickerFormat.Custom;
             dpFromQuy.CustomFormat = "MM/yyyy";
             dpFromQuy.ShowUpDown = true;
+            dpFromQuy.MaxDate = DateTime.Today;
             // 
             // panelThang
             // 
@@ -289,6 +291,7 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
             dpToNgay.Name = "dpToNgay";
             dpToNgay.Size = new Size(200, 23);
             dpToNgay.TabIndex = 7;
+            dpToNgay.MaxDate = DateTime.Today;
             // 
             // label2
             // 
@@ -305,6 +308,7 @@ namespace LMS.Views.Views.UserControls.QLThongKe.ThongKeMuonTra
             dpFromNgay.Name = "dpFromNgay";
             dpFromNgay.Size = new Size(200, 23);
             dpFromNgay.TabIndex = 5;
+            dpFromNgay.MaxDate = DateTime.Today;
             // 
             // label3
             // 
