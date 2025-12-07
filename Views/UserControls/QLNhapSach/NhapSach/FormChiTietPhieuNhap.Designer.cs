@@ -94,17 +94,17 @@
             tableLayoutPanelContent.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanelContent.Controls.Add(textBoxMaPhieuNhap, 1, 0);
             tableLayoutPanelContent.Controls.Add(labelMaPhieuNhap, 0, 0);
+            tableLayoutPanelContent.Controls.Add(label2, 2, 2);
+            tableLayoutPanelContent.Controls.Add(textBoxLoaiPhieuNhap, 3, 2);
             tableLayoutPanelContent.Controls.Add(textBoxNhaCungCap, 3, 0);
             tableLayoutPanelContent.Controls.Add(label5, 2, 0);
             tableLayoutPanelContent.Controls.Add(label6, 2, 1);
             tableLayoutPanelContent.Controls.Add(textBoxNhanVien, 3, 1);
-            tableLayoutPanelContent.Controls.Add(label4, 2, 2);
             tableLayoutPanelContent.Controls.Add(dgvDanhSach, 0, 3);
-            tableLayoutPanelContent.Controls.Add(textBoxTongTien, 3, 2);
             tableLayoutPanelContent.Controls.Add(label1, 0, 2);
             tableLayoutPanelContent.Controls.Add(dateTimePickerNgayNhap, 1, 2);
-            tableLayoutPanelContent.Controls.Add(label2, 0, 1);
-            tableLayoutPanelContent.Controls.Add(textBoxLoaiPhieuNhap, 1, 1);
+            tableLayoutPanelContent.Controls.Add(textBoxTongTien, 1, 1);
+            tableLayoutPanelContent.Controls.Add(label4, 0, 1);
             tableLayoutPanelContent.Location = new Point(26, 24);
             tableLayoutPanelContent.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanelContent.Name = "tableLayoutPanelContent";
@@ -119,7 +119,7 @@
             // 
             // textBoxMaPhieuNhap
             // 
-            textBoxMaPhieuNhap.Location = new Point(104, 3);
+            textBoxMaPhieuNhap.Location = new Point(99, 3);
             textBoxMaPhieuNhap.Name = "textBoxMaPhieuNhap";
             textBoxMaPhieuNhap.ReadOnly = true;
             textBoxMaPhieuNhap.Size = new Size(218, 23);
@@ -131,14 +131,14 @@
             labelMaPhieuNhap.AutoSize = true;
             labelMaPhieuNhap.Location = new Point(3, 0);
             labelMaPhieuNhap.Name = "labelMaPhieuNhap";
-            labelMaPhieuNhap.Size = new Size(95, 29);
+            labelMaPhieuNhap.Size = new Size(90, 29);
             labelMaPhieuNhap.TabIndex = 46;
             labelMaPhieuNhap.Text = "Mã phiếu nhập:";
             labelMaPhieuNhap.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // textBoxNhaCungCap
             // 
-            textBoxNhaCungCap.Location = new Point(438, 3);
+            textBoxNhaCungCap.Location = new Point(433, 3);
             textBoxNhaCungCap.Name = "textBoxNhaCungCap";
             textBoxNhaCungCap.ReadOnly = true;
             textBoxNhaCungCap.Size = new Size(218, 23);
@@ -148,7 +148,7 @@
             // 
             label5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label5.AutoSize = true;
-            label5.Location = new Point(328, 0);
+            label5.Location = new Point(323, 0);
             label5.Name = "label5";
             label5.Padding = new Padding(20, 0, 0, 0);
             label5.Size = new Size(104, 29);
@@ -160,7 +160,7 @@
             // 
             label6.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label6.AutoSize = true;
-            label6.Location = new Point(328, 29);
+            label6.Location = new Point(323, 29);
             label6.Name = "label6";
             label6.Size = new Size(104, 29);
             label6.TabIndex = 38;
@@ -170,7 +170,7 @@
             // textBoxNhanVien
             // 
             textBoxNhanVien.Enabled = false;
-            textBoxNhanVien.Location = new Point(438, 32);
+            textBoxNhanVien.Location = new Point(433, 32);
             textBoxNhanVien.Name = "textBoxNhanVien";
             textBoxNhanVien.ReadOnly = true;
             textBoxNhanVien.Size = new Size(218, 23);
@@ -180,9 +180,9 @@
             // 
             label4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label4.AutoSize = true;
-            label4.Location = new Point(328, 58);
+            label4.Location = new Point(3, 29);
             label4.Name = "label4";
-            label4.Size = new Size(104, 29);
+            label4.Size = new Size(90, 29);
             label4.TabIndex = 44;
             label4.Text = "Tổng tiền:";
             label4.TextAlign = ContentAlignment.MiddleRight;
@@ -201,7 +201,7 @@
             // 
             // textBoxTongTien
             // 
-            textBoxTongTien.Location = new Point(438, 61);
+            textBoxTongTien.Location = new Point(99, 32);
             textBoxTongTien.Name = "textBoxTongTien";
             textBoxTongTien.ReadOnly = true;
             textBoxTongTien.Size = new Size(218, 23);
@@ -213,7 +213,7 @@
             label1.AutoSize = true;
             label1.Location = new Point(3, 58);
             label1.Name = "label1";
-            label1.Size = new Size(95, 29);
+            label1.Size = new Size(90, 29);
             label1.TabIndex = 20;
             label1.Text = "Ngày nhập:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -224,7 +224,7 @@
             dateTimePickerNgayNhap.CustomFormat = "dd/MM/yyyy";
             dateTimePickerNgayNhap.Enabled = false;
             dateTimePickerNgayNhap.Format = DateTimePickerFormat.Custom;
-            dateTimePickerNgayNhap.Location = new Point(104, 61);
+            dateTimePickerNgayNhap.Location = new Point(99, 61);
             dateTimePickerNgayNhap.Name = "dateTimePickerNgayNhap";
             dateTimePickerNgayNhap.Size = new Size(218, 23);
             dateTimePickerNgayNhap.TabIndex = 34;
@@ -234,20 +234,22 @@
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Location = new Point(3, 29);
+            label2.Location = new Point(323, 58);
             label2.Name = "label2";
-            label2.Size = new Size(95, 29);
+            label2.Size = new Size(104, 29);
             label2.TabIndex = 1;
             label2.Text = "Loại phiếu nhập:";
             label2.TextAlign = ContentAlignment.MiddleLeft;
+            label2.Visible = false;
             // 
             // textBoxLoaiPhieuNhap
             // 
-            textBoxLoaiPhieuNhap.Location = new Point(104, 32);
+            textBoxLoaiPhieuNhap.Location = new Point(433, 61);
             textBoxLoaiPhieuNhap.Name = "textBoxLoaiPhieuNhap";
             textBoxLoaiPhieuNhap.ReadOnly = true;
             textBoxLoaiPhieuNhap.Size = new Size(218, 23);
             textBoxLoaiPhieuNhap.TabIndex = 42;
+            textBoxLoaiPhieuNhap.Visible = false;
             // 
             // panel2
             // 
