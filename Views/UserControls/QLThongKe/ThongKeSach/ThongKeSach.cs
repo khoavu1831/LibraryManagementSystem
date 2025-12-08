@@ -74,7 +74,8 @@
                 $"Thống kê từ {dp_From.Value:dd/MM} đến {dp_To.Value:dd/MM}"
             ).Font = new Font("Arial", 12, FontStyle.Bold);
 
-            var totals = _service.TinhTongTatCaLoai();
+            // Lấy totals bằng service: đảm bảo giá trị cho loại đang chọn lấy từ DataTable (dgv)
+            var totals = _service.TinhTongTatCaLoai(dp_From.Value, dp_To.Value, loai, dt);
 
             foreach (var item in totals)
             {
@@ -85,12 +86,12 @@
 
             // Map combobox → tên series
             Dictionary<string, string> map = new Dictionary<string, string>()
-{
-    { "Tổng số sách", "Tổng số lượng sách hiện có" },
-    { "Sách đang mượn", "Số lượng sách đang mượn" },
-    { "Sách mất hoặc hư hỏng", "Số lượng sách mất hoặc hư hỏng" },
-    { "Sách chưa mượn", "Số lượng sách chưa mượn" }
-};
+    {
+        { "Tổng số sách", "Tổng số lượng sách hiện có" },
+        { "Sách đang mượn", "Số lượng sách đang mượn" },
+        { "Sách mất hoặc hư hỏng", "Số lượng sách mất hoặc hư hỏng" },
+        { "Sách chưa mượn", "Số lượng sách chưa mượn" }
+    };
 
             string seriesName = map[loai];
 
@@ -102,17 +103,17 @@
             {
                 Color[] fullColors =
                 {
-        Color.RoyalBlue,
-        Color.SeaGreen,
-        Color.Goldenrod,
-        Color.IndianRed
-    };
+            Color.RoyalBlue,
+            Color.SeaGreen,
+            Color.Goldenrod,
+            Color.IndianRed
+        };
 
                 int i = 0;
                 foreach (var s in chartThongKe.Series)
                     s.Color = fullColors[i++];
 
-                return; 
+                return;
             }
 
             //  Các loại còn lại: check dữ liệu
@@ -136,5 +137,5 @@
                     s.Color = gray;
             }
         }
-        }
+    }
     }

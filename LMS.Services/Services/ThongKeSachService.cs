@@ -13,16 +13,16 @@ public class ThongKeSachService
         _repo = new ThongKeSachRepository();
     }
 
- 
-    // TẠO DATATABLE GỬI LÊN UI
+    // 1) TẠO DATATABLE GỬI LÊN UI
     public DataTable TaoBangThongKe(string loai, DateTime from, DateTime to)
     {
         DataTable dt = new DataTable();
         dt.Columns.Add("Tên sách");
         dt.Columns.Add("Thể loại");
-        dt.Columns.Add("Số lượng");
+        dt.Columns.Add("Số lượng", typeof(int));
         dt.Columns.Add("Ngày");
 
+        // ===== TỔNG SỐ SÁCH =====
         if (loai == "Tổng số sách")
         {
             var list = _repo.GetAllSach();
@@ -37,20 +37,44 @@ public class ThongKeSachService
                 );
             }
         }
+
+        // ===== SÁCH ĐANG MƯỢN =====
         else if (loai == "Sách đang mượn")
         {
-            List<(Sach sach, DateTime ngay)> list = _repo.GetSachDangMuon(from, to);
+            var list = _repo.GetSachDangMuon(from, to);
 
-            foreach (var item in list)
+            // GOM NHÓM THEO TEN + NGAY
+            var grouped = list
+                .GroupBy(x => new
+                {
+                    x.sach.TenSach,
+                    Loai = GetLoaiStr(x.sach),
+                    Ngay = x.ngay.Date
+                })
+                .Select(g => new
+                {
+                    TenSach = g.Key.TenSach,
+                    TheLoai = g.Key.Loai,
+                    SoLuong = g.Count(),
+                    Ngay = g.Key.Ngay
+                })
+                .OrderBy(x => x.TenSach)
+                .ThenBy(x => x.Ngay)
+                .ToList();
+
+            foreach (var item in grouped)
             {
                 dt.Rows.Add(
-                    item.sach.TenSach,
-                    GetLoaiStr(item.sach),
-                    1,
-                    item.ngay.ToShortDateString() ?? ""
+                    item.TenSach,
+                    item.TheLoai,
+                    item.SoLuong,
+                    item.Ngay.ToShortDateString()
                 );
             }
         }
+
+
+        // ===== SÁCH MẤT / HƯ HỎNG =====
         else if (loai == "Sách mất hoặc hư hỏng")
         {
             var list = _repo.GetSachMatHuHong(from, to);
@@ -61,43 +85,87 @@ public class ThongKeSachService
                     item.sach.TenSach,
                     GetLoaiStr(item.sach),
                     1,
-                    item.ngay?.ToShortDateString() ?? "Không có ngày"
+                    item.ngayTra?.ToShortDateString() ?? "Không có ngày"
                 );
             }
         }
 
-
+        // ===== SÁCH CHƯA MƯỢN =====
         else if (loai == "Sách chưa mượn")
         {
-            var list = _repo.GetSachChuaMuon();
+            var allBooks = _repo.GetAllSach();
 
-            foreach (var s in list)
+            foreach (var s in allBooks)
             {
-                dt.Rows.Add(
-                    s.TenSach,
-                    GetLoaiStr(s),
-                    s.SoLuongBanSao,
-                    DateTime.Now.ToShortDateString()
-                );
+                int dangMuon = _repo.SoBanSaoDangMuonTheoSach(s.IdSach, from, to);
+
+                int available = s.SoLuongBanSao - dangMuon;
+
+                if (available > 0)
+                {
+                    dt.Rows.Add(
+                        s.TenSach,
+                        GetLoaiStr(s),
+                        available,
+                        DateTime.Now.ToShortDateString()
+                    );
+                }
             }
         }
 
         return dt;
     }
-    // DỮ LIỆU TỔNG QUAN CHO BIỂU ĐỒ (CHART)
-    public Dictionary<string, int> TinhTongTatCaLoai()
+
+    // 2) TÍNH TỔNG CHO BIỂU ĐỒ (CHART)
+
+    public Dictionary<string, int> TinhTongTatCaLoai(DateTime from, DateTime to, string selectedLoai, DataTable dt)
     {
-        return new Dictionary<string, int>()
+        // Tổng số lượng từ DataGridView
+        int SumFromDt()
         {
-            { "Tổng số lượng sách hiện có", _repo.TongSoSach() },
-            { "Số lượng sách đang mượn", _repo.SoSachDangMuon() },
-            { "Số lượng sách mất hoặc hư hỏng", _repo.SoSachMatHuHong() },
-            { "Số lượng sách chưa mượn", _repo.TongSoSach() - _repo.SoSachDangMuon() }
+            if (dt == null) return 0;
+
+            int sum = 0;
+            foreach (DataRow r in dt.Rows)
+            {
+                if (int.TryParse(r["Số lượng"].ToString(), out int v))
+                    sum += v;
+            }
+            return sum;
+        }
+
+        // ===== Giá trị gốc lấy trực tiếp từ DB =====
+        int totalTong = _repo.TongSoSach();
+        int totalDangMuon = _repo.SoSachDangMuon(from, to);
+        int totalMatHuHong = _repo.SoSachMatHuHong(from, to);
+
+        // ===== Tính sách chưa mượn đúng theo từng SÁCH =====
+        int totalChuaMuon = 0;
+        var allBooks = _repo.GetAllSach();
+
+        foreach (var s in allBooks)
+        {
+            int dangMuon = _repo.SoBanSaoDangMuonTheoSach(s.IdSach, from, to);
+            int available = s.SoLuongBanSao - dangMuon;
+
+            if (available > 0)
+                totalChuaMuon += available;
+        }
+
+        // Override từ DataTable (đúng số đang hiển thị)
+        int fromDt = SumFromDt();
+
+        return new Dictionary<string, int>
+        {
+            ["Tổng số lượng sách hiện có"] = (selectedLoai == "Tổng số sách") ? fromDt : totalTong,
+            ["Số lượng sách đang mượn"] = (selectedLoai == "Sách đang mượn") ? fromDt : totalDangMuon,
+            ["Số lượng sách mất hoặc hư hỏng"] = (selectedLoai == "Sách mất hoặc hư hỏng") ? fromDt : totalMatHuHong,
+            ["Số lượng sách chưa mượn"] = (selectedLoai == "Sách chưa mượn") ? fromDt : totalChuaMuon
         };
     }
+
     private string GetLoaiStr(Sach s)
     {
         return string.Join(", ", s.TheLoais.Select(t => t.TenTheloai));
     }
-    
 }
