@@ -21,16 +21,10 @@ namespace LMS.Repository
         {
             return _context.PhieuMuons
                 .AsNoTracking()
-                //.Include(pn => pn.NhanVien)
-                //.Include(pn => pn.TheThanhVien!)
-                //.ThenInclude(tv => tv.DocGia)
                 .Include(pn => pn.ChiTietPhieuMuons)
                 .ToList();
         }
 
-        /// <summary>
-        /// Lấy tất cả phiếu mượn với Include đầy đủ (dùng cho Excel export)
-        /// </summary>
         public List<PhieuMuon> GetAllWithIncludes()
         {
             return _context.PhieuMuons
@@ -42,14 +36,8 @@ namespace LMS.Repository
                 .ToList();
         }
 
-        /// <summary>
-        /// Đếm tổng số phiếu mượn
-        /// </summary>
         public int GetCount() => _context.PhieuMuons.Count();
 
-        /// <summary>
-        /// Đếm tổng số phiếu mượn theo filter
-        /// </summary>
         public int GetCountByFilter(PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null)
         {
             var query = _context.PhieuMuons
@@ -58,11 +46,9 @@ namespace LMS.Repository
                     .ThenInclude(tv => tv.DocGia)
                 .AsQueryable();
 
-            // Filter trạng thái
             if (trangThai.HasValue)
                 query = query.Where(pm => pm.TrangThai == trangThai.Value);
 
-            // Filter keyword (tên độc giả HOẶC tên nhân viên)
             if (!string.IsNullOrWhiteSpace(keyword))
             {
                 query = query.Where(pm =>
@@ -73,9 +59,6 @@ namespace LMS.Repository
             return query.Count();
         }
 
-        /// <summary>
-        /// Lấy phiếu mượn có phân trang với filter
-        /// </summary>
         public List<PhieuMuon> GetByPageWithFilter(int page, int pageSize, PhieuMuon.TrangThaiEnum? trangThai = null, string? keyword = null)
         {
             var query = _context.PhieuMuons
@@ -85,11 +68,9 @@ namespace LMS.Repository
                 .AsNoTracking()
                 .AsQueryable();
 
-            // Filter trạng thái
             if (trangThai.HasValue)
                 query = query.Where(pm => pm.TrangThai == trangThai.Value);
 
-            // Filter keyword (tên độc giả HOẶC tên nhân viên)
             if (!string.IsNullOrWhiteSpace(keyword))
             {
                 query = query.Where(pm =>

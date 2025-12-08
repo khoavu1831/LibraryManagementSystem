@@ -29,7 +29,7 @@ namespace LMS.Repository
             if (entity != null)
             {
                 _context.VaiTros.Remove(entity);
-                _context.SaveChanges();  // Đảm bảo SaveChanges ở đây để commit xóa (bao gồm cascade)
+                _context.SaveChanges(); 
                 return entity;
             }
             return null;
@@ -61,15 +61,12 @@ namespace LMS.Repository
                 throw new KeyNotFoundException($"Không tìm thấy vai trò với Id = {idVaiTro}");
             }
 
-            // Xóa quyền cũ (clear junction table vaitro_quyen)
             if(vaiTro.Quyens != null)
             {
                 vaiTro.Quyens.Clear();
             }
                 
-
-            // Thêm quyền mới
-            foreach (var quyenId in quyenIds.Distinct()) // Distinct để tránh duplicate
+            foreach (var quyenId in quyenIds.Distinct())
             {
                 var quyen = _context.Quyens.Find(quyenId);
                 if (quyen != null)
@@ -78,7 +75,6 @@ namespace LMS.Repository
                 }
             }
 
-            // Save changes (EF tự insert vào vaitro_quyen)
             Update(vaiTro);
         }
     }

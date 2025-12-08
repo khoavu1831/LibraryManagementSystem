@@ -32,7 +32,6 @@ namespace LMS.Repository
             if (existing == null)
                 throw new Exception("Không tìm thấy nhân viên.");
 
-            // Gán lại giá trị mới cho entity đã được track
             existing.TenNhanVien = nhanVien.TenNhanVien;
             existing.NgaySinh = nhanVien.NgaySinh;
             existing.DiaChi = nhanVien.DiaChi;

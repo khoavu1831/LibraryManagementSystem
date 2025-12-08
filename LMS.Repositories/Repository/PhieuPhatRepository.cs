@@ -13,9 +13,6 @@ namespace LMS.Repository
         
         public PhieuPhat? GetById(int id) => _context.PhieuPhats.Find(id);
         
-        /// <summary>
-        /// Lấy tất cả phiếu phạt với Include đầy đủ (dùng cho Excel export)
-        /// </summary>
         public List<PhieuPhat> GetAllWithIncludes()
         {
             return _context.PhieuPhats
@@ -29,14 +26,8 @@ namespace LMS.Repository
                 .ToList();
         }
         
-        /// <summary>
-        /// Đếm tổng số phiếu phạt
-        /// </summary>
         public int GetCount() => _context.PhieuPhats.Count();
         
-        /// <summary>
-        /// Đếm tổng số phiếu phạt theo filter
-        /// </summary>
         public int GetCountByFilter(PhieuPhat.TrangThaiEnum? trangThai = null, string? keyword = null)
         {
             var query = _context.PhieuPhats
@@ -47,11 +38,9 @@ namespace LMS.Repository
                                 .ThenInclude(ttv => ttv.DocGia)
                 .AsQueryable();
 
-            // Filter trạng thái
             if (trangThai.HasValue)
                 query = query.Where(pp => pp.TrangThai == trangThai.Value);
 
-            // Filter keyword (tên độc giả)
             if (!string.IsNullOrWhiteSpace(keyword))
             {
                 query = query.Where(pp =>
@@ -63,9 +52,6 @@ namespace LMS.Repository
             return query.Count();
         }
         
-        /// <summary>
-        /// Lấy phiếu phạt có phân trang với filter
-        /// </summary>
         public List<PhieuPhat> GetByPageWithFilter(int page, int pageSize, PhieuPhat.TrangThaiEnum? trangThai = null, string? keyword = null)
         {
             var query = _context.PhieuPhats
@@ -77,11 +63,9 @@ namespace LMS.Repository
                 .AsNoTracking()
                 .AsQueryable();
 
-            // Filter trạng thái
             if (trangThai.HasValue)
                 query = query.Where(pp => pp.TrangThai == trangThai.Value);
 
-            // Filter keyword (tên độc giả)
             if (!string.IsNullOrWhiteSpace(keyword))
             {
                 query = query.Where(pp =>

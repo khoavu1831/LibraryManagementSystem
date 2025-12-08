@@ -29,8 +29,6 @@ namespace LMS.Repository
         }
         public Sach Add(Sach sach)
         {
-            // Đảm bảo dùng các entity đã được track bởi cùng DbContext,
-            // tránh lỗi "cannot be tracked because another instance with the same key value is already being tracked"
             if (sach.TheLoais != null && sach.TheLoais.Any())
             {
                 var theLoaiIds = sach.TheLoais
@@ -71,7 +69,6 @@ namespace LMS.Repository
         }
         public Sach Update(Sach sach)
         {
-            // Chuẩn hóa lại navigation properties để tránh lỗi tracking trùng entity
             if (sach.TheLoais != null && sach.TheLoais.Any())
             {
                 var theLoaiIds = sach.TheLoais
@@ -154,7 +151,7 @@ namespace LMS.Repository
             for (int i = 0; i < rows.Count; i++)
             {
                 var dto = rows[i];
-                var rowNumber = i + 2; // +2 vì hàng 1 là header, index 0 là dòng 2
+                var rowNumber = i + 2; 
 
                 try
                 {
@@ -164,7 +161,6 @@ namespace LMS.Repository
                         continue;
                     }
 
-                    // NXB (bắt buộc)
                     if (string.IsNullOrWhiteSpace(dto.TenNXB))
                     {
                         errors.Add($"Dòng {rowNumber}: Tên nhà xuất bản không được để trống.");
@@ -178,7 +174,6 @@ namespace LMS.Repository
                         continue;
                     }
 
-                    // Thể loại (có thể để trống, nhưng nếu có tên mà không tìm thấy thì báo lỗi)
                     var theLoais = new List<TheLoai>();
                     if (!string.IsNullOrWhiteSpace(dto.TheLoai))
                     {
@@ -200,7 +195,6 @@ namespace LMS.Repository
                         }
                     }
 
-                    // Tác giả (có thể để trống, nhưng nếu có tên mà không tìm thấy thì báo lỗi)
                     var tacGias = new List<TacGia>();
                     if (!string.IsNullOrWhiteSpace(dto.TacGia))
                     {
@@ -222,7 +216,6 @@ namespace LMS.Repository
                         }
                     }
 
-                    // Không cho trùng đầu sách: TenSach + NXB + NamXuatBan
                     var normalizedTenSach = (dto.TenSach ?? string.Empty).Trim();
 
                     var existedInDb = _context.Sachs
@@ -262,7 +255,6 @@ namespace LMS.Repository
                     continue;
 
                 ContinueNextRow:
-                    // dùng nhãn để nhảy tới khi gặp lỗi thể loại / tác giả
                     continue;
                 }
                 catch (Exception ex)

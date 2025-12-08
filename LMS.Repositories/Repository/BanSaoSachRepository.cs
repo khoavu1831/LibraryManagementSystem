@@ -26,7 +26,6 @@ namespace LMS.Repository
         }
         public List<BanSaoSach> GetByPage(int page, int pageSize, string keyword = "")
         {
-            // L?y t?t c? BanSaoSach
             var query = _context.BanSaoSachs
                 .Include(bss => bss.Sach)
                 .OrderBy(bss => bss.IdBanSaoSach)
@@ -36,7 +35,6 @@ namespace LMS.Repository
             {
                 var keywordLower = keyword.ToLower();
 
-                // Map keyword text to possible enum values (hỗ trợ cả có dấu và không dấu)
                 var matchedStatuses = new List<BanSaoSach.TinhTrangSachEnum>();
                 if ("tốt".Contains(keywordLower) || "tot".Contains(keywordLower))
                     matchedStatuses.Add(BanSaoSach.TinhTrangSachEnum.Tot);
@@ -52,10 +50,9 @@ namespace LMS.Repository
                     (matchedStatuses.Count > 0 && matchedStatuses.Contains(bss.TinhTrangSach)));
             }
 
-            // Ph�n trang
             return query
-                .Skip((page - 1) * pageSize) // b? c�c b?n ghi tr??c trang hi?n t?i
-                .Take(pageSize)              // l?y ?�ng s? b?n ghi m?i trang
+                .Skip((page - 1) * pageSize) 
+                .Take(pageSize)              
                 .ToList();
         }
         public BanSaoSach Add(BanSaoSach banSaoSach)

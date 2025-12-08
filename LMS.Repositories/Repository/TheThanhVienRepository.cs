@@ -31,10 +31,6 @@ namespace LMS.Repository
                 .ToList();
         }
         public TheThanhVien? GetById(int id) => _context.TheThanhViens.Find(id);
-
-        /// <summary>
-        /// Tìm kiếm thẻ thành viên theo từ khóa (tên độc giả, mã thẻ, SĐT)
-        /// </summary>
         public List<TheThanhVien> Search(string keyword)
         {
             return _context.TheThanhViens

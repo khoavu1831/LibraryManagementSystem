@@ -14,7 +14,6 @@ public class ThongKeSachRepository
         _db = new LibraryDbContext();
     }
 
-    // 1) LẤY TOÀN BỘ SÁCH
     public List<Sach> GetAllSach()
     {
         return _db.Sachs
@@ -22,7 +21,6 @@ public class ThongKeSachRepository
                   .ToList();
     }
 
-    // 2) SÁCH ĐANG MƯỢN 
     public List<(Sach sach, DateTime ngay)> GetSachDangMuon(DateTime ngayFrom, DateTime ngayTo)
     {
         var fromDate = ngayFrom.Date;
@@ -48,8 +46,6 @@ public class ThongKeSachRepository
             .ToList();
     }
 
-    // 3) SÁCH MẤT / HƯ HỎNG (lọc theo ct.NgayTra.Date)
-    //    Mở rộng: nếu có ChiTietPhieuPhat liên quan thì cũng tính (dù ct.TinhTrangTra có đổi)
     public List<(Sach sach, DateTime? ngayTra)> GetSachMatHuHong(DateTime ngayFrom, DateTime ngayTo)
     {
         var fromDate = ngayFrom.Date;
@@ -67,7 +63,6 @@ public class ThongKeSachRepository
                 && (
                     ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.Mat
                     || ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.HuHong
-                    // hoặc có phạt liên quan (đảm bảo: nếu trước kia có phạt mà hiện trạng thay đổi)
                     || _db.ChiTietPhieuPhats.Any(p => p.IdChiTietPhieuMuon == ct.IdChiTietPhieuMuon)
                 )
             select new
@@ -82,7 +77,6 @@ public class ThongKeSachRepository
             .ToList();
     }
 
-    // 4) SÁCH CHƯA MƯỢN 
 
     public int SoBanSaoDangMuonTheoSach(int idSach, DateTime ngayFrom, DateTime ngayTo)
     {
@@ -98,20 +92,17 @@ public class ThongKeSachRepository
 
 
 
-    // 5) TỔNG SỐ LƯỢNG SÁCH
     public int TongSoSach()
     {
         return _db.Sachs.Sum(s => s.SoLuongBanSao);
     }
 
-    // 6) SỐ SÁCH ĐANG MƯỢN 
     public int SoSachDangMuon()
     {
         return _db.ChiTietPhieuMuons
                   .Count(ct => ct.TinhTrangTra == ChiTietPhieuMuon.TinhTrangTraEnum.ChuaTra);
     }
 
-    //  SỐ SÁCH ĐANG MƯỢN theo khoảng ngày (dùng cho chart)
     public int SoSachDangMuon(DateTime ngayFrom, DateTime ngayTo)
     {
         var fromDate = ngayFrom.Date;
@@ -124,7 +115,6 @@ public class ThongKeSachRepository
                            && x.pm.NgayMuon.Date <= toDate);
     }
 
-    // 7) SỐ SÁCH MẤT HOẶC HƯ HỎNG (toàn bộ)
     public int SoSachMatHuHong()
     {
         return _db.ChiTietPhieuMuons
@@ -135,7 +125,6 @@ public class ThongKeSachRepository
                        );
     }
 
-    // 7 SỐ SÁCH MẤT HOẶC HƯ HỎNG theo khoảng ngày (dùng cho chart)
     public int SoSachMatHuHong(DateTime ngayFrom, DateTime ngayTo)
     {
         var fromDate = ngayFrom.Date;
