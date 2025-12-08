@@ -59,7 +59,7 @@
             panelNavMenu.Controls.Add(btnSua);
             panelNavMenu.Location = new Point(0, 0);
             panelNavMenu.Name = "panelNavMenu";
-            panelNavMenu.Size = new Size(1038, 67);
+            panelNavMenu.Size = new Size(1187, 67);
             panelNavMenu.TabIndex = 0;
             // 
             // btnDoimatkhau
@@ -111,16 +111,16 @@
             panelSubContent.Controls.Add(txtTen);
             panelSubContent.Location = new Point(0, 67);
             panelSubContent.Name = "panelSubContent";
-            panelSubContent.Size = new Size(1038, 599);
+            panelSubContent.Size = new Size(1190, 690);
             panelSubContent.TabIndex = 0;
             panelSubContent.TabStop = true;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.staff_symbol_svgrepo_com;
-            pictureBox1.Location = new Point(24, 60);
+            pictureBox1.Location = new Point(57, 60);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(300, 321);
+            pictureBox1.Size = new Size(250, 249);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
@@ -128,7 +128,7 @@
             // labelVaiTro
             // 
             labelVaiTro.AutoSize = true;
-            labelVaiTro.Location = new Point(57, 407);
+            labelVaiTro.Location = new Point(90, 341);
             labelVaiTro.Name = "labelVaiTro";
             labelVaiTro.Size = new Size(43, 15);
             labelVaiTro.TabIndex = 21;
@@ -137,7 +137,7 @@
             // lableEmail
             // 
             lableEmail.AutoSize = true;
-            lableEmail.Location = new Point(405, 407);
+            lableEmail.Location = new Point(405, 341);
             lableEmail.Name = "lableEmail";
             lableEmail.Size = new Size(39, 15);
             lableEmail.TabIndex = 20;
@@ -146,11 +146,12 @@
             // labelGioiTinh
             // 
             labelGioiTinh.AutoSize = true;
-            labelGioiTinh.Location = new Point(405, 341);
+            labelGioiTinh.Location = new Point(729, 341);
             labelGioiTinh.Name = "labelGioiTinh";
             labelGioiTinh.Size = new Size(55, 15);
             labelGioiTinh.TabIndex = 19;
             labelGioiTinh.Text = "Giới tính:";
+            labelGioiTinh.Visible = false;
             // 
             // labelDiaChi
             // 
@@ -191,7 +192,7 @@
             // txtVaiTro
             // 
             txtVaiTro.BackColor = SystemColors.InactiveBorder;
-            txtVaiTro.Location = new Point(57, 424);
+            txtVaiTro.Location = new Point(90, 358);
             txtVaiTro.Margin = new Padding(3, 2, 3, 2);
             txtVaiTro.Name = "txtVaiTro";
             txtVaiTro.ReadOnly = true;
@@ -201,7 +202,7 @@
             // txtEmail
             // 
             txtEmail.BackColor = SystemColors.InactiveBorder;
-            txtEmail.Location = new Point(405, 424);
+            txtEmail.Location = new Point(405, 358);
             txtEmail.Margin = new Padding(3, 2, 3, 2);
             txtEmail.Name = "txtEmail";
             txtEmail.ReadOnly = true;
@@ -211,12 +212,13 @@
             // txtGioiTinh
             // 
             txtGioiTinh.BackColor = SystemColors.InactiveBorder;
-            txtGioiTinh.Location = new Point(405, 358);
+            txtGioiTinh.Location = new Point(729, 358);
             txtGioiTinh.Margin = new Padding(3, 2, 3, 2);
             txtGioiTinh.Name = "txtGioiTinh";
             txtGioiTinh.ReadOnly = true;
             txtGioiTinh.Size = new Size(265, 23);
             txtGioiTinh.TabIndex = 10;
+            txtGioiTinh.Visible = false;
             // 
             // txtDiaChi
             // 

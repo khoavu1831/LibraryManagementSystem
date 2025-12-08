@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using LMS.Data;
 using LMS.Entities;
+using System.Linq;
 
 namespace LMS.Repository
 {
@@ -103,7 +104,7 @@ namespace LMS.Repository
             }
 
             return query
-                .OrderByDescending(pn => pn.NgayNhap)
+                .OrderBy(pn => pn.NgayNhap)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToList();
