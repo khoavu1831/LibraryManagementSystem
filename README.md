@@ -25,12 +25,13 @@ UI (WinForms) → Services → Repositories → Data (DbContext) → MySQL Datab
 
 ---
 ## 🎨 Giao diện phần mềm
-    ![anh giao dien sach](./assets/anh_giao_dien_sach.jpg)
-    *Màn hình quản lý sách*
 
-    ![anh giao dien thong ke](./assets/anh_giao_dien_thong_ke.jpg)
-    *Màn hình thống kê sách*
-    
+![anh giao dien sach](./assets/anh_giao_dien_sach.jpg)
+*Màn hình quản lý sách*
+
+![anh giao dien thong ke](./assets/anh_giao_dien_thong_ke.jpg)
+*Màn hình thống kê sách*
+
 ---
 ## ⚙️ Yêu cầu cài đặt
 
